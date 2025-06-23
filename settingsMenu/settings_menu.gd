@@ -60,10 +60,19 @@ func _update_res()->void:
 	_on_res_options_item_selected(SaveLoad.SaveFileData.resolutuion_index)
 
 func _on_master_volume_value_changed(value: float)->void:
+	%vol_change_master.pitch_scale = value
+	%vol_change_master.play(0.005)
+	
 	g.master_volume = value
 func _on_music_volume_value_changed(value: float)->void:
+	%vol_change_music.pitch_scale = value
+	%vol_change_music.play(0.005)
+	
 	g.music_volume = value
 func _on_sfx_vol_value_changed(value: float)->void:
+	%vol_change_sfx.pitch_scale = value 
+	%vol_change_sfx.play(0.005)
+	
 	g.sfx_volume = value
 
 func _on_res_options_item_selected(_index: int) -> void:
@@ -84,6 +93,9 @@ func _on_back_pressed() -> void:
 
 func _on_frame_freeze_pressed() -> void:
 	g.frame_freeze_value = not g.frame_freeze_value
+	%button_pressed.pitch_scale = randf_range(1.8,2.2)
+	%button_pressed.play()
+	
 	if g.frame_freeze_value:
 		%frame_freeze.text = str("On")
 	else:
@@ -91,6 +103,9 @@ func _on_frame_freeze_pressed() -> void:
 
 func _on_screen_shake_pressed() -> void:
 	g.screen_shake_value = not g.screen_shake_value
+	%button_pressed.pitch_scale = randf_range(1.8,2.2)
+	%button_pressed.play()
+	
 	if g.screen_shake_value:
 		%screen_shake.text = str("On")
 	else:
