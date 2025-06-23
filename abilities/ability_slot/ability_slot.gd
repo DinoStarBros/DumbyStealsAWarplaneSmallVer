@@ -7,5 +7,6 @@ func _ready() -> void:
 		ability = get_child(0)
 
 func activate_ability() -> void:
-	if ability.usable:
-		ability.activate_ability()
+	if ability:
+		if ability.usable:
+			ability.activate_ability()

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://do3oy3lqr320g"]
+[gd_scene load_steps=4 format=3 uid="uid://do3oy3lqr320g"]
 
 [ext_resource type="Script" uid="uid://cuqedscshbnth" path="res://settingsMenu/settings_menu.gd" id="1_ewieb"]
+[ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="2_02yg4"]
+[ext_resource type="AudioStream" uid="uid://dlb0mt6s5iyxk" path="res://Audio/amalgun/beam.wav" id="3_276ht"]
 
 [node name="settingsMenu" type="Control"]
 process_mode = 3
@@ -126,6 +128,32 @@ popup/item_1/text = "1600x900"
 popup/item_1/id = 1
 popup/item_2/text = "1280x720"
 popup/item_2/id = 2
+
+[node name="sfx" type="Node" parent="."]
+
+[node name="button_pressed" type="AudioStreamPlayer" parent="sfx"]
+unique_name_in_owner = true
+stream = ExtResource("2_02yg4")
+volume_db = -10.0
+pitch_scale = 2.0
+bus = &"sfx"
+
+[node name="vol_change_sfx" type="AudioStreamPlayer" parent="sfx"]
+unique_name_in_owner = true
+stream = ExtResource("3_276ht")
+volume_db = -15.0
+bus = &"sfx"
+
+[node name="vol_change_music" type="AudioStreamPlayer" parent="sfx"]
+unique_name_in_owner = true
+stream = ExtResource("3_276ht")
+volume_db = -15.0
+bus = &"music"
+
+[node name="vol_change_master" type="AudioStreamPlayer" parent="sfx"]
+unique_name_in_owner = true
+stream = ExtResource("3_276ht")
+volume_db = -15.0
 
 [connection signal="value_changed" from="volumes/master_volume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="volumes/music_volume" to="." method="_on_music_volume_value_changed"]

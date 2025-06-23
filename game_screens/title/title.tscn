@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://crr8qeqq8wwdx"]
+[gd_scene load_steps=11 format=3 uid="uid://crr8qeqq8wwdx"]
 
 [ext_resource type="Script" uid="uid://1ofumju2h0vq" path="res://game_screens/title/title.gd" id="1_3t2mt"]
 [ext_resource type="AudioStream" uid="uid://dot5mpa7nqpj7" path="res://Audio/planemusic/CardTowerMenu.wav" id="2_c7fi0"]
 [ext_resource type="AudioStream" uid="uid://daiixog5jq884" path="res://Audio/cardtowersfx/sword_slash.wav" id="3_86k6m"]
+[ext_resource type="PackedScene" uid="uid://do3oy3lqr320g" path="res://settingsMenu/settings_menu.tscn" id="3_bjl0m"]
 [ext_resource type="Texture2D" uid="uid://5c4yo21h3l54" path="res://Art/planestuff/bg.png" id="4_ta8er"]
 [ext_resource type="Texture2D" uid="uid://dcej7ymlye73v" path="res://Art/planestuff/dumbynplane.png" id="5_ugu4a"]
 [ext_resource type="Texture2D" uid="uid://d4vrjfshknne" path="res://Art/planestuff/txt.png" id="6_7rbsw"]
@@ -137,10 +138,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -152.0
-offset_right = 37.0
-offset_bottom = 19.0
+offset_left = 14.0
+offset_top = 348.0
+offset_right = 84.0
+offset_bottom = 519.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -167,6 +168,13 @@ layout_mode = 2
 text = "Quit
 "
 
+[node name="settingsMenu" parent="stuff" instance=ExtResource("3_bjl0m")]
+unique_name_in_owner = true
+offset_left = -620.0
+offset_top = 500.0
+offset_right = -620.0
+offset_bottom = 500.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_5qlgw")
@@ -178,6 +186,13 @@ autoplay = "intro"
 [node name="woosh" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("3_86k6m")
 pitch_scale = 0.7
+bus = &"sfx"
+
+[node name="options" type="AudioStreamPlayer" parent="sfx"]
+unique_name_in_owner = true
+stream = ExtResource("3_86k6m")
+volume_db = -5.0
+pitch_scale = 1.2
 bus = &"sfx"
 
 [node name="titlescreenstuff" type="Node2D" parent="."]

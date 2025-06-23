@@ -86,9 +86,8 @@ func ammo_handling(delta: float) -> void:
 				tactical_reload()
 			else:
 				# Failed tactical reload
-				%reloadfail.pitch_scale = randf_range(1, 1.2)
+				%reloadfail.pitch_scale = randf_range(0.8, 1)
 				%reloadfail.play()
-				
 				g.spawn_txt("Womp Womp", global_position)
 				current_weapon.buff_time = 0
 		
@@ -115,6 +114,7 @@ var regen_handling : Callable = func(delta:float) -> void:
 	if regen_time >= max_regen_time:
 		regen_time = 0
 		heal()
+		%heal.play()
 
 func _on_hurtbox_component_plr_hit(_dmg: int) -> void:
 	regen_speed = 0.2
