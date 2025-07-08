@@ -12,7 +12,7 @@ var accelerate_time : float = 0
 @onready var rotation_component: RotationComponent = %RotationComponent
 
 func _ready() -> void:
-	%Crosshair.visible = controller
+	#%Crosshair.visible = controller
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
 
@@ -22,7 +22,7 @@ var position_sensitive_rect : Rect2
 func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() and health_component.hp > 0:
-		attack.ene_attack_damage = 2
+		attack.ene_attack_damage = 1
 		hurtbox_component.damage(attack)
 	
 	roll_handling(delta)
@@ -40,10 +40,17 @@ func _physics_process(delta: float) -> void:
 	
 	velocity_component.other_velocity_handle(delta, dir_plane, accelerating)
 	if controller:
-		rotation_component.plane_rotation_handling(delta, global_position + (controller_joypad_vector * 50))
+		rotation_component.plane_rotation_handling(
+		delta, 
+		global_position + controller_joypad_vector
+		)
 	else:
-		rotation_component.plane_rotation_handling(delta, get_global_mouse_position())
+		rotation_component.plane_rotation_handling(
+		delta, 
+		get_global_mouse_position()
+		)
 	
+	left_joystick_handle()
 	
 	if accelerating:
 		if not %jet.playing:
@@ -72,11 +79,13 @@ var dir_plane : Vector2
 func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic camera follow mouse
 	if controller:
 		aim_position = dir_plane * half_viewport * left_joystick_length
+	
 		%Crosshair.position = aim_position
 	else:
 		if event is InputEventMouseMotion:
 			aim_position = (event.position - half_viewport)
-			#%Crosshair.position = aim_position * 2
+			
+			%Crosshair.global_position = get_global_mouse_position()
 
 var accelerating : bool = false
 
@@ -161,15 +170,12 @@ func roll_handling(delta: float) -> void:
 	if roll_cd_time > 0:
 		roll_cd_time -= delta
  
-var controller_joypad_vector : Vector2 ## Vector of the left analog stick
-var left_joystick_length : float = 0
-func _input(_event: InputEvent) -> void: 
-	#old_controller_left_joystick_handling(event)
-	controller_joypad_vector = Input.get_vector(
-		"left_stick", "right_stick", "up_stick", "down_stick"
-	)
-	#%Label.text = str(controller_joypad_vector)
-	left_joystick_length = controller_joypad_vector.length()
+
+func _input(event: InputEvent) -> void: 
+	if event is InputEventJoypadMotion or event is InputEventJoypadButton:
+		controller = true
+	elif event is InputEventMouse:
+		controller = false
 
 func roll() -> void:
 	%roll.pitch_scale = randf_range(0.8,1.2)
@@ -181,3 +187,18 @@ func roll() -> void:
 	rolling = true
 		
 	plane_sprite.frame = 0
+
+var controller_joypad_vector : Vector2 ## Vector of the left analog stick
+var left_joystick_vector : Vector2
+var left_joystick_length : float = 0
+func left_joystick_handle() -> void:
+	left_joystick_vector = Input.get_vector(
+		"left_stick", "right_stick", "up_stick", "down_stick"
+		)
+	
+	if left_joystick_vector != Vector2.ZERO:
+		#controller_joypad_vector = controller_joypad_vector.lerp(left_joystick_vector, 1.0 - exp(-10 * get_physics_process_delta_time()))
+		controller_joypad_vector = left_joystick_vector
+
+	
+	left_joystick_length = controller_joypad_vector.length()

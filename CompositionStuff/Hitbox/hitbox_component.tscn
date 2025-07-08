@@ -12,21 +12,21 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_nvbwq")
 
-[node name="enemy_hit" type="AudioStreamPlayer" parent="."]
+[node name="enemy_hit" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_w85rt")
 volume_db = -10.0
 pitch_scale = 0.5
 bus = &"sfx"
 
-[node name="enemy_hit2" type="AudioStreamPlayer" parent="."]
+[node name="enemy_hit2" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_xevjv")
 volume_db = -10.0
 pitch_scale = 1.5
 bus = &"sfx"
 
-[node name="enemy_hit3" type="AudioStreamPlayer" parent="."]
+[node name="enemy_hit3" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_361qo")
 volume_db = -10.0

@@ -175,6 +175,46 @@ offset_top = 500.0
 offset_right = -620.0
 offset_bottom = 500.0
 
+[node name="aboutMenu" type="Control" parent="stuff"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -599.0
+offset_top = 514.0
+offset_right = -559.0
+offset_bottom = 554.0
+
+[node name="PanelContainer" type="PanelContainer" parent="stuff/aboutMenu"]
+custom_minimum_size = Vector2(644, 624)
+layout_mode = 0
+offset_right = 644.0
+offset_bottom = 624.0
+
+[node name="Label" type="Label" parent="stuff/aboutMenu/PanelContainer"]
+layout_mode = 2
+text = "About Menu:
+
+Bla Bla Bla"
+
+[node name="creditsMenu" type="Control" parent="stuff"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -599.0
+offset_top = 514.0
+offset_right = -559.0
+offset_bottom = 554.0
+
+[node name="PanelContainer" type="PanelContainer" parent="stuff/creditsMenu"]
+custom_minimum_size = Vector2(644, 624)
+layout_mode = 0
+offset_right = 644.0
+offset_bottom = 624.0
+
+[node name="Label" type="Label" parent="stuff/creditsMenu/PanelContainer"]
+layout_mode = 2
+text = "Credits Menu:
+
+Bla Bla Bla"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_5qlgw")

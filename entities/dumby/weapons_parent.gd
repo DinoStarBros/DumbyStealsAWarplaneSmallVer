@@ -97,12 +97,12 @@ func ammo_handling(delta: float) -> void:
 ### Below is all the stuff for regen ###
 var regen_time : float = 0
 var max_regen_time : float = 2
-var regen_speed : float = 0.5
+var regen_speed : float = 1
 var regen_speed_limit : float = 1
 # Goofy lmbda function stuff
 var regen_handling : Callable = func(delta:float) -> void:
 	if health_component.hp < health_component.max_hp:
-		regen_speed += delta * 0.1
+		regen_speed += delta * 0.5
 		regen_time += delta * regen_speed
 	else:
 		regen_time = 0
@@ -117,7 +117,7 @@ var regen_handling : Callable = func(delta:float) -> void:
 		%heal.play()
 
 func _on_hurtbox_component_plr_hit(_dmg: int) -> void:
-	regen_speed = 0.2
+	regen_speed = .4
 
 func heal()->void:
 	if health_component.hp < health_component.max_hp:

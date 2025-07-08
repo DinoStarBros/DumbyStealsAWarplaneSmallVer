@@ -1069,6 +1069,7 @@ region_rect = Rect2(2176, 0, 384, 64)
 
 [node name="Crosshair" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 100
 scale = Vector2(2, 2)
 texture = ExtResource("15_1o3u8")
