@@ -15,7 +15,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 
 [application]
 
-config/name="Plane Game"
+config/name="DumbyStealsAWarplane"
 run/main_scene="uid://crr8qeqq8wwdx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"

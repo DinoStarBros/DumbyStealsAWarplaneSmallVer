@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bu4snhapwua1q"]
+[gd_scene load_steps=31 format=3 uid="uid://bu4snhapwua1q"]
 
 [ext_resource type="Script" uid="uid://cmyxd3ohjkmp" path="res://entities/shotgunner/shotgunner.gd" id="1_k6gep"]
 [ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="2_5avn4"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="6_8jxk8"]
 [ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="7_v3f3a"]
 [ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="8_g05o7"]
+[ext_resource type="Texture2D" uid="uid://cuqwajg7lthld" path="res://Art/planestuff/fx/effects-Sheet.png" id="9_5avn4"]
+[ext_resource type="AudioStream" uid="uid://cvbv6cd7xmnjx" path="res://Audio/41randsfx/16.wav" id="9_um6te"]
+[ext_resource type="AudioStream" uid="uid://bnwatr0g26ui2" path="res://Audio/41randsfx/10.wav" id="10_8jxk8"]
+[ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="10_uw1lj"]
+[ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="11_um6te"]
+[ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="14_v3f3a"]
 
 [sub_resource type="Curve" id="Curve_smpng"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -134,7 +140,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("outline:visible")
+tracks/2/path = NodePath("Plane/outline:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -212,7 +218,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("outline:visible")
+tracks/3/path = NodePath("Plane/outline:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -272,6 +278,94 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.885906, 0.993289)
 colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
 
+[sub_resource type="Animation" id="Animation_5avn4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane/shing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plane/shing:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_k6gep"]
+resource_name = "shine"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane/shing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.217638, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plane/shing:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(3, 3), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_shotgun"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sfx/shing:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5avn4"]
+_data = {
+&"RESET": SubResource("Animation_5avn4"),
+&"shine": SubResource("Animation_k6gep")
+}
+
 [node name="shotgunner" type="CharacterBody2D" groups=["Enemy"]]
 z_index = 2
 scale = Vector2(1.5, 1.5)
@@ -315,29 +409,44 @@ libraries = {
 autoplay = "flameLoop"
 speed_scale = 1.5
 
-[node name="outline" type="Node2D" parent="."]
+[node name="shing" type="Sprite2D" parent="Plane"]
+modulate = Color(1, 0.234375, 0.234375, 1)
+position = Vector2(17.3333, 1.33333)
+rotation = 3.14159
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("9_5avn4")
+region_enabled = true
+region_rect = Rect2(128, 0, 64, 64)
+
+[node name="shing2" type="Sprite2D" parent="Plane/shing"]
+rotation = 1.5708
+texture = ExtResource("9_5avn4")
+region_enabled = true
+region_rect = Rect2(128, 0, 64, 64)
+
+[node name="outline" type="Node2D" parent="Plane"]
 unique_name_in_owner = true
 modulate = Color(100, 100, 100, 1)
 
-[node name="1" type="Sprite2D" parent="outline"]
+[node name="1" type="Sprite2D" parent="Plane/outline"]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(0, -1)
 texture = ExtResource("2_5avn4")
 
-[node name="2" type="Sprite2D" parent="outline"]
+[node name="2" type="Sprite2D" parent="Plane/outline"]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(1, 0)
 texture = ExtResource("2_5avn4")
 
-[node name="3" type="Sprite2D" parent="outline"]
+[node name="3" type="Sprite2D" parent="Plane/outline"]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(0, 1)
 texture = ExtResource("2_5avn4")
 
-[node name="4" type="Sprite2D" parent="outline"]
+[node name="4" type="Sprite2D" parent="Plane/outline"]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(-1, 0)
@@ -406,20 +515,50 @@ frame = 1
 [node name="shoot" type="AudioStreamPlayer2D" parent="sfx"]
 unique_name_in_owner = true
 stream = ExtResource("7_v3f3a")
-volume_db = -15.0
+volume_db = 5.0
 bus = &"sfx"
 
 [node name="shoot2" type="AudioStreamPlayer2D" parent="sfx"]
 unique_name_in_owner = true
 stream = ExtResource("8_g05o7")
-volume_db = -20.0
+volume_db = -10.0
 pitch_scale = 0.5
+bus = &"sfx"
+
+[node name="shoot3" type="AudioStreamPlayer2D" parent="sfx"]
+unique_name_in_owner = true
+stream = ExtResource("9_um6te")
+volume_db = 5.0
+bus = &"sfx"
+
+[node name="shing" type="AudioStreamPlayer2D" parent="sfx"]
+unique_name_in_owner = true
+stream = ExtResource("10_8jxk8")
+volume_db = -5.0
 bus = &"sfx"
 
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
+
+[node name="telegraphShot" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_5avn4")
+}
+
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("10_uw1lj")]
+unique_name_in_owner = true
+turn_speed = 2.0
+thing_to_rotate = NodePath("../Plane")
+
+[node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("11_um6te")]
+unique_name_in_owner = true
+drag_factor = 2.0
+trail_particles = NodePath("../Plane/flameparticles")
+
+[node name="enemyArrow" parent="." instance=ExtResource("14_v3f3a")]
 
 [connection signal="timeout" from="targetDeviatTimer" to="." method="_on_target_deviat_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

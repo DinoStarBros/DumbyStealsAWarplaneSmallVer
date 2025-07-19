@@ -1,6 +1,7 @@
 extends Line2D
 class_name TrailFX
 
+
 var pos : Vector2
 var queue : Array
 @export var MAX_LENGTH : int = 20 ## Length of the trail line

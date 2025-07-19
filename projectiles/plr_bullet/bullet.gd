@@ -4,6 +4,7 @@ extends Projectile
 
 func _ready() -> void:
 	hitbox_component.Hit.connect(hit)
+	%Sparticle.amount = randi_range(10, 30)
 
 var time : float = 0
 func _physics_process(delta:float)->void:
@@ -15,7 +16,7 @@ func _physics_process(delta:float)->void:
 		queue_free()
 
 func hit() -> void:
-	rotation_degrees += 180
+	%Sparticle.rotation_degrees += 180
 	velocity = Vector2.ZERO
 	#g.cam.screen_shake(7, 0.1)
 	%anim.play("hit")

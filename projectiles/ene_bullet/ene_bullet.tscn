@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl58yl2dpvjg5"]
+[gd_scene load_steps=16 format=3 uid="uid://dl58yl2dpvjg5"]
 
 [ext_resource type="Script" uid="uid://1bitq3ccedpe" path="res://projectiles/ene_bullet/ene_bullet.gd" id="1_48foy"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="3_0ogdf"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_3msem"]
+[ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="4_kltra"]
 
 [sub_resource type="Animation" id="Animation_8vyrs"]
 length = 0.001
@@ -16,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_yfywj"]
@@ -35,6 +36,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [2, 1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.6, 1.6)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8uk70"]
 _data = {
@@ -45,11 +58,64 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ogdf"]
 radius = 15.0333
 
+[sub_resource type="Animation" id="Animation_uykbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sbright:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.4, 1.4)]
+}
+
+[sub_resource type="Animation" id="Animation_kltra"]
+resource_name = "loop"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sbright:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1.3, 1.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uykbo"]
+_data = {
+&"RESET": SubResource("Animation_uykbo"),
+&"loop": SubResource("Animation_kltra")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kltra"]
+atlas = ExtResource("3_0ogdf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="Curve" id="Curve_kltra"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.518293, 0.932584), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_uykbo"]
+colors = PackedColorArray(1, 0, 0, 1, 0.995483, 1, 0.421875, 1)
+
+[sub_resource type="Gradient" id="Gradient_kltra"]
+colors = PackedColorArray(1, 0.230469, 0.230469, 1, 1, 1, 1, 1)
+
 [node name="ene_bullet" type="CharacterBody2D" groups=["Enemy"]]
 z_index = 2
 script = ExtResource("1_48foy")
 
-[node name="loop" type="AnimationPlayer" parent="."]
+[node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_8uk70")
 }
@@ -72,8 +138,46 @@ autostart = true
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.269531, 0.269531, 1)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_0ogdf")
+hframes = 12
+frame = 1
+
+[node name="loop" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uykbo")
+}
+autoplay = "loop"
+speed_scale = 2.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 40
+texture = SubResource("AtlasTexture_kltra")
+lifetime = 0.2
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.3
+scale_amount_curve = SubResource("Curve_kltra")
+color_ramp = SubResource("Gradient_uykbo")
+
+[node name="sbright" type="Sprite2D" parent="."]
+modulate = Color(0.978851, 1, 0.613281, 1)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("3_0ogdf")
 hframes = 12
+frame = 1
+
+[node name="trail_fx" parent="." instance=ExtResource("4_kltra")]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 30.0
+gradient = SubResource("Gradient_kltra")
+MAX_LENGTH = 10
 
 [connection signal="timeout" from="dur" to="." method="_on_dur_timeout"]

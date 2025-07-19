@@ -17,6 +17,7 @@ unique_name_in_owner = true
 stream = ExtResource("2_w85rt")
 volume_db = -10.0
 pitch_scale = 0.5
+max_distance = 10000.0
 bus = &"sfx"
 
 [node name="enemy_hit2" type="AudioStreamPlayer2D" parent="."]
@@ -24,12 +25,15 @@ unique_name_in_owner = true
 stream = ExtResource("4_xevjv")
 volume_db = -10.0
 pitch_scale = 1.5
+max_distance = 10000.0
 bus = &"sfx"
 
 [node name="enemy_hit3" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_361qo")
-volume_db = -10.0
+volume_db = -7.0
+pitch_scale = 1.3
+max_distance = 10000.0
 bus = &"sfx"
 
 [node name="player_hit" type="AudioStreamPlayer" parent="."]

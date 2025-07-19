@@ -8,6 +8,8 @@ var target : CharacterBody2D
 var dist_to_targ : float
 
 @onready var sprite: Sprite2D = %Icon
+@onready var velocity_component: VelocityComponent = %VelocityComponent
+@onready var rotation_component: RotationComponent = %RotationComponent
 
 func _ready() -> void:
 	_on_target_deviat_timer_timeout()
@@ -15,6 +17,8 @@ func _ready() -> void:
 	accelerate_spd += randi_range(-5, 5)
 
 var target_deviation : Vector2
+var dir_to_target_deviate_pos: Vector2
+var direction: Vector2
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	target = g.player
@@ -25,26 +29,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		dir_to_targ = (target.global_position - global_position).normalized()
 	
-	velocity.y += (980 * delta) / 2
-	if accelerating:
-		velocity += accelerate_spd * dir_to_targ
-	
-	lim_accel_x()
-	lim_accel_y()
 	
 	sprite.rotation_degrees += velocity.x
+	dir_to_target_deviate_pos = global_position.direction_to(target.global_position + target_deviation)
+	rotation_component.plane_rotation_handling(delta, target.global_position)
+	direction = rotation_component.direction
+	velocity_component.other_velocity_handle(delta, dir_to_target_deviate_pos, accelerating)
 
-func lim_accel_x()->void:
-	if velocity.x <= -accelerate_limit:
-		velocity.x = -accelerate_limit
-	if velocity.x >= accelerate_limit:
-		velocity.x = accelerate_limit
-
-func lim_accel_y()->void:
-	if velocity.y <= -accelerate_limit:
-		velocity.y = -accelerate_limit
-	if velocity.y >= accelerate_limit:
-		velocity.y = accelerate_limit
 
 const tdev_range : = 10
 func _on_target_deviat_timer_timeout() -> void:

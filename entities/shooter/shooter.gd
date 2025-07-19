@@ -6,6 +6,7 @@ var target : CharacterBody2D
 
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
+@onready var health_component: HealthComponent = %HealthComponent
 
 func _ready() ->  void:
 	_on_target_deviat_timer_timeout()
@@ -62,4 +63,5 @@ func spawn_bullet()->void:
 	g.game.add_child(bullet)
 
 func _on_shoot_timer_timeout() -> void:
-	spawn_bullet()
+	if health_component.hp >= 0:
+		spawn_bullet()

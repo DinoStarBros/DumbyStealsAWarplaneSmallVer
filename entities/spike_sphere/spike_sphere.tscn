@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyirarspnmdqd"]
+[gd_scene load_steps=20 format=3 uid="uid://dyirarspnmdqd"]
 
 [ext_resource type="Script" uid="uid://dygihq6ky1uvq" path="res://entities/spike_sphere/spike_sphere.gd" id="1_1tssn"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="4_phis3"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cw30gj5fpxv50" path="res://icon.svg" id="6_36ih5"]
 [ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="6_qgpoh"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="7_fl4rs"]
+[ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="7_lobse"]
+[ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="8_do36c"]
+[ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="9_sufux"]
 
 [sub_resource type="Animation" id="Animation_2qnmu"]
 resource_name = "Ouch"
@@ -269,5 +272,17 @@ shape = SubResource("RectangleShape2D_rbfv1")
 unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_36ih5")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("7_lobse")]
+unique_name_in_owner = true
+accelerate_speed = 2000
+drag_factor = 1.0
+
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("8_do36c")]
+unique_name_in_owner = true
+turn_speed = 2.0
+thing_to_rotate = NodePath("../Icon")
+
+[node name="enemyArrow" parent="." instance=ExtResource("9_sufux")]
 
 [connection signal="timeout" from="targetDeviatTimer" to="." method="_on_target_deviat_timer_timeout"]

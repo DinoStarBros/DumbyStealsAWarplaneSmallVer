@@ -818,6 +818,7 @@ _data = {
 collision_layer = 4097
 collision_mask = 4097
 script = ExtResource("1_2ba6e")
+controller = true
 thing_to_rotate = NodePath("PlaneSprite")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("2_5wgoi")]
@@ -843,7 +844,7 @@ libraries = {
 unique_name_in_owner = true
 scale = Vector2(1.5, 1.5)
 hp_bar = NodePath("../bars/hpbar")
-max_hp = 15.0
+max_hp = 7.0
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("43_12dy5")]
 unique_name_in_owner = true

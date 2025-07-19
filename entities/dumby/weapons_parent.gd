@@ -96,8 +96,8 @@ func ammo_handling(delta: float) -> void:
 
 ### Below is all the stuff for regen ###
 var regen_time : float = 0
-var max_regen_time : float = 2
-var regen_speed : float = 1
+var max_regen_time : float = 1
+var regen_speed : float = 2
 var regen_speed_limit : float = 1
 # Goofy lmbda function stuff
 var regen_handling : Callable = func(delta:float) -> void:
