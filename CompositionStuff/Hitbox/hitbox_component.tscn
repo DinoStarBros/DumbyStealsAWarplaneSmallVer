@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cilaqubvkn2sv"]
+[gd_scene load_steps=6 format=3 uid="uid://cilaqubvkn2sv"]
 
 [ext_resource type="Script" uid="uid://hyn8wpq0do5d" path="res://CompositionStuff/Hitbox/hitbox_component.gd" id="1_nvbwq"]
 [ext_resource type="AudioStream" uid="uid://crwvnwtgketcd" path="res://Audio/cardtowersfx/enemy_hit.wav" id="2_w85rt"]
 [ext_resource type="AudioStream" uid="uid://e7fgtf2ti3ki" path="res://Audio/41randsfx/15.wav" id="4_361qo"]
-[ext_resource type="AudioStream" uid="uid://cw0s6bkxlwn2b" path="res://Audio/splashtownSFX/Jump.wav" id="4_xevjv"]
 [ext_resource type="AudioStream" uid="uid://blcay1tfimw0e" path="res://Audio/cardtowersfx/player_hit.wav" id="5_47pvi"]
 [ext_resource type="AudioStream" uid="uid://cvbv6cd7xmnjx" path="res://Audio/41randsfx/16.wav" id="6_361qo"]
 
@@ -21,14 +20,6 @@ max_distance = 10000.0
 bus = &"sfx"
 
 [node name="enemy_hit2" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_xevjv")
-volume_db = -10.0
-pitch_scale = 1.5
-max_distance = 10000.0
-bus = &"sfx"
-
-[node name="enemy_hit3" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_361qo")
 volume_db = -7.0

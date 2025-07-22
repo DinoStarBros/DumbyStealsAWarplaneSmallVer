@@ -21,13 +21,13 @@ func damage(attack:Attack) -> void:
 		health_component.damage(attack)
 		# Calls the function to reduce the health from an attack accordingly
 	
-	if health_component.hp > 0:
+	if health_component.hp > 0: # Alive
 		get_parent().damage(attack)
 		if get_parent().is_in_group("Player"):
 			PlrHit.emit(attack.attack_damage)
 			%hitsparkanim.play("spark")
 		
-	elif health_component.hp <= 0:
+	elif health_component.hp <= 0: # Dead, hp depleted
 		get_parent().Dead(attack)
 		if explosion_particles:
 			for n in explosion_particle_amount + randi_range(1,2):
