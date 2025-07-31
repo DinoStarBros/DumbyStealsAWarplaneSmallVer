@@ -9,10 +9,11 @@
 [resource]
 script = ExtResource("1_a4hey")
 enemies = Array[PackedScene]([ExtResource("2_wvy8a"), ExtResource("1_1102q"), ExtResource("3_wvy8a"), ExtResource("4_f0uok")])
-starting_spawn_time = 2.0
-minimum_spawn_time = 0.5
+starting_spawn_time = 0.5
+minimum_spawn_time = 0.01
 spawn_time_increment = 0.01
-enemy_limit = 10.0
-min_enemy_amount = 5
-max_enemy_amount = 8
+enemy_limit = 20.0
+min_enemy_amount = 2
+max_enemy_amount = 3
+max_spawn_budget = 10
 metadata/_custom_type_script = "uid://d1crhjsum6w1o"

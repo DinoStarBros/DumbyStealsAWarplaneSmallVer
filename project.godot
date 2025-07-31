@@ -16,7 +16,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="DumbyStealsAWarplane"
-run/main_scene="uid://crr8qeqq8wwdx"
+run/main_scene="uid://djxndtog5nfd5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"
 config/icon="res://icon.svg"
@@ -36,10 +36,10 @@ gdscript/warnings/untyped_declaration=2
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/initial_position_type=2
 window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 

@@ -259,6 +259,7 @@ max_hp = 5.0
 
 [node name="explode_particles" type="CPUParticles2D" parent="."]
 scale = Vector2(0.666667, 0.666667)
+emitting = false
 amount = 20
 lifetime = 0.5
 one_shot = true

@@ -13,9 +13,16 @@ func _ready() -> void:
 
 func damage(attack:Attack) -> void:
 	if get_parent().is_in_group("Enemy"):
+		# Enemy taking damage
+		g.spawn_txt(str(attack.attack_damage), global_position)
+		
 		hp -= attack.attack_damage
 		get_parent().damage(attack)
+		
 	else:
+		
+		# Player taking damage
+		
 		hp -= attack.ene_attack_damage
 
 func _process(_delta:float)->void:

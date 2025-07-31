@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djxndtog5nfd5"]
+[gd_scene load_steps=16 format=3 uid="uid://djxndtog5nfd5"]
 
 [ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/game/game.gd" id="1_u3itd"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_foa6o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5ok8ww27od1g" path="res://Art/planestuff/SEA.png" id="4_3mndk"]
 [ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/wave1.tres" id="4_slubn"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="5_ymunx"]
+[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_slubn"]
 [ext_resource type="AudioStream" uid="uid://bqwwqki11qjh8" path="res://Audio/planemusic/Mutronic Plague.mp3" id="7_gy565"]
 
 [sub_resource type="Curve2D" id="Curve2D_gy565"]
@@ -25,6 +26,9 @@ size = Vector2(117, 3174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3s0t"]
 size = Vector2(8282, 278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slubn"]
+size = Vector2(2960, 30.6666)
 
 [sub_resource type="Curve2D" id="Curve2D_wy5cm"]
 _data = {
@@ -58,6 +62,7 @@ motion_scale = Vector2(1.5, 1.5)
 z_index = 2
 
 [node name="enemy_spawner" type="Path2D" parent="dumby"]
+process_mode = 3
 scale = Vector2(2, 2)
 curve = SubResource("Curve2D_gy565")
 script = ExtResource("3_q78kk")
@@ -73,7 +78,7 @@ rotation = 1.59492
 unique_name_in_owner = true
 one_shot = true
 
-[node name="wall_bounds" type="Node2D" parent="."]
+[node name="wall_bounds" type="Node2D" parent="." groups=["Enemy"]]
 scale = Vector2(3, 3)
 
 [node name="l" type="StaticBody2D" parent="wall_bounds"]
@@ -459,6 +464,16 @@ texture = ExtResource("4_3mndk")
 position = Vector2(13117, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("4_3mndk")
+
+[node name="FloorHitBox" parent="wall_bounds" instance=ExtResource("6_slubn")]
+unique_name_in_owner = true
+position = Vector2(-100.333, 703.333)
+collision_layer = 4
+collision_mask = 4
+
+[node name="fhitbox" type="CollisionShape2D" parent="wall_bounds/FloorHitBox"]
+position = Vector2(0, -114.667)
+shape = SubResource("RectangleShape2D_slubn")
 
 [node name="cloud_pos" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -1030,6 +1045,7 @@ one_shot = true
 autostart = true
 
 [node name="enemy_container" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Wave" type="CanvasLayer" parent="."]
 

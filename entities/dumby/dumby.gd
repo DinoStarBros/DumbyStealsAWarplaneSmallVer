@@ -7,7 +7,7 @@ var dist_to_mouse : float
 var accelerate_time : float = 0
 
 @onready var health_component: HealthComponent = %HealthComponent
-@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
+#@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
 
@@ -20,10 +20,6 @@ var attack : Attack = Attack.new()
 
 var position_sensitive_rect : Rect2
 func _physics_process(delta: float) -> void:
-	
-	if is_on_floor() and health_component.hp > 0:
-		attack.ene_attack_damage = 1
-		hurtbox_component.damage(attack)
 	
 	roll_handling(delta)
 	
@@ -147,7 +143,6 @@ func roll_handling(delta: float) -> void:
 	
 	if roll_cd_time > 0:
 		roll_cd_time -= delta
- 
 
 func _input(event: InputEvent) -> void: 
 	if event is InputEventJoypadMotion or event is InputEventJoypadButton:
@@ -177,6 +172,5 @@ func left_joystick_handle() -> void:
 	if left_joystick_vector != Vector2.ZERO:
 		#controller_joypad_vector = controller_joypad_vector.lerp(left_joystick_vector, 1.0 - exp(-10 * get_physics_process_delta_time()))
 		controller_joypad_vector = left_joystick_vector
-
 	
 	left_joystick_length = controller_joypad_vector.length()

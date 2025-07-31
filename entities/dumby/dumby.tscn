@@ -1268,12 +1268,16 @@ vframes = 3
 frame = 6
 
 [node name="timer" parent="GUI" instance=ExtResource("23_12q0g")]
-offset_left = 640.0
-offset_top = 19.0
-offset_right = 640.0
-offset_bottom = 19.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -49.0
+offset_right = 70.0
+offset_bottom = -49.0
+grow_vertical = 0
 
-[node name="Label" type="Label" parent="GUI"]
+[node name="sp_budget_txt" type="Label" parent="GUI"]
 unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 23.0
@@ -1515,49 +1519,6 @@ process_mode = 3
 layer = 4
 script = ExtResource("37_3gqex")
 
-[node name="upgUi" type="VBoxContainer" parent="LvlXPUpg"]
-custom_minimum_size = Vector2(500, 0)
-offset_left = 169.0
-offset_top = 195.0
-offset_right = 669.0
-offset_bottom = 361.0
-scale = Vector2(2, 2)
-
-[node name="upgButtons" type="PanelContainer" parent="LvlXPUpg/upgUi"]
-layout_mode = 2
-
-[node name="buttonContainer" type="HBoxContainer" parent="LvlXPUpg/upgUi/upgButtons"]
-layout_mode = 2
-
-[node name="description" type="PanelContainer" parent="LvlXPUpg/upgUi"]
-layout_mode = 2
-
-[node name="desc" type="Label" parent="LvlXPUpg/upgUi/description"]
-layout_mode = 2
-text = "Placeholder:
-
-Insert upgrade text description here
-IDFK man
-"
-
-[node name="choosettons" type="HBoxContainer" parent="LvlXPUpg/upgUi"]
-layout_mode = 2
-alignment = 1
-
-[node name="choose" type="Button" parent="LvlXPUpg/upgUi/choosettons"]
-layout_mode = 2
-text = "Choose"
-
-[node name="reroll" type="Button" parent="LvlXPUpg/upgUi/choosettons"]
-layout_mode = 2
-text = "Reroll
-"
-
-[node name="skip" type="Button" parent="LvlXPUpg/upgUi/choosettons"]
-layout_mode = 2
-text = "Skip
-"
-
 [node name="rollnim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -1573,6 +1534,3 @@ libraries = {
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/quit" to="GUI" method="_on_quit_pressed"]
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/sure" to="GUI" method="_on_sure_pressed"]
 [connection signal="pressed" from="GUI/paused/switch_acc_roll" to="GUI" method="_on_switch_acc_roll_pressed"]
-[connection signal="pressed" from="LvlXPUpg/upgUi/choosettons/choose" to="LvlXPUpg" method="_on_choose_pressed"]
-[connection signal="pressed" from="LvlXPUpg/upgUi/choosettons/reroll" to="LvlXPUpg" method="_on_reroll_pressed"]
-[connection signal="pressed" from="LvlXPUpg/upgUi/choosettons/skip" to="LvlXPUpg" method="_on_skip_pressed"]

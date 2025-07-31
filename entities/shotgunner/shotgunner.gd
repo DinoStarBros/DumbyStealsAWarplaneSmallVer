@@ -51,7 +51,7 @@ func damage(_attack:Attack)->void:
 func Dead(_attack:Attack)->void:
 	g.score += 10
 	g.killscore += 1
-	g.spawn_txt("10", global_position)
+	#g.spawn_txt("10", global_position)
 	#g.spawn_xp(global_position, 1)
 	set_physics_process(false)
 	%death.play("die")

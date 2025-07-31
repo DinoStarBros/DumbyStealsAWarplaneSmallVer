@@ -4,13 +4,16 @@ signal NewGun
 
 var are_you_sure : bool = false
 @onready var settings_menu: Settings = %settingsMenu
+@onready var sp_budget_txt: Label = %sp_budget_txt
 
 func _ready() -> void:
 	g.score = 0
 	g.killscore = 0
-	
 
 func _process(_delta: float) -> void:
+	sp_budget_txt.text = str(
+		g.spawn_budget.x ," / ",g.spawn_budget.y
+	)
 	
 	%joystick.visible = g.mobile
 	%yLost.visible = g.game_state == g.game_states.Lost
@@ -18,11 +21,12 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and g.game_state == g.game_states.Combat:
 		get_tree().paused = not get_tree().paused
 		are_you_sure = false
+		
 		if get_tree().paused:
-			#print("pause")
+			# pause
 			settings_menu._on_load_pressed()
 		else:
-			#print("unpause")
+			# unpause
 			settings_menu._on_save_pressed()
 	
 	%paused.visible = get_tree().paused and g.game_state == g.game_states.Combat

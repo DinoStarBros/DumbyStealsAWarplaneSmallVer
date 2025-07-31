@@ -1,6 +1,7 @@
 extends Node
 
 var game : Game 
+var enemy_container : Node2D
 var cam : PlrCamera
 var camRect : ColorRect
 var screen_corners : Rect2
@@ -23,9 +24,10 @@ var mobile : bool = false
 enum game_states {
 	Title, Combat, Lost, LevelUp
 }
-var gs_string : Array = [
+var gs_strings : Array = [
 	"Title", "Combat", "Lost", "LevelUp"
 ]
+var gs_string : String
 const txt_scn : PackedScene = preload("res://scenes/DmgNum/dmg_num.tscn")
 
 func _init() -> void:
@@ -56,6 +58,7 @@ func spawn_xp(global_pos : Vector2, amount : int) -> void:
 	xpn.global_position = global_pos
 
 func _process(_delta:float)->void:
+	gs_string = gs_strings[game_state]
 	volume_handle()
 
 func frame_freeze(timescale: float, duration: float) -> void: ## Slows down the engine's time scale, slowing down the time, for a certain duration. Use for da juice
@@ -79,3 +82,5 @@ func volume_handle() -> void:
 	)
 
 var switch_acc_roll : bool = false
+
+var spawn_budget : Vector2 ## X is spawn_budget, Y is max_spawn_budget
