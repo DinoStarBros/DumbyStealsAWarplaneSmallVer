@@ -44,7 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://uqxv3w86ie7g" path="res://abilities/ability_slot/ability_slot.tscn" id="32_lhj8b"]
 [ext_resource type="Script" uid="uid://b1ru8hk4kxiyh" path="res://entities/dumby/lvlxpupg.gd" id="37_3gqex"]
 [ext_resource type="Script" uid="uid://b3n1upwnl8fig" path="res://entities/dumby/evade_box.gd" id="39_pctjt"]
-[ext_resource type="PackedScene" uid="uid://hekqvagsvs2e" path="res://weapons/rapid/rapid.tscn" id="39_v3j65"]
+[ext_resource type="PackedScene" uid="uid://hekqvagsvs2e" path="res://weapons/rapid/rapid.tscn" id="40_oaelq"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="43_12dy5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqex"]
@@ -1331,7 +1331,7 @@ libraries = {
 }
 speed_scale = 2.0
 
-[node name="rapid" parent="weapons_parent" instance=ExtResource("39_v3j65")]
+[node name="rapid" parent="weapons_parent" instance=ExtResource("40_oaelq")]
 
 [node name="bars" type="Control" parent="."]
 layout_mode = 3
@@ -1431,7 +1431,6 @@ max_frame = 20
 
 [node name="speed_lines_parent" type="Node2D" parent="ScreenFX"]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0.514)
 position = Vector2(640, 360)
 

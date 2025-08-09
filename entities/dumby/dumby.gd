@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	half_viewport = get_viewport_rect().size / 2.0
-	
+	 
 	# Mouse stuff
 	dir_to_mouse = global_position.direction_to(get_global_mouse_position())
 	dist_to_mouse = global_position.distance_to(get_global_mouse_position())
