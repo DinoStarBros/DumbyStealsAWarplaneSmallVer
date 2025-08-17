@@ -76,6 +76,7 @@ rotation = 1.59492
 
 [node name="spawnTimer" type="Timer" parent="dumby/enemy_spawner"]
 unique_name_in_owner = true
+process_mode = 1
 one_shot = true
 
 [node name="wall_bounds" type="Node2D" parent="." groups=["Enemy"]]
