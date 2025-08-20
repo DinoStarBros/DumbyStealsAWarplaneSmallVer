@@ -12,7 +12,7 @@ var accelerate_time : float = 0
 @onready var rotation_component: RotationComponent = %RotationComponent
 
 func _ready() -> void:
-	#%Crosshair.visible = controller
+	
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
 
@@ -20,6 +20,11 @@ var attack : Attack = Attack.new()
 
 var position_sensitive_rect : Rect2
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("Ability2"):
+		AudioManager.create_2d_audio(
+			get_global_mouse_position(),
+			AudioSettings.types.EXPLODE1
+	)
 	
 	roll_handling(delta)
 	

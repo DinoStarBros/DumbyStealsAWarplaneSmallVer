@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AudioSettings" load_steps=3 format=3 uid="uid://k83xodu382jw"]
+
+[ext_resource type="AudioStream" uid="uid://hbjph6hq0fu3" path="res://Audio/jetslash sfx/SFX/Roblox Explosion Sound Effect.wav" id="1_2guij"]
+[ext_resource type="Script" uid="uid://bvdk8y4qj8e0i" path="res://classes/audio_settings_res.gd" id="1_skk6y"]
+
+[resource]
+script = ExtResource("1_skk6y")
+audio_stream = ExtResource("1_2guij")
+limit = 2
+type = 0
+volume_db = -5.0
+min_pitch = 0.8
+max_pitch = 1.2
+starting_point = 0.0
+metadata/_custom_type_script = "uid://bvdk8y4qj8e0i"

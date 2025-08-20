@@ -12,7 +12,7 @@ signal Hit
 func set_attack_properties(damag:int) -> void:
 	dmg = damag
 
-func _on_area_entered(area : HurtboxComponent) -> void:
+func _on_area_entered(area : Area2D) -> void:
 	if area is HurtboxComponent:
 		Hit.emit()
 		if get_parent().is_in_group("Enemy"):
@@ -29,7 +29,6 @@ func _on_area_entered(area : HurtboxComponent) -> void:
 			%enemy_hit.pitch_scale = 0.5 + randf_range(-.1,.1)
 			%enemy_hit.play()
 			
-			
 			%enemy_hit2.pitch_scale = randf_range(0.8,1.3)
 			%enemy_hit2.play()
 		area.damage(attack)
@@ -44,10 +43,14 @@ func _on_area_entered(area : HurtboxComponent) -> void:
 				g.game.add_child(enemy_hit_sfx)
 				get_parent().queue_free()
 		
-		if area.health_component.hp <= 0:
-			var rob_exp : Node2D = rob_exp_scn.instantiate()
-			g.game.add_child(rob_exp)
+		if area.health_component.hp <= 0: # Death
+			var rand_sfx_idx : int = randf_range(0,2)
+			if rand_sfx_idx == 0:
+				AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE1)
+			if rand_sfx_idx == 1:
+				AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE2)
+			else:
+				AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE3)
 
 const enemy_hit_sfx_scn : PackedScene = preload("res://spawned_sounds/enemy_hit_sfx.tscn")
 const plr_hit_sfx_scn : PackedScene = preload("res://spawned_sounds/plr_hit_sfx.tscn")
-const rob_exp_scn : PackedScene = preload("res://spawned_sounds/roblox_explode_sfx.tscn")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ng6mn83cmmf"]
+
+[ext_resource type="Script" uid="uid://ccwxglkwmq2a1" path="res://AudioManager/sfx_2d/sfx_2d.gd" id="1_js4ix"]
+
+[node name="sfx_2d" type="AudioStreamPlayer2D"]
+bus = &"sfx"
+script = ExtResource("1_js4ix")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

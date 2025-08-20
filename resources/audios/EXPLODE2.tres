@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AudioSettings" load_steps=3 format=3 uid="uid://dtqrfctjyb4gs"]
+
+[ext_resource type="AudioStream" uid="uid://d0q36gh641ds5" path="res://Audio/planesfx/explosion-312361.mp3" id="1_v2ilq"]
+[ext_resource type="Script" uid="uid://bvdk8y4qj8e0i" path="res://classes/audio_settings_res.gd" id="1_vnmkk"]
+
+[resource]
+script = ExtResource("1_vnmkk")
+audio_stream = ExtResource("1_v2ilq")
+limit = 4
+type = 1
+volume_db = 5.0
+min_pitch = 1.0
+max_pitch = 1.5
+starting_point = 0.15
+metadata/_custom_type_script = "uid://bvdk8y4qj8e0i"

@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://itbpxpbdqj2g"]
+
+[ext_resource type="Script" uid="uid://bd05a3btbsp8a" path="res://GlobalSingletons/audio_manager.gd" id="1_d38bj"]
+[ext_resource type="Script" uid="uid://bvdk8y4qj8e0i" path="res://classes/audio_settings_res.gd" id="2_orq16"]
+[ext_resource type="Resource" uid="uid://k83xodu382jw" path="res://resources/audios/EXPLODE1.tres" id="3_w48af"]
+[ext_resource type="Resource" uid="uid://dtqrfctjyb4gs" path="res://resources/audios/EXPLODE2.tres" id="4_ni0gm"]
+[ext_resource type="Resource" uid="uid://d4jvlqoemt4of" path="res://resources/audios/EXPLODE3.tres" id="5_aku5r"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_d38bj")
+audios = Array[ExtResource("2_orq16")]([ExtResource("3_w48af"), ExtResource("4_ni0gm"), ExtResource("5_aku5r")])

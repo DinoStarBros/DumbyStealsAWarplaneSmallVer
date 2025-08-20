@@ -23,10 +23,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-g="*res://global.gd"
+g="*res://GlobalSingletons/global.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
-GlobalSignals="*res://GlobalSignals.gd"
+GlobalSignals="*res://GlobalSingletons/GlobalSignals.gd"
 SaveLoad="*res://saveSystem/SaveLoad.gd"
+AudioManager="*res://GlobalSingletons/AudioManager.tscn"
 
 [debug]
 
@@ -36,7 +37,6 @@ gdscript/warnings/untyped_declaration=2
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
@@ -46,6 +46,31 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://Audio/": "orange",
+"res://AudioManager/": "teal",
+"res://CompositionStuff/": "green",
+"res://GlobalSingletons/": "yellow",
+"res://classes/": "yellow",
+"res://entities/": "teal",
+"res://game_screens/": "blue",
+"res://input_mapper/": "purple",
+"res://juices/": "pink",
+"res://projectiles/": "red",
+"res://resources/": "orange",
+"res://saveSystem/": "yellow",
+"res://scenes/": "green",
+"res://settingsMenu/": "teal",
+"res://shaders/": "blue",
+"res://spawned_sounds/": "purple",
+"res://timer/": "pink",
+"res://upgradeStuff/": "red",
+"res://weapons/": "orange"
+}
 
 [input]
 
