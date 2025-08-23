@@ -15,7 +15,7 @@ func _on_upgrade_end() -> void: # After selecting / skipping upgrade
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("accelerate"):
-		if g.game_state == g.game_states.LevelUp:
+		if g.game_state == g.game_states.Upgrade:
 			GlobalSignals.Upgrade_End.emit()
 
 func _process(_delta: float) -> void:

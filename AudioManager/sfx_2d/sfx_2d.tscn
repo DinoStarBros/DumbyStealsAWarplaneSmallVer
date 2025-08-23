@@ -6,4 +6,7 @@
 bus = &"sfx"
 script = ExtResource("1_js4ix")
 
+[node name="durationTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [connection signal="finished" from="." to="." method="_on_finished"]

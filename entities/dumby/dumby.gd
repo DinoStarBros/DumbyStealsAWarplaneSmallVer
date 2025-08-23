@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Handling functions
-	_floor_warning()
 	roll_handling(delta)
 	_left_joystick_handle()
 	
@@ -96,9 +95,8 @@ func Dead(_attack:Attack)->void:
 	%Abilities.process_mode = Node.PROCESS_MODE_DISABLED
 
 @onready var plane_sprite: AnimatedSprite2D = %PlaneSprite
-@onready var dir_to_m: Node2D = %dir_to_turn
 
-@export var controller : bool = false ## Set to true if using controller, false if Mouse
+var controller : bool = false ## Set to true if using controller, false if Mouse
 
 @export var thing_to_rotate : Node2D
 var plane_sprite_rotation_degrees : float ## Used for determining the frame for the ship sprite
@@ -168,7 +166,3 @@ func _left_joystick_handle() -> void:
 		#controller_joypad_vector = controller_joypad_vector.lerp(left_joystick_vector, 1.0 - exp(-10 * get_physics_process_delta_time()))
 		controller_joypad_vector = left_joystick_vector
 	left_joystick_length = controller_joypad_vector.length()
-
-func _floor_warning() -> void:
-	if g.floor_hitbox.global_position.y - 1500 < global_position.y:
-		pass

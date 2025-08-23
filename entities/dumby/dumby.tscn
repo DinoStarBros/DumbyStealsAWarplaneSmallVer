@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=93 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
@@ -46,7 +46,23 @@
 [ext_resource type="Script" uid="uid://b3n1upwnl8fig" path="res://entities/dumby/evade_box.gd" id="39_pctjt"]
 [ext_resource type="PackedScene" uid="uid://hekqvagsvs2e" path="res://Art/weapons/rapid/rapid.tscn" id="41_02re0"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="43_12dy5"]
+[ext_resource type="Texture2D" uid="uid://ckbwiveamjqtm" path="res://Art/planestuff/warning_symbol_frames/warning_symbol1.png" id="43_rf63a"]
+[ext_resource type="Texture2D" uid="uid://i48mxj3fa6bt" path="res://Art/planestuff/warning_symbol_frames/warning_symbol2.png" id="44_0lm2f"]
 [ext_resource type="PackedScene" uid="uid://cfr4hjrwsww6u" path="res://abilities/summon_shooters/summon_shooter.tscn" id="46_s884c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l2c7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_rf63a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_0lm2f")
+}],
+"loop": true,
+"name": &"loop",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s884c"]
 size = Vector2(62, 56)
@@ -94,11 +110,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s3yb"]
 radius = 50.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmt67"]
-size = Vector2(4, 4)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkk0x"]
 radius = 400.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmt67"]
+size = Vector2(4, 4)
 
 [sub_resource type="Animation" id="Animation_5fg7b"]
 length = 0.001
@@ -822,8 +838,26 @@ _data = {
 collision_layer = 4097
 collision_mask = 4097
 script = ExtResource("1_2ba6e")
-controller = true
 thing_to_rotate = NodePath("PlaneSprite")
+
+[node name="warning_symbol_floor" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-616, 297)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l2c7h")
+animation = &"loop"
+autoplay = "loop"
+frame = 1
+frame_progress = 0.542677
+
+[node name="warning_symbol_floor2" type="AnimatedSprite2D" parent="warning_symbol_floor"]
+unique_name_in_owner = true
+position = Vector2(592.5, 0)
+sprite_frames = SubResource("SpriteFrames_l2c7h")
+animation = &"loop"
+autoplay = "loop"
+frame = 1
+frame_progress = 0.542677
 
 [node name="FloorHurtBox" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("2_5wgoi")]
 collision_layer = 1024
@@ -879,12 +913,6 @@ rotation = 1.5708
 shape = SubResource("CircleShape2D_4s3yb")
 disabled = true
 
-[node name="dir_to_turn" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="c" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qmt67")
-
 [node name="ExpPickup" type="Area2D" parent="."]
 visible = false
 collision_layer = 4096
@@ -892,6 +920,9 @@ collision_mask = 4096
 
 [node name="expcol" type="CollisionShape2D" parent="ExpPickup"]
 shape = SubResource("CircleShape2D_rkk0x")
+
+[node name="c" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qmt67")
 
 [node name="sfx" type="Node2D" parent="."]
 
@@ -1169,6 +1200,7 @@ text = "Menu"
 
 [node name="paused" type="Control" parent="GUI"]
 unique_name_in_owner = true
+visible = false
 z_index = 3
 layout_mode = 3
 anchors_preset = 8
@@ -1442,7 +1474,6 @@ show_percentage = false
 [node name="ScreenFX" type="CanvasLayer" parent="."]
 layer = 2
 script = ExtResource("28_u8vb7")
-max_frame = 20
 
 [node name="speed_lines_parent" type="Node2D" parent="ScreenFX"]
 unique_name_in_owner = true
@@ -1530,7 +1561,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LvlXPUpg" type="CanvasLayer" parent="."]
+[node name="WaveUpg" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 4
 script = ExtResource("37_3gqex")

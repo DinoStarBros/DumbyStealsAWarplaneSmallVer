@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name ShooterSummon
 
 const bullet_spd : float = 2000
+const dist_from_plr : float = 250
+const starting_speed : float = 1000
 
 var rand_dir : Vector2
 var dir_to_targ : Vector2
@@ -26,9 +28,9 @@ func _ready() -> void:
 	rand_dir.x = cos(rand_deg_dir)
 	rand_dir.y = sin(rand_deg_dir)
 	
-	velocity = rand_dir * 2000
+	velocity = rand_dir * starting_speed
 	
-	rand_desire_pos = rand_dir * 500
+	rand_desire_pos = rand_dir * dist_from_plr
 	
 	%shooTimer.start(randf_range(0.3, 0.4))
 
@@ -61,7 +63,6 @@ func _physics_process(delta: float) -> void:
 
 
 var target : CharacterBody2D
-
 
 var bullet_scn : PackedScene = preload("res://projectiles/plr_bullet/bullet.tscn")
 func spawn_bullet() -> void:

@@ -52,7 +52,7 @@ func _process(_delta: float) -> void:
 		return
 	
 	if g.enemy_container.get_children().size() <= 0:
-		g.game_state = g.game_states.LevelUp
+		g.game_state = g.game_states.Upgrade
 		GlobalSignals.Wave_End.emit()
 
 func _on_upgrade_end() -> void:

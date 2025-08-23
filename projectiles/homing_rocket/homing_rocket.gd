@@ -105,7 +105,7 @@ func new_homing_handle(delta: float) -> void: ## The new homing, gradually rotat
 
 const explosion_scn : PackedScene = preload("res://projectiles/explosion/explosion.tscn")
 func spawn_explosion() -> void:
-	var explosion : Explosion = explosion_scn.instantiate()
+	var explosion : Projectile = explosion_scn.instantiate()
 	g.game.add_child(explosion)
 	explosion.dmg = 5
 	explosion.global_position = global_position

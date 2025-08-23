@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AudioSettings" load_steps=3 format=3 uid="uid://cp7bagp76vvt4"]
+
+[ext_resource type="AudioStream" uid="uid://crwvnwtgketcd" path="res://Audio/cardtowersfx/enemy_hit.wav" id="1_s3eni"]
+[ext_resource type="Script" uid="uid://bvdk8y4qj8e0i" path="res://classes/audio_settings_res.gd" id="2_yjwv5"]
+
+[resource]
+script = ExtResource("2_yjwv5")
+audio_stream = ExtResource("1_s3eni")
+limit = 5
+type = 3
+volume_db = -10.0
+min_pitch = 0.4
+max_pitch = 0.6
+starting_point = 0.12
+duration = 1.5
+metadata/_custom_type_script = "uid://bvdk8y4qj8e0i"

@@ -6,7 +6,6 @@ enum types {
 	EXPLODE2,
 	EXPLODE3,
 	ENEMY_HIT,
-	PLAYER_HIT,
 }
 
 @export var audio_stream : AudioStream
@@ -16,6 +15,7 @@ enum types {
 @export var min_pitch : float = 1.0
 @export var max_pitch : float = 1.0
 @export var starting_point : float
+@export var duration : float = 1.5
 
 var audio_count : int
 

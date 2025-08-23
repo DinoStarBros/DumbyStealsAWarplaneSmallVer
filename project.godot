@@ -28,7 +28,6 @@ SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 GlobalSignals="*res://GlobalSingletons/GlobalSignals.gd"
 SaveLoad="*res://saveSystem/SaveLoad.gd"
 AudioManager="*res://GlobalSingletons/AudioManager.tscn"
-DevConsole="*res://GlobalSingletons/Dev_Console.tscn"
 
 [display]
 

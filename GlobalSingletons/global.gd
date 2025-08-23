@@ -19,7 +19,7 @@ var level : int = 1
 var mobile : bool = false
 
 enum game_states {
-	Title, Combat, Lost, LevelUp
+	Title, Combat, Lost, Upgrade
 }
 var gs_strings : Array = [
 	"Title", "Combat", "Lost", "LevelUp"

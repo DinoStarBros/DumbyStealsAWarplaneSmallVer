@@ -21,6 +21,7 @@ func create_2d_audio(location: Vector2, type: AudioSettings.types) -> void:
 		sfx_2d.pitch_scale = randf_range(audio.min_pitch, audio.max_pitch)
 		sfx_2d.volume_db = audio.volume_db
 		sfx_2d.audio = audio
+		sfx_2d.duration = audio.duration
 		audio.change_audio_count(1)
 		general_audio_count += 1
 		
