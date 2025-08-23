@@ -8,13 +8,18 @@ const right_bound : = 14000
 const up_bound : = -6674
 const down_bound : = 2583
 func _ready() -> void:
+	%music.play(177)
+	
 	%FloorHitBox.set_attack_properties(5)
 	g.game_state = g.game_states.Combat
 	cloud_parents = %cloudparallax.get_children()
 	#print(320*15)
 	SceneManager.fade_in()
+	
 	g.game = self
 	g.enemy_container = %enemy_container
+	g.projectile_container = %projectile_container
+	g.floor_hitbox = %FloorHitBox
 	g.enemy_arrows = %EnemyArrows
 	
 	for n in cloud_amnt:

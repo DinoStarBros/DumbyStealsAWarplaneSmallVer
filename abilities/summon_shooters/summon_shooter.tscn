@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfr4hjrwsww6u"]
+
+[ext_resource type="Script" uid="uid://b5benqe2m7dcf" path="res://abilities/summon_shooters/summon_shooter.gd" id="1_8k67s"]
+[ext_resource type="Texture2D" uid="uid://bs5ejx67ogvb6" path="res://Art/planestuff/fx/abilities-Sheet.png" id="2_vtuvl"]
+[ext_resource type="AudioStream" uid="uid://bi3ko6pfhmphx" path="res://Audio/planesfx/hammering-on-anvil-71902.wav" id="3_8k67s"]
+[ext_resource type="AudioStream" uid="uid://c6gvo4o6ts4u2" path="res://Audio/planesfx/machine-gun-307468.mp3" id="4_8k67s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_spn4t"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 7
+
+[node name="summon_shooters" type="Control" node_paths=PackedStringArray("cooldown_txt", "sprite")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8k67s")
+amount = 4
+cooldown_txt = NodePath("Label")
+cooldown = 30.0
+sprite = NodePath("sprite")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_vtuvl")
+centered = false
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -21.0
+offset_right = 31.0
+offset_bottom = 2.0
+text = "2.3"
+label_settings = SubResource("LabelSettings_spn4t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shoot1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_8k67s")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="shoot2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_8k67s")
+volume_db = -15.0
+bus = &"sfx"

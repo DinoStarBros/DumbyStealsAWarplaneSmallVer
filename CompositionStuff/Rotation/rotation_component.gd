@@ -16,10 +16,7 @@ func plane_rotation_handling(delta: float, desired_target: Vector2)->void:
 		desired_rotation - thing_to_rotate.rotation_degrees
 		) * turn_speed
 	
-	if plane_sprite_rotation_degrees > 180:
-		plane_sprite_rotation_degrees = -180
-	if plane_sprite_rotation_degrees < -180:
-		plane_sprite_rotation_degrees = 180
+	plane_sprite_rotation_degrees = wrapf(plane_sprite_rotation_degrees, -180, 180)
 	
 	if thing_to_rotate:
 		thing_to_rotate.rotation_degrees += rot_deg_change * delta

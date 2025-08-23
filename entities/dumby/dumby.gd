@@ -5,6 +5,10 @@ var half_viewport : Vector2
 var dir_to_mouse : Vector2
 var dist_to_mouse : float
 var accelerate_time : float = 0
+var attack : Attack = Attack.new()
+var position_sensitive_rect : Rect2
+var aim_position : Vector2
+var dir_plane : Vector2
 
 @onready var health_component: HealthComponent = %HealthComponent
 #@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
@@ -12,21 +16,14 @@ var accelerate_time : float = 0
 @onready var rotation_component: RotationComponent = %RotationComponent
 
 func _ready() -> void:
-	
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
 
-var attack : Attack = Attack.new()
-
-var position_sensitive_rect : Rect2
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("Ability2"):
-		AudioManager.create_2d_audio(
-			get_global_mouse_position(),
-			AudioSettings.types.EXPLODE1
-	)
-	
+	# Handling functions
+	_floor_warning()
 	roll_handling(delta)
+	_left_joystick_handle()
 	
 	move_and_slide()
 	
@@ -51,8 +48,6 @@ func _physics_process(delta: float) -> void:
 		get_global_mouse_position()
 		)
 	
-	left_joystick_handle()
-	
 	if accelerating:
 		if not %jet.playing:
 			%jet.play()
@@ -68,15 +63,12 @@ func _physics_process(delta: float) -> void:
 			accelerating = Input.is_action_pressed("accelerate")
 	
 	if accelerating:
-		
 		accelerate_time += delta
 		if accelerate_time > 5:
 			accelerate_time = 5
 	else:
 		accelerate_time = 0
 
-var aim_position : Vector2
-var dir_plane : Vector2
 func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic camera follow mouse
 	if controller:
 		aim_position = dir_plane * half_viewport * left_joystick_length
@@ -108,7 +100,6 @@ func Dead(_attack:Attack)->void:
 
 @export var controller : bool = false ## Set to true if using controller, false if Mouse
 
-#@export var turn_speed : float = 7 ## How fast the plane can turn to face the mouse / aim
 @export var thing_to_rotate : Node2D
 var plane_sprite_rotation_degrees : float ## Used for determining the frame for the ship sprite
 var direction : Vector2 = Vector2.ZERO ## The vector of the rotation of the rotated node
@@ -133,10 +124,10 @@ func roll_handling(delta: float) -> void:
 	if roll_cd_time <= 0 and not rolling:
 		if g.switch_acc_roll:
 			if Input.is_action_just_pressed("accelerate"):
-				roll()
+				_roll()
 		else:
 			if Input.is_action_just_pressed("roll"):
-				roll()
+				_roll()
 	
 	if rolling:
 		roll_time += delta
@@ -155,7 +146,7 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventMouse:
 		controller = false
 
-func roll() -> void:
+func _roll() -> void:
 	%roll.pitch_scale = randf_range(0.8,1.2)
 	%roll.play()
 	
@@ -169,13 +160,15 @@ func roll() -> void:
 var controller_joypad_vector : Vector2 ## Vector of the left analog stick
 var left_joystick_vector : Vector2
 var left_joystick_length : float = 0
-func left_joystick_handle() -> void:
+func _left_joystick_handle() -> void:
 	left_joystick_vector = Input.get_vector(
 		"left_stick", "right_stick", "up_stick", "down_stick"
 		)
-	
 	if left_joystick_vector != Vector2.ZERO:
 		#controller_joypad_vector = controller_joypad_vector.lerp(left_joystick_vector, 1.0 - exp(-10 * get_physics_process_delta_time()))
 		controller_joypad_vector = left_joystick_vector
-	
 	left_joystick_length = controller_joypad_vector.length()
+
+func _floor_warning() -> void:
+	if g.floor_hitbox.global_position.y - 1500 < global_position.y:
+		pass

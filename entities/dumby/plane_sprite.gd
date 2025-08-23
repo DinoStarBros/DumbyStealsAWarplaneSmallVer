@@ -4,15 +4,17 @@ class_name PlaneSprite
 @export var max_frame : float = 6
 @onready var p : Dumby = get_parent() ## Reference to the Parent Node, Dumby
 #@onready var dir_to_m: Node2D = %dir_to_m
-
 @onready var rotation_component: RotationComponent = %RotationComponent
 
+var rot : float
+
 func _process(_delta: float) -> void:
-	var rot : float = rotation_component.plane_sprite_rotation_degrees
+	rot = rotation_component.plane_sprite_rotation_degrees
 	if p.rolling:
 		pass
 	else:
 		frame = _pose_matcher(rot)
+	
 	%PlaneSprite.scale = Vector2(2,2)
 	
 	fx()
@@ -37,3 +39,8 @@ func fx() -> void:
 	%speedring.visible = p.velocity.length() > 800 and p.accelerating and p.accelerate_time > 1
 	
 	%trail_fx.visible = p.accelerating
+
+func refresh_frame() -> void:
+	rotation_component.plane_sprite_rotation_degrees = 0
+	rotation_degrees = 0
+	frame = _pose_matcher(rot)

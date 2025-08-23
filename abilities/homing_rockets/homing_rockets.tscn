@@ -18,7 +18,7 @@ offset_bottom = 40.0
 script = ExtResource("1_wkddn")
 rocket_amount = 15
 cooldown_txt = NodePath("Label")
-cooldown = 20.0
+cooldown = 30.0
 sprite = NodePath("sprite")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -48,3 +48,6 @@ unique_name_in_owner = true
 stream = ExtResource("4_0a1fb")
 volume_db = -15.0
 bus = &"sfx"
+
+[node name="rocketDelaytimer" type="Timer" parent="."]
+unique_name_in_owner = true

@@ -41,11 +41,15 @@ func update_spawn_budget_text() -> void:
 	g.spawn_budget = Vector2(wave.spawn_budget, wave.max_spawn_budget)
 
 func _process(_delta: float) -> void:
+	#print(g.gs_string)
+	
 	if not wave.spawn_budget <= 0 and g.game_state == g.game_states.Combat:
 		# Checks if all enemies from the budget have spawned
 		# If so, allow wave ending
 		return
 		# Bruh this shit stupid as hell mane
+	if g.game_state == g.game_states.Lost:
+		return
 	
 	if g.enemy_container.get_children().size() <= 0:
 		g.game_state = g.game_states.LevelUp

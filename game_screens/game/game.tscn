@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/wave1.tres" id="4_slubn"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="5_ymunx"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_slubn"]
-[ext_resource type="AudioStream" uid="uid://bqwwqki11qjh8" path="res://Audio/planemusic/Mutronic Plague.mp3" id="7_gy565"]
+[ext_resource type="AudioStream" uid="uid://c1oe5virn8qko" path="res://Audio/planemusic/TEKKEN 8 - FULL MIX - Victor Chevalier  Paris Seine Theme Song - 1st & Final Round Saxophone.mp3" id="8_slubn"]
 
 [sub_resource type="Curve2D" id="Curve2D_gy565"]
 _data = {
@@ -469,12 +469,15 @@ texture = ExtResource("4_3mndk")
 [node name="FloorHitBox" parent="wall_bounds" instance=ExtResource("6_slubn")]
 unique_name_in_owner = true
 position = Vector2(-100.333, 703.333)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 1024
+collision_mask = 1024
 
 [node name="fhitbox" type="CollisionShape2D" parent="wall_bounds/FloorHitBox"]
 position = Vector2(0, -114.667)
 shape = SubResource("RectangleShape2D_slubn")
+
+[node name="projectile_container" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="cloud_pos" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -1027,7 +1030,7 @@ texture = ExtResource("5_ymunx")
 [node name="music" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-stream = ExtResource("7_gy565")
+stream = ExtResource("8_slubn")
 volume_db = -5.0
 autoplay = true
 bus = &"music"

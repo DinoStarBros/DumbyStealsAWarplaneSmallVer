@@ -34,6 +34,7 @@ func _process(_delta: float) -> void:
 
 func _on_menu_pressed() -> void:
 	scene_change("res://game_screens/title/title.tscn")
+	get_tree().paused = false
 	g.game_state = g.game_states.Title
 
 func scene_change(scene:String)->void:

@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_hua0a")
-shoot_cooldown = 0.3
-bullet_spd = 1500
-bullet_amnt = 5
+shoot_cooldown = 0.4
+bullet_spd = 2500
+bullet_amnt = 4
 random_spread = 0.2
 bullet_lifetime = 1.0
 shoot_delay = 0.0

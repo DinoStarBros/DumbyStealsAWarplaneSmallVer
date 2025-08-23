@@ -1,24 +1,21 @@
 extends Node
 
-var game : Game 
+var game : Node 
 var enemy_container : Node2D
+var projectile_container : Node2D
+var floor_hitbox : HitboxComponent
 var cam : PlrCamera
 var camRect : ColorRect
 var screen_corners : Rect2
 var player : CharacterBody2D
 var enemy_arrows : Node
-
 var attack : Attack = Attack.new()
-
 var game_state : game_states = g.game_states.Title#: set = new_game_state
-
 var score : int = 0
 var killscore : int = 0
-
 var xp : int = 0
 var next_lvl_xp : int = 20
 var level : int = 1
-
 var mobile : bool = false
 
 enum game_states {

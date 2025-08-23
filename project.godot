@@ -28,10 +28,7 @@ SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 GlobalSignals="*res://GlobalSingletons/GlobalSignals.gd"
 SaveLoad="*res://saveSystem/SaveLoad.gd"
 AudioManager="*res://GlobalSingletons/AudioManager.tscn"
-
-[debug]
-
-gdscript/warnings/untyped_declaration=2
+DevConsole="*res://GlobalSingletons/Dev_Console.tscn"
 
 [display]
 
@@ -51,6 +48,7 @@ enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
 
 folder_colors={
 "res://Art/": "red",
+"res://Art/weapons/": "orange",
 "res://Audio/": "orange",
 "res://AudioManager/": "teal",
 "res://CompositionStuff/": "green",
@@ -67,9 +65,7 @@ folder_colors={
 "res://settingsMenu/": "teal",
 "res://shaders/": "blue",
 "res://spawned_sounds/": "purple",
-"res://timer/": "pink",
-"res://upgradeStuff/": "red",
-"res://weapons/": "orange"
+"res://timer/": "pink"
 }
 
 [input]
@@ -100,19 +96,19 @@ reload={
 }
 Ability1={
 "deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 Ability2={
 "deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 Ability3={
 "deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
@@ -148,6 +144,7 @@ down_stick={
 2d_physics/layer_1="Plr - Walls"
 2d_physics/layer_2="Plr Dmg - Enemy"
 2d_physics/layer_3="Ene Dmg - Player"
+2d_physics/layer_11="Floor Hitbox - Plr Floor Hurtbox"
 2d_physics/layer_12="Homing Detection"
 2d_physics/layer_13="EXP"
 

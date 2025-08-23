@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctnvt810pkq3h"
+path="res://.godot/imported/2 Mello - LUV 2 LUV (Official Audio).mp3-fff5c9748efbec41d7d8af80a4ba214d.mp3str"
+
+[deps]
+
+source_file="res://Audio/planemusic/2 Mello - LUV 2 LUV (Official Audio).mp3"
+dest_files=["res://.godot/imported/2 Mello - LUV 2 LUV (Official Audio).mp3-fff5c9748efbec41d7d8af80a4ba214d.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
