@@ -7,9 +7,9 @@ func _ready()->void:
 	#_update_res()
 	#_update_vol_val()
 	
-	for n in %buttons.get_children():
-		if n is Button:
-			n.focus_mode = Control.FOCUS_NONE
+	#for n in %buttons.get_children():
+	#	if n is Button:
+	#		n.focus_mode = Control.FOCUS_NONE
 
 func _on_save_pressed()->void:
 	SaveLoad.SaveFileData.master_volume = g.master_volume

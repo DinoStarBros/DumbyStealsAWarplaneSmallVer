@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	velocity_component.other_velocity_handle(delta, dir_plane, accelerating)
 	if controller:
 		rotation_component.plane_rotation_handling(
-		delta, 
+		delta,
 		global_position + controller_joypad_vector
 		)
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=94 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://ckbwiveamjqtm" path="res://Art/planestuff/warning_symbol_frames/warning_symbol1.png" id="43_rf63a"]
 [ext_resource type="Texture2D" uid="uid://i48mxj3fa6bt" path="res://Art/planestuff/warning_symbol_frames/warning_symbol2.png" id="44_0lm2f"]
 [ext_resource type="PackedScene" uid="uid://cfr4hjrwsww6u" path="res://abilities/summon_shooters/summon_shooter.tscn" id="46_s884c"]
+[ext_resource type="PackedScene" uid="uid://cn0wb7nfo4h7s" path="res://shop/shop.tscn" id="50_l2c7h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l2c7h"]
 animations = [{
@@ -1200,7 +1201,6 @@ text = "Menu"
 
 [node name="paused" type="Control" parent="GUI"]
 unique_name_in_owner = true
-visible = false
 z_index = 3
 layout_mode = 3
 anchors_preset = 8
@@ -1247,20 +1247,18 @@ offset_right = 148.0
 offset_bottom = 595.0
 
 [node name="resume" type="Button" parent="GUI/paused/settingsMenu/butons"]
+unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
 text = "Resume"
 
 [node name="quit" type="Button" parent="GUI/paused/settingsMenu/butons"]
 layout_mode = 2
-focus_mode = 0
 text = "Quit
 "
 
 [node name="sure" type="Button" parent="GUI/paused/settingsMenu/butons"]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
 text = "Are You Sure?
 "
 
@@ -1272,7 +1270,6 @@ offset_top = -73.0
 offset_right = -43.0
 offset_bottom = -42.0
 scale = Vector2(1.5, 1.5)
-focus_mode = 0
 text = "Switch Accelerate & Roll:
 false"
 
@@ -1477,6 +1474,7 @@ script = ExtResource("28_u8vb7")
 
 [node name="speed_lines_parent" type="Node2D" parent="ScreenFX"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0.514)
 position = Vector2(640, 360)
 
@@ -1563,8 +1561,13 @@ layout_mode = 2
 
 [node name="WaveUpg" type="CanvasLayer" parent="."]
 process_mode = 3
-layer = 4
+layer = 6
 script = ExtResource("37_3gqex")
+
+[node name="shop" parent="WaveUpg" instance=ExtResource("50_l2c7h")]
+unique_name_in_owner = true
+offset_top = 440.0
+offset_bottom = 1014.0
 
 [node name="rollnim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

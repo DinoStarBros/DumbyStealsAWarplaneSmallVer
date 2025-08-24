@@ -106,6 +106,7 @@ _data = {
 }
 
 [node name="title" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_3t2mt")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
@@ -147,6 +148,7 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 
 [node name="play" type="Button" parent="stuff/buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Play
 "

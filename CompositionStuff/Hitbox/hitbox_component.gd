@@ -4,8 +4,8 @@ class_name HitboxComponent
 @export var delete_after_hit : bool
 
 var attack : Attack = g.attack
-
 var dmg : int
+var rand_sfx_idx : int = 0
 
 signal Hit
 
@@ -43,8 +43,10 @@ func _on_area_entered(area : Area2D) -> void:
 				g.game.add_child(enemy_hit_sfx)
 				get_parent().queue_free()
 		
-		if area.health_component.hp <= 0: # Death
-			var rand_sfx_idx : int = randf_range(0,2)
+		if area.health_component.hp <= 0: # Death of enemy / player
+			
+			rand_sfx_idx = randi_range(0, 2)
+			
 			if rand_sfx_idx == 0:
 				AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE1)
 			if rand_sfx_idx == 1:

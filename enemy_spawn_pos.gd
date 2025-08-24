@@ -43,16 +43,16 @@ func update_spawn_budget_text() -> void:
 func _process(_delta: float) -> void:
 	#print(g.gs_string)
 	
-	if not wave.spawn_budget <= 0 and g.game_state == g.game_states.Combat:
+	if not wave.spawn_budget <= 0:
 		# Checks if all enemies from the budget have spawned
 		# If so, allow wave ending
 		return
-		# Bruh this shit stupid as hell mane
+	
 	if g.game_state == g.game_states.Lost:
+		# Prevents the upgrade phase from starting if u die
 		return
 	
-	if g.enemy_container.get_children().size() <= 0:
-		g.game_state = g.game_states.Upgrade
+	if g.enemy_container.get_children().size() <= 0 and g.game_state == g.game_states.Combat:
 		GlobalSignals.Wave_End.emit()
 
 func _on_upgrade_end() -> void:

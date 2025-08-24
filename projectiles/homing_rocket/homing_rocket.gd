@@ -35,13 +35,15 @@ func _physics_process(delta:float)->void:
 	
 	time += delta
 	if time >= lifetime:
-		spawn_explosion()
+		call_deferred("spawn_explosion")
+		#spawn_explosion()
 		queue_free()
 
 func hit() -> void:
 	velocity = Vector2.ZERO
 	g.cam.screen_shake(15, 0.3)
-	spawn_explosion()
+	call_deferred("spawn_explosion")
+	#spawn_explosion()
 	set_physics_process(false)
 	%anim.play("hit")
 
@@ -105,7 +107,7 @@ func new_homing_handle(delta: float) -> void: ## The new homing, gradually rotat
 
 const explosion_scn : PackedScene = preload("res://projectiles/explosion/explosion.tscn")
 func spawn_explosion() -> void:
-	var explosion : Projectile = explosion_scn.instantiate()
+	var explosion : CharacterBody2D = explosion_scn.instantiate()
 	g.game.add_child(explosion)
 	explosion.dmg = 5
 	explosion.global_position = global_position

@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 		if get_tree().paused:
 			# pause
 			settings_menu._on_load_pressed()
+			%resume.grab_focus()
 		else:
 			# unpause
 			settings_menu._on_save_pressed()
@@ -61,7 +62,7 @@ func _on_quit_pressed() -> void:
 	are_you_sure = not are_you_sure
 
 func _on_sure_pressed() -> void:
-	get_tree().paused = false
+	get_tree().paused = true
 	scene_change("res://game_screens/title/title.tscn")
 	g.game_state = g.game_states.Title
 	settings_menu._on_save_pressed()

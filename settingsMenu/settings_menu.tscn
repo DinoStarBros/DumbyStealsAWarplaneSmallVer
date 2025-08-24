@@ -63,7 +63,6 @@ Screen Shake:"
 [node name="screen_shake" type="Button" parent="volumes"]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
 text = "On"
 
 [node name="txt5" type="Label" parent="volumes"]
@@ -73,7 +72,6 @@ text = "Frame Freeze:"
 [node name="frame_freeze" type="Button" parent="volumes"]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 0
 text = "On"
 
 [node name="buttons" type="HBoxContainer" parent="."]
