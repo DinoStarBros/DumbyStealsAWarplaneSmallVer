@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=102 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
@@ -811,6 +811,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_hr56j"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8vb7"]
 bg_color = Color(0, 0, 0, 1)
 draw_center = false
@@ -875,6 +879,10 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_2j3yl"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j3yl"]
 resource_local_to_scene = true
@@ -1337,20 +1345,14 @@ script = ExtResource("15_0uce1")
 
 [node name="yLost" type="Control" parent="GUI"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 15.0
-offset_top = -2.0
-offset_right = 15.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -1379,6 +1381,7 @@ text = "Menu"
 
 [node name="paused" type="Control" parent="GUI"]
 unique_name_in_owner = true
+visible = false
 z_index = 3
 layout_mode = 3
 anchors_preset = 8
@@ -1559,6 +1562,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
 
 [node name="ammo" type="ProgressBar" parent="bars"]
 layout_mode = 0
@@ -1573,12 +1577,12 @@ show_percentage = false
 
 [node name="ammo_txt" type="Label" parent="bars/ammo"]
 layout_mode = 0
-offset_left = 12.0
-offset_top = -25.0
-offset_right = 64.0
-offset_bottom = 24.0
-text = "Ammo
-24 / 24"
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 69.0
+offset_bottom = 50.0
+text = "24 / 24"
+label_settings = SubResource("LabelSettings_hr56j")
 
 [node name="reload_bar" type="ProgressBar" parent="bars"]
 unique_name_in_owner = true
@@ -1647,10 +1651,12 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="bars/hpbar"]
 layout_mode = 0
-offset_left = 7.0
-offset_right = 69.0
-offset_bottom = 23.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 26.0
 text = "100/100"
+label_settings = SubResource("LabelSettings_2j3yl")
 
 [node name="ScreenFX" type="CanvasLayer" parent="."]
 layer = 2

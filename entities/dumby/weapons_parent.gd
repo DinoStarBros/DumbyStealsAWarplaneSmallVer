@@ -46,7 +46,7 @@ func ammo_handling(delta: float) -> void:
 	ammo_bar.max_value = current_weapon.max_ammo
 	ammo_bar.value = current_weapon.ammo
 	
-	ammo_text.text = str("Ammo : \n", current_weapon.ammo, " / ", current_weapon.max_ammo)
+	ammo_text.text = str(current_weapon.ammo, " / ", current_weapon.max_ammo)
 	
 	ammo_bar.visible = current_weapon.ammo > 0
 	

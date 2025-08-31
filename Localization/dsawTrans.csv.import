@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dwjy1hpxelkhg"
+
+[deps]
+
+files=["res://Localization/dsawTrans.english.translation", "res://Localization/dsawTrans.filipino.translation"]
+
+source_file="res://Localization/dsawTrans.csv"
+dest_files=["res://Localization/dsawTrans.english.translation", "res://Localization/dsawTrans.filipino.translation"]
+
+[params]
+
+compress=true
+delimiter=0

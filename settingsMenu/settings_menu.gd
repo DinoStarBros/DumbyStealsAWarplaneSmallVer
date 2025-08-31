@@ -124,5 +124,13 @@ func _on_switch_acc_roll_pressed() -> void:
 		
 		)
 
+enum language_idxs {
+	ENGLISH = 0,
+	FILIPINO = 1
+}
+
 func _on_translations_pressed(index: int) -> void:
-	print(index)
+	var item_string : String = (
+		%translations.get_item_text(index)
+	)
+	TranslationServer.set_locale(item_string)

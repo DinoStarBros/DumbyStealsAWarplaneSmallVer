@@ -50,6 +50,7 @@ folder_colors={
 "res://AudioManager/": "teal",
 "res://CompositionStuff/": "green",
 "res://GlobalSingletons/": "yellow",
+"res://Localization/": "green",
 "res://classes/": "yellow",
 "res://entities/": "teal",
 "res://game_screens/": "blue",
@@ -180,6 +181,10 @@ down_stick={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Localization/dsawTrans.english.translation", "res://Localization/dsawTrans.filipino.translation")
 
 [layer_names]
 
