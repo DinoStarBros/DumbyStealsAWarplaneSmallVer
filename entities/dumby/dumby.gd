@@ -93,15 +93,16 @@ func Dead(_attack:Attack)->void:
 	%death.play("die")
 	%weapons_parent.process_mode = Node.PROCESS_MODE_DISABLED
 	%Abilities.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	%menu.grab_focus()
+	
+	accelerating = false
+	%jet.stop()
+	%speed_lines_parent.hide()
 
 @onready var plane_sprite: AnimatedSprite2D = %PlaneSprite
 
 var controller : bool = false ## Set to true if using controller, false if Mouse
-
-@export var thing_to_rotate : Node2D
-var plane_sprite_rotation_degrees : float ## Used for determining the frame for the ship sprite
-var direction : Vector2 = Vector2.ZERO ## The vector of the rotation of the rotated node
-var rot_deg_change : float
 
 func _on_exp_pickup_area_entered(area: Area2D) -> void:
 	if area is XpOrb:

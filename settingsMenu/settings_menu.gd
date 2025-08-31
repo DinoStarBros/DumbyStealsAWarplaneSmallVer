@@ -2,6 +2,9 @@ extends Control
 class_name Settings
 
 func _ready()->void:
+	%switch_acc_roll.pressed.connect(_on_switch_acc_roll_pressed)
+	%translations.item_selected.connect(_on_translations_pressed)
+	
 	_on_load_pressed()
 	
 	#_update_res()
@@ -75,10 +78,10 @@ func _on_sfx_vol_value_changed(value: float)->void:
 	
 	g.sfx_volume = value
 
-func _on_res_options_item_selected(_index: int) -> void:
-	pass
-	#g.resolution_index = index
-	#DisplayServer.window_set_size(resolutions[index])
+func _on_res_options_item_selected(index: int) -> void:
+	#pass
+	g.resolution_index = index
+	DisplayServer.window_set_size(resolutions[index])
 
 var resolutions : Array[Vector2i] = [
 	Vector2i(1920, 1080),
@@ -110,3 +113,16 @@ func _on_screen_shake_pressed() -> void:
 		%screen_shake.text = str("On")
 	else:
 		%screen_shake.text = str("Off")
+
+func _on_switch_acc_roll_pressed() -> void:
+	g.switch_acc_roll = not g.switch_acc_roll
+	
+	%switch_acc_roll.text = str(
+		
+		"Switch Accelerate & Roll : \n",
+		g.switch_acc_roll
+		
+		)
+
+func _on_translations_pressed(index: int) -> void:
+	print(index)

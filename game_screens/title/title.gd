@@ -9,9 +9,6 @@ func _ready() -> void:
 	get_tree().paused = false
 	%play.grab_focus()
 	SceneManager.fade_in()
-	#for n in %buttons.get_children():
-	#	if n is Button:
-	#		n.focus_mode = Control.FOCUS_NONE
 
 func _on_play_pressed() -> void:
 	scene_change("res://game_screens/game/game.tscn")

@@ -9,6 +9,8 @@ var are_you_sure : bool = false
 func _ready() -> void:
 	g.score = 0
 	g.killscore = 0
+	
+	%pause_button.pressed.connect(_on_pausebutton_pressed)
 
 func _process(_delta: float) -> void:
 	sp_budget_txt.text = str(
@@ -19,16 +21,7 @@ func _process(_delta: float) -> void:
 	%yLost.visible = g.game_state == g.game_states.Lost
 	
 	if Input.is_action_just_pressed("pause") and g.game_state == g.game_states.Combat:
-		get_tree().paused = not get_tree().paused
-		are_you_sure = false
-		
-		if get_tree().paused:
-			# pause
-			settings_menu._on_load_pressed()
-			%resume.grab_focus()
-		else:
-			# unpause
-			settings_menu._on_save_pressed()
+		_pause()
 	
 	%paused.visible = get_tree().paused and g.game_state == g.game_states.Combat
 	%sure.visible = are_you_sure
@@ -67,15 +60,17 @@ func _on_sure_pressed() -> void:
 	g.game_state = g.game_states.Title
 	settings_menu._on_save_pressed()
 
+func _on_pausebutton_pressed() -> void:
+	_pause()
 
-@onready var switch_acc_roll_button: Button = %switch_acc_roll
-
-func _on_switch_acc_roll_pressed() -> void:
-	g.switch_acc_roll = not g.switch_acc_roll
+func _pause() -> void:
+	get_tree().paused = not get_tree().paused
+	are_you_sure = false
 	
-	switch_acc_roll_button.text = str(
-		
-		"Switch Accelerate & Roll : \n",
-		g.switch_acc_roll
-		
-		)
+	if get_tree().paused:
+		# pause
+		settings_menu._on_load_pressed()
+		%resume.grab_focus()
+	else:
+		# unpause
+		settings_menu._on_save_pressed()

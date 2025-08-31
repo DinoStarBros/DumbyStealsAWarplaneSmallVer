@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djxndtog5nfd5"]
+[gd_scene load_steps=17 format=3 uid="uid://djxndtog5nfd5"]
 
 [ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/game/game.gd" id="1_u3itd"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_foa6o"]
@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/wave1.tres" id="4_slubn"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="5_ymunx"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_slubn"]
-[ext_resource type="AudioStream" uid="uid://c1oe5virn8qko" path="res://Audio/planemusic/TEKKEN 8 - FULL MIX - Victor Chevalier  Paris Seine Theme Song - 1st & Final Round Saxophone.mp3" id="8_slubn"]
+[ext_resource type="AudioStream" uid="uid://djpnk4x0gd6y" path="res://Audio/planemusic/DnB stuffs.wav" id="8_slubn"]
 
 [sub_resource type="Curve2D" id="Curve2D_gy565"]
 _data = {
@@ -29,6 +29,9 @@ size = Vector2(8282, 278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slubn"]
 size = Vector2(2960, 30.6666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjec7"]
+size = Vector2(10417, 5193)
 
 [sub_resource type="Curve2D" id="Curve2D_wy5cm"]
 _data = {
@@ -80,7 +83,7 @@ process_mode = 1
 one_shot = true
 
 [node name="wall_bounds" type="Node2D" parent="." groups=["Enemy"]]
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 
 [node name="l" type="StaticBody2D" parent="wall_bounds"]
 position = Vector2(-1611.67, 14)
@@ -475,6 +478,14 @@ collision_mask = 1024
 [node name="fhitbox" type="CollisionShape2D" parent="wall_bounds/FloorHitBox"]
 position = Vector2(0, -114.667)
 shape = SubResource("RectangleShape2D_slubn")
+
+[node name="CLA" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+
+[node name="room" type="CollisionShape2D" parent="CLA"]
+position = Vector2(-774.5, 58.5)
+shape = SubResource("RectangleShape2D_yjec7")
 
 [node name="projectile_container" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -1055,6 +1066,9 @@ unique_name_in_owner = true
 
 [node name="EnemyArrows" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-584, -23)
 
 [connection signal="timeout" from="dumby/enemy_spawner/spawnTimer" to="dumby/enemy_spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="airdef_spawner/adftimer" to="." method="_on_adftimer_timeout"]

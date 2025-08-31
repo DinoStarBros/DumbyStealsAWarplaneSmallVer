@@ -2,12 +2,13 @@ extends CanvasLayer
 class_name Abilities
 
 @onready var p : Dumby = get_parent() ## Reference to the Parent Node, Dumby
+@export var enable_abilities : bool = true
 
 func _ready() -> void:
-	pass
+	%abilities_row.visible = enable_abilities
 
 func _input(_event: InputEvent) -> void:
-	if g.game_state == g.game_states.Combat:
+	if g.game_state == g.game_states.Combat and enable_abilities:
 		if Input.is_action_just_pressed("Ability1"):
 			%as1.activate_ability()
 		elif Input.is_action_just_pressed("Ability2"):

@@ -15,64 +15,118 @@ layout_mode = 0
 offset_right = 644.0
 offset_bottom = 624.0
 
-[node name="volumes" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 15.0
-offset_right = 392.0
-offset_bottom = 152.0
-scale = Vector2(1.5, 1.5)
-alignment = 1
+[node name="Tabs" type="TabContainer" parent="PanelContainer"]
+layout_mode = 2
+current_tab = 1
 
-[node name="txt" type="Label" parent="volumes"]
+[node name="Audio" type="VBoxContainer" parent="PanelContainer/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="txt" type="Label" parent="PanelContainer/Tabs/Audio"]
 layout_mode = 2
 text = "Master"
 
-[node name="master_volume" type="HSlider" parent="volumes"]
+[node name="master_volume" type="HSlider" parent="PanelContainer/Tabs/Audio"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.5
-step = 0.001
+step = 0.15
+tick_count = 11
 
-[node name="txt2" type="Label" parent="volumes"]
+[node name="txt2" type="Label" parent="PanelContainer/Tabs/Audio"]
 layout_mode = 2
 text = "Music"
 
-[node name="music_volume" type="HSlider" parent="volumes"]
+[node name="music_volume" type="HSlider" parent="PanelContainer/Tabs/Audio"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.5
-step = 0.001
+step = 0.15
+tick_count = 11
 
-[node name="txt3" type="Label" parent="volumes"]
+[node name="txt3" type="Label" parent="PanelContainer/Tabs/Audio"]
 layout_mode = 2
 text = "SFX"
 
-[node name="sfx_vol" type="HSlider" parent="volumes"]
+[node name="sfx_vol" type="HSlider" parent="PanelContainer/Tabs/Audio"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.5
-step = 0.001
+step = 0.15
+tick_count = 11
 
-[node name="txt4" type="Label" parent="volumes"]
+[node name="Accessiblity" type="VBoxContainer" parent="PanelContainer/Tabs"]
 layout_mode = 2
-text = "
-Accessibility:
-Screen Shake:"
+alignment = 1
+metadata/_tab_index = 1
 
-[node name="screen_shake" type="Button" parent="volumes"]
+[node name="txt4" type="Label" parent="PanelContainer/Tabs/Accessiblity"]
+layout_mode = 2
+text = "Screen Shake:"
+
+[node name="screen_shake" type="Button" parent="PanelContainer/Tabs/Accessiblity"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "On"
 
-[node name="txt5" type="Label" parent="volumes"]
+[node name="txt5" type="Label" parent="PanelContainer/Tabs/Accessiblity"]
 layout_mode = 2
 text = "Frame Freeze:"
 
-[node name="frame_freeze" type="Button" parent="volumes"]
+[node name="frame_freeze" type="Button" parent="PanelContainer/Tabs/Accessiblity"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "On"
+
+[node name="switch_acc_roll" type="Button" parent="PanelContainer/Tabs/Accessiblity"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Switch Accelerate & Roll:
+false"
+
+[node name="txt6" type="Label" parent="PanelContainer/Tabs/Accessiblity"]
+layout_mode = 2
+text = "Translations:"
+
+[node name="translations" type="OptionButton" parent="PanelContainer/Tabs/Accessiblity"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Spanish"
+popup/item_1/id = 1
+popup/item_2/text = "Japanese"
+popup/item_2/id = 2
+
+[node name="Video" type="VBoxContainer" parent="PanelContainer/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="text" type="Label" parent="PanelContainer/Tabs/Video"]
+layout_mode = 2
+text = "Resolution:
+Shit don't work idk why :("
+
+[node name="resOptions" type="OptionButton" parent="PanelContainer/Tabs/Video"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Tabs/Video"]
+layout_mode = 2
+text = "GRAPHICS"
 
 [node name="buttons" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
@@ -103,30 +157,6 @@ Settings"
 layout_mode = 2
 text = "Back"
 
-[node name="resolutions" type="VBoxContainer" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 476.0
-offset_top = 15.0
-offset_right = 941.0
-offset_bottom = 73.0
-
-[node name="text" type="Label" parent="resolutions"]
-layout_mode = 2
-text = "Resolution:"
-
-[node name="resOptions" type="OptionButton" parent="resolutions"]
-unique_name_in_owner = true
-layout_mode = 2
-selected = 2
-item_count = 3
-popup/item_0/text = "1920x1080"
-popup/item_0/id = 0
-popup/item_1/text = "1600x900"
-popup/item_1/id = 1
-popup/item_2/text = "1280x720"
-popup/item_2/id = 2
-
 [node name="sfx" type="Node" parent="."]
 
 [node name="button_pressed" type="AudioStreamPlayer" parent="sfx"]
@@ -153,13 +183,13 @@ unique_name_in_owner = true
 stream = ExtResource("3_276ht")
 volume_db = -15.0
 
-[connection signal="value_changed" from="volumes/master_volume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="volumes/music_volume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="volumes/sfx_vol" to="." method="_on_sfx_vol_value_changed"]
-[connection signal="pressed" from="volumes/screen_shake" to="." method="_on_screen_shake_pressed"]
-[connection signal="pressed" from="volumes/frame_freeze" to="." method="_on_frame_freeze_pressed"]
+[connection signal="value_changed" from="PanelContainer/Tabs/Audio/master_volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="PanelContainer/Tabs/Audio/music_volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="PanelContainer/Tabs/Audio/sfx_vol" to="." method="_on_sfx_vol_value_changed"]
+[connection signal="pressed" from="PanelContainer/Tabs/Accessiblity/screen_shake" to="." method="_on_screen_shake_pressed"]
+[connection signal="pressed" from="PanelContainer/Tabs/Accessiblity/frame_freeze" to="." method="_on_frame_freeze_pressed"]
+[connection signal="item_selected" from="PanelContainer/Tabs/Video/resOptions" to="." method="_on_res_options_item_selected"]
 [connection signal="pressed" from="buttons/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="buttons/load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="buttons/reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="buttons/back" to="." method="_on_back_pressed"]
-[connection signal="item_selected" from="resolutions/resOptions" to="." method="_on_res_options_item_selected"]

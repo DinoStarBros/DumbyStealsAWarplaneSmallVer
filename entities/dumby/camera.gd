@@ -3,11 +3,13 @@ class_name PlrCamera
 
 @export var target : CharacterBody2D
 @export var sensitivity := .5
+@export var limit_camera : bool = true
 var target_position : Vector2
 
 func _ready() -> void:
 	g.cam = self
 	g.camRect = %camRect
+	%camLimArea.area_entered.connect(_on_camlim_area_entered)
 
 var shake_intensity: float = 0.0
 var active_shake_time:float = 0.0
@@ -58,3 +60,21 @@ func screen_shake(intensity: int, time: float) -> void: ## Shakes the camera wit
 		active_shake_time = time
 	
 	shake_time = 0.0
+
+func _on_camlim_area_entered(area: Area2D) -> void:
+	var room : CollisionShape2D = area.find_child("room")
+	var room_size : Vector2 = room.shape.size
+	
+	var negative_bounds : Vector2 = Vector2( ## Top Left of room
+		room.global_position.x - (room_size.x/2), room.global_position.y - (room_size.y/2)
+		)
+	var positive_bounds : Vector2 = Vector2( ## Bottom Right of room
+		room.global_position.x + (room_size.x/2), room.global_position.y + (room_size.y/2)
+	)
+	
+	if limit_camera:
+		limit_left = negative_bounds.x
+		limit_top = negative_bounds.y
+		
+		limit_right = positive_bounds.x
+		limit_bottom = positive_bounds.y

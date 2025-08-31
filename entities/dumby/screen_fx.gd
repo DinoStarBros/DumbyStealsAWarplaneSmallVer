@@ -6,6 +6,7 @@ var speed_lines : Array[Node2D]
 @onready var p : Dumby = get_parent() ## Reference to the Parent Node, Dumby
 @onready var plane_sprite: PlaneSprite = %PlaneSprite
 @onready var velocity_component: VelocityComponent = %VelocityComponent
+@onready var chromatic_aberration: Sprite2D = %chromaticAberration
 
 @export var max_frame : float = 6
 
@@ -15,7 +16,6 @@ func _ready() -> void:
 		# Adds all the speed lines into an array
 
 func _physics_process(_delta: float) -> void:
-	#var idx : int = _dir_matcher(%PlaneSprite.rotation_degrees)
 	var idx : int = _dir_matcher(velocity_component._get_velocity_angle_deg())
 	
 	%warning_symbol_floor.visible = g.floor_hitbox.global_position.y - 1500 < p.global_position.y
@@ -26,7 +26,6 @@ func _physics_process(_delta: float) -> void:
 	# Checks if the player (Dumby) speed (magnitude/length of the Velocity Vector) ff it's greater than 850
 	# Doing so activates SICK ANIME SPEED LINES (inspired by YOMI Hustle) for da JUICE!
 	speed_lines_parent.visible = p.velocity.length() > 850# and p.accelerating and p.accelerate_time > 1.2
-	
 
 func _dir_matcher(_rot : float) -> int:
 	var index :float

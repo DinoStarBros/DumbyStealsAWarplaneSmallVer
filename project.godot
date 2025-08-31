@@ -16,7 +16,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="DumbyStealsAWarplane"
-run/main_scene="uid://djxndtog5nfd5"
+run/main_scene="uid://crr8qeqq8wwdx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"
 config/icon="res://icon.svg"
@@ -33,7 +33,6 @@ AudioManager="*res://GlobalSingletons/AudioManager.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
@@ -67,8 +66,20 @@ folder_colors={
 "res://timer/": "pink"
 }
 
+[gui]
+
+theme/custom_font="uid://bh24dhq3cs3hh"
+
 [input]
 
+ui_accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194310,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 ui_left={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194319,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
@@ -175,6 +186,7 @@ down_stick={
 2d_physics/layer_1="Plr - Walls"
 2d_physics/layer_2="Plr Dmg - Enemy"
 2d_physics/layer_3="Ene Dmg - Player"
+2d_physics/layer_10="Camera Limit"
 2d_physics/layer_11="Floor Hitbox - Plr Floor Hurtbox"
 2d_physics/layer_12="Homing Detection"
 2d_physics/layer_13="EXP"
@@ -184,4 +196,4 @@ down_stick={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.0646961, 0.0646968, 0.0646961, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0.00392157, 1)

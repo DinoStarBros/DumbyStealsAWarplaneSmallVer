@@ -32,4 +32,4 @@ func _process(_delta:float)->void:
 		hp_bar.value = hp
 	
 	if hp_text:
-		hp_text.text = str(hp, "/", max_hp)
+		hp_text.text = str(roundi(hp), "/", roundi(max_hp))
