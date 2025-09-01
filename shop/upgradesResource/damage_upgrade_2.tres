@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageUpgrade" load_steps=2 format=3 uid="uid://dh67i0a1dj6s3"]
+
+[ext_resource type="Script" uid="uid://c5ea56ts45ds7" path="res://shop/upgrades/damage_upgrade.gd" id="1_exdob"]
+
+[resource]
+script = ExtResource("1_exdob")
+damage_buff = 0.6
+name = "BIG DAMAGE"
+description = "60% extra damage"
+flavor_text = "Beeg damage"
+buy_price = 0
+sell_price = 0
+metadata/_custom_type_script = "uid://c5ea56ts45ds7"

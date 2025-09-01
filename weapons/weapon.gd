@@ -5,10 +5,6 @@ class_name Weapon
 
 @onready var p : Dumby = owner
 
-signal Shoot
-signal Reload
-signal Quick_Reload
-
 var can_shoot : bool = true
 var cooldown : float = 0
 

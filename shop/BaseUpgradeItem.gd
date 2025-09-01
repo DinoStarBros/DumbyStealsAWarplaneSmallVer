@@ -8,5 +8,6 @@ class_name Upgrade
 @export var buy_price : int
 @export var sell_price : int
 
+var amount : int = 1 ## How many there are of the same upgrade
 func apply_player(player: Dumby) -> void:
 	pass

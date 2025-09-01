@@ -1350,6 +1350,13 @@ process_mode = 3
 layer = 5
 script = ExtResource("15_0uce1")
 
+[node name="upgrades" type="Label" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 18.0
+offset_top = 35.0
+offset_right = 58.0
+offset_bottom = 53.0
+
 [node name="yLost" type="Control" parent="GUI"]
 unique_name_in_owner = true
 layout_mode = 3

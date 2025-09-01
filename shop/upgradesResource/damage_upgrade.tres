@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_4k1i6")
-damage_buff = 0.2
+damage_buff = 0.3
 name = "Damage Up!"
-description = "Increase base damage by 20%"
+description = "Increase base damage by 30%"
 flavor_text = "*Bloomy flavor text here*"
 buy_price = 10
 sell_price = 5

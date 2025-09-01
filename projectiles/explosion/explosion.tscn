@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b41x6404vpt5l"]
+[gd_scene load_steps=12 format=3 uid="uid://b41x6404vpt5l"]
 
 [ext_resource type="Script" uid="uid://n20om5nsigfl" path="res://projectiles/explosion/explosion.gd" id="1_dlq7l"]
 [ext_resource type="AudioStream" uid="uid://hbjph6hq0fu3" path="res://Audio/jetslash sfx/SFX/Roblox Explosion Sound Effect.wav" id="2_6vdkd"]
@@ -72,6 +72,14 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_41h45"]
 radius = 134.612
 
+[sub_resource type="Curve" id="Curve_665e6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_665e6"]
+offsets = PackedFloat32Array(0, 0.145729, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.279434, 0.0473854, 1, 1, 0.783203, 0.132813, 1)
+
 [node name="explosion" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_dlq7l")
@@ -105,15 +113,18 @@ frame = 1
 
 [node name="explodicles" type="CPUParticles2D" parent="."]
 amount = 20
-explosiveness = 0.9
+explosiveness = 1.0
 emission_shape = 1
 emission_sphere_radius = 31.12
 spread = 180.0
-gravity = Vector2(0, 0)
 initial_velocity_min = 800.0
 initial_velocity_max = 1000.0
-scale_amount_min = 10.0
-scale_amount_max = 12.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_665e6")
+color_ramp = SubResource("Gradient_665e6")
 
 [node name="explosion_particle" parent="." instance=ExtResource("5_665e6")]
 position = Vector2(-70.5, -44)

@@ -27,11 +27,12 @@ func _on_skip_pressed() -> void:
 
 func _on_reroll_pressed() -> void:
 	if p.allow_upgrade_end:
-		pass
+		reroll()
 
 func _on_select_pressed() -> void:
 	if p.allow_upgrade_end:
-		buy()
+		if upgrade_selected:
+			buy()
 
 func _on_wave_end() -> void:
 	%select.grab_focus()
@@ -53,9 +54,12 @@ func _process(delta: float) -> void:
 		%upgradeDesc.text = str(
 			upgrade_selected.upgrade.flavor_text
 		)
-		%upgradeDesc.visible = true
+		#%upgradeDesc.visible = true
 	else:
-		%upgradeDesc.visible = false
+		#%upgradeDesc.visible = false
+		%upgradeDesc.text = (
+			"Pick an upgrade"
+		)
 	
 	var sh_desired_pos : Vector2
 	if upgrade_selected:
@@ -74,5 +78,45 @@ func assign_upgrade_slot(slot: UpgradeItemSlot, ndex: int) -> void:
 	slot.update_visuals()
 
 func buy() -> void:
-	upgrade_selected.upgrade.apply_player(player)
+	var upgrade : Upgrade = upgrade_selected.upgrade
+	
+	upgrade.apply_player(player)
+	player.upgrades.append(upgrade)
+	player.upgrade_names.append(upgrade.name)
 	GlobalSignals.Upgrade_End.emit()
+	
+	possible_upgrades.remove_at(possible_upgrades.find(upgrade))
+
+const reroll_time : float = 0.5
+func reroll() -> void:
+	
+	upgrade_selected = null
+	
+	_create_property_gpos_tween(
+		%upgradeItemSlots, Vector2(0, 1000), reroll_time
+		)
+	await get_tree().create_timer(reroll_time).timeout
+	_on_wave_end()
+	
+	_create_property_gpos_tween(
+		%upgradeItemSlots, Vector2(0, 55), reroll_time
+	)
+
+var tween : Tween
+var property_tween : Object
+var tween_ease : Object
+func _create_property_gpos_tween(
+	node:Node,
+	global_pos:Vector2, 
+	time:float=1.0,
+	set_ease:Tween.EaseType=Tween.EASE_IN_OUT, 
+	set_trans:Tween.TransitionType=Tween.TRANS_SPRING
+	) -> void:
+	
+	if tween:
+		tween.kill()
+	
+	tween = create_tween()
+	property_tween = tween.tween_property(node, "position", global_pos, time)
+	tween_ease = property_tween.set_ease(set_ease)
+	tween_ease.set_trans(set_trans)

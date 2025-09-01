@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 func shooting_handling(delta:float) -> void:
 	if Input.is_action_pressed("shoot") and can_shoot:
-		Shoot.emit()
+		p.Shoot.emit()
 		
 		cooldown = stats.shoot_cooldown
 		can_shoot = false

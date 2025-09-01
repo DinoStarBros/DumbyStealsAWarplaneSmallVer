@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MissileUpgrade" load_steps=2 format=3 uid="uid://drlclv82lkl7h"]
+
+[ext_resource type="Script" uid="uid://hw40gdybc1cc" path="res://shop/upgrades/homingRocket_upgrade.gd" id="1_0kfb3"]
+
+[resource]
+script = ExtResource("1_0kfb3")
+chance_rocket = 0.2
+name = "Homing Rocket Shooter"
+description = "20% chance to shoot a homing rocket per shot"
+flavor_text = "Where's everyone going, Fortnite?!"
+buy_price = 0
+sell_price = 0
+metadata/_custom_type_script = "uid://hw40gdybc1cc"

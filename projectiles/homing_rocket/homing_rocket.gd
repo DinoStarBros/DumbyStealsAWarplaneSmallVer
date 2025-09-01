@@ -105,10 +105,11 @@ func new_homing_handle(delta: float) -> void: ## The new homing, gradually rotat
 	look_at(global_position + (current_velocity.normalized()))
 	velocity = current_velocity
 
+var explosion_dmg : int = 5
 const explosion_scn : PackedScene = preload("res://projectiles/explosion/explosion.tscn")
 func spawn_explosion() -> void:
 	var explosion : CharacterBody2D = explosion_scn.instantiate()
 	g.game.add_child(explosion)
-	explosion.dmg = 5
+	explosion.dmg = explosion_dmg
 	explosion.global_position = global_position
 	explosion.scale *= 0.6

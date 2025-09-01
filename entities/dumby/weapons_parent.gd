@@ -14,8 +14,6 @@ var weapons : Array
 @onready var min_ss_vis: ProgressBar = %min_ss_vis
 @onready var p : Dumby = get_parent() ## Reference to the Parent Node, Dumby
 
-signal Tactical_Reload
-
 func _ready() -> void:
 	ammo_text = ammo_bar.get_child(0)
 	for weapon in get_children():
@@ -126,11 +124,12 @@ func heal()->void:
 		g.spawn_txt("+1 HP!", global_position)
 
 func finished_reload() -> void:
+	p.Reload.emit()
 	current_weapon.reloading = false
 	current_weapon.ammo = current_weapon.stats.max_ammo
 
 func tactical_reload() -> void:
-	Tactical_Reload.emit()
+	p.Quick_Reload.emit()
 	%tactical_reload_fx.rotation_degrees = randf_range(-180, 180)
 	%shing.pitch_scale = randf_range(0.8, 1.2)
 	%shing.play()

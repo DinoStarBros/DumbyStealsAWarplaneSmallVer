@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_nq7kv")
+hp_increase = 5
 name = "HP up!"
-description = "More hp"
+description = "Hp +5"
 flavor_text = "*Bloomy flavor text here*"
 buy_price = 10
 sell_price = 5

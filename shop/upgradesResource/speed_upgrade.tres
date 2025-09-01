@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_svfap")
+speed_upgrade = 400.0
 name = "Speed Up!"
-description = "Increase speed by 250."
+description = "Increase speed by 400."
 flavor_text = "*Bloomy flavor text here*"
 buy_price = 10
 sell_price = 5

@@ -4,6 +4,7 @@ var pos_to_look : Vector2
 
 func _ready() -> void:
 	look_at(pos_to_look)
+	%duration.start(lifetime)
 
 func _physics_process(_delta:float)->void:
 	move_and_slide()

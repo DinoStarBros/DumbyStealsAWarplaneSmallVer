@@ -66,10 +66,13 @@ func _on_sure_pressed() -> void:
 	settings_menu._on_save_pressed()
 
 func _on_pausebutton_pressed() -> void:
-	if g.game_state == g.game_states.Combat:
-		_pause()
+	_pause()
 
 func _pause() -> void:
+	if not g.game_state == g.game_states.Combat:
+		return
+	
+	
 	get_tree().paused = not get_tree().paused
 	are_you_sure = false
 	

@@ -9,19 +9,24 @@ var attack : Attack = Attack.new()
 var position_sensitive_rect : Rect2
 var aim_position : Vector2
 var dir_plane : Vector2
+var upgrades : Array[Upgrade]
+var upgrade_names : Array 
 
 @onready var health_component: HealthComponent = %HealthComponent
 #@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
 
-
-
 func _ready() -> void:
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
+	for upgrade in upgrades:
+		
+		upgrade.apply_player(self)
+		upgrade_names.append(upgrades)
 
 func _physics_process(delta: float) -> void:
+	%upgrades.text = str(upgrade_names)
 	# Handling functions
 	roll_handling(delta)
 	_left_joystick_handle()
@@ -123,6 +128,7 @@ var roll_time : float = 0 ## The amount of time that has passed since the start 
 var roll_cd_time : float = 0
 func roll_handling(delta: float) -> void:
 	if roll_cd_time <= 0 and not rolling:
+		Roll.emit()
 		if g.switch_acc_roll:
 			if Input.is_action_just_pressed("accelerate"):
 				_roll()
@@ -172,3 +178,28 @@ func _left_joystick_handle() -> void:
 
 ### General Stats And Stuff ###
 var percent_damage_buff : float = 0
+
+
+### Signals for player actions ###
+signal Shoot
+signal Reload
+signal Quick_Reload
+signal Roll
+
+func _init() -> void:
+	Shoot.connect(_on_shoot)
+	Reload.connect(_on_reload)
+	Quick_Reload.connect(_on_quick_reload)
+	Roll.connect(_on_roll)
+
+func _on_shoot() -> void:
+	pass
+
+func _on_reload() -> void:
+	pass
+
+func _on_quick_reload() -> void:
+	pass
+
+func _on_roll() -> void:
+	pass
