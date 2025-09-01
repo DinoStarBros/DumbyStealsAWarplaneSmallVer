@@ -333,8 +333,6 @@ script = ExtResource("1_b7csh")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("8_vc8fo")]
 unique_name_in_owner = true
-accelerate_speed = 900
-drag_factor = 3.0
 trail_particles = NodePath("../Plane/trailparticle")
 
 [node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("9_b36b3")]

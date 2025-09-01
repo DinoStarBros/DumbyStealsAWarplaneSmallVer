@@ -73,8 +73,8 @@ func _on_camlim_area_entered(area: Area2D) -> void:
 	)
 	
 	if limit_camera:
-		limit_left = negative_bounds.x
-		limit_top = negative_bounds.y
+		limit_left = int(negative_bounds.x)
+		limit_top = int(negative_bounds.y)
 		
-		limit_right = positive_bounds.x
-		limit_bottom = positive_bounds.y
+		limit_right = int(positive_bounds.x)
+		limit_bottom = int(positive_bounds.y)

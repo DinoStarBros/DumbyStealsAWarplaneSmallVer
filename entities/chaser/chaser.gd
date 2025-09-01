@@ -12,7 +12,7 @@ func _ready() -> void:
 	_on_target_deviat_timer_timeout()
 	%HitboxComponent.set_attack_properties(1)
 	
-	velocity_component.accelerate_speed += randf_range(-10, 10)
+	velocity_component.max_speed += randf_range(-10, 10)
 
 var target_deviation : Vector2
 var direction : Vector2
@@ -22,7 +22,7 @@ func _physics_process(delta : float) -> void:
 	target = g.player
 	
 	dist_to_targ = global_position.distance_to(target.global_position)
-	if dist_to_targ >= tdev_range + (tdev_range/5):
+	if dist_to_targ >= tdev_range + (tdev_range/5.0):
 		target_position = target.global_position + target_deviation
 		dir_to_targ = ((target_position) - global_position).normalized()
 	else:
@@ -37,7 +37,7 @@ func _physics_process(delta : float) -> void:
 	direction = rotation_component.direction
 	velocity_component.other_velocity_handle(delta, direction, accelerating)
 
-const tdev_range : = 500
+const tdev_range : float = 500
 func _on_target_deviat_timer_timeout() -> void:
 	target_deviation.x = randf_range(-tdev_range,tdev_range)
 	target_deviation.y = randf_range(-tdev_range,tdev_range)

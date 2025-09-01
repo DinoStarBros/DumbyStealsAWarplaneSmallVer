@@ -1,14 +1,17 @@
 extends CanvasLayer
-class_name WaveUpgrade
+class_name WaveUpgradeUI
 # The script for handling shop upgrades in between waves
 
 var allow_upgrade_end : bool = false
 
 @onready var shop : Shop = %shop
+@onready var player : Dumby = get_parent()
 
 func _ready() -> void:
 	GlobalSignals.Wave_End.connect(_on_wave_end)
 	GlobalSignals.Upgrade_End.connect(_on_upgrade_end)
+	
+	%shop.player = player
 
 func _on_wave_end() -> void: # End of wave, start upgrade
 	_create_property_gpos_tween(shop, Vector2(130, 73), 0.7)

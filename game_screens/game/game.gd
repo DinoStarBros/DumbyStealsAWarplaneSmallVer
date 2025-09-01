@@ -22,6 +22,8 @@ func _ready() -> void:
 	g.floor_hitbox = %FloorHitBox
 	g.enemy_arrows = %EnemyArrows
 	
+	g.wave = 1
+	
 	for n in cloud_amnt:
 		%cloud_pos.global_position.y = randf_range(down_bound,up_bound)
 		%cloud_pos.global_position.x = randf_range(left_bound,right_bound)

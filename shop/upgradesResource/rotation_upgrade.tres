@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RotationSpeedUpgrade" load_steps=2 format=3 uid="uid://c56bs0l8lt3rg"]
+
+[ext_resource type="Script" uid="uid://ugqtlixmvgvu" path="res://shop/upgrades/rotation_upgrade.gd" id="1_cw363"]
+
+[resource]
+script = ExtResource("1_cw363")
+name = "Rotation Speed Up!"
+description = "Spin to win"
+flavor_text = "*Bloomy flavor text here*"
+buy_price = 10
+sell_price = 5
+metadata/_custom_type_script = "uid://ugqtlixmvgvu"

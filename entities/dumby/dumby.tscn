@@ -1,7 +1,8 @@
-[gd_scene load_steps=102 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=104 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
+[ext_resource type="Script" uid="uid://bkwaqn13dw61c" path="res://entities/dumby/upgrade_handler.gd" id="2_hr56j"]
 [ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="3_pin7m"]
 [ext_resource type="Texture2D" uid="uid://bioqj7i0sc7na" path="res://Art/planestuff/dumbplane_sprites/plane1.png" id="4_12q0g"]
 [ext_resource type="Texture2D" uid="uid://lbyik5wofkif" path="res://Art/planestuff/dumbplane_sprites/plane2.png" id="5_baqsm"]
@@ -44,7 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://uqxv3w86ie7g" path="res://abilities/ability_slot/ability_slot.tscn" id="32_lhj8b"]
 [ext_resource type="Script" uid="uid://b1ru8hk4kxiyh" path="res://entities/dumby/lvlxpupg.gd" id="37_3gqex"]
 [ext_resource type="Script" uid="uid://b3n1upwnl8fig" path="res://entities/dumby/evade_box.gd" id="39_pctjt"]
-[ext_resource type="PackedScene" uid="uid://8cpsr0yikoab" path="res://Art/weapons/burstRifle/burstRifle.tscn" id="42_2j3yl"]
+[ext_resource type="PackedScene" uid="uid://hekqvagsvs2e" path="res://weapons/rapid/rapid.tscn" id="42_2j3yl"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="43_12dy5"]
 [ext_resource type="Texture2D" uid="uid://ckbwiveamjqtm" path="res://Art/planestuff/warning_symbol_frames/warning_symbol1.png" id="43_rf63a"]
 [ext_resource type="Texture2D" uid="uid://i48mxj3fa6bt" path="res://Art/planestuff/warning_symbol_frames/warning_symbol2.png" id="44_0lm2f"]
@@ -672,6 +673,11 @@ font_size = 25
 font_color = Color(0, 0, 0, 1)
 outline_size = 12
 
+[sub_resource type="LabelSettings" id="LabelSettings_jrsuo"]
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+
 [sub_resource type="Animation" id="Animation_hu6rb"]
 length = 0.001
 tracks/0/type = "value"
@@ -1016,6 +1022,9 @@ collision_mask = 4097
 script = ExtResource("1_2ba6e")
 metadata/_edit_horizontal_guides_ = [-891.0]
 
+[node name="upgrade_handler" type="Node2D" parent="."]
+script = ExtResource("2_hr56j")
+
 [node name="warning_symbol_floor" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-616, 297)
@@ -1073,12 +1082,10 @@ hp_text = NodePath("../bars/hpbar/Label")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("43_12dy5")]
 unique_name_in_owner = true
-drag_factor = 3.0
 trail_particles = NodePath("../PlaneSprite/trailparticle")
 
 [node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("5_dufc2")]
 unique_name_in_owner = true
-turn_speed = 5.0
 thing_to_rotate = NodePath("../PlaneSprite")
 
 [node name="evade_box" type="Area2D" parent="."]
@@ -1506,6 +1513,18 @@ unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="wave_no" type="Label" parent="GUI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Wave: 1"
+label_settings = SubResource("LabelSettings_jrsuo")
+
 [node name="weapons_parent" type="Node2D" parent="." node_paths=PackedStringArray("dumby", "ammo_bar")]
 unique_name_in_owner = true
 script = ExtResource("19_ufwy4")
@@ -1555,14 +1574,13 @@ libraries = {
 }
 speed_scale = 2.0
 
-[node name="burstRifle" parent="weapons_parent" instance=ExtResource("42_2j3yl")]
+[node name="rapid" parent="weapons_parent" instance=ExtResource("42_2j3yl")]
 
 [node name="bars" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(1.2, 1.2)
 
 [node name="ammo" type="ProgressBar" parent="bars"]
 layout_mode = 0
@@ -1729,7 +1747,6 @@ texture = ExtResource("51_l2c7h")
 [node name="Abilities" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 script = ExtResource("31_5senk")
-enable_abilities = false
 
 [node name="abilities_row" type="HBoxContainer" parent="Abilities"]
 unique_name_in_owner = true
@@ -1763,6 +1780,8 @@ layout_mode = 2
 [node name="as3" parent="Abilities/abilities_row" instance=ExtResource("32_lhj8b")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="homing_rockets" parent="Abilities/abilities_row/as3" instance=ExtResource("32_gq83w")]
 
 [node name="WaveUpg" type="CanvasLayer" parent="."]
 process_mode = 3

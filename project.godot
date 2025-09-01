@@ -16,7 +16,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="DumbyStealsAWarplane"
-run/main_scene="uid://crr8qeqq8wwdx"
+run/main_scene="uid://djxndtog5nfd5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"
 config/icon="res://icon.svg"
@@ -27,7 +27,13 @@ g="*res://GlobalSingletons/global.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 GlobalSignals="*res://GlobalSingletons/GlobalSignals.gd"
 SaveLoad="*res://saveSystem/SaveLoad.gd"
-AudioManager="*res://GlobalSingletons/AudioManager.tscn"
+AudioManager="*res://GlobalSingletons/audioManagerGlobals/AudioManager.tscn"
+References="*res://GlobalSingletons/References.gd"
+
+[debug]
+
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/unused_signal=0
 
 [display]
 

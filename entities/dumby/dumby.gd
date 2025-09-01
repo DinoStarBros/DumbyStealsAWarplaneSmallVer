@@ -15,6 +15,8 @@ var dir_plane : Vector2
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
 
+
+
 func _ready() -> void:
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
@@ -167,3 +169,6 @@ func _left_joystick_handle() -> void:
 		#controller_joypad_vector = controller_joypad_vector.lerp(left_joystick_vector, 1.0 - exp(-10 * get_physics_process_delta_time()))
 		controller_joypad_vector = left_joystick_vector
 	left_joystick_length = controller_joypad_vector.length()
+
+### General Stats And Stuff ###
+var percent_damage_buff : float = 0

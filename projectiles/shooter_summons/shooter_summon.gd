@@ -23,7 +23,7 @@ func _ready() -> void:
 	%lifeTimer.timeout.connect(_on_lifetimer_timeout)
 	
 	#rand_deg_dir = deg_to_rad(randf_range(-180, 180))
-	rand_deg_dir = deg_to_rad((360 / max_summon_amount) * summon_index)
+	rand_deg_dir = deg_to_rad((360 / float(max_summon_amount)) * summon_index)
 	
 	rand_dir.x = cos(rand_deg_dir)
 	rand_dir.y = sin(rand_deg_dir)
@@ -64,8 +64,9 @@ func _physics_process(delta: float) -> void:
 
 var target : CharacterBody2D
 
-var bullet_scn : PackedScene = preload("res://projectiles/plr_bullet/bullet.tscn")
+var bullet_scn : PackedScene = preload(References.projectile_scns["bullet"])
 func spawn_bullet() -> void:
+	
 	%shoot1.pitch_scale = randf_range(1.2, 1.4)
 	%shoot1.play()
 	

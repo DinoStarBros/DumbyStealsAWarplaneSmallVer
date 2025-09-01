@@ -57,3 +57,5 @@ func _process(_delta: float) -> void:
 
 func _on_upgrade_end() -> void:
 	wave_start()
+	
+	g.wave += 1

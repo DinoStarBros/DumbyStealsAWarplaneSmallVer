@@ -18,7 +18,7 @@ func activate_ability() -> void:
 	for n in amount:
 		spawn_shooter(n)
 
-const shooter_scn : PackedScene = preload("res://projectiles/shooter_summons/shooter_summon.tscn")
+const shooter_scn : PackedScene = preload(References.summon_scns["shooter_summon"])
 func spawn_shooter(ndex : int) -> void:
 	var shooter : ShooterSummon = shooter_scn.instantiate()
 	

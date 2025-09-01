@@ -20,9 +20,10 @@ func activate_ability() -> void:
 	
 	%rocketDelaytimer.start(delay)
 
-const rocket_scn : PackedScene = preload("res://projectiles/homing_rocket/homing_rocket.tscn")
+const rocket_scn : PackedScene = preload(References.projectile_scns["homing_rocket"])
 func spawn_rocket() -> void:
 	if p.health_component.hp >= 1:
+	
 		var rocket : Homing_Rocket = rocket_scn.instantiate()
 		
 		setting_rocket_parameters(rocket)
@@ -44,7 +45,7 @@ func setting_rocket_parameters(rocket: Homing_Rocket) -> void:
 var current_rocket_amnt : int
 func _on_rocketdelay_timeout() -> void:
 	
-	trig_deg = (360/rocket_amount) * current_rocket_amnt
+	trig_deg = (360/float(rocket_amount)) * current_rocket_amnt
 	trig_vector.x = cos(deg_to_rad(trig_deg))
 	trig_vector.y = sin(deg_to_rad(trig_deg))
 	

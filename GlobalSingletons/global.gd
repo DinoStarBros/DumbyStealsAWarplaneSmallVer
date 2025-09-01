@@ -18,6 +18,8 @@ var next_lvl_xp : int = 20
 var level : int = 1
 var mobile : bool = false
 
+var wave : int
+
 enum game_states {
 	Title, Combat, Lost, Upgrade
 }

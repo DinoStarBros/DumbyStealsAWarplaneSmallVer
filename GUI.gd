@@ -11,6 +11,11 @@ func _ready() -> void:
 	g.killscore = 0
 	
 	%pause_button.pressed.connect(_on_pausebutton_pressed)
+	
+	GlobalSignals.Wave_End.connect(_on_wave_end)
+	
+	await get_tree().create_timer(0).timeout
+	_on_wave_end()
 
 func _process(_delta: float) -> void:
 	sp_budget_txt.text = str(
@@ -20,7 +25,7 @@ func _process(_delta: float) -> void:
 	%joystick.visible = g.mobile
 	%yLost.visible = g.game_state == g.game_states.Lost
 	
-	if Input.is_action_just_pressed("pause") and g.game_state == g.game_states.Combat:
+	if Input.is_action_just_pressed("pause"):
 		_pause()
 	
 	%paused.visible = get_tree().paused and g.game_state == g.game_states.Combat
@@ -61,7 +66,8 @@ func _on_sure_pressed() -> void:
 	settings_menu._on_save_pressed()
 
 func _on_pausebutton_pressed() -> void:
-	_pause()
+	if g.game_state == g.game_states.Combat:
+		_pause()
 
 func _pause() -> void:
 	get_tree().paused = not get_tree().paused
@@ -74,3 +80,6 @@ func _pause() -> void:
 	else:
 		# unpause
 		settings_menu._on_save_pressed()
+
+func _on_wave_end() -> void:
+	%wave_no.text = str("Wave : ", g.wave)

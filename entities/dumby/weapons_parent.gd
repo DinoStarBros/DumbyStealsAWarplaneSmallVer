@@ -24,6 +24,7 @@ func _ready() -> void:
 			current_weapon = weapon
 
 func _process(delta: float) -> void:
+	
 	look_at(p.dir_plane + global_position)
 	regen_bar.visible = not Input.is_action_pressed("shoot") and health_component.hp < health_component.max_hp and not current_weapon.reloading
 	ammo_handling(delta)
@@ -43,10 +44,10 @@ func _process(delta: float) -> void:
 ### Below is stuff for ammo counts and reloading ###
 var reload_time : float = 0 ## The amount of time that has passed since the start of the reload
 func ammo_handling(delta: float) -> void:
-	ammo_bar.max_value = current_weapon.max_ammo
+	ammo_bar.max_value = current_weapon.stats.max_ammo
 	ammo_bar.value = current_weapon.ammo
 	
-	ammo_text.text = str(current_weapon.ammo, " / ", current_weapon.max_ammo)
+	ammo_text.text = str(current_weapon.ammo, " / ", current_weapon.stats.max_ammo)
 	
 	ammo_bar.visible = current_weapon.ammo > 0
 	
@@ -60,20 +61,20 @@ func ammo_handling(delta: float) -> void:
 			
 			current_weapon.r_tact_pressed = false
 			reload_time = 0
-			reload_bar.max_value = current_weapon.max_reload_duration
+			reload_bar.max_value = current_weapon.stats.max_reload_duration
 			current_weapon.reloading = true
 			
-			max_ss_vis.max_value = current_weapon.max_reload_duration
-			min_ss_vis.max_value = current_weapon.max_reload_duration
+			max_ss_vis.max_value = current_weapon.stats.max_reload_duration
+			min_ss_vis.max_value = current_weapon.stats.max_reload_duration
 			
-			max_ss_vis.value = current_weapon.max_sweet_spot - 0.05
-			min_ss_vis.value = current_weapon.min_sweet_spot
+			max_ss_vis.value = current_weapon.stats.max_sweet_spot - 0.05
+			min_ss_vis.value = current_weapon.stats.min_sweet_spot
 	
 	if current_weapon.reloading:
 		reload_time += delta
 		reload_bar.value = reload_time
 		
-		if reload_time >= current_weapon.max_reload_duration: 
+		if reload_time >= current_weapon.stats.max_reload_duration: 
 			# Finished reloading
 			finished_reload()
 			current_weapon.buff_time = 0
@@ -81,7 +82,7 @@ func ammo_handling(delta: float) -> void:
 		if Input.is_action_just_pressed("shoot") and not current_weapon.r_tact_pressed:
 			# Handling of tactical reloading
 			current_weapon.r_tact_pressed = true
-			if reload_time > current_weapon.min_sweet_spot and reload_time < current_weapon.max_sweet_spot:
+			if reload_time > current_weapon.stats.min_sweet_spot and reload_time < current_weapon.stats.max_sweet_spot:
 				g.spawn_txt("Quick Reload", global_position)
 				tactical_reload()
 			else:
@@ -97,8 +98,8 @@ func ammo_handling(delta: float) -> void:
 ### Below is all the stuff for regen ###
 var regen_time : float = 0
 var max_regen_time : float = 1
-var regen_speed : float = 2
-var regen_speed_limit : float = 1
+var regen_speed : float = .5
+var regen_speed_limit : float = .6
 # Goofy lmbda function stuff
 var regen_handling : Callable = func(delta:float) -> void:
 	if health_component.hp < health_component.max_hp:
@@ -126,7 +127,7 @@ func heal()->void:
 
 func finished_reload() -> void:
 	current_weapon.reloading = false
-	current_weapon.ammo = current_weapon.max_ammo
+	current_weapon.ammo = current_weapon.stats.max_ammo
 
 func tactical_reload() -> void:
 	Tactical_Reload.emit()
@@ -134,7 +135,7 @@ func tactical_reload() -> void:
 	%shing.pitch_scale = randf_range(0.8, 1.2)
 	%shing.play()
 	%tactical_reloadnim.play("zing")
-	current_weapon.buff_time = current_weapon.max_buff_time
+	current_weapon.buff_time = current_weapon.stats.max_buff_time
 	finished_reload()
 
 func _on_evade_box_perfect_roll() -> void:
@@ -143,4 +144,4 @@ func _on_evade_box_perfect_roll() -> void:
 	%shing.pitch_scale = randf_range(0.8, 1.2)
 	%shing.play()
 	%tactical_reloadnim.play("zing")
-	current_weapon.buff_time = current_weapon.max_buff_time
+	current_weapon.buff_time = current_weapon.stats.max_buff_time

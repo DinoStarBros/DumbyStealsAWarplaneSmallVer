@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhygjgvm7og03"]
 
-[ext_resource type="Script" uid="uid://cceo8h6s8n121" path="res://Art/weapons/shotgun/shotgun.gd" id="1_0kfn4"]
+[ext_resource type="Script" uid="uid://cceo8h6s8n121" path="res://weapons/shotgun/shotgun.gd" id="1_0kfn4"]
 [ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="2_apfrx"]
 [ext_resource type="Resource" uid="uid://b3tp2kent410x" path="res://resources/weapon_stats/ShotgunStats.tres" id="2_ggjqm"]
 [ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="3_ggjqm"]
