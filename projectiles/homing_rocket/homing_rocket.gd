@@ -106,7 +106,7 @@ func new_homing_handle(delta: float) -> void: ## The new homing, gradually rotat
 	velocity = current_velocity
 
 var explosion_dmg : int = 5
-const explosion_scn : PackedScene = preload("res://projectiles/explosion/explosion.tscn")
+const explosion_scn : PackedScene = preload(References.projectile_scns["explosion"])
 func spawn_explosion() -> void:
 	var explosion : CharacterBody2D = explosion_scn.instantiate()
 	g.game.add_child(explosion)

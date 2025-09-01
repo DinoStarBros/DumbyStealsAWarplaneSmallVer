@@ -13,8 +13,6 @@ func apply_player(player: Dumby) -> void:
 
 func _on_shoot() -> void:
 	
-	
-	
 	if randf() < chance_rocket:
 		var rocket : Homing_Rocket = rocket_scn.instantiate()
 		

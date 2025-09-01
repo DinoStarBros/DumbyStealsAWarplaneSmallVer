@@ -10,5 +10,6 @@ func apply_player(player: Dumby) -> void:
 	p = player
 
 func _on_shoot() -> void:
+	
 	if randf() < 0.2:
-		print("LIGHTNING")
+		pass
