@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_513ff")
+chance_lightning = 0.1
 name = "Lightning"
-description = "20% chance to strike lightning when shooting."
+description = "10% chance to strike lightning when shooting."
 flavor_text = "*Bloomy flavor text here*"
 buy_price = 10
 sell_price = 5

@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_0kfb3")
-chance_rocket = 0.2
+chance_rocket = 0.1
 name = "Homing Rocket Shooter"
-description = "20% chance to shoot a homing rocket per shot"
+description = "10% chance to shoot a homing rocket per shot"
 flavor_text = "Where's everyone going, Fortnite?!"
 buy_price = 0
 sell_price = 0
