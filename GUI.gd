@@ -72,7 +72,6 @@ func _pause() -> void:
 	if not g.game_state == g.game_states.Combat:
 		return
 	
-	
 	get_tree().paused = not get_tree().paused
 	are_you_sure = false
 	
