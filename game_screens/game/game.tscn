@@ -75,7 +75,7 @@ metadata/_edit_lock_ = true
 [node name="enemy_spawn_pos" type="PathFollow2D" parent="dumby/enemy_spawner"]
 unique_name_in_owner = true
 position = Vector2(-649, -382)
-rotation = 1.59492
+rotation = 1.594917
 
 [node name="spawnTimer" type="Timer" parent="dumby/enemy_spawner"]
 unique_name_in_owner = true
@@ -609,7 +609,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_ymunx")
 
 [node name="4stars4" type="Node2D" parent="starsparent/stars1"]
-position = Vector2(4.17285e+08, 48)
+position = Vector2(417285000, 48)
 
 [node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars4"]
 scale = Vector2(2, 2)
@@ -745,7 +745,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_ymunx")
 
 [node name="4stars4" type="Node2D" parent="starsparent/stars4"]
-position = Vector2(4.17285e+08, 48)
+position = Vector2(417285000, 48)
 
 [node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars4"]
 scale = Vector2(2, 2)
@@ -881,7 +881,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_ymunx")
 
 [node name="4stars4" type="Node2D" parent="starsparent/stars2"]
-position = Vector2(4.17285e+08, 48)
+position = Vector2(417285000, 48)
 
 [node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars4"]
 scale = Vector2(2, 2)
@@ -1017,7 +1017,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_ymunx")
 
 [node name="4stars4" type="Node2D" parent="starsparent/stars3"]
-position = Vector2(4.17285e+08, 48)
+position = Vector2(417285000, 48)
 
 [node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars4"]
 scale = Vector2(2, 2)
@@ -1052,7 +1052,7 @@ curve = SubResource("Curve2D_wy5cm")
 [node name="adspos" type="PathFollow2D" parent="airdef_spawner"]
 unique_name_in_owner = true
 position = Vector2(-11542, 3364)
-rotation = 0.00551719
+rotation = 0.0055171857
 
 [node name="adftimer" type="Timer" parent="airdef_spawner"]
 unique_name_in_owner = true
@@ -1066,9 +1066,6 @@ unique_name_in_owner = true
 
 [node name="EnemyArrows" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-584, -23)
 
 [connection signal="timeout" from="dumby/enemy_spawner/spawnTimer" to="dumby/enemy_spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="airdef_spawner/adftimer" to="." method="_on_adftimer_timeout"]

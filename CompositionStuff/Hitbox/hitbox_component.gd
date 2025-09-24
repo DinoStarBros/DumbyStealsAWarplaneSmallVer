@@ -26,7 +26,7 @@ func _on_area_entered(area : Area2D) -> void:
 			
 			attack.attack_damage = dmg
 			
-			%enemy_hit.pitch_scale = 0.5 + randf_range(-.1,.1)
+			%enemy_hit.pitch_scale = 1 + randf_range(-.1,.1)
 			%enemy_hit.play()
 			
 			%enemy_hit2.pitch_scale = randf_range(0.8,1.3)

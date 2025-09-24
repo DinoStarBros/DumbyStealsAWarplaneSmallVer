@@ -20,8 +20,14 @@ var shake_time: float = 0.0
 var shake_time_speed: float = 20.0
 
 var noise : FastNoiseLite = FastNoiseLite.new()
+var screen_size : Vector2
+var half_screen_size : Vector2
 
 func _physics_process(delta:float) -> void:
+	screen_size = get_viewport_rect().size / zoom
+	half_screen_size = screen_size / 2
+	#print(global_position - half_screen_size, ":", g.screen_corners.position)
+	
 	g.screen_corners.position = g.camRect.global_position
 	g.screen_corners.end = g.camRect.global_position + g.camRect.size
 	

@@ -7,7 +7,7 @@ class_name WeaponStats
 @export var random_spread : float = 0 ## How spread out the bullets will be, recommended for high bulllet amounts like shotgun (Keep it in the tenths(0.1) place, having an integer causes it to go crazy)
 @export var bullet_lifetime : float = 1 ## How many secondes before the bulet is deleted
 @export var shoot_delay : float = 0 ## The amount of time in between shots if there's multiple bullets per shot
-@export var base_damage : int = 5 ## Base daamge given to the bullet
+@export var base_damage : float = 5 ## Base daamge given to the bullet
 
 @export var bullet_scn : PackedScene
 
