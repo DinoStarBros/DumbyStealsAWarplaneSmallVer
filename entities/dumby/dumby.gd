@@ -24,6 +24,8 @@ func _ready() -> void:
 		
 		upgrade.apply_player(self)
 		upgrade_names.append(upgrades)
+	
+	PlayerStats.money = 100
 
 func _physics_process(delta: float) -> void:
 	%upgrades.text = str(upgrade_names)

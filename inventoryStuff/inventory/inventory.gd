@@ -10,7 +10,6 @@ var inventory_slot_layers : Array[Array]
 var items : Array[ItemData]
 var inv_items : Array[InventoryItem]
 var current_inv_item : InventoryItem
-var all_items : Array
 var desired_item_rotation : float ## Just for the lerping visuals
 var current_item_rotation : float
 var current_item_offset : Vector2
@@ -31,18 +30,6 @@ func _ready() -> void:
 	item_grid.columns = dimensions.x
 	instantiate_inv_slots(item_grid)
 	init_inv_slots_array()
-	
-	all_items.append(t1)
-	all_items.append(t2)
-	all_items.append(t3)
-	all_items.append(t4)
-	all_items.append(t5)
-	
-	for i in 2:
-		all_items.shuffle()
-		for n in all_items:
-			#if randf() > 0.5:
-			add_item_to_storage(n)
 
 func instantiate_inv_slots(grid: GridContainer) -> void:
 	# Instantiates all the inventory slots

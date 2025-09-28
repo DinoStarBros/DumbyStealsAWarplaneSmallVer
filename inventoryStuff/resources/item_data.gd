@@ -9,4 +9,6 @@ class_name ItemData
 
 @export var color : Color
 
+@export var upgrade: Upgrade
+
 var domain : Array[Vector2i]

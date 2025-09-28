@@ -157,8 +157,19 @@ offset_left = 47.0
 offset_top = 68.0
 offset_right = 1067.0
 offset_bottom = 91.0
-text = "Pick one upgrade!"
+text = "Buy Some Upgrades!"
 label_settings = SubResource("LabelSettings_givde")
+
+[node name="gold" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 47.0
+offset_top = 68.0
+offset_right = 1067.0
+offset_bottom = 91.0
+text = "Money: 100"
+label_settings = SubResource("LabelSettings_givde")
+horizontal_alignment = 2
 
 [node name="buttons" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -167,10 +178,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -376.0
-offset_top = -84.0
-offset_right = -146.0
-offset_bottom = -47.0
+offset_left = -573.0
+offset_top = -114.0
+offset_right = -298.0
+offset_bottom = -77.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(1.5, 1.5)
@@ -180,6 +191,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = " Select "
+
+[node name="buy" type="Button" parent="buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = " Buy"
 
 [node name="reroll" type="Button" parent="buttons"]
 unique_name_in_owner = true

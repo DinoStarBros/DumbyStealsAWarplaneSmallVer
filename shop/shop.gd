@@ -9,6 +9,8 @@ var upgrade_slots : Array
 
 var possible_upgrades : Array
 
+var reroll_cost : int = 5
+
 func _ready() -> void:
 	# Signal connections
 	GlobalSignals.Wave_End.connect(_on_wave_end)
@@ -16,6 +18,7 @@ func _ready() -> void:
 	%skip.pressed.connect(_on_skip_pressed)
 	%reroll.pressed.connect(_on_reroll_pressed)
 	%select.pressed.connect(_on_select_pressed)
+	%buy.pressed.connect(_on_buy_pressed)
 	
 	upgrade_slots = %upgradeItemSlots.get_children()
 	
@@ -26,7 +29,7 @@ func _on_skip_pressed() -> void:
 		GlobalSignals.Upgrade_End.emit()
 
 func _on_reroll_pressed() -> void:
-	if p.allow_upgrade_end:
+	if p.allow_upgrade_end and PlayerStats.money >= reroll_cost:
 		reroll()
 
 func _on_select_pressed() -> void:
@@ -34,8 +37,13 @@ func _on_select_pressed() -> void:
 		if upgrade_selected:
 			buy()
 
+func _on_buy_pressed() -> void:
+	if p.allow_upgrade_end:
+		if upgrade_selected:
+			add_item_to_inventory()
+
 func _on_wave_end() -> void:
-	%select.grab_focus()
+	%reroll.grab_focus()
 	upgrade_selected = null
 	
 	possible_upgrades.shuffle()
@@ -72,6 +80,9 @@ func _process(delta: float) -> void:
 	%select_highlight.position = lerp(
 		%select_highlight.position, sh_desired_pos, 12.0 * delta
 	)
+	
+	%reroll.text = str("Reroll (", reroll_cost, ")")
+	%gold.text = str("Money: ", PlayerStats.money)
 
 func assign_upgrade_slot(slot: UpgradeItemSlot, ndex: int) -> void:
 	slot.upgrade = possible_upgrades[ndex]
@@ -89,15 +100,21 @@ func buy() -> void:
 
 const reroll_time : float = 0.5
 func reroll() -> void:
+	PlayerStats.money -= reroll_cost
+	
+	reroll_cost += 2
 	
 	upgrade_selected = null
 	
 	_create_property_gpos_tween(
 		%upgradeItemSlots, Vector2(130, 1000), reroll_time
 		)
+	
+	%reroll.hide()
 	await get_tree().create_timer(reroll_time).timeout
 	_on_wave_end()
 	
+	%reroll.show()
 	_create_property_gpos_tween(
 		%upgradeItemSlots, Vector2(130, 115), reroll_time
 	)
@@ -120,3 +137,6 @@ func _create_property_gpos_tween(
 	property_tween = tween.tween_property(node, "position", global_pos, time)
 	tween_ease = property_tween.set_ease(set_ease)
 	tween_ease.set_trans(set_trans)
+
+func add_item_to_inventory() -> void:
+	pass

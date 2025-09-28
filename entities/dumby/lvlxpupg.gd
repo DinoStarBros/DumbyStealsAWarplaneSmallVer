@@ -15,6 +15,10 @@ func _ready() -> void:
 	%shop.player = player
 
 func _on_wave_end() -> void: # End of wave, start upgrade
+	
+	shop.reroll_cost = 5
+	shopninv.current_tab = 0
+	
 	_create_property_gpos_tween(shopninv, Vector2(0, 0), 0.7)
 	
 	g.game_state = g.game_states.Upgrade

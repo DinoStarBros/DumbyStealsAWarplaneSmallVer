@@ -1814,15 +1814,15 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-current_tab = 1
+current_tab = 0
 
 [node name="shop" parent="WaveUpg/shopninv" instance=ExtResource("50_l2c7h")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="inventory" parent="WaveUpg/shopninv" instance=ExtResource("55_jrsuo")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
