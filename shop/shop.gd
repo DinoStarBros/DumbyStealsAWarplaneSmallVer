@@ -1,7 +1,7 @@
 extends Control
 class_name Shop
 
-@onready var p : WaveUpgradeUI = get_parent()
+@onready var p : WaveUpgradeUI = get_parent().get_parent()
 var player : Dumby
 
 var upgrade_selected : UpgradeItemSlot
@@ -64,10 +64,10 @@ func _process(delta: float) -> void:
 	var sh_desired_pos : Vector2
 	if upgrade_selected:
 		sh_desired_pos = (
-		upgrade_selected.position + Vector2(100, 205)
+		upgrade_selected.global_position + Vector2(100, 120)
 		)
 	else:
-		sh_desired_pos = Vector2(-400, 205)
+		sh_desired_pos = Vector2(-400, 120)
 	
 	%select_highlight.position = lerp(
 		%select_highlight.position, sh_desired_pos, 12.0 * delta
@@ -93,13 +93,13 @@ func reroll() -> void:
 	upgrade_selected = null
 	
 	_create_property_gpos_tween(
-		%upgradeItemSlots, Vector2(0, 1000), reroll_time
+		%upgradeItemSlots, Vector2(130, 1000), reroll_time
 		)
 	await get_tree().create_timer(reroll_time).timeout
 	_on_wave_end()
 	
 	_create_property_gpos_tween(
-		%upgradeItemSlots, Vector2(0, 55), reroll_time
+		%upgradeItemSlots, Vector2(130, 115), reroll_time
 	)
 
 var tween : Tween

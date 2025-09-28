@@ -480,6 +480,7 @@ position = Vector2(0, -114.667)
 shape = SubResource("RectangleShape2D_slubn")
 
 [node name="CLA" type="Area2D" parent="."]
+visible = false
 collision_layer = 512
 collision_mask = 512
 

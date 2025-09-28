@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cxq6isw5jua7b"]
+
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/resources/item_data.gd" id="1_xm252"]
+[ext_resource type="Texture2D" uid="uid://bkqqvry78jm8b" path="res://Art/planestuff/shapes.png" id="2_4ui82"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k58vi"]
+atlas = ExtResource("2_4ui82")
+region = Rect2(256, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_xm252")
+name = "T5"
+description = "T5"
+texture = SubResource("AtlasTexture_k58vi")
+shape = Array[Array]([[1, 1], [1, 1]])
+color = Color(0.9490196, 1, 0.05882353, 1)
+metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

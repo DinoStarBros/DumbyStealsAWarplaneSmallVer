@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=105 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
@@ -54,6 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://cfr4hjrwsww6u" path="res://abilities/summon_shooters/summon_shooter.tscn" id="46_s884c"]
 [ext_resource type="PackedScene" uid="uid://cn0wb7nfo4h7s" path="res://shop/shop.tscn" id="50_l2c7h"]
 [ext_resource type="Texture2D" uid="uid://cw30gj5fpxv50" path="res://icon.svg" id="51_l2c7h"]
+[ext_resource type="PackedScene" uid="uid://epr0yoartceu" path="res://inventoryStuff/inventory/inventory.tscn" id="55_jrsuo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l2c7h"]
 animations = [{
@@ -1079,6 +1080,7 @@ unique_name_in_owner = true
 scale = Vector2(1.5, 1.5)
 hp_bar = NodePath("../bars/hpbar")
 hp_text = NodePath("../bars/hpbar/Label")
+max_hp = 15.0
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("43_12dy5")]
 unique_name_in_owner = true
@@ -1359,6 +1361,7 @@ offset_bottom = 53.0
 
 [node name="yLost" type="Control" parent="GUI"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -1800,10 +1803,28 @@ process_mode = 3
 layer = 6
 script = ExtResource("37_3gqex")
 
-[node name="shop" parent="WaveUpg" instance=ExtResource("50_l2c7h")]
+[node name="shopninv" type="TabContainer" parent="WaveUpg"]
 unique_name_in_owner = true
-offset_top = 440.0
-offset_bottom = 1014.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 800.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+current_tab = 1
+
+[node name="shop" parent="WaveUpg/shopninv" instance=ExtResource("50_l2c7h")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="inventory" parent="WaveUpg/shopninv" instance=ExtResource("55_jrsuo")]
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="rollnim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

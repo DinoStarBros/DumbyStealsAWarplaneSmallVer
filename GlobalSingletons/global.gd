@@ -29,6 +29,8 @@ var gs_strings : Array = [
 var gs_string : String
 const txt_scn : PackedScene = preload("res://scenes/DmgNum/dmg_num.tscn")
 
+var slot_size : float
+
 func _init() -> void:
 	volume_handle()
 
