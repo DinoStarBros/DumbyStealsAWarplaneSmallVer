@@ -2,6 +2,7 @@ extends Button
 class_name UpgradeItemSlot
 
 @onready var shop : Shop = get_parent().get_parent()
+var item: ItemData
 var upgrade : Upgrade
 
 func _ready() -> void:
@@ -25,5 +26,7 @@ func update_visuals() -> void:
 	
 	%descText.text = str(
 		"\n",
-		upgrade.description
+		upgrade.description,
+		"\n",
+		#item.upgrade
 	)

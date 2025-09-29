@@ -10,7 +10,6 @@ region = Rect2(192, 0, 16, 16)
 [resource]
 script = ExtResource("1_7vdam")
 name = "T4"
-description = "T4"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1]])
 color = Color(0, 0.73971456, 1.92523e-07, 1)

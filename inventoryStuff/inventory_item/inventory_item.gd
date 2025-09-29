@@ -32,8 +32,12 @@ func _ready() -> void:
 			xdex += 1
 			#print(x)
 			var vec2 : Vector2i = Vector2i(coord.x + xdex, coord.y + ydex)
-		
-			domain.append(vec2)
+			
+			# Only allows 1s in the domain, not 0s
+			#print(item.shape[vec2.y - coord.y][vec2.x - coord.x])
+			#if item.shape[vec2.y][vec2.x] == 1:
+			if item.shape[vec2.y - coord.y][vec2.x - coord.x] == 1:
+				domain.append(vec2)
 	
 	
 	modulate = item.color

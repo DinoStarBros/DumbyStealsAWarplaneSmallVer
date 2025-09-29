@@ -8,6 +8,7 @@ var upgrade_selected : UpgradeItemSlot
 var upgrade_slots : Array
 
 var possible_upgrades : Array
+var possible_items : Array
 
 var reroll_cost : int = 5
 

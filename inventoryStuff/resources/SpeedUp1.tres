@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c384wiuk2h6s"]
+
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/resources/item_data.gd" id="1_nfeul"]
+[ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_y1lky"]
+[ext_resource type="Resource" uid="uid://yx5qj3d1qn7u" path="res://shop/upgradesResource/speed_upgrade.tres" id="3_0rcii"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k58vi"]
+atlas = ExtResource("2_y1lky")
+region = Rect2(384, 0, 32, 48)
+
+[resource]
+script = ExtResource("1_nfeul")
+name = "Speed Up!"
+texture = SubResource("AtlasTexture_k58vi")
+shape = Array[Array]([[1], [0, 1], [1]])
+upgrade = ExtResource("3_0rcii")
+metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

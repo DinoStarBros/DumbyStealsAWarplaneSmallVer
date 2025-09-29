@@ -13,6 +13,8 @@ var current_inv_item : InventoryItem
 var desired_item_rotation : float ## Just for the lerping visuals
 var current_item_rotation : float
 var current_item_offset : Vector2
+var item_upgrades : Array[Upgrade]
+var item_upgrade_names : Array[String]
 
 var debug_shape : Array
 
@@ -20,8 +22,6 @@ const inv_slot_scn : PackedScene = preload("res://inventoryStuff/inventory_slot/
 const inv_item_scn : PackedScene = preload("res://inventoryStuff/inventory_item/inventory_item.tscn")
 const stored_item_button_scn : PackedScene = preload("res://inventoryStuff/stored_item_button/stored_item_button.tscn")
 
-const t1 : ItemData = preload("res://inventoryStuff/resources/T1.tres")
-const t2 : ItemData = preload("res://inventoryStuff/resources/T2.tres")
 const t3 : ItemData = preload("res://inventoryStuff/resources/T3.tres")
 const t4 : ItemData = preload("res://inventoryStuff/resources/T4.tres")
 const t5 : ItemData = preload("res://inventoryStuff/resources/T5.tres")
@@ -30,6 +30,9 @@ func _ready() -> void:
 	item_grid.columns = dimensions.x
 	instantiate_inv_slots(item_grid)
 	init_inv_slots_array()
+	
+	add_item_to_storage(References.items_res[0])
+	add_item_to_storage(References.items_res[1])
 
 func instantiate_inv_slots(grid: GridContainer) -> void:
 	# Instantiates all the inventory slots
@@ -88,11 +91,18 @@ func add_item(item: ItemData, at: Vector2i) -> void: ## Adds an item, it'll chec
 			if x == 1:
 				inventory_slot_layers[at.y + ydex][at.x + xdex] = item.shape[ydex][xdex]
 	
+	
 	# Allat adds the shape of the item to the item layers array
 	# 1 is occupied, 0 unoccupied
 	
-	#print_debugs()
+	
+	item.upgrade.apply_player(g.player)
+	g.player.upgrades.append(item.upgrade)
+	g.player.upgrade_names.append(item.upgrade.name)
+	
 	items.append(item)
+	item_upgrades.append(item.upgrade)
+	item_upgrade_names.append(item.upgrade.name)
 	inv_items.append(inventory_item)
 	#print(inv_items)
 
@@ -105,6 +115,8 @@ func print_debugs() -> void: ## Prints the whole inventory slot layers to see wh
 	print("")
 
 func _gui_input(event: InputEvent) -> void:
+	# Only runs when pressing in the control node
+	
 	if not event is InputEventMouseButton:
 		return
 	
@@ -175,6 +187,8 @@ func can_fit(item: ItemData, at: Vector2i) -> bool: ## Checks if the shape can f
 				(inventory_slot_layers[ydex + at.y][xdex + at.x] == 0)
 				or
 				(item.shape[0][0] == 0)
+				or
+				item.shape[ydex][xdex] == 0
 				)
 				#pass
 			else:
@@ -220,7 +234,13 @@ func select_item() -> void:
 				
 				inv_items.remove_at(inv_items.find(item))
 				items.remove_at(items.find(item.item))
+				item_upgrades.remove_at(item_upgrades.find(item.item.upgrade))
+				item_upgrade_names.remove_at(item_upgrade_names.find(item.item.upgrade.name))
+				
+				
+				
 				for slice in item.domain:
+					
 					inventory_slot_layers[slice.y][slice.x] = 0
 					# I have to delete the item from the inventory_slot_layers array
 					# Turning that part to 0s
@@ -272,7 +292,7 @@ func texts() -> void:
 			ndex += 1
 			label.text = str(inventory_slot_layers[ndex])
 	
-	%items_txt.text = str(items)
+	%items_txt.text = str(g.player.upgrade_names)
 
 func change_rotation(amnt: float) -> void:
 	desired_item_rotation += amnt

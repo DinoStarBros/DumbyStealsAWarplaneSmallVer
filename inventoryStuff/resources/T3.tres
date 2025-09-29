@@ -10,7 +10,6 @@ region = Rect2(128, 0, 32, 48)
 [resource]
 script = ExtResource("1_xcyp5")
 name = "T3"
-description = "T3"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1], [1], [1, 1]])
 color = Color(0.7463274, 0.12800339, 0.9963525, 1)

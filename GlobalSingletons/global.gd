@@ -7,7 +7,7 @@ var floor_hitbox : HitboxComponent
 var cam : PlrCamera
 var camRect : ColorRect
 var screen_corners : Rect2
-var player : CharacterBody2D
+var player : Dumby
 var enemy_arrows : Node
 var attack : Attack = Attack.new()
 var game_state : game_states = g.game_states.Title#: set = new_game_state
