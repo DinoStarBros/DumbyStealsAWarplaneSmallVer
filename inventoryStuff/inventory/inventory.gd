@@ -64,7 +64,6 @@ func add_item(item: ItemData, at: Vector2i) -> void: ## Adds an item, it'll chec
 	
 	add_child(inventory_item)
 	
-	
 	# Instantiates the Inventory Item sprite to add to the grid
 	
 	if not can_fit(item, at):

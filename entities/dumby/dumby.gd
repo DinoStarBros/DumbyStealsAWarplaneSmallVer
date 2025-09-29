@@ -9,7 +9,8 @@ var attack : Attack = Attack.new()
 var position_sensitive_rect : Rect2
 var aim_position : Vector2
 var dir_plane : Vector2
-var upgrades : Array[Upgrade]
+
+
 var upgrade_names : Array 
 
 @onready var health_component: HealthComponent = %HealthComponent
@@ -20,11 +21,7 @@ var upgrade_names : Array
 func _ready() -> void:
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
-	for upgrade in upgrades:
-		
-		upgrade.apply_player(self)
-		upgrade_names.append(upgrades)
-	
+
 	PlayerStats.money = 100
 
 func _physics_process(delta: float) -> void:
