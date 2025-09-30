@@ -11,3 +11,6 @@ class_name Upgrade
 var amount : int = 1 ## How many there are of the same upgrade
 func apply_player(player: Dumby) -> void:
 	pass
+
+func unapply_upgrade(player: Dumby) -> void:
+	pass

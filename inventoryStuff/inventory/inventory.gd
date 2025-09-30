@@ -89,15 +89,10 @@ func add_item(item: ItemData, at: Vector2i) -> void: ## Adds an item, it'll chec
 			xdex += 1
 			if x == 1:
 				inventory_slot_layers[at.y + ydex][at.x + xdex] = item.shape[ydex][xdex]
-	
-	
 	# Allat adds the shape of the item to the item layers array
 	# 1 is occupied, 0 unoccupied
 	
-	
-	item.upgrade.apply_player(g.player)
-	g.player.upgrades.append(item.upgrade)
-	g.player.upgrade_names.append(item.upgrade.name)
+	PlayerStats.add_upgrade(item.upgrade)
 	
 	items.append(item)
 	item_upgrades.append(item.upgrade)
@@ -291,7 +286,7 @@ func texts() -> void:
 			ndex += 1
 			label.text = str(inventory_slot_layers[ndex])
 	
-	%items_txt.text = str(g.player.upgrade_names)
+	%items_txt.text = str(PlayerStats.upgrade_names)
 
 func change_rotation(amnt: float) -> void:
 	desired_item_rotation += amnt

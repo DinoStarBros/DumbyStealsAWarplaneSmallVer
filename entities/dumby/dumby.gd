@@ -10,9 +10,6 @@ var position_sensitive_rect : Rect2
 var aim_position : Vector2
 var dir_plane : Vector2
 
-
-var upgrade_names : Array 
-
 @onready var health_component: HealthComponent = %HealthComponent
 #@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
@@ -25,7 +22,6 @@ func _ready() -> void:
 	PlayerStats.money = 100
 
 func _physics_process(delta: float) -> void:
-	%upgrades.text = str(upgrade_names)
 	# Handling functions
 	roll_handling(delta)
 	_left_joystick_handle()

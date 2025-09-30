@@ -18,6 +18,8 @@ func _ready() -> void:
 	_on_wave_end()
 
 func _process(_delta: float) -> void:
+	%upgrades.text = str(PlayerStats.upgrade_names)
+	
 	sp_budget_txt.text = str(
 		g.spawn_budget.x ," / ",g.spawn_budget.y
 	)
