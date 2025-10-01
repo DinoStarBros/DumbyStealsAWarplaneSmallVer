@@ -90,4 +90,4 @@ func shoot_shotgun() -> void:
 	for n in bullet_amnt:
 		spawn_bullet()
 	
-	%ShootTimer.start(randf_range(4,5))
+	%ShootTimer.start(randf_range(1.5,2.5))

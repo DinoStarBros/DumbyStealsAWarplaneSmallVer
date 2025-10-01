@@ -18,11 +18,7 @@ func _ready() -> void:
 	_on_wave_end()
 
 func _process(_delta: float) -> void:
-	%upgrades.text = str(PlayerStats.upgrade_names)
-	
-	sp_budget_txt.text = str(
-		g.spawn_budget.x ," / ",g.spawn_budget.y
-	)
+	debug_txts()
 	
 	%joystick.visible = g.mobile
 	%yLost.visible = g.game_state == g.game_states.Lost
@@ -87,3 +83,18 @@ func _pause() -> void:
 
 func _on_wave_end() -> void:
 	%wave_no.text = str("Wave : ", g.wave)
+
+func debug_txts() -> void:
+	#%upgrades.text = str(PlayerStats.upgrade_names)
+	
+	sp_budget_txt.text = str(
+		g.spawn_budget.x ," / ",g.spawn_budget.y
+	)
+	
+	%stat_txt.text = str(
+		"Percent_Damage: ", PlayerStats.percent_damage, "\n",
+		"Max HP: ", PlayerStats.max_hp, "\n",
+		"Speed: ", PlayerStats.speed, "\n",
+		"Rot Speed: ", PlayerStats.rotation_speed, "\n",
+		"Money: ", PlayerStats.money, "\n",
+	)

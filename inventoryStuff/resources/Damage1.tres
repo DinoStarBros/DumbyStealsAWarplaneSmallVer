@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/resources/item_data.gd" id="1_f4euu"]
 [ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_f4euu"]
-[ext_resource type="Resource" uid="uid://bypxw8q31e5rd" path="res://shop/upgradesResource/damage_upgrade.tres" id="3_yafer"]
+[ext_resource type="PackedScene" uid="uid://dms8dbr68ei50" path="res://shop/upgrade_scenes/dmg_up1/dmg_up_1.tscn" id="3_f4euu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4glai"]
 atlas = ExtResource("2_f4euu")
@@ -13,5 +13,5 @@ script = ExtResource("1_f4euu")
 name = "Damage Up!"
 texture = SubResource("AtlasTexture_4glai")
 shape = Array[Array]([[1, 1, 1], [1]])
-upgrade = ExtResource("3_yafer")
+upgrade_scn = ExtResource("3_f4euu")
 metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

@@ -8,6 +8,6 @@ class_name ItemData
 
 @export var color : Color = Color.WHITE
 
-@export var upgrade: Upgrade
+@export var upgrade_scn: PackedScene
 
 var domain : Array[Vector2i]

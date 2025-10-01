@@ -561,7 +561,7 @@ bus = &"sfx"
 
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="telegraphShot" type="AnimationPlayer" parent="."]
@@ -577,7 +577,6 @@ thing_to_rotate = NodePath("../Plane")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("11_um6te")]
 unique_name_in_owner = true
-drag_factor = 2.0
 trail_particles = NodePath("../Plane/flameparticles")
 
 [node name="enemyArrow" parent="." instance=ExtResource("14_v3f3a")]

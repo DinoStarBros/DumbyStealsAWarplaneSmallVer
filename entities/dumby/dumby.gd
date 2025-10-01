@@ -14,6 +14,7 @@ var dir_plane : Vector2
 #@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
+@onready var upgrade_handler: UpgradeHandler = %upgrade_handler
 
 func _ready() -> void:
 	g.player = self

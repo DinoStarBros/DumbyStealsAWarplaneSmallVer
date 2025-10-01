@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dms8dbr68ei50"]
+
+[ext_resource type="Script" uid="uid://bqaceadqk3wsg" path="res://shop/upgrade_scenes/dmg_up1/dmg_up_1.gd" id="1_ugcpa"]
+
+[node name="dmg_up1" type="Node2D"]
+script = ExtResource("1_ugcpa")

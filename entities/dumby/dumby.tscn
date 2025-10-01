@@ -1024,6 +1024,8 @@ script = ExtResource("1_2ba6e")
 metadata/_edit_horizontal_guides_ = [-891.0]
 
 [node name="upgrade_handler" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
 script = ExtResource("2_hr56j")
 
 [node name="warning_symbol_floor" type="AnimatedSprite2D" parent="."]
@@ -1084,10 +1086,12 @@ max_hp = 15.0
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("43_12dy5")]
 unique_name_in_owner = true
+max_speed = 900.0
 trail_particles = NodePath("../PlaneSprite/trailparticle")
 
 [node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("5_dufc2")]
 unique_name_in_owner = true
+turn_speed = 4.0
 thing_to_rotate = NodePath("../PlaneSprite")
 
 [node name="evade_box" type="Area2D" parent="."]
@@ -1358,6 +1362,7 @@ offset_left = 18.0
 offset_top = 35.0
 offset_right = 58.0
 offset_bottom = 53.0
+text = "\"Supa Damage\""
 
 [node name="yLost" type="Control" parent="GUI"]
 unique_name_in_owner = true
@@ -1461,6 +1466,28 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Are You Sure?
 "
+
+[node name="StatsPanel" type="PanelContainer" parent="GUI/paused"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = -211.0
+offset_right = 281.0
+offset_bottom = -108.0
+
+[node name="texts" type="VBoxContainer" parent="GUI/paused/StatsPanel"]
+layout_mode = 2
+
+[node name="txt" type="Label" parent="GUI/paused/StatsPanel/texts"]
+layout_mode = 2
+text = "Stats Panel:"
+
+[node name="stat_txt" type="Label" parent="GUI/paused/StatsPanel/texts"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Percent Damage: 0.0
+Max Hp: 15
+Speed: 900
+Rotation Speed: 4"
 
 [node name="pause_button" type="Button" parent="GUI"]
 unique_name_in_owner = true

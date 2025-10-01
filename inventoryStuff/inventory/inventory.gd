@@ -13,8 +13,6 @@ var current_inv_item : InventoryItem
 var desired_item_rotation : float ## Just for the lerping visuals
 var current_item_rotation : float
 var current_item_offset : Vector2
-var item_upgrades : Array[Upgrade]
-var item_upgrade_names : Array[String]
 
 var debug_shape : Array
 
@@ -92,13 +90,12 @@ func add_item(item: ItemData, at: Vector2i) -> void: ## Adds an item, it'll chec
 	# Allat adds the shape of the item to the item layers array
 	# 1 is occupied, 0 unoccupied
 	
-	PlayerStats.add_upgrade(item.upgrade)
+	PlayerStats.add_upgrade(item)
 	
 	items.append(item)
-	item_upgrades.append(item.upgrade)
-	item_upgrade_names.append(item.upgrade.name)
+	#item_upgrades.append(item.upgrade)
+	#item_upgrade_names.append(item.upgrade.name)
 	inv_items.append(inventory_item)
-	#print(inv_items)
 
 func print_debugs() -> void: ## Prints the whole inventory slot layers to see which slots are occupied or nah
 	#for layer in items[0].shape:
@@ -225,12 +222,11 @@ func select_item() -> void:
 				
 				#prints(item.domain)
 				
-				
+				PlayerStats.remove_upgrade(item.item)
 				inv_items.remove_at(inv_items.find(item))
 				items.remove_at(items.find(item.item))
-				item_upgrades.remove_at(item_upgrades.find(item.item.upgrade))
-				item_upgrade_names.remove_at(item_upgrade_names.find(item.item.upgrade.name))
-				
+				#item_upgrades.remove_at(item_upgrades.find(item.item.upgrade))
+				#item_upgrade_names.remove_at(item_upgrade_names.find(item.item.upgrade.name))
 				
 				
 				for slice in item.domain:
@@ -286,7 +282,7 @@ func texts() -> void:
 			ndex += 1
 			label.text = str(inventory_slot_layers[ndex])
 	
-	%items_txt.text = str(PlayerStats.upgrade_names)
+	#%items_txt.text = str(PlayerStats.upgrade_names)
 
 func change_rotation(amnt: float) -> void:
 	desired_item_rotation += amnt

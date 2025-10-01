@@ -313,7 +313,6 @@ autostart = true
 
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
 autostart = true
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_ttcvk")]
@@ -472,8 +471,6 @@ bus = &"sfx"
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("9_ckebl")]
 unique_name_in_owner = true
-accelerate_speed = 800
-drag_factor = 3.0
 trail_particles = NodePath("../Plane/trailparticle")
 
 [node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("10_d1p5d")]
