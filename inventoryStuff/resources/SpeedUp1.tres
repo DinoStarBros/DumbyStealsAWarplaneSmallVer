@@ -10,7 +10,7 @@ region = Rect2(384, 0, 32, 48)
 
 [resource]
 script = ExtResource("1_nfeul")
-name = "Speed Up!"
+name = "Speed Upgrade"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1], [0, 1], [1]])
 upgrade_scn = ExtResource("3_nfeul")

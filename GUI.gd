@@ -93,7 +93,7 @@ func debug_txts() -> void:
 	
 	%stat_txt.text = str(
 		"Percent_Damage: ", PlayerStats.percent_damage, "\n",
-		"Max HP: ", PlayerStats.max_hp, "\n",
+		"Max HP: ", PlayerStats.upgrade_handler.health_component.max_hp, "\n",
 		"Speed: ", PlayerStats.speed, "\n",
 		"Rot Speed: ", PlayerStats.rotation_speed, "\n",
 		"Money: ", PlayerStats.money, "\n",

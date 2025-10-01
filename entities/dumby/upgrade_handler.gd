@@ -7,6 +7,7 @@ class_name UpgradeHandler
 @onready var rotation_component: RotationComponent = %RotationComponent
 
 var upgrade_names : Array[String]
+@onready var p: Dumby = get_parent()
 
 func _ready() -> void:
 	PlayerStats.upgrade_handler = self

@@ -20,7 +20,10 @@ func _ready() -> void:
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
 
-	PlayerStats.money = 100
+	PlayerStats.money = PlayerStats.BASE_MONEY
+	
+	PlayerStats.speed = PlayerStats.BASE_SPD
+	PlayerStats.rotation_speed = PlayerStats.BASE_ROT_SPD
 
 func _physics_process(delta: float) -> void:
 	# Handling functions
@@ -127,10 +130,10 @@ var roll_time : float = 0 ## The amount of time that has passed since the start 
 var roll_cd_time : float = 0
 func roll_handling(delta: float) -> void:
 	if roll_cd_time <= 0 and not rolling:
-		Roll.emit()
 		if g.switch_acc_roll:
 			if Input.is_action_just_pressed("accelerate"):
 				_roll()
+				
 		else:
 			if Input.is_action_just_pressed("roll"):
 				_roll()
@@ -153,6 +156,8 @@ func _input(event: InputEvent) -> void:
 		controller = false
 
 func _roll() -> void:
+	Roll.emit()
+	
 	%roll.pitch_scale = randf_range(0.8,1.2)
 	%roll.play()
 	
@@ -200,6 +205,5 @@ func _on_roll() -> void:
 	pass
 
 func player_stats_handling() -> void:
-	velocity_component.max_speed = PlayerStats.BASE_SPD + PlayerStats.speed
-	rotation_component.turn_speed = PlayerStats.BASE_ROT_SPD + PlayerStats.rotation_speed
-	print(velocity_component.max_speed)
+	velocity_component.max_speed = PlayerStats.speed
+	rotation_component.turn_speed = PlayerStats.rotation_speed

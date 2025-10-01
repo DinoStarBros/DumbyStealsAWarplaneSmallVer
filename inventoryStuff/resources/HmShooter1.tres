@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cxq6isw5jua7b"]
+
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/resources/item_data.gd" id="1_uakij"]
+[ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_uakij"]
+[ext_resource type="PackedScene" uid="uid://ddphh0awjovmw" path="res://shop/upgrade_scenes/hm_shooter1/hm_shooter_1.tscn" id="3_kglml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k58vi"]
+atlas = ExtResource("2_uakij")
+region = Rect2(512, 0, 48, 64)
+
+[resource]
+script = ExtResource("1_uakij")
+name = "H.M. Shooter Mk. 1"
+description = "10% chance to fire a missile when shooting"
+texture = SubResource("AtlasTexture_k58vi")
+shape = Array[Array]([[1], [1], [1, 1, 1], [0, 0, 1]])
+upgrade_scn = ExtResource("3_kglml")
+metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

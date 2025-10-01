@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b28iem7sb7emf"]
+
+[ext_resource type="Script" uid="uid://cawb75heal0po" path="res://shop/upgrade_scenes/hp_up1/hp_up_1.gd" id="1_5xken"]
+
+[node name="hp_up1" type="Node2D"]
+script = ExtResource("1_5xken")

@@ -10,7 +10,7 @@ region = Rect2(0, 0, 48, 32)
 
 [resource]
 script = ExtResource("1_f4euu")
-name = "Damage Up!"
+name = "Damage Upgrade"
 texture = SubResource("AtlasTexture_4glai")
 shape = Array[Array]([[1, 1, 1], [1]])
 upgrade_scn = ExtResource("3_f4euu")

@@ -55,10 +55,10 @@ text = "Store Back"
 [node name="layers_txt" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 424.0
-offset_top = 289.0
-offset_right = 464.0
-offset_bottom = 474.0
+offset_left = 681.0
+offset_top = 278.0
+offset_right = 721.0
+offset_bottom = 463.0
 
 [node name="l1" type="Label" parent="layers_txt"]
 unique_name_in_owner = true

@@ -20,9 +20,6 @@ const inv_slot_scn : PackedScene = preload("res://inventoryStuff/inventory_slot/
 const inv_item_scn : PackedScene = preload("res://inventoryStuff/inventory_item/inventory_item.tscn")
 const stored_item_button_scn : PackedScene = preload("res://inventoryStuff/stored_item_button/stored_item_button.tscn")
 
-const t4 : ItemData = preload("res://inventoryStuff/resources/T4.tres")
-const t5 : ItemData = preload("res://inventoryStuff/resources/T5.tres")
-
 func _ready() -> void:
 	item_grid.columns = dimensions.x
 	instantiate_inv_slots(item_grid)
@@ -31,6 +28,8 @@ func _ready() -> void:
 	add_item_to_storage(References.items_res[0])
 	add_item_to_storage(References.items_res[1])
 	add_item_to_storage(References.items_res[2])
+	add_item_to_storage(References.items_res[3])
+	add_item_to_storage(References.items_res[4])
 
 func instantiate_inv_slots(grid: GridContainer) -> void:
 	# Instantiates all the inventory slots
