@@ -6,12 +6,13 @@ class_name UpgradeHandler
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
 
+var upgrade_names : Array[String]
+
 func _ready() -> void:
 	PlayerStats.upgrade_handler = self
 
 func _process(delta: float) -> void:
-	#%upgrades.text = str()
-	pass
+	%upgrades.text = str(upgrade_names)
 
 func add_upgrade(item: ItemData) -> void:
 	var upgrade : UpgradeSCN = item.upgrade_scn.instantiate()

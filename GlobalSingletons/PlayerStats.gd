@@ -9,7 +9,11 @@ var rotation_speed : float = 4
 var money : float = 0
 
 const BASE_DAMAGE_PERCENT : float = 0.0
+const BASE_ARMOR : float = 0.0
 const BASE_MAX_HP : float = 15.0
+const BASE_SPD : float = 900
+const BASE_ROT_SPD : float = 4
+
 const BASE_MONEY : int = 100
 
 var upgrade_handler : UpgradeHandler

@@ -13,7 +13,7 @@ var upgrades_res : Array[Upgrade] = [
 var items_res : Array[ItemData] = [
 	load("res://inventoryStuff/resources/Damage1.tres"),
 	load("res://inventoryStuff/resources/SpeedUp1.tres"),
-	
+	load("res://inventoryStuff/resources/Rot1.tres")
 	
 ]
 

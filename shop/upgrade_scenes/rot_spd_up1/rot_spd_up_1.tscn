@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://de37rht5bkvlp"]
+
+[ext_resource type="Script" uid="uid://c0qk8dioal5gi" path="res://shop/upgrade_scenes/rot_spd_up1/rot_spd_up_1.gd" id="1_4xpqh"]
+
+[node name="rot_spd_up1" type="Node2D"]
+script = ExtResource("1_4xpqh")

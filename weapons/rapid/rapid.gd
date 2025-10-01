@@ -51,7 +51,7 @@ func spawn_bullet() -> void:
 	#dir_to_mouse = global_position.direction_to(get_global_mouse_position())
 	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
 	
-	bullet.dmg = stats.base_damage * (1 + p.percent_damage_buff)
+	bullet.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage)
 	
 	bullet.global_position = global_position + (dir_to_mouse * 50)
 	bullet.velocity = (dir_to_mouse + rand_spread_vector) * stats.bullet_spd

@@ -70,6 +70,9 @@ func _physics_process(delta: float) -> void:
 			accelerate_time = 5
 	else:
 		accelerate_time = 0
+	
+	
+	player_stats_handling()
 
 func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic camera follow mouse
 	if controller:
@@ -172,10 +175,6 @@ func _left_joystick_handle() -> void:
 		controller_joypad_vector = left_joystick_vector
 	left_joystick_length = controller_joypad_vector.length()
 
-### General Stats And Stuff ###
-var percent_damage_buff : float = 0
-
-
 ### Signals for player actions ###
 signal Shoot
 signal Reload
@@ -199,3 +198,8 @@ func _on_quick_reload() -> void:
 
 func _on_roll() -> void:
 	pass
+
+func player_stats_handling() -> void:
+	velocity_component.max_speed = PlayerStats.BASE_SPD + PlayerStats.speed
+	rotation_component.turn_speed = PlayerStats.BASE_ROT_SPD + PlayerStats.rotation_speed
+	print(velocity_component.max_speed)

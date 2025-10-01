@@ -1,7 +1,9 @@
 extends UpgradeSCN
 
+const DMG_ADDED : float = 0.3
+
 func _ready() -> void:
-	print("APPLY DAMAGE!")
+	PlayerStats.percent_damage += DMG_ADDED
 
 func _exit_tree() -> void:
-	print("UNAPPLY DAMAGE!")
+	PlayerStats.percent_damage -= DMG_ADDED

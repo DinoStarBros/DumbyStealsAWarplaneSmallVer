@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/resources/item_data.gd" id="1_nfeul"]
 [ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_y1lky"]
-[ext_resource type="Resource" uid="uid://yx5qj3d1qn7u" path="res://shop/upgradesResource/speed_upgrade.tres" id="3_0rcii"]
+[ext_resource type="PackedScene" uid="uid://bcy6ixke8uwmr" path="res://shop/upgrade_scenes/spd_up1/spd_up_1.tscn" id="3_nfeul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k58vi"]
 atlas = ExtResource("2_y1lky")
@@ -13,5 +13,5 @@ script = ExtResource("1_nfeul")
 name = "Speed Up!"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1], [0, 1], [1]])
-upgrade = ExtResource("3_0rcii")
+upgrade_scn = ExtResource("3_nfeul")
 metadata/_custom_type_script = "uid://ctfpuqs65ts8x"
