@@ -25,11 +25,11 @@ func _ready() -> void:
 	instantiate_inv_slots(item_grid)
 	init_inv_slots_array()
 	
-	add_item_to_storage(References.items_res[0])
-	add_item_to_storage(References.items_res[1])
-	add_item_to_storage(References.items_res[2])
-	add_item_to_storage(References.items_res[3])
-	add_item_to_storage(References.items_res[4])
+	#add_item_to_storage(References.items_res[0])
+	#add_item_to_storage(References.items_res[1])
+	#add_item_to_storage(References.items_res[2])
+	#add_item_to_storage(References.items_res[3])
+	#add_item_to_storage(References.items_res[4])
 
 func instantiate_inv_slots(grid: GridContainer) -> void:
 	# Instantiates all the inventory slots

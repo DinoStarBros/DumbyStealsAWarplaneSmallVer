@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cxq6isw5jua7b"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cns25nv25ct1n"]
 
 [ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/resources/item_data.gd" id="1_uakij"]
 [ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_uakij"]

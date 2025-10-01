@@ -4,6 +4,7 @@ class_name ItemData
 @export var name : String
 @export var description : String
 @export var texture : Texture2D
+@export var buy_price : float = 0
 
 @export var shape : Array[Array]
 
