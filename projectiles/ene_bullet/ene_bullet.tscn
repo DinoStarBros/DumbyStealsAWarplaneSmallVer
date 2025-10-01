@@ -106,7 +106,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.518293, 0.932584), 0.0, 0.0, 0
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_uykbo"]
-colors = PackedColorArray(1, 0, 0, 1, 0.995483, 1, 0.421875, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.5173474, 0.37879822, 1)
 
 [sub_resource type="Gradient" id="Gradient_kltra"]
 colors = PackedColorArray(1, 0.230469, 0.230469, 1, 1, 1, 1, 1)
@@ -168,7 +168,7 @@ scale_amount_curve = SubResource("Curve_kltra")
 color_ramp = SubResource("Gradient_uykbo")
 
 [node name="sbright" type="Sprite2D" parent="."]
-modulate = Color(0.978851, 1, 0.613281, 1)
+modulate = Color(1, 0.5030107, 0.65856844, 1)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("3_0ogdf")
 hframes = 12
