@@ -17,6 +17,7 @@ var xp : int = 0
 var next_lvl_xp : int = 20
 var level : int = 1
 var mobile : bool = false
+var inventory : Inventory
 
 var wave : int
 

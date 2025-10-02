@@ -2,6 +2,9 @@ extends Control
 class_name Shop
 
 @onready var p : WaveUpgradeUI = get_parent().get_parent()
+
+var item_bought : ItemData = load("res://inventoryStuff/item_resources/ItemBought.tres")
+
 var player : Dumby
 
 var upgrade_selected : UpgradeItemSlot
@@ -41,7 +44,10 @@ func _on_select_pressed() -> void:
 func _on_buy_pressed() -> void:
 	if p.allow_upgrade_end:
 		if upgrade_selected:
-			add_item_to_inventory()
+			if upgrade_selected.item.name != item_bought.name:
+				add_item_to_inventory()
+			else:
+				print("YOU BOUGHT THIS SHIT, REROLL")
 
 func _on_wave_end() -> void:
 	%reroll.grab_focus()
@@ -142,4 +148,7 @@ func _create_property_gpos_tween(
 	tween_ease.set_trans(set_trans)
 
 func add_item_to_inventory() -> void:
-	pass
+	g.inventory.add_item_to_storage(upgrade_selected.item)
+	
+	upgrade_selected.item = item_bought
+	upgrade_selected.update_visuals()

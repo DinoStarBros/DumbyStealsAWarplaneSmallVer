@@ -18,7 +18,6 @@ var dir_plane : Vector2
 
 func _ready() -> void:
 	
-	
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
 

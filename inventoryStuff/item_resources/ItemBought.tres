@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://doc2wtpt8c2y"]
+
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/item_resources/item_data.gd" id="1_sq0l8"]
+
+[resource]
+script = ExtResource("1_sq0l8")
+name = "Added to inventory!"
+description = "You bought the item, equip it in the inventory"
+metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

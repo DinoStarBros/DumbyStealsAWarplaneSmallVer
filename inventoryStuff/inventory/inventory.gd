@@ -21,6 +21,8 @@ const inv_item_scn : PackedScene = preload("res://inventoryStuff/inventory_item/
 const stored_item_button_scn : PackedScene = preload("res://inventoryStuff/stored_item_button/stored_item_button.tscn")
 
 func _ready() -> void:
+	g.inventory = self
+	
 	item_grid.columns = dimensions.x
 	instantiate_inv_slots(item_grid)
 	init_inv_slots_array()
