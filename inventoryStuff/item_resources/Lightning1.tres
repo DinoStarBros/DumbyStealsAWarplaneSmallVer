@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dettwtwwhtd0h"]
+
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/item_resources/item_data.gd" id="1_2hilr"]
+[ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_dixsg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd2xv"]
+atlas = ExtResource("2_dixsg")
+region = Rect2(768, 0, 32, 80)
+
+[resource]
+script = ExtResource("1_2hilr")
+name = "Lightning 1"
+description = "lightning"
+texture = SubResource("AtlasTexture_hd2xv")
+metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

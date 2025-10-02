@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://bu4snhapwua1q"]
+[gd_scene load_steps=36 format=3 uid="uid://bu4snhapwua1q"]
 
 [ext_resource type="Script" uid="uid://cmyxd3ohjkmp" path="res://entities/shotgunner/shotgunner.gd" id="1_k6gep"]
 [ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="2_5avn4"]
 [ext_resource type="Shader" uid="uid://cne6u584nd6e4" path="res://shaders/hitFlash.gdshader" id="2_g05o7"]
+[ext_resource type="Resource" uid="uid://caabvilf7tpna" path="res://resources/enemy_stats/ShotgunnerStats.tres" id="2_lsk3g"]
 [ext_resource type="Texture2D" uid="uid://baj53ina6l1vj" path="res://Art/planestuff/plane-Sheet.png" id="3_gwotw"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="4_uw1lj"]
 [ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="5_um6te"]
@@ -15,80 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="10_uw1lj"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="11_um6te"]
 [ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="14_v3f3a"]
+[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="16_uqd1j"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uqd1j"]
-resource_local_to_scene = true
-shader = ExtResource("2_g05o7")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/mix_value = 0.0
-
-[sub_resource type="Curve" id="Curve_smpng"]
-_limits = [-360.0, 360.0, 0.0, 1.0]
-_data = [Vector2(0, -304.615), 0.0, 0.0, 0, 0, Vector2(0.983146, 296.703), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Animation" id="Animation_dq1xq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_kvjl2"]
-resource_name = "flameLoop"
-length = 0.3
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_75cqi"]
-_data = {
-&"RESET": SubResource("Animation_dq1xq"),
-&"flameLoop": SubResource("Animation_kvjl2")
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqd1j"]
+radius = 15.0
 
 [sub_resource type="Animation" id="Animation_2qnmu"]
 resource_name = "Ouch"
@@ -290,14 +221,6 @@ _data = {
 &"die": SubResource("Animation_akvag")
 }
 
-[sub_resource type="Curve" id="Curve_o2tfc"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_o2tfc"]
-offsets = PackedFloat32Array(0, 0.885906, 0.993289)
-colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
-
 [sub_resource type="Animation" id="Animation_5avn4"]
 length = 0.001
 tracks/0/type = "value"
@@ -386,10 +309,154 @@ _data = {
 &"shine": SubResource("Animation_k6gep")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uqd1j"]
+resource_local_to_scene = true
+shader = ExtResource("2_g05o7")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/mix_value = 0.0
+
+[sub_resource type="Curve" id="Curve_smpng"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -304.615), 0.0, 0.0, 0, 0, Vector2(0.983146, 296.703), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_dq1xq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kvjl2"]
+resource_name = "flameLoop"
+length = 0.3
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75cqi"]
+_data = {
+&"RESET": SubResource("Animation_dq1xq"),
+&"flameLoop": SubResource("Animation_kvjl2")
+}
+
+[sub_resource type="Curve" id="Curve_o2tfc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_o2tfc"]
+offsets = PackedFloat32Array(0, 0.885906, 0.993289)
+colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
+
 [node name="shotgunner" type="CharacterBody2D" groups=["Enemy"]]
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_k6gep")
+stats = ExtResource("2_lsk3g")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("16_uqd1j")]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 4
+
+[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_uqd1j")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_uw1lj")]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+health_component = NodePath("../HealthComponent")
+ouchnim = NodePath("ouchnim")
+explosion_particles = true
+
+[node name="ouchnim" type="AnimationPlayer" parent="HurtboxComponent"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_d56he")
+}
+
+[node name="hubc" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_o2tfc")
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_um6te")]
+unique_name_in_owner = true
+max_hp = 20.0
+
+[node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("11_um6te")]
+unique_name_in_owner = true
+trail_particles = NodePath("../Plane/flameparticles")
+
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("10_uw1lj")]
+unique_name_in_owner = true
+turn_speed = 2.0
+thing_to_rotate = NodePath("../Plane")
+
+[node name="targetDeviatTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="death" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_eeo2s")
+}
+speed_scale = 2.0
+
+[node name="telegraphShot" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_5avn4")
+}
 
 [node name="Plane" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -474,37 +541,6 @@ z_index = -1
 position = Vector2(-1, 0)
 texture = ExtResource("2_5avn4")
 
-[node name="targetDeviatTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 2.0
-autostart = true
-
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_uw1lj")]
-collision_layer = 2
-collision_mask = 2
-health_component = NodePath("../HealthComponent")
-ouchnim = NodePath("ouchnim")
-explosion_particles = true
-
-[node name="ouchnim" type="AnimationPlayer" parent="HurtboxComponent"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_d56he")
-}
-
-[node name="hubc" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CircleShape2D_o2tfc")
-
-[node name="HealthComponent" parent="." instance=ExtResource("5_um6te")]
-max_hp = 20.0
-
-[node name="death" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_eeo2s")
-}
-speed_scale = 2.0
-
 [node name="explode_particles" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 20
@@ -558,26 +594,6 @@ unique_name_in_owner = true
 stream = ExtResource("10_8jxk8")
 volume_db = -5.0
 bus = &"sfx"
-
-[node name="ShootTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 2.0
-one_shot = true
-
-[node name="telegraphShot" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_5avn4")
-}
-
-[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("10_uw1lj")]
-unique_name_in_owner = true
-turn_speed = 2.0
-thing_to_rotate = NodePath("../Plane")
-
-[node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("11_um6te")]
-unique_name_in_owner = true
-trail_particles = NodePath("../Plane/flameparticles")
 
 [node name="enemyArrow" parent="." instance=ExtResource("14_v3f3a")]
 

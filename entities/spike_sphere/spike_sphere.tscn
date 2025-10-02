@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://dyirarspnmdqd"]
+[gd_scene load_steps=23 format=3 uid="uid://dyirarspnmdqd"]
 
 [ext_resource type="Script" uid="uid://dygihq6ky1uvq" path="res://entities/spike_sphere/spike_sphere.gd" id="1_1tssn"]
+[ext_resource type="Resource" uid="uid://b5olh75wkrnyc" path="res://resources/enemy_stats/SpikeBallStats.tres" id="2_sufux"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="4_phis3"]
 [ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="5_gnxvb"]
 [ext_resource type="Texture2D" uid="uid://cw30gj5fpxv50" path="res://icon.svg" id="6_36ih5"]
@@ -52,13 +53,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq0po"]
 size = Vector2(26.6667, 26.6667)
 
-[sub_resource type="Curve" id="Curve_tuvxo"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_vc8fo"]
-offsets = PackedFloat32Array(0, 0.885906, 0.993289)
-colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbfv1"]
+size = Vector2(22.6667, 24)
 
 [sub_resource type="Animation" id="Animation_lctui"]
 length = 0.001
@@ -219,8 +215,13 @@ _data = {
 &"die": SubResource("Animation_akvag")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbfv1"]
-size = Vector2(22.6667, 24)
+[sub_resource type="Curve" id="Curve_tuvxo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_vc8fo"]
+offsets = PackedFloat32Array(0, 0.885906, 0.993289)
+colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sufux"]
 resource_local_to_scene = true
@@ -232,13 +233,10 @@ shader_parameter/mix_value = 0.0
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_1tssn")
-
-[node name="targetDeviatTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 3.0
-autostart = true
+stats = ExtResource("2_sufux")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_phis3")]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
@@ -254,8 +252,37 @@ libraries = {
 [node name="hubc" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("RectangleShape2D_iq0po")
 
+[node name="HitboxComponent" parent="." instance=ExtResource("7_fl4rs")]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 4
+
+[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_rbfv1")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("7_lobse")]
+unique_name_in_owner = true
+
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("8_do36c")]
+unique_name_in_owner = true
+turn_speed = 2.0
+thing_to_rotate = NodePath("../Icon")
+
 [node name="HealthComponent" parent="." instance=ExtResource("5_gnxvb")]
+unique_name_in_owner = true
 max_hp = 5.0
+
+[node name="targetDeviatTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="death" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_eeo2s")
+}
+speed_scale = 2.0
 
 [node name="explode_particles" type="CPUParticles2D" parent="."]
 scale = Vector2(0.666667, 0.666667)
@@ -278,13 +305,6 @@ scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_tuvxo")
 color_ramp = SubResource("Gradient_vc8fo")
 
-[node name="death" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_eeo2s")
-}
-speed_scale = 2.0
-
 [node name="Shockwave-sheet" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("6_qgpoh")
@@ -292,29 +312,11 @@ hframes = 3
 vframes = 3
 frame = 1
 
-[node name="HitboxComponent" parent="." instance=ExtResource("7_fl4rs")]
-unique_name_in_owner = true
-collision_layer = 4
-collision_mask = 4
-
-[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("RectangleShape2D_rbfv1")
-
 [node name="Icon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_sufux")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_36ih5")
-
-[node name="VelocityComponent" parent="." instance=ExtResource("7_lobse")]
-unique_name_in_owner = true
-accelerate_speed = 2000
-drag_factor = 1.0
-
-[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("8_do36c")]
-unique_name_in_owner = true
-turn_speed = 2.0
-thing_to_rotate = NodePath("../Icon")
 
 [node name="enemyArrow" parent="." instance=ExtResource("9_sufux")]
 

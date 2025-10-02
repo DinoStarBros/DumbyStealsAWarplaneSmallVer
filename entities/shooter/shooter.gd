@@ -1,14 +1,26 @@
-extends CharacterBody2D
+extends Enemy
 
 var accelerating : = true
 var dir_to_targ : Vector2
 var target : CharacterBody2D
 
+@onready var hitbox_component: HitboxComponent = %HitboxComponent
+@onready var health_component: HealthComponent = %HealthComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
-@onready var health_component: HealthComponent = %HealthComponent
+@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 func _ready() ->  void:
+	hitbox_component.set_attack_properties(stats.damage)
+	
+	health_component.max_hp = stats.max_hp
+	health_component.hp = health_component.max_hp
+	
+	velocity_component.max_speed = stats.max_speed
+	velocity_component.acceleration = stats.acceleration
+	
+	rotation_component.turn_speed = stats.turn_speed
+	
 	_on_target_deviat_timer_timeout()
 
 var target_deviation : Vector2

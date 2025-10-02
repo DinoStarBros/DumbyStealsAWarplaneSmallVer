@@ -9,7 +9,7 @@ var rand_sfx_idx : int = 0
 
 signal Hit
 
-func set_attack_properties(damag:int) -> void:
+func set_attack_properties(damag:float) -> void:
 	dmg = damag
 
 func _on_area_entered(area : Area2D) -> void:

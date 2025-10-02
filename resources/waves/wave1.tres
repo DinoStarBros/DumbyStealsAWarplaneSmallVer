@@ -12,5 +12,5 @@ enemies = Array[PackedScene]([ExtResource("2_wvy8a"), ExtResource("1_1102q"), Ex
 minimum_spawn_time = 0.01
 enemy_limit = 10.0
 max_enemy_amount = 3
-max_spawn_budget = 30
+max_spawn_budget = 1
 metadata/_custom_type_script = "uid://d1crhjsum6w1o"

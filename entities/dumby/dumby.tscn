@@ -1082,7 +1082,7 @@ unique_name_in_owner = true
 scale = Vector2(1.5, 1.5)
 hp_bar = NodePath("../bars/hpbar")
 hp_text = NodePath("../bars/hpbar/Label")
-max_hp = 20.0
+max_hp = 200.0
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("43_12dy5")]
 unique_name_in_owner = true

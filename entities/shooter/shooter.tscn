@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhp7st34wqg3f"]
+[gd_scene load_steps=31 format=3 uid="uid://bhp7st34wqg3f"]
 
 [ext_resource type="Script" uid="uid://bsinn15v5ma8t" path="res://entities/shooter/shooter.gd" id="1_kg2ur"]
 [ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="2_bvc85"]
+[ext_resource type="Resource" uid="uid://ucdvv8gnyixa" path="res://resources/enemy_stats/ShooterStats.tres" id="2_qxcir"]
+[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="2_vyadc"]
 [ext_resource type="Texture2D" uid="uid://baj53ina6l1vj" path="res://Art/planestuff/plane-Sheet.png" id="3_a16y1"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="4_ttcvk"]
 [ext_resource type="Shader" uid="uid://cne6u584nd6e4" path="res://shaders/hitFlash.gdshader" id="4_usygi"]
@@ -12,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="9_ckebl"]
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="10_d1p5d"]
 [ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="11_wqul4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyadc"]
+radius = 15.0
 
 [sub_resource type="Animation" id="Animation_2qnmu"]
 resource_name = "Ouch"
@@ -305,17 +310,18 @@ z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_kg2ur")
 bullet_spd = 1000.0
+stats = ExtResource("2_qxcir")
 
-[node name="targetDeviatTimer" type="Timer" parent="."]
+[node name="HitboxComponent" parent="." instance=ExtResource("2_vyadc")]
 unique_name_in_owner = true
-wait_time = 5.0
-autostart = true
+collision_layer = 4
+collision_mask = 4
 
-[node name="ShootTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-autostart = true
+[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_vyadc")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_ttcvk")]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
@@ -331,9 +337,27 @@ libraries = {
 [node name="hubc" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_o2tfc")
 
+[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("10_d1p5d")]
+unique_name_in_owner = true
+turn_speed = 9.0
+thing_to_rotate = NodePath("../Plane")
+
+[node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("9_ckebl")]
+unique_name_in_owner = true
+trail_particles = NodePath("../Plane/trailparticle")
+
 [node name="HealthComponent" parent="." instance=ExtResource("5_tq5xu")]
 unique_name_in_owner = true
 max_hp = 25.0
+
+[node name="targetDeviatTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
 
 [node name="Plane" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -468,15 +492,6 @@ volume_db = -10.0
 pitch_scale = 0.5
 max_distance = 10000.0
 bus = &"sfx"
-
-[node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("9_ckebl")]
-unique_name_in_owner = true
-trail_particles = NodePath("../Plane/trailparticle")
-
-[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("10_d1p5d")]
-unique_name_in_owner = true
-turn_speed = 9.0
-thing_to_rotate = NodePath("../Plane")
 
 [node name="enemyArrow" parent="." instance=ExtResource("11_wqul4")]
 

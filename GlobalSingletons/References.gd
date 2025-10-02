@@ -11,11 +11,11 @@ var upgrades_res : Array[Upgrade] = [
 ]
 
 var items_res : Array[ItemData] = [
-	load("res://inventoryStuff/resources/Damage1.tres"),
-	load("res://inventoryStuff/resources/SpeedUp1.tres"),
-	load("res://inventoryStuff/resources/Rot1.tres"),
-	load("res://inventoryStuff/resources/Hp1.tres"),
-	load("res://inventoryStuff/resources/HmShooter1.tres"),
+	load("res://inventoryStuff/item_resources/1.tres"),
+	load("res://inventoryStuff/item_resources/SpeedUp1.tres"),
+	load("res://inventoryStuff/item_resources/Rot1.tres"),
+	load("res://inventoryStuff/item_resources/Hp1.tres"),
+	load("res://inventoryStuff/item_resources/HmShooter1.tres"),
 	
 	
 ]

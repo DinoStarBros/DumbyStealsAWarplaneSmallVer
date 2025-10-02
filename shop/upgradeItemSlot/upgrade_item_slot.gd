@@ -1,9 +1,12 @@
 extends Button
 class_name UpgradeItemSlot
 
-@onready var shop : Shop = get_parent().get_parent()
 var item: ItemData
-var upgrade : Upgrade
+#var upgrade : Upgrade
+
+@onready var shop : Shop = get_parent().get_parent()
+@onready var sprite: Sprite2D = %sprite
+@onready var texture: TextureRect = %texture
 
 func _ready() -> void:
 	pressed.connect(_on_select)
@@ -21,12 +24,15 @@ func _process(_delta: float) -> void:
 
 func update_visuals() -> void:
 	%name.text = str(
-		upgrade.name
+		item.name
 	)
 	
 	%descText.text = str(
 		"\n",
-		upgrade.description,
+		item.description,
 		"\n",
 		#item.upgrade
 	)
+	
+	#sprite.texture = item.texture
+	texture.texture = item.texture

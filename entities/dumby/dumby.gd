@@ -17,6 +17,8 @@ var dir_plane : Vector2
 @onready var upgrade_handler: UpgradeHandler = %upgrade_handler
 
 func _ready() -> void:
+	
+	
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
 

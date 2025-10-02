@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	upgrade_slots = %upgradeItemSlots.get_children()
 	
-	possible_upgrades = References.upgrades_res
+	possible_items = References.items_res
 
 func _on_skip_pressed() -> void:
 	if p.allow_upgrade_end:
@@ -48,6 +48,7 @@ func _on_wave_end() -> void:
 	upgrade_selected = null
 	
 	possible_upgrades.shuffle()
+	possible_items.shuffle()
 	
 	var n : int = -1
 	for slot in upgrade_slots:
@@ -61,7 +62,7 @@ func _process(delta: float) -> void:
 	
 	if upgrade_selected:
 		%upgradeDesc.text = str(
-			upgrade_selected.upgrade.flavor_text
+			upgrade_selected.item.flavor_text
 		)
 		#%upgradeDesc.visible = true
 	else:
@@ -86,7 +87,8 @@ func _process(delta: float) -> void:
 	%gold.text = str("Money: ", PlayerStats.money)
 
 func assign_upgrade_slot(slot: UpgradeItemSlot, ndex: int) -> void:
-	slot.upgrade = possible_upgrades[ndex]
+	#slot.upgrade = possible_upgrades[ndex]
+	slot.item = possible_items[ndex]
 	slot.update_visuals()
 
 func buy() -> void:
