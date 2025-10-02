@@ -283,7 +283,13 @@ func texts() -> void:
 			ndex += 1
 			label.text = str(inventory_slot_layers[ndex])
 	
-	#%items_txt.text = str(PlayerStats.upgrade_names)
+	if current_inv_item:
+		%item_desc.text = str(
+			current_inv_item.item.name, ": \n",
+			current_inv_item.item.description,
+			)
+	else:
+		%item_desc.text = "Select an item"
 
 func change_rotation(amnt: float) -> void:
 	desired_item_rotation += amnt

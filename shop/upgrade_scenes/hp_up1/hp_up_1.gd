@@ -1,6 +1,6 @@
 extends UpgradeSCN
 
-const HP_BUFF : float = 5
+const HP_BUFF : float = 25
 
 func _ready() -> void:
 	upgrade_handler.health_component.max_hp += HP_BUFF

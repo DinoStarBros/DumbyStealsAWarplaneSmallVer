@@ -46,8 +46,6 @@ func _on_buy_pressed() -> void:
 		if upgrade_selected:
 			if upgrade_selected.item.name != item_bought.name:
 				add_item_to_inventory()
-			else:
-				print("YOU BOUGHT THIS SHIT, REROLL")
 
 func _on_wave_end() -> void:
 	%reroll.grab_focus()

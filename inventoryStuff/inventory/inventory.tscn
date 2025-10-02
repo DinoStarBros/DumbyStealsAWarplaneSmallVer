@@ -54,6 +54,7 @@ text = "Store Back"
 
 [node name="layers_txt" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 681.0
 offset_top = 278.0
@@ -88,13 +89,13 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="items_txt" type="Label" parent="."]
+[node name="item_desc" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 394.0
-offset_top = 29.0
-offset_right = 434.0
-offset_bottom = 52.0
-text = "ahh"
+offset_left = 663.0
+offset_top = 94.0
+offset_right = 838.0
+offset_bottom = 112.0
+text = "Lotsa Stuff O: O: O:"
 
 [connection signal="pressed" from="stored_items/store_back" to="." method="_on_store_back_pressed"]

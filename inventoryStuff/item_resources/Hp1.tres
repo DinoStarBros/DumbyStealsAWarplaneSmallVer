@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://djujkh5c5mura"]
 
-[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/item_resources/item_data.gd" id="1_7vdam"]
-[ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_7q05n"]
-[ext_resource type="PackedScene" uid="uid://b28iem7sb7emf" path="res://shop/upgrade_scenes/hp_up1/hp_up_1.tscn" id="3_7q05n"]
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/item_resources/item_data.gd" id="1_qiykk"]
+[ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_ludpu"]
+[ext_resource type="PackedScene" uid="uid://b28iem7sb7emf" path="res://shop/upgrade_scenes/hp_up1/hp_up_1.tscn" id="3_bci0t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k58vi"]
-atlas = ExtResource("2_7q05n")
+atlas = ExtResource("2_ludpu")
 region = Rect2(640, 0, 48, 48)
 
 [resource]
-script = ExtResource("1_7vdam")
+script = ExtResource("1_qiykk")
 name = "HP Upgrade"
-description = "Increases Max HP by 5"
+description = "Increases Max HP by 25"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1, 1, 1], [1, 1, 1], [1, 1, 1]])
-upgrade_scn = ExtResource("3_7q05n")
+upgrade_scn = ExtResource("3_bci0t")
 metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

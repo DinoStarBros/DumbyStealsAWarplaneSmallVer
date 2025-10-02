@@ -27,3 +27,4 @@ func remove_upgrade(item: ItemData) -> void:
 	for upgrade : UpgradeSCN in get_children():
 		if upgrade.item_data == item:
 			upgrade.queue_free()
+			break
