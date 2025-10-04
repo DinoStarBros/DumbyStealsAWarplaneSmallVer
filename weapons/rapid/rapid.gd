@@ -27,9 +27,10 @@ func shooting_handling(delta:float) -> void:
 				await get_tree().create_timer(stats.shoot_delay / 1.5).timeout
 			else:
 				await get_tree().create_timer(stats.shoot_delay).timeout
-		
+	
+	# Handling for the shooting cooldown
 	if buffed:
-		cooldown -= delta * 2 # Increases the firerate when buffed
+		cooldown -= delta * 1.5 # Increases the firerate when buffed
 	else:
 		cooldown -= delta
 	
@@ -69,7 +70,7 @@ func buffed_handling(delta: float) -> void:
 
 func play_sfx() -> void:
 	%shootsfx.pitch_scale = randf_range(0.5, 0.7)
-	%shootsfx2.pitch_scale = randf_range(1.1, 1.3)
+	%shootsfx2.pitch_scale = randf_range(0.9, 1.3)
 	
 	%shootsfx.play()
 	%shootsfx2.play(0.2)

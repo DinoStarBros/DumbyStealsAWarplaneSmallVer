@@ -38,8 +38,8 @@ func spawn_rocket() -> void:
 
 func setting_rocket_parameters(rocket: Homing_Rocket) -> void:
 	rocket.lifetime = 10
-	rocket.dmg = 10
-	rocket.explosion_dmg = 8
+	rocket.dmg = 6
+	rocket.explosion_dmg = 4
 	rocket.initial_velocity = trig_vector
 	rocket.global_position = g.player.global_position
 

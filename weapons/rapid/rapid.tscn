@@ -12,7 +12,7 @@ stats = ExtResource("2_7cnad")
 [node name="shootsfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_svll7")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 0.6
 bus = &"sfx"
 
@@ -20,5 +20,4 @@ bus = &"sfx"
 unique_name_in_owner = true
 stream = ExtResource("4_k5gtb")
 volume_db = -20.0
-pitch_scale = 1.2
 bus = &"sfx"

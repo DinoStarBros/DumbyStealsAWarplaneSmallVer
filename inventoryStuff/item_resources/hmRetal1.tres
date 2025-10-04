@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bxyckcnhjw1t5"]
+
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/item_resources/item_data.gd" id="1_jjniu"]
+[ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_ewref"]
+[ext_resource type="PackedScene" uid="uid://dlbxmht282tow" path="res://shop/upgrade_scenes/hmRetal1/hm_retal_1.tscn" id="3_1y3j4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22jpi"]
+atlas = ExtResource("2_ewref")
+region = Rect2(128, 0, 32, 48)
+
+[resource]
+script = ExtResource("1_jjniu")
+name = "H.M. Retaliator Mk. 1 "
+description = "When taking damage, 75% chance to shoot a homing rocket."
+flavor_text = "Damn, you wanna get rewarded for getting hit? You suck."
+texture = SubResource("AtlasTexture_22jpi")
+shape = Array[Array]([[1, 0], [1, 1], [1, 0]])
+upgrade_scn = ExtResource("3_1y3j4")
+metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

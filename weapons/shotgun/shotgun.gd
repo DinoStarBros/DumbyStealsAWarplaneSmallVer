@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 
 func shooting_handling(delta:float) -> void:
 	if Input.is_action_pressed("shoot") and can_shoot:
+		p.Shoot.emit()
+		
 		%shootsfx.pitch_scale = randf_range(0.6, 0.8)
 		%shootsfx2.pitch_scale = randf_range(1.0, 1.2)
 		

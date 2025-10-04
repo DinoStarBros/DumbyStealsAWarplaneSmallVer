@@ -5,16 +5,10 @@
 
 [resource]
 script = ExtResource("1_v3prr")
-shoot_cooldown = 0.075
 bullet_spd = 2500
-bullet_amnt = 1
-random_spread = 0.0
 bullet_lifetime = 2.0
-shoot_delay = 0.0
-base_damage = 5
 bullet_scn = ExtResource("1_wunjo")
 max_ammo = 100
-ammo_use = 1
 max_reload_duration = 1.5
 min_sweet_spot = 0.8
 max_sweet_spot = 1.2

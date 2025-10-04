@@ -16,7 +16,7 @@ var items_res : Array[ItemData] = [
 	load("res://inventoryStuff/item_resources/Rot1.tres"),
 	load("res://inventoryStuff/item_resources/Hp1.tres"),
 	load("res://inventoryStuff/item_resources/HmShooter1.tres"),
-	load("res://inventoryStuff/item_resources/1.tres")
+	load("res://inventoryStuff/item_resources/hmRetal1.tres")
 	
 	
 ]

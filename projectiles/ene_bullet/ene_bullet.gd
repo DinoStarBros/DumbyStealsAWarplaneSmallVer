@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _physics_process(_delta:float)->void:
 	move_and_slide()
-	%HitboxComponent.set_attack_properties(1)
+	%HitboxComponent.set_attack_properties(dmg)
 
 func _on_dur_timeout() -> void:
 	queue_free()

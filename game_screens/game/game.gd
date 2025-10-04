@@ -8,9 +8,9 @@ const right_bound : = 14000
 const up_bound : = -6674
 const down_bound : = 2583
 func _ready() -> void:
-	%music.play(177)
+	#%music.play(177)
 	
-	%FloorHitBox.set_attack_properties(5)
+	%FloorHitBox.set_attack_properties(30)
 	g.game_state = g.game_states.Combat
 	cloud_parents = %cloudparallax.get_children()
 	#print(320*15)
@@ -23,6 +23,8 @@ func _ready() -> void:
 	g.enemy_arrows = %EnemyArrows
 	
 	g.wave = 1
+	
+	#%music.play(177)
 	
 	for n in cloud_amnt:
 		%cloud_pos.global_position.y = randf_range(down_bound,up_bound)

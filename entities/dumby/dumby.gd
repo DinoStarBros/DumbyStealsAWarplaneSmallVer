@@ -9,6 +9,7 @@ var attack : Attack = Attack.new()
 var position_sensitive_rect : Rect2
 var aim_position : Vector2
 var dir_plane : Vector2
+var iframes : float = 0
 
 @onready var health_component: HealthComponent = %HealthComponent
 #@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
@@ -25,6 +26,8 @@ func _ready() -> void:
 	
 	PlayerStats.speed = PlayerStats.BASE_SPD
 	PlayerStats.rotation_speed = PlayerStats.BASE_ROT_SPD
+	PlayerStats.acceleration = PlayerStats.BASE_ACCEL
+	PlayerStats.max_iframes = PlayerStats.BASE_MAX_IFRAMES
 
 func _physics_process(delta: float) -> void:
 	# Handling functions
@@ -75,8 +78,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		accelerate_time = 0
 	
-	
 	player_stats_handling()
+	iframes_handling(delta)
 
 func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic camera follow mouse
 	if controller:
@@ -91,9 +94,9 @@ func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic 
 
 var accelerating : bool = false
 
-func damage(_attack:Attack)->void:
-	#g.cam.screen_shake(20, 0.3)
-	pass
+@warning_ignore("shadowed_variable")
+func damage(attack:Attack)->void:
+	Hurt.emit(attack)
 
 func Dead(_attack:Attack)->void:
 	#g.cam.screen_shake(40, 1)
@@ -186,12 +189,14 @@ signal Shoot
 signal Reload
 signal Quick_Reload
 signal Roll
+signal Hurt
 
 func _init() -> void:
 	Shoot.connect(_on_shoot)
 	Reload.connect(_on_reload)
 	Quick_Reload.connect(_on_quick_reload)
 	Roll.connect(_on_roll)
+	Hurt.connect(_on_hurt)
 
 func _on_shoot() -> void:
 	pass
@@ -205,6 +210,13 @@ func _on_quick_reload() -> void:
 func _on_roll() -> void:
 	pass
 
+func _on_hurt(_attack: Attack) -> void:
+	pass
+
 func player_stats_handling() -> void:
 	velocity_component.max_speed = PlayerStats.speed
 	rotation_component.turn_speed = PlayerStats.rotation_speed
+	velocity_component.acceleration = PlayerStats.acceleration
+
+func iframes_handling(delta: float) -> void:
+	iframes = max(iframes - delta, 0)

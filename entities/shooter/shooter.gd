@@ -67,6 +67,7 @@ func spawn_bullet()->void:
 	%shoot2.play(.2)
 	
 	var bullet : Projectile = bullet_scn.instantiate()
+	bullet.dmg = stats.extra_stats["bullet_damage"]
 	bullet.global_position = global_position
 	
 	bullet.velocity = direction * bullet_spd

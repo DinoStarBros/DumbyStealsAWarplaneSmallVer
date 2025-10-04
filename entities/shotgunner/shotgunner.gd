@@ -84,7 +84,9 @@ func spawn_bullet()->void:
 	%shoot3.play()
 	
 	var bullet : Projectile = bullet_scn.instantiate()
-
+	
+	bullet.dmg = stats.extra_stats["bullet_damage"]
+	
 	g.game.add_child(bullet)
 	
 	rand_spread_vector.x = randf_range(-random_spread, random_spread)

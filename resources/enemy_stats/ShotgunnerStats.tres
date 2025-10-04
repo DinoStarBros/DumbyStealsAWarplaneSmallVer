@@ -8,4 +8,7 @@ damage = 5.0
 max_hp = 25.0
 max_speed = 800.0
 acceleration = 4.0
+extra_stats = Dictionary[String, Variant]({
+"bullet_damage": 10.0
+})
 metadata/_custom_type_script = "uid://dycg2uy8h53rg"

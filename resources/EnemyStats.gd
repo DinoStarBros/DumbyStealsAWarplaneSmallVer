@@ -13,3 +13,6 @@ class_name EnemyStats
 
 @export_category("Rotation Component")
 @export var turn_speed : float = 3.0
+
+@export_category("Extra Stats") ## For enemy specific shite
+@export var extra_stats : Dictionary[String, Variant]

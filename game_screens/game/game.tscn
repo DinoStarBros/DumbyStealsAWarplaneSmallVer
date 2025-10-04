@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djxndtog5nfd5"]
+[gd_scene load_steps=16 format=3 uid="uid://djxndtog5nfd5"]
 
 [ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/game/game.gd" id="1_u3itd"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_foa6o"]
@@ -7,7 +7,6 @@
 [ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/wave1.tres" id="4_slubn"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="5_ymunx"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_slubn"]
-[ext_resource type="AudioStream" uid="uid://djpnk4x0gd6y" path="res://Audio/planemusic/DnB stuffs.wav" id="8_slubn"]
 
 [sub_resource type="Curve2D" id="Curve2D_gy565"]
 _data = {
@@ -1042,7 +1041,6 @@ texture = ExtResource("5_ymunx")
 [node name="music" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 process_mode = 3
-stream = ExtResource("8_slubn")
 volume_db = -5.0
 autoplay = true
 bus = &"music"

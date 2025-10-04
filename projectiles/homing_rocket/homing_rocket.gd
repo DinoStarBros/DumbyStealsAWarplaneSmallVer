@@ -10,7 +10,7 @@ var max_speed : float = 1500
 var initial_velocity : Vector2
 
 func _ready() -> void:
-	%explode.pitch_scale = randf_range(0.8, 1)
+	%explode.pitch_scale += randf_range(-.2, .2)
 	
 	hitbox_component.Hit.connect(hit)
 	
@@ -105,7 +105,7 @@ func new_homing_handle(delta: float) -> void: ## The new homing, gradually rotat
 	look_at(global_position + (current_velocity.normalized()))
 	velocity = current_velocity
 
-var explosion_dmg : int = 5
+var explosion_dmg : int = 4
 const explosion_scn : PackedScene = preload(References.projectile_scns["explosion"])
 func spawn_explosion() -> void:
 	var explosion : CharacterBody2D = explosion_scn.instantiate()

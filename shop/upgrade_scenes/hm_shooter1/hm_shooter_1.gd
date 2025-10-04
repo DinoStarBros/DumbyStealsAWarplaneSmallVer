@@ -16,7 +16,7 @@ func _on_shoot() -> void:
 func _spawn_rocket() -> void:
 	var rocket : Homing_Rocket = rocket_scn.instantiate()
 	rocket.initial_velocity = upgrade_handler.p.rotation_component.direction
-	rocket.dmg = 5
+	rocket.dmg = 3
 	
 	g.projectile_container.add_child(rocket)
 	

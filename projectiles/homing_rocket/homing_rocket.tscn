@@ -290,7 +290,6 @@ frame = 1
 unique_name_in_owner = true
 stream = ExtResource("7_8vt5m")
 volume_db = 5.0
-pitch_scale = 0.8
 max_distance = 3000.0
 bus = &"sfx"
 

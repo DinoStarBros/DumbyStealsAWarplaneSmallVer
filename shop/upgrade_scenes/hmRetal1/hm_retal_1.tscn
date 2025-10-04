@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlbxmht282tow"]
+
+[ext_resource type="Script" uid="uid://bxjv33601irkq" path="res://shop/upgrade_scenes/hmRetal1/hm_retal_1.gd" id="1_ajot5"]
+
+[node name="hmRetal1" type="Node2D"]
+script = ExtResource("1_ajot5")

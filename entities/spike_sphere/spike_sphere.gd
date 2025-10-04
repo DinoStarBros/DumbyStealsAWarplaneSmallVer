@@ -27,7 +27,6 @@ func _ready() -> void:
 	rotation_component.turn_speed = stats.turn_speed
 	
 	_on_target_deviat_timer_timeout()
-	%HitboxComponent.set_attack_properties(1)
 	accelerate_spd += randi_range(-5, 5)
 
 var target_deviation : Vector2

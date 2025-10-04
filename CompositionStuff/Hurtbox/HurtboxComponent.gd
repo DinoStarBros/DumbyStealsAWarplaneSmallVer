@@ -48,6 +48,7 @@ func spawn_explosion_particles(attack: Attack) -> void:
 
 func hit(player : bool, dead : bool) -> void:
 	if player:
+		
 		if dead:
 			# Dead Player
 			g.cam.screen_shake(40, 1)
@@ -56,7 +57,9 @@ func hit(player : bool, dead : bool) -> void:
 			# Hit Player
 			g.cam.screen_shake(20, 0.4)
 			g.frame_freeze(0.3, 0.3)
+		
 	else:
+		
 		if dead:
 			# Dead Enemy
 			g.cam.screen_shake(9, 0.1)
@@ -64,3 +67,4 @@ func hit(player : bool, dead : bool) -> void:
 		else:
 			# Hit Enemy
 			g.cam.screen_shake(6, 0.2)
+		

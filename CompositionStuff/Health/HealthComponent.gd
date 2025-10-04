@@ -22,7 +22,7 @@ func damage(attack:Attack) -> void:
 	else:
 		
 		# Player taking damage
-		
+		g.spawn_txt(str(roundi(attack.ene_attack_damage)), global_position)
 		hp -= attack.ene_attack_damage
 
 func _process(_delta:float)->void:

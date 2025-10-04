@@ -6,6 +6,7 @@
 script = ExtResource("1_pti1x")
 damage = 5.0
 max_hp = 2.0
-max_speed = 1000.0
-turn_speed = 2.0
+max_speed = 2000.0
+acceleration = 1.0
+turn_speed = 1.0
 metadata/_custom_type_script = "uid://dycg2uy8h53rg"
