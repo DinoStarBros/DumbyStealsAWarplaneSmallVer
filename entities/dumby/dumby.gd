@@ -10,12 +10,14 @@ var position_sensitive_rect : Rect2
 var aim_position : Vector2
 var dir_plane : Vector2
 var iframes : float = 0
+var shooting : bool = false
 
 @onready var health_component: HealthComponent = %HealthComponent
 #@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
 @onready var upgrade_handler: UpgradeHandler = %upgrade_handler
+@onready var weapons_parent: WeaponsParent = %weapons_parent
 
 func _ready() -> void:
 	
@@ -80,6 +82,9 @@ func _physics_process(delta: float) -> void:
 	
 	player_stats_handling()
 	iframes_handling(delta)
+	
+	shooting = Input.is_action_pressed("shoot") and weapons_parent.current_weapon.ammo > 0
+	
 
 func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic camera follow mouse
 	if controller:
@@ -97,6 +102,7 @@ var accelerating : bool = false
 @warning_ignore("shadowed_variable")
 func damage(attack:Attack)->void:
 	Hurt.emit(attack)
+	iframes = PlayerStats.max_iframes
 
 func Dead(_attack:Attack)->void:
 	#g.cam.screen_shake(40, 1)
@@ -104,7 +110,7 @@ func Dead(_attack:Attack)->void:
 	set_physics_process(false)
 	%explod.play(.4)
 	%death.play("die")
-	%weapons_parent.process_mode = Node.PROCESS_MODE_DISABLED
+	weapons_parent.process_mode = Node.PROCESS_MODE_DISABLED
 	%Abilities.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	%menu.grab_focus()
@@ -220,3 +226,6 @@ func player_stats_handling() -> void:
 
 func iframes_handling(delta: float) -> void:
 	iframes = max(iframes - delta, 0)
+	
+	%hurtbox.disabled = iframes > 0
+	%fhurtbox.disabled = iframes > 0

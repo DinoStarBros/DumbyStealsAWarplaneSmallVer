@@ -24,20 +24,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	look_at(p.dir_plane + global_position)
-	regen_bar.visible = not Input.is_action_pressed("shoot") and health_component.hp < health_component.max_hp and not current_weapon.reloading
+	regen_bar.visible = health_component.hp < health_component.max_hp and not current_weapon.reloading
 	ammo_handling(delta)
 	reload_bar.visible = current_weapon.reloading
 	max_ss_vis.visible = current_weapon.reloading
 	min_ss_vis.visible = current_weapon.reloading
+	
+	regen_handling.call(delta)
+	regen_bar.max_value = max_regen_time
+	regen_bar.value = regen_time
+	
 	if not current_weapon.reloading:
 		if Input.is_action_pressed("shoot") and current_weapon.ammo > 0:
 			%flashnim.play("flash")
-			regen_time = 0
-			regen_speed = 0.5
-		else:
-			regen_handling.call(delta)
-			regen_bar.max_value = max_regen_time
-			regen_bar.value = regen_time
+			#regen_time = 0
+			#regen_speed = 0.5
+		#else:
+		#	
+		#	
 
 ### Below is stuff for ammo counts and reloading ###
 var reload_time : float = 0 ## The amount of time that has passed since the start of the reload
@@ -96,13 +100,15 @@ func ammo_handling(delta: float) -> void:
 ### Below is all the stuff for regen ###
 var regen_time : float = 0
 var max_regen_time : float = 1
-var regen_speed : float = .2
-var regen_speed_limit : float = .4
+var regen_speed : float = .3
+var regen_speed_limit : float = 1
+var regen_time_mult : float = 0
 # Goofy lmbda function stuff
-var regen_handling : Callable = func(delta:float) -> void:
+var regen_handling : Callable = func(delta: float) -> void:
+	
 	if health_component.hp < health_component.max_hp:
-		regen_speed += delta * 0.5
-		regen_time += delta * regen_speed
+		regen_speed += delta
+		regen_time += delta * regen_speed * regen_time_mult
 	else:
 		regen_time = 0
 		regen_speed = 0.5
@@ -114,6 +120,15 @@ var regen_handling : Callable = func(delta:float) -> void:
 		regen_time = 0
 		heal()
 		%heal.play()
+	
+	if p.shooting and not p.accelerating:
+		regen_time_mult = 0.5
+	elif p.accelerating and not p.shooting:
+		regen_time_mult = 0.5
+	elif p.accelerating and p.shooting:
+		regen_time_mult = 0.2
+	else:
+		regen_time_mult = 1
 
 func _on_hurtbox_component_plr_hit(_dmg: int) -> void:
 	regen_speed = .4

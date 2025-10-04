@@ -1,7 +1,7 @@
 extends UpgradeSCN
 
 const rocket_scn: PackedScene = preload(References.projectile_scns["homing_rocket"])
-const spawn_chance: float = 0.75
+const spawn_chance: float = 0.70
 
 func _ready() -> void:
 	upgrade_handler.p.Hurt.connect(_on_hurt)
