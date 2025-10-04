@@ -102,7 +102,7 @@ var accelerating : bool = false
 @warning_ignore("shadowed_variable")
 func damage(attack:Attack)->void:
 	Hurt.emit(attack)
-	iframes = PlayerStats.max_iframes
+	iframes += PlayerStats.max_iframes
 
 func Dead(_attack:Attack)->void:
 	#g.cam.screen_shake(40, 1)
@@ -135,7 +135,7 @@ func finish_collect() -> void:
 
 var rolling : bool = false ## If the player is rolling or not
 var roll_duration : float = 0.5 ## The amount of time the roll will last
-var roll_cooldown : float = 0.1 ## The amount of time you have to wait after a roll before being able to perform another
+var roll_cooldown : float = 0.3 ## The amount of time you have to wait after a roll before being able to perform another
 var roll_time : float = 0 ## The amount of time that has passed since the start of the roll
 var roll_cd_time : float = 0
 func roll_handling(delta: float) -> void:
@@ -172,7 +172,9 @@ func _roll() -> void:
 	%roll.play()
 	
 	%rollnim.play("roll")
-		
+	
+	iframes += roll_duration - 0.1
+	
 	roll_time = 0
 	rolling = true
 		
@@ -227,5 +229,5 @@ func player_stats_handling() -> void:
 func iframes_handling(delta: float) -> void:
 	iframes = max(iframes - delta, 0)
 	
-	%hurtbox.disabled = iframes > 0
-	%fhurtbox.disabled = iframes > 0
+	%hurtbox.disabled = iframes > 0 and health_component.hp > 0
+	%fhurtbox.disabled = iframes > 0 and health_component.hp > 0

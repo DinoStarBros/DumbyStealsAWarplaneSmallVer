@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxkyjl8b5v3ni"
+path="res://.godot/imported/Pierce The Veil - Circles (Lyrics).mp3-d5f1a90651887b6b7ee3eb772f95d040.mp3str"
+
+[deps]
+
+source_file="res://Audio/planemusic/Pierce The Veil - Circles (Lyrics).mp3"
+dest_files=["res://.godot/imported/Pierce The Veil - Circles (Lyrics).mp3-d5f1a90651887b6b7ee3eb772f95d040.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
