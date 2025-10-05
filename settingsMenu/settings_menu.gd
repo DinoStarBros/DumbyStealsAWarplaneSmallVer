@@ -67,6 +67,7 @@ func _on_master_volume_value_changed(value: float)->void:
 	%vol_change_master.play(0.005)
 	
 	g.master_volume = value
+
 func _on_music_volume_value_changed(value: float)->void:
 	%vol_change_music.pitch_scale = value
 	%vol_change_music.play(0.005)

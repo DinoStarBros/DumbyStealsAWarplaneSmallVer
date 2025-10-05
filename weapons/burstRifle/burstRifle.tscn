@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csrpvwwb3nx54" path="res://weapons/burstRifle/burstRifle.gd" id="1_70ogn"]
 [ext_resource type="Resource" uid="uid://1i3gk7oanohg" path="res://resources/weapon_stats/BurstRifleStats.tres" id="2_gpuok"]
-[ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="3_crxra"]
+[ext_resource type="AudioStream" uid="uid://cjrha4kbrqcpl" path="res://Audio/planesfx/gunshot-352466.mp3" id="3_gpuok"]
 [ext_resource type="AudioStream" uid="uid://c6gvo4o6ts4u2" path="res://Audio/planesfx/machine-gun-307468.mp3" id="4_gpuok"]
 
 [node name="burstRifle" type="Node2D"]
@@ -11,9 +11,8 @@ stats = ExtResource("2_gpuok")
 
 [node name="shootsfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_crxra")
-volume_db = -5.0
-pitch_scale = 0.6
+stream = ExtResource("3_gpuok")
+volume_db = -7.0
 bus = &"sfx"
 
 [node name="shootsfx2" type="AudioStreamPlayer" parent="."]

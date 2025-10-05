@@ -5,6 +5,9 @@ func _ready() -> void:
 	ammo = stats.max_ammo
 
 func _process(delta: float) -> void:
+	if p.weapons_parent.current_weapon != self:
+		return
+	
 	buffed_handling(delta)
 	if ammo > 0:
 		if not reloading:
@@ -61,6 +64,8 @@ func spawn_bullet() -> void:
 	#dir_to_mouse = global_position.direction_to(get_global_mouse_position())
 	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
 	
+	bullet.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage)
+	
 	bullet.global_position = global_position + (dir_to_mouse * 50)
 	bullet.velocity = (dir_to_mouse + rand_spread_vector ) * stats.bullet_spd
 	bullet.look_at((p.dir_plane + global_position) + rand_spread_vector)
@@ -75,5 +80,5 @@ func buffed_handling(delta: float) -> void:
 		buffed = true
 
 func play_sfx() -> void:
-	%shootsfx.pitch_scale = randf_range(0.5, 0.7)
-	%shootsfx.play()
+	%shootsfx.pitch_scale = randf_range(0.9, 1.1)
+	%shootsfx.play(0.08)

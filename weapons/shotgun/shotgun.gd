@@ -5,6 +5,9 @@ func _ready() -> void:
 	ammo = stats.max_ammo
 
 func _process(delta: float) -> void:
+	if p.weapons_parent.current_weapon != self:
+		return
+	
 	buffed_handling(delta)
 	if ammo > 0:
 		if not reloading:
@@ -17,19 +20,19 @@ func shooting_handling(delta:float) -> void:
 	if Input.is_action_pressed("shoot") and can_shoot:
 		p.Shoot.emit()
 		
-		%shootsfx.pitch_scale = randf_range(0.6, 0.8)
+		%shootsfx.pitch_scale = randf_range(0.8, 1.2)
 		%shootsfx2.pitch_scale = randf_range(1.0, 1.2)
 		
-		%shootsfx.play()
+		%shootsfx.play(0.08)
 		%shootsfx2.play(0.2)
 		
 		can_shoot = false
 		cooldown = stats.shoot_cooldown
 		
-		ammo -= 1
+		ammo -= stats.ammo_use
 		
 		if buffed:
-			for n in stats.bullet_amnt + 3:
+			for n in stats.bullet_amnt + 5:
 				spawn_bullet() # Adds 3 extra bullets when buffed
 				await get_tree().create_timer(stats.shoot_delay).timeout
 		else:
@@ -37,10 +40,10 @@ func shooting_handling(delta:float) -> void:
 				spawn_bullet()
 				await get_tree().create_timer(stats.shoot_delay).timeout
 	
-	if buffed:
-		cooldown -= delta * 1.2 # Firerate is slightly faster when buffed
-	else:
-		cooldown -= delta
+	#if buffed:
+	#	cooldown -= delta * 1.2 # Firerate is slightly faster when buffed
+	#else:
+	cooldown -= delta
 	
 	if cooldown <= 0:
 		cooldown = 0
@@ -51,10 +54,12 @@ func spawn_bullet() -> void:
 	rand_spread_vector.x = randf_range(-stats.random_spread, stats.random_spread)
 	rand_spread_vector.y = randf_range(-stats.random_spread, stats.random_spread)
 	
-	var bullet : CharacterBody2D = stats.bullet_scn.instantiate()
+	var bullet : Projectile = stats.bullet_scn.instantiate()
 	g.game.add_child(bullet)
 	
 	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
+	
+	bullet.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage)
 	
 	bullet.global_position = global_position + (dir_to_mouse * 50)
 	bullet.velocity = (dir_to_mouse + rand_spread_vector ) * stats.bullet_spd

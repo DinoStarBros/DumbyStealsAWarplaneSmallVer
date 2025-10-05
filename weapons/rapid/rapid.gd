@@ -5,6 +5,9 @@ func _ready() -> void:
 	ammo = stats.max_ammo
 
 func _process(delta: float) -> void:
+	if p.weapons_parent.current_weapon != self:
+		return
+	
 	buffed_handling(delta)
 	if ammo > 0:
 		if not reloading:

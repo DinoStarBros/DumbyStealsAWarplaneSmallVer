@@ -5,6 +5,7 @@ signal NewGun
 var are_you_sure : bool = false
 @onready var settings_menu: Settings = %settingsMenu
 @onready var sp_budget_txt: Label = %sp_budget_txt
+@onready var weapons_parent: WeaponsParent = %weapons_parent
 
 func _ready() -> void:
 	g.score = 0
@@ -98,3 +99,5 @@ func debug_txts() -> void:
 		"Rot Speed: ", PlayerStats.rotation_speed, "\n",
 		"Money: ", PlayerStats.money, "\n",
 	)
+	
+	%curr_weap.text = str(weapons_parent.current_weapon.name)

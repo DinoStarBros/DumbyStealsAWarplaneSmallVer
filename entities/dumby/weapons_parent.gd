@@ -6,6 +6,7 @@ class_name WeaponsParent
 var ammo_text : Label
 var current_weapon : Weapon
 var weapons : Array
+var current_weapon_idx : int
 
 @onready var regen_bar: ProgressBar = %regen_bar
 @onready var health_component: HealthComponent = %HealthComponent
@@ -22,6 +23,7 @@ func _ready() -> void:
 			current_weapon = weapon
 
 func _process(delta: float) -> void:
+	current_weapon_idx = weapons.find(current_weapon)
 	
 	look_at(p.dir_plane + global_position)
 	regen_bar.visible = health_component.hp < health_component.max_hp and not current_weapon.reloading
@@ -42,6 +44,12 @@ func _process(delta: float) -> void:
 		#else:
 		#	
 		#	
+		if not p.shooting:
+			if Input.is_action_just_pressed("next_weapon"):
+				switch_weapon(1)
+			
+			if Input.is_action_just_pressed("prev_weapon"):
+				switch_weapon(-1)
 
 ### Below is stuff for ammo counts and reloading ###
 var reload_time : float = 0 ## The amount of time that has passed since the start of the reload
@@ -159,3 +167,18 @@ func _on_evade_box_perfect_roll() -> void:
 	%shing.play()
 	%tactical_reloadnim.play("zing")
 	current_weapon.buff_time = current_weapon.stats.max_buff_time
+
+func switch_weapon(step: int) -> void:
+	%switch.pitch_scale = randf_range(1.2, 1.8)
+	%switch.play(0.13)
+	
+	var new_weapon : Weapon
+	
+	if current_weapon_idx + step > weapons.size() - 1:
+		new_weapon = weapons[0]
+	elif current_weapon_idx + step < 0:
+		new_weapon = weapons[weapons.size() - 1]
+	else:
+		new_weapon = weapons[current_weapon_idx + step]
+	
+	current_weapon = new_weapon
