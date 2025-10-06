@@ -32,7 +32,7 @@ func shooting_handling(delta:float) -> void:
 		ammo -= stats.ammo_use
 		
 		if buffed:
-			for n in stats.bullet_amnt + 5:
+			for n in stats.bullet_amnt + 3:
 				spawn_bullet() # Adds 3 extra bullets when buffed
 				await get_tree().create_timer(stats.shoot_delay).timeout
 		else:

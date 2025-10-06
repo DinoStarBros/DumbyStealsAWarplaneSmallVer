@@ -169,7 +169,7 @@ func _on_evade_box_perfect_roll() -> void:
 	current_weapon.buff_time = current_weapon.stats.max_buff_time
 
 func switch_weapon(step: int) -> void:
-	%switch.pitch_scale = randf_range(1.2, 1.8)
+	%switch.pitch_scale = randf_range(1.5, 1.7)
 	%switch.play(0.13)
 	
 	var new_weapon : Weapon
