@@ -3,10 +3,18 @@ class_name WeaponsParent
 
 @export var dumby : Dumby
 @export var ammo_bar : ProgressBar
+
 var ammo_text : Label
 var current_weapon : Weapon
 var weapons : Array
 var current_weapon_idx : int
+
+var q_reload_buff_time : float = 0
+var max_q_reload_buff_time : float = 5
+var dodge_buff_time : float = 0
+var max_dodge_buff_time : float = 3
+var q_reload_buffed : bool = false
+var dodge_buffed : bool = false
 
 @onready var regen_bar: ProgressBar = %regen_bar
 @onready var health_component: HealthComponent = %HealthComponent
@@ -36,6 +44,11 @@ func _process(delta: float) -> void:
 	regen_bar.max_value = max_regen_time
 	regen_bar.value = regen_time
 	
+	q_reload_buff_time = max(0, q_reload_buff_time - delta)
+	dodge_buff_time = max(0, dodge_buff_time - delta)
+	q_reload_buffed = q_reload_buff_time > 0
+	dodge_buffed = dodge_buff_time > 0
+	
 	if not current_weapon.reloading:
 		if Input.is_action_pressed("shoot") and current_weapon.ammo > 0:
 			%flashnim.play("flash")
@@ -45,6 +58,7 @@ func _process(delta: float) -> void:
 		#	
 		#	
 		if not p.shooting:
+			
 			if Input.is_action_just_pressed("next_weapon"):
 				switch_weapon(1)
 			
@@ -157,8 +171,10 @@ func tactical_reload() -> void:
 	%shing.pitch_scale = randf_range(0.8, 1.2)
 	%shing.play()
 	%tactical_reloadnim.play("zing")
-	current_weapon.buff_time = current_weapon.stats.max_buff_time
 	finished_reload()
+	
+	#current_weapon.buff_time = current_weapon.stats.max_buff_time
+	q_reload_buff_time = max_q_reload_buff_time
 
 func _on_evade_box_perfect_roll() -> void:
 	g.spawn_txt("Dodge!", global_position)
@@ -166,7 +182,9 @@ func _on_evade_box_perfect_roll() -> void:
 	%shing.pitch_scale = randf_range(0.8, 1.2)
 	%shing.play()
 	%tactical_reloadnim.play("zing")
-	current_weapon.buff_time = current_weapon.stats.max_buff_time
+	
+	#current_weapon.buff_time = current_weapon.stats.max_buff_time
+	dodge_buff_time = max_dodge_buff_time
 
 func switch_weapon(step: int) -> void:
 	%switch.pitch_scale = randf_range(1.5, 1.7)

@@ -8,7 +8,6 @@ func _process(delta: float) -> void:
 	if p.weapons_parent.current_weapon != self:
 		return
 	
-	buffed_handling(delta)
 	if ammo > 0:
 		if not reloading:
 			shooting_handling(delta)
@@ -29,13 +28,13 @@ func shooting_handling(delta:float) -> void:
 		for n in stats.bullet_amnt:
 			spawn_bullet()
 			
-			if buffed:
+			if p.weapons_parent.q_reload_buffed:
 				await get_tree().create_timer(stats.shoot_delay / 1.5).timeout
 				# Decrease burst cooldown when buffed
 			else:
 				await get_tree().create_timer(stats.shoot_delay).timeout
 		
-	if buffed:
+	if p.weapons_parent.q_reload_buffed:
 		cooldown -= delta * 1.2 
 		# Increases the firerate when buffed
 	else:
@@ -45,7 +44,7 @@ func shooting_handling(delta:float) -> void:
 		cooldown = 0
 		can_shoot = true
 	
-	if buffed:
+	if p.weapons_parent.dodge_buffed:
 		stats.bullet_spd = 3000
 	else:
 		stats.bullet_spd = 2500
@@ -70,14 +69,6 @@ func spawn_bullet() -> void:
 	bullet.velocity = (dir_to_mouse + rand_spread_vector ) * stats.bullet_spd
 	bullet.look_at((p.dir_plane + global_position) + rand_spread_vector)
 	bullet.lifetime = stats.bullet_lifetime
-
-func buffed_handling(delta: float) -> void:
-	if buff_time <= 0:
-		buff_time = 0
-		buffed = false
-	elif buff_time > 0:
-		buff_time -= delta
-		buffed = true
 
 func play_sfx() -> void:
 	%shootsfx.pitch_scale = randf_range(0.9, 1.1)

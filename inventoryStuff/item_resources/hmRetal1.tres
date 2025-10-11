@@ -11,7 +11,7 @@ region = Rect2(0, 48, 48, 32)
 [resource]
 script = ExtResource("1_jjniu")
 name = "H.M. Retaliator Mk. 1 "
-description = "70% Chance to shoot a homing rocket upon taking damage"
+description = "Shoot a homing rocket upon taking damage."
 flavor_text = "Damn, you wanna get rewarded for getting hit? You suck."
 texture = SubResource("AtlasTexture_22jpi")
 shape = Array[Array]([[1, 1, 1], [1, 1, 1]])

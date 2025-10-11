@@ -8,7 +8,6 @@ func _process(delta: float) -> void:
 	if p.weapons_parent.current_weapon != self:
 		return
 	
-	buffed_handling(delta)
 	if ammo > 0:
 		if not reloading:
 			shooting_handling(delta)
@@ -31,9 +30,10 @@ func shooting_handling(delta:float) -> void:
 		
 		ammo -= stats.ammo_use
 		
-		if buffed:
-			for n in stats.bullet_amnt + 3:
-				spawn_bullet() # Adds 3 extra bullets when buffed
+		if p.weapons_parent.q_reload_buffed:
+			
+			for n in stats.bullet_amnt + 4:
+				spawn_bullet() # Adds 4 extra bullets when buffed
 				await get_tree().create_timer(stats.shoot_delay).timeout
 		else:
 			for n in stats.bullet_amnt:
@@ -65,11 +65,3 @@ func spawn_bullet() -> void:
 	bullet.velocity = (dir_to_mouse + rand_spread_vector ) * stats.bullet_spd
 	bullet.look_at((p.dir_plane + global_position) + rand_spread_vector)
 	bullet.lifetime = stats.bullet_lifetime
-
-func buffed_handling(delta: float) -> void:
-	if buff_time <= 0:
-		buff_time = 0
-		buffed = false
-	elif buff_time > 0:
-		buff_time -= delta
-		buffed = true

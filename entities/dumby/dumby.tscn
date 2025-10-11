@@ -1571,6 +1571,15 @@ offset_bottom = 651.0
 text = "Shooty Shoot"
 label_settings = SubResource("LabelSettings_h23mg")
 
+[node name="buffs" type="Label" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 869.0
+offset_top = 651.0
+offset_right = 1015.0
+offset_bottom = 684.0
+text = "0 0"
+label_settings = SubResource("LabelSettings_h23mg")
+
 [node name="weapons_parent" type="Node2D" parent="." node_paths=PackedStringArray("dumby", "ammo_bar")]
 unique_name_in_owner = true
 script = ExtResource("19_ufwy4")

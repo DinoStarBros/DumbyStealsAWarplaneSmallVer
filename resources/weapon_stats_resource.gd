@@ -19,3 +19,7 @@ class_name WeaponStats
 @export var max_sweet_spot : float = 0.6 ## The maximum time you can do a tactical reload (IT'S VERY IMPORTANT THAT IT'S KEPT LOWER THAN THE MAX RELOAD DURATION AND HIGHER THAN 0)
 
 @export var max_buff_time : float = 0 ## The amount of time the weapon gets buffed after tactical reloading, before going back to normal
+
+@export_category("Descriptions")
+@export_multiline var on_dodge_buf : String
+@export_multiline var on_q_reload_buff : String

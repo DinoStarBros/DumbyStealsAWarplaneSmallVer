@@ -29,6 +29,8 @@ func _process(_delta: float) -> void:
 	
 	%paused.visible = get_tree().paused and g.game_state == g.game_states.Combat
 	%sure.visible = are_you_sure
+	
+	%buffs.text = str(weapons_parent.q_reload_buff_time, " : ",weapons_parent.dodge_buff_time)
 
 func _on_menu_pressed() -> void:
 	scene_change("res://game_screens/title/title.tscn")
