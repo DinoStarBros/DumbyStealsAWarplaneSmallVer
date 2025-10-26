@@ -4,7 +4,7 @@ class_name HitboxComponent
 @export var delete_after_hit : bool
 
 var attack : Attack = g.attack
-var dmg : int
+var dmg : float
 var rand_sfx_idx : int = 0
 
 signal Hit

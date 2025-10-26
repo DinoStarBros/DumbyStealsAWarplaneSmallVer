@@ -1,7 +1,7 @@
 extends Node
 class_name Attack
 
-var attack_damage : int
+var attack_damage : float
 var attack_pos : Vector2
 var knockback : int
 #var who_dealt_it 

@@ -11,19 +11,11 @@ func _ready() -> void:
 	SceneManager.fade_in()
 
 func _on_play_pressed() -> void:
-	scene_change("res://game_screens/game/game.tscn")
+	g.scene_change("res://game_screens/level_select/level_select.tscn")
 	settings_menu._on_save_pressed()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
-func scene_change(scene:String)->void:
-	SceneManager.change_scene(
-		scene, {
-			"pattern_enter" : "circle",
-			"pattern_leave" : "fade",
-			}
-		)
 
 var deltaTime : = 0.0
 var sin_val : float

@@ -17,7 +17,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 
 config/name="DumbyStealsAWarplane"
 config/tags=PackedStringArray("godot4.4.1", "important")
-run/main_scene="uid://djxndtog5nfd5"
+run/main_scene="uid://crr8qeqq8wwdx"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"
 config/icon="res://icon.svg"
@@ -41,6 +41,7 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

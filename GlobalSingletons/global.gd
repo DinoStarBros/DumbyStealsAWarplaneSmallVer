@@ -86,3 +86,11 @@ func volume_handle() -> void:
 var switch_acc_roll : bool = false
 
 var spawn_budget : Vector2 ## X is spawn_budget, Y is max_spawn_budget
+
+func scene_change(scene:String)->void:
+	SceneManager.change_scene(
+		scene, {
+			"pattern_enter" : "circle",
+			"pattern_leave" : "fade",
+			}
+		)
