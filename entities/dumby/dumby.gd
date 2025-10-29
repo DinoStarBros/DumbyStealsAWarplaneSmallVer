@@ -87,12 +87,12 @@ func _physics_process(delta: float) -> void:
 	
 	if not controller:
 		%Crosshair2.position = rotation_component.direction * dist_to_mouse
+		%Crosshair.global_position = get_global_mouse_position()
 
 func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic camera follow mouse
 	if controller:
 		aim_position = dir_plane * half_viewport * left_joystick_length
 	
-		%Crosshair.position = aim_position
 	else:
 		if event is InputEventMouseMotion:
 			aim_position = (event.position - half_viewport)

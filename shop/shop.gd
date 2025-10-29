@@ -51,7 +51,6 @@ func _on_wave_end() -> void:
 	%reroll.grab_focus()
 	upgrade_selected = null
 	
-	possible_upgrades.shuffle()
 	possible_items.shuffle()
 	
 	var n : int = -1

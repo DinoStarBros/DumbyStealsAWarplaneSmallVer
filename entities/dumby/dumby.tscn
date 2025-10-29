@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=111 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://cn0wb7nfo4h7s" path="res://shop/shop.tscn" id="50_l2c7h"]
 [ext_resource type="Texture2D" uid="uid://cw30gj5fpxv50" path="res://icon.svg" id="51_l2c7h"]
 [ext_resource type="PackedScene" uid="uid://epr0yoartceu" path="res://inventoryStuff/inventory/inventory.tscn" id="55_jrsuo"]
+[ext_resource type="Shader" uid="uid://cdmkmj7oj4y05" path="res://shaders/fire.gdshader" id="56_etwne"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l2c7h"]
 animations = [{
@@ -573,15 +574,40 @@ _data = {
 &"flameLoop": SubResource("Animation_kvjl2")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2j3yl"]
-radius = 1.0
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_etwne"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h23mg"]
+noise = SubResource("FastNoiseLite_etwne")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h23mg"]
+resource_local_to_scene = true
+shader = ExtResource("56_etwne")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_h23mg")
+shader_parameter/bottom_color = Color(0.25323758, 0.25323758, 0.25323758, 1)
+shader_parameter/middle_color = Color(1, 0.5, 0, 1)
+shader_parameter/top_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0, 2)
+shader_parameter/fire_aperture = 100.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_etwne"]
+resource_local_to_scene = true
+shader = ExtResource("56_etwne")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_h23mg")
+shader_parameter/bottom_color = Color(0.37665847, 0.37665847, 0.37665847, 1)
+shader_parameter/middle_color = Color(0.3967161, 0.66948915, 1, 1)
+shader_parameter/top_color = Color(0.63451177, 0.34474173, 1, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0, 1.5)
+shader_parameter/fire_aperture = 20.0
 
 [sub_resource type="Animation" id="Animation_yoon2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("death/Shockwave-sheet:frame")
+tracks/0/path = NodePath("animationPlayers/death/Shockwave-sheet:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -605,7 +631,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("death/Shockwave-sheet:visible")
+tracks/2/path = NodePath("animationPlayers/death/Shockwave-sheet:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -693,7 +719,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("death/Shockwave-sheet:visible")
+tracks/0/path = NodePath("animationPlayers/death/Shockwave-sheet:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -705,7 +731,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("death/Shockwave-sheet:frame")
+tracks/1/path = NodePath("animationPlayers/death/Shockwave-sheet:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -793,18 +819,94 @@ _data = {
 &"die": SubResource("Animation_1duwf")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_8y0g6"]
-font_size = 25
-font_color = Color(0, 0, 0, 1)
-outline_size = 12
+[sub_resource type="Animation" id="Animation_pctjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlaneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlaneSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("evade_box/ebc:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="LabelSettings" id="LabelSettings_jrsuo"]
-font_size = 26
-font_color = Color(0, 0, 0, 1)
-outline_size = 5
+[sub_resource type="Animation" id="Animation_4s3yb"]
+resource_name = "roll"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlaneSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlaneSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 2), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("evade_box/ebc:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
-[sub_resource type="LabelSettings" id="LabelSettings_h23mg"]
-font_size = 32
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pctjt"]
+_data = {
+&"RESET": SubResource("Animation_pctjt"),
+&"roll": SubResource("Animation_4s3yb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2j3yl"]
+radius = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12q0g"]
 skew = Vector2(1, 0)
@@ -894,6 +996,19 @@ border_width_bottom = 5
 font_color = Color(0, 0, 0, 1)
 outline_size = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_8y0g6"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+outline_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_jrsuo"]
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_h23mg"]
+font_size = 32
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j3yl"]
 resource_local_to_scene = true
 shader = ExtResource("45_4suxv")
@@ -909,92 +1024,6 @@ shader = ExtResource("45_l2c7h")
 shader_parameter/r_displacement = Vector2(0, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
 shader_parameter/b_displacement = Vector2(0, 0)
-
-[sub_resource type="Animation" id="Animation_pctjt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlaneSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlaneSprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("evade_box/ebc:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_4s3yb"]
-resource_name = "roll"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlaneSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlaneSprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(3, 2), Vector2(2, 2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("evade_box/ebc:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.35),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pctjt"]
-_data = {
-&"RESET": SubResource("Animation_pctjt"),
-&"roll": SubResource("Animation_4s3yb")
-}
 
 [node name="dumby" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 4097
@@ -1246,6 +1275,7 @@ libraries = {
 
 [node name="PlaneSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+z_index = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fj41j")
 script = ExtResource("11_up01i")
@@ -1346,11 +1376,54 @@ frame = 1
 region_enabled = true
 region_rect = Rect2(2176, 0, 384, 64)
 
-[node name="Crosshair" type="Sprite2D" parent="."]
+[node name="crosshairs" type="Node2D" parent="."]
+
+[node name="Crosshair" type="Sprite2D" parent="crosshairs"]
 unique_name_in_owner = true
 z_index = 100
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("15_1o3u8")
+
+[node name="Crosshair2" type="Sprite2D" parent="crosshairs"]
+unique_name_in_owner = true
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_1o3u8")
+
+[node name="flames" type="Node2D" parent="."]
+visible = false
+
+[node name="QRBuffFlame" type="Sprite2D" parent="flames"]
+material = SubResource("ShaderMaterial_h23mg")
+texture = ExtResource("51_l2c7h")
+
+[node name="DBuffFlame" type="Sprite2D" parent="flames"]
+material = SubResource("ShaderMaterial_etwne")
+texture = ExtResource("51_l2c7h")
+
+[node name="animationPlayers" type="Node2D" parent="."]
+
+[node name="death" type="AnimationPlayer" parent="animationPlayers"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_p1300")
+}
+
+[node name="Shockwave-sheet" type="Sprite2D" parent="animationPlayers/death"]
+visible = false
+modulate = Color(100, 100, 100, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("13_6f8f5")
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="rollnim" type="AnimationPlayer" parent="animationPlayers"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_pctjt")
+}
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 zoom = Vector2(0.6, 0.6)
@@ -1376,20 +1449,105 @@ collision_mask = 512
 [node name="cla" type="CollisionShape2D" parent="Camera2D/camLimArea"]
 shape = SubResource("CircleShape2D_2j3yl")
 
-[node name="death" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_p1300")
-}
+[node name="bars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Shockwave-sheet" type="Sprite2D" parent="death"]
-visible = false
-modulate = Color(100, 100, 100, 1)
-scale = Vector2(2, 2)
-texture = ExtResource("13_6f8f5")
-hframes = 3
-vframes = 3
-frame = 1
+[node name="ammo" type="ProgressBar" parent="bars"]
+layout_mode = 0
+offset_left = -102.0
+offset_top = -64.0
+offset_right = 102.0
+offset_bottom = -43.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_12q0g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_baqsm")
+show_percentage = false
+
+[node name="ammo_txt" type="Label" parent="bars/ammo"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 69.0
+offset_bottom = 50.0
+text = "24 / 24"
+label_settings = SubResource("LabelSettings_hr56j")
+
+[node name="reload_bar" type="ProgressBar" parent="bars"]
+unique_name_in_owner = true
+z_index = 5
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 0
+offset_left = -141.0
+offset_top = -64.0
+offset_right = 159.0
+offset_bottom = -44.0
+theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5senk")
+max_value = 1.0
+show_percentage = false
+
+[node name="max_ss_vis" type="ProgressBar" parent="bars"]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 0
+offset_left = -141.0
+offset_top = -64.0
+offset_right = 159.0
+offset_bottom = -44.0
+theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n4tpm")
+max_value = 1.0
+value = 0.6
+show_percentage = false
+
+[node name="min_ss_vis" type="ProgressBar" parent="bars"]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 0
+offset_left = -141.0
+offset_top = -64.0
+offset_right = 159.0
+offset_bottom = -44.0
+theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gq83w")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="regen_bar" type="ProgressBar" parent="bars"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -48.0
+offset_top = 77.0
+offset_right = 49.0
+offset_bottom = 93.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d4unw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pctjt")
+show_percentage = false
+
+[node name="hpbar" type="ProgressBar" parent="bars"]
+layout_mode = 0
+offset_left = -127.0
+offset_top = 41.0
+offset_right = 118.0
+offset_bottom = 65.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3gqex")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4s3yb")
+show_percentage = false
+
+[node name="Label" type="Label" parent="bars/hpbar"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 26.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_2j3yl")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -1636,106 +1794,6 @@ offset_bottom = 684.0
 text = "0 0"
 label_settings = SubResource("LabelSettings_h23mg")
 
-[node name="bars" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ammo" type="ProgressBar" parent="bars"]
-layout_mode = 0
-offset_left = -102.0
-offset_top = -64.0
-offset_right = 102.0
-offset_bottom = -43.0
-mouse_filter = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_12q0g")
-theme_override_styles/fill = SubResource("StyleBoxFlat_baqsm")
-show_percentage = false
-
-[node name="ammo_txt" type="Label" parent="bars/ammo"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 1.0
-offset_right = 69.0
-offset_bottom = 50.0
-text = "24 / 24"
-label_settings = SubResource("LabelSettings_hr56j")
-
-[node name="reload_bar" type="ProgressBar" parent="bars"]
-unique_name_in_owner = true
-z_index = 5
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 0
-offset_left = -141.0
-offset_top = -64.0
-offset_right = 159.0
-offset_bottom = -44.0
-theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_5senk")
-max_value = 1.0
-show_percentage = false
-
-[node name="max_ss_vis" type="ProgressBar" parent="bars"]
-unique_name_in_owner = true
-z_index = 1
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 0
-offset_left = -141.0
-offset_top = -64.0
-offset_right = 159.0
-offset_bottom = -44.0
-theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_n4tpm")
-max_value = 1.0
-value = 0.6
-show_percentage = false
-
-[node name="min_ss_vis" type="ProgressBar" parent="bars"]
-unique_name_in_owner = true
-z_index = 1
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 0
-offset_left = -141.0
-offset_top = -64.0
-offset_right = 159.0
-offset_bottom = -44.0
-theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_gq83w")
-max_value = 1.0
-value = 0.5
-show_percentage = false
-
-[node name="regen_bar" type="ProgressBar" parent="bars"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = -48.0
-offset_top = 77.0
-offset_right = 49.0
-offset_bottom = 93.0
-theme_override_styles/background = SubResource("StyleBoxFlat_d4unw")
-theme_override_styles/fill = SubResource("StyleBoxFlat_pctjt")
-show_percentage = false
-
-[node name="hpbar" type="ProgressBar" parent="bars"]
-layout_mode = 0
-offset_left = -127.0
-offset_top = 41.0
-offset_right = 118.0
-offset_bottom = 65.0
-theme_override_styles/background = SubResource("StyleBoxFlat_3gqex")
-theme_override_styles/fill = SubResource("StyleBoxFlat_4s3yb")
-show_percentage = false
-
-[node name="Label" type="Label" parent="bars/hpbar"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 3.0
-offset_right = 78.0
-offset_bottom = 26.0
-text = "100/100"
-label_settings = SubResource("LabelSettings_2j3yl")
-
 [node name="ScreenFX" type="CanvasLayer" parent="."]
 layer = 2
 script = ExtResource("28_u8vb7")
@@ -1862,18 +1920,6 @@ metadata/_tab_index = 0
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
-
-[node name="rollnim" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_pctjt")
-}
-
-[node name="Crosshair2" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(153, -14)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("15_1o3u8")
 
 [connection signal="Perfect_Roll" from="evade_box" to="weapons_parent" method="_on_evade_box_perfect_roll"]
 [connection signal="area_entered" from="evade_box" to="evade_box" method="_on_area_entered"]
