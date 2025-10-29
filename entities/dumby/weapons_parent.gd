@@ -46,11 +46,7 @@ func _process(delta: float) -> void:
 	if not current_weapon.reloading:
 		if Input.is_action_pressed("shoot") and current_weapon.ammo > 0:
 			%flashnim.play("flash")
-			#regen_time = 0
-			#regen_speed = 0.5
-		#else:
-		#	
-		#	
+		
 		if not p.shooting:
 			
 			if Input.is_action_just_pressed("next_weapon"):
@@ -95,8 +91,7 @@ func ammo_handling(delta: float) -> void:
 		if reload_time >= current_weapon.stats.max_reload_duration: 
 			# Finished reloading
 			finished_reload()
-			current_weapon.buff_time = 0
-		
+			
 		if Input.is_action_just_pressed("shoot") and not current_weapon.r_tact_pressed:
 			# Handling of tactical reloading
 			current_weapon.r_tact_pressed = true
@@ -108,7 +103,6 @@ func ammo_handling(delta: float) -> void:
 				%reloadfail.pitch_scale = randf_range(0.8, 1)
 				%reloadfail.play()
 				g.spawn_txt("Womp Womp", global_position)
-				current_weapon.buff_time = 0
 		
 	else:
 		reload_time = 0

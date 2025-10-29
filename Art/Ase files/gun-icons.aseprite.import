@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://clq1vvv04td4q"
+path="res://.godot/imported/gun-icons.aseprite-8e8d0ddf0032be713344a01f670627d9.res"
+
+[deps]
+
+source_file="res://Art/Ase files/gun-icons.aseprite"
+dest_files=["res://.godot/imported/gun-icons.aseprite-8e8d0ddf0032be713344a01f670627d9.res"]
+
+[params]
+

@@ -9,6 +9,9 @@ func _ready() -> void:
 	get_tree().paused = false
 	%play.grab_focus()
 	SceneManager.fade_in()
+	
+	
+	MusicManager.play_song("title")
 
 func _on_play_pressed() -> void:
 	g.scene_change("res://game_screens/level_select/level_select.tscn")

@@ -85,6 +85,8 @@ func _physics_process(delta: float) -> void:
 	
 	shooting = Input.is_action_pressed("shoot") and weapons_parent.current_weapon.ammo > 0
 	
+	if not controller:
+		%Crosshair2.position = rotation_component.direction * dist_to_mouse
 
 func _unhandled_input(event: InputEvent) -> void: ## For camera aiming, dynamic camera follow mouse
 	if controller:

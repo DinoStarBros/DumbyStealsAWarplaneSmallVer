@@ -30,13 +30,13 @@ func shooting_handling(delta:float) -> void:
 			
 			if p.weapons_parent.q_reload_buffed:
 				await get_tree().create_timer(stats.shoot_delay / 1.5).timeout
-				# Decrease burst cooldown when buffed
+				# Decrease burst cooldown when qr buffed
 			else:
 				await get_tree().create_timer(stats.shoot_delay).timeout
 		
-	if p.weapons_parent.q_reload_buffed:
+	if p.weapons_parent.q_reload_buffed or p.weapons_parent.dodge_buffed:
 		cooldown -= delta * 1.2 
-		# Increases the firerate when buffed
+		# Increases the firerate when qr buffed or d buffed
 	else:
 		cooldown -= delta
 	
@@ -45,6 +45,7 @@ func shooting_handling(delta:float) -> void:
 		can_shoot = true
 	
 	if p.weapons_parent.dodge_buffed:
+		
 		stats.bullet_spd = 3000
 	else:
 		stats.bullet_spd = 2500

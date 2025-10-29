@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcsun61b3ipxw"]
+
+[ext_resource type="Script" uid="uid://b4fcytjt1kh6b" path="res://GlobalSingletons/musicManager/music_manager.gd" id="1_vsips"]
+[ext_resource type="AudioStream" uid="uid://dot5mpa7nqpj7" path="res://Audio/planemusic/CardTowerMenu.wav" id="2_amai5"]
+
+[node name="MusicManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_vsips")
+
+[node name="Title" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_amai5")
+volume_db = -5.0
+bus = &"music"
