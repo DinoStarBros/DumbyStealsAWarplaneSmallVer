@@ -7,8 +7,9 @@
 script = ExtResource("1_hua0a")
 shoot_cooldown = 0.4
 bullet_spd = 2500
-bullet_amnt = 5
+bullet_amnt = 4
 random_spread = 0.2
+shoot_delay = 0.01
 base_damage = 4.0
 bullet_scn = ExtResource("1_yo2f7")
 max_ammo = 20

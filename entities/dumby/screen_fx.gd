@@ -11,6 +11,8 @@ var speed_lines : Array[Node2D]
 @export var max_frame : float = 6
 
 func _ready() -> void:
+	g.lil_printy = %lilPrinty
+	
 	for n in speed_lines_parent.get_children():
 		speed_lines.append(n)
 		# Adds all the speed lines into an array

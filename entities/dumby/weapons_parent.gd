@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 		
 		%flashnim.play("flash")
 		
-	else:
+	elif not current_weapon.reloading:
 		
 		if Input.is_action_just_pressed("next_weapon"):
 			switch_weapon(1)

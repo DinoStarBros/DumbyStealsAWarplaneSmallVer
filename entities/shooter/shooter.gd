@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 	target = g.player
 	dir_to_targ = (target.global_position - global_position).normalized()
 	
-	#accelerating = Input.is_action_pressed("accelerate")
 	%flamez.visible = accelerating
 	%flameparticles.emitting = accelerating
 	%flameparticles.direction = -velocity

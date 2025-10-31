@@ -4,73 +4,10 @@ func _ready() -> void:
 	cooldown = stats.shoot_cooldown
 	ammo = stats.max_ammo
 
-func _process(delta: float) -> void:
-	if p.weapons_parent.current_weapon != self:
-		return
-	
-	if ammo > 0:
-		if not reloading:
-			shooting_handling(delta)
-	else:
-		if Input.is_action_just_pressed("shoot") and not reloading:
-			g.spawn_txt("RELOAD!", global_position)
-
-func shooting_handling(delta:float) -> void:
-	if Input.is_action_pressed("shoot") and can_shoot:
-		p.Shoot.emit()
-		
-		cooldown = stats.shoot_cooldown
-		can_shoot = false
-		
-		%shootsfx2.pitch_scale = randf_range(0.9, 1.1)
-		%shootsfx2.play(0.07)
-		
-		for n in stats.bullet_amnt:
-			spawn_bullet()
-			
-			if p.weapons_parent.q_reload_buffed:
-				await get_tree().create_timer(stats.shoot_delay / 1.5).timeout
-				# Decrease burst cooldown when qr buffed
-			else:
-				await get_tree().create_timer(stats.shoot_delay).timeout
-		
-	if p.weapons_parent.q_reload_buffed or p.weapons_parent.dodge_buffed:
-		cooldown -= delta * 1.2 
-		# Increases the firerate when qr buffed or d buffed
-	else:
-		cooldown -= delta
-	
-	if cooldown <= 0:
-		cooldown = 0
-		can_shoot = true
-	
-	if p.weapons_parent.dodge_buffed:
-		
-		stats.bullet_spd = 3000
-	else:
-		stats.bullet_spd = 2500
-
-func spawn_bullet() -> void:
-	ammo -= stats.ammo_use
-	play_sfx()
-	
-	rand_spread_vector.x = randf_range(-stats.random_spread, stats.random_spread)
-	rand_spread_vector.y = randf_range(-stats.random_spread, stats.random_spread)
-	
-	var bullet : Projectile = stats.bullet_scn.instantiate()
-	bullet.lifetime = stats.bullet_lifetime
-	g.game.add_child(bullet)
-	
-	#dir_to_mouse = global_position.direction_to(get_global_mouse_position())
-	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
-	
-	bullet.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage)
-	
-	bullet.global_position = global_position + (dir_to_mouse * 50)
-	bullet.velocity = (dir_to_mouse + rand_spread_vector ) * stats.bullet_spd
-	bullet.look_at((p.dir_plane + global_position) + rand_spread_vector)
-	bullet.lifetime = stats.bullet_lifetime
-
 func play_sfx() -> void:
-	%shootsfx.pitch_scale = randf_range(0.9, 1.1)
+	%shootsfx2.pitch_scale = randf_range(0.9, 1.1)
+	%shootsfx2.play(0.07)
+
+func play_multi_sfx() -> void:
+	%shootsfx.pitch_scale = randf_range(1.2, 1.5)
 	%shootsfx.play(0.08)

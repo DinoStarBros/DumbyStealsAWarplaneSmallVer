@@ -20,3 +20,9 @@ var r_tact_pressed : bool = false
 
 func _ready() -> void:
 	pass
+
+func play_multi_sfx() -> void: ## For SFX that's supposed to play for each bullet rather than just once on shoot
+	pass
+
+func play_sfx() -> void: ## Plays SFX for when it just shot, once
+	pass
