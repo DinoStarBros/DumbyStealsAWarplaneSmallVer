@@ -32,6 +32,7 @@ func _ready() -> void:
 	PlayerStats.max_iframes = PlayerStats.BASE_MAX_IFRAMES
 
 func _physics_process(delta: float) -> void:
+
 	# Handling functions
 	roll_handling(delta)
 	_left_joystick_handle()
@@ -83,7 +84,10 @@ func _physics_process(delta: float) -> void:
 	player_stats_handling()
 	iframes_handling(delta)
 	
-	shooting = Input.is_action_pressed("shoot") and weapons_parent.current_weapon.ammo > 0
+	shooting = (Input.is_action_pressed("shoot") and 
+	weapons_parent.current_weapon.ammo > 0 and 
+	not weapons_parent.current_weapon.reloading
+	)
 	
 	if not controller:
 		%Crosshair2.position = rotation_component.direction * dist_to_mouse

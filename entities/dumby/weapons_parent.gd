@@ -40,20 +40,21 @@ func _process(delta: float) -> void:
 	
 	q_reload_buff_time = max(0, q_reload_buff_time - delta)
 	dodge_buff_time = max(0, dodge_buff_time - delta)
+	
 	q_reload_buffed = q_reload_buff_time > 0
 	dodge_buffed = dodge_buff_time > 0
 	
-	if not current_weapon.reloading:
-		if Input.is_action_pressed("shoot") and current_weapon.ammo > 0:
-			%flashnim.play("flash")
+	if p.shooting:
 		
-		if not p.shooting:
-			
-			if Input.is_action_just_pressed("next_weapon"):
-				switch_weapon(1)
-			
-			if Input.is_action_just_pressed("prev_weapon"):
-				switch_weapon(-1)
+		%flashnim.play("flash")
+		
+	else:
+		
+		if Input.is_action_just_pressed("next_weapon"):
+			switch_weapon(1)
+		
+		if Input.is_action_just_pressed("prev_weapon"):
+			switch_weapon(-1)
 
 ### Below is stuff for ammo counts and reloading ###
 var reload_time : float = 0 ## The amount of time that has passed since the start of the reload

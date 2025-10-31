@@ -89,7 +89,7 @@ func _on_wave_end() -> void:
 
 func debug_txts() -> void:
 	#%upgrades.text = str(PlayerStats.upgrade_names)
-	
+	 
 	sp_budget_txt.text = str(
 		g.spawn_budget.x ," / ",g.spawn_budget.y
 	)

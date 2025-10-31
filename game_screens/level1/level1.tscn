@@ -27,10 +27,10 @@ size = Vector2(117, 3174)
 size = Vector2(8282, 278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slubn"]
-size = Vector2(2960, 30.6666)
+size = Vector2(5620.666, 30.6666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yjec7"]
-size = Vector2(10417, 5193)
+size = Vector2(21185, 6984)
 
 [sub_resource type="Curve2D" id="Curve2D_wy5cm"]
 _data = {
@@ -85,7 +85,7 @@ one_shot = true
 scale = Vector2(4, 4)
 
 [node name="l" type="StaticBody2D" parent="wall_bounds"]
-position = Vector2(-1611.67, 14)
+position = Vector2(-2720.5, 14)
 
 [node name="lc" type="CollisionShape2D" parent="wall_bounds/l"]
 position = Vector2(52, 0)
@@ -182,7 +182,7 @@ scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
 [node name="u" type="StaticBody2D" parent="wall_bounds"]
-position = Vector2(-54, -731.667)
+position = Vector2(-54, -1184.25)
 
 [node name="uc" type="CollisionShape2D" parent="wall_bounds/u"]
 shape = SubResource("RectangleShape2D_1vlsd")
@@ -278,7 +278,7 @@ scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
 [node name="r" type="StaticBody2D" parent="wall_bounds"]
-position = Vector2(1160, 0)
+position = Vector2(2744, 0)
 
 [node name="rc" type="CollisionShape2D" parent="wall_bounds/r"]
 shape = SubResource("RectangleShape2D_b03pm")
@@ -475,16 +475,15 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="fhitbox" type="CollisionShape2D" parent="wall_bounds/FloorHitBox"]
-position = Vector2(0, -114.667)
+position = Vector2(0, -114.66699)
 shape = SubResource("RectangleShape2D_slubn")
 
 [node name="CLA" type="Area2D" parent="."]
-visible = false
 collision_layer = 512
 collision_mask = 512
 
 [node name="room" type="CollisionShape2D" parent="CLA"]
-position = Vector2(-774.5, 58.5)
+position = Vector2(155.5, -837)
 shape = SubResource("RectangleShape2D_yjec7")
 
 [node name="projectile_container" type="Node2D" parent="."]

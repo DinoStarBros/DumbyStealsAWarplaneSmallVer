@@ -30,6 +30,7 @@ func regen_handling(delta: float) -> void:
 		heal()
 		%heal.play()
 	
+	# Regeneration gets slower when shooting and/or accelerating
 	if p.shooting and not p.accelerating:
 		regen_time_mult = 0.5
 	elif p.accelerating and not p.shooting:
@@ -40,6 +41,7 @@ func regen_handling(delta: float) -> void:
 		regen_time_mult = 1
 
 func _on_hurtbox_component_plr_hit(_dmg: int) -> void:
+	# Regen speed gets slowed down when hit
 	regen_speed = .4
 
 func heal()->void:
@@ -48,6 +50,9 @@ func heal()->void:
 		g.spawn_txt("+1 HP!", p.global_position)
 
 func _process(delta: float) -> void:
+	if not health_component.hp > 0: # If he ain't alive, stop
+		return
+	
 	regen_bar.max_value = max_regen_time
 	regen_bar.value = regen_time
 	
