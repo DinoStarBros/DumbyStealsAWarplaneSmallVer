@@ -1,14 +1,18 @@
 extends Path2D
 class_name EnemySpawnerSky
 
-@export var wave : Wave
+@export var waves  : Array[Wave]
+var wave : Wave
 var spawn_time : float
 
 func _ready() -> void:
+	g.wave = 1
 	wave_start()
 	GlobalSignals.Upgrade_End.connect(_on_upgrade_end)
 
 func wave_start() -> void:
+	wave = waves[g.wave - 1]
+	
 	spawn_time = wave.starting_spawn_time
 	%spawnTimer.start(spawn_time)
 	wave.spawn_budget = wave.max_spawn_budget
@@ -56,6 +60,5 @@ func _process(_delta: float) -> void:
 		GlobalSignals.Wave_End.emit()
 
 func _on_upgrade_end() -> void:
-	wave_start()
-	
 	g.wave += 1
+	wave_start()

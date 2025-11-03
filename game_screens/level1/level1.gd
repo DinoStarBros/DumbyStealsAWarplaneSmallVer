@@ -24,8 +24,6 @@ func _ready() -> void:
 	g.floor_hitbox = %FloorHitBox
 	g.enemy_arrows = %EnemyArrows
 	
-	g.wave = 1
-	
 	#%music.play(177)
 	
 	for n in cloud_amnt:
