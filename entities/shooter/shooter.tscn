@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bhp7st34wqg3f"]
+[gd_scene load_steps=33 format=3 uid="uid://bhp7st34wqg3f"]
 
 [ext_resource type="Script" uid="uid://bsinn15v5ma8t" path="res://entities/shooter/shooter.gd" id="1_kg2ur"]
 [ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="2_bvc85"]
@@ -10,10 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="5_tq5xu"]
 [ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="6_uy5fh"]
 [ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="7_npqfx"]
+[ext_resource type="PackedScene" uid="uid://dwdfgqr7xw18j" path="res://CompositionStuff/EnemyShoot/enemy_shoot_component.tscn" id="8_7vn3f"]
 [ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="8_o6t5e"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="9_ckebl"]
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="10_d1p5d"]
 [ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="11_wqul4"]
+[ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="16_ehaio"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyadc"]
 radius = 15.0
@@ -309,8 +311,6 @@ colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_kg2ur")
-bullet_spd = 1000.0
-stats = ExtResource("2_qxcir")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("2_vyadc")]
 unique_name_in_owner = true
@@ -349,6 +349,16 @@ trail_particles = NodePath("../Plane/trailparticle")
 [node name="HealthComponent" parent="." instance=ExtResource("5_tq5xu")]
 unique_name_in_owner = true
 max_hp = 25.0
+
+[node name="EnemyShootComponent" parent="." instance=ExtResource("8_7vn3f")]
+
+[node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component", "ene_shoot_component") instance=ExtResource("16_ehaio")]
+stats = ExtResource("2_qxcir")
+hitbox_component = NodePath("../HitboxComponent")
+health_component = NodePath("../HealthComponent")
+velocity_component = NodePath("../VelocityComponent")
+rotation_component = NodePath("../RotationComponent")
+ene_shoot_component = NodePath("../EnemyShootComponent")
 
 [node name="targetDeviatTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -482,7 +492,6 @@ frame = 1
 unique_name_in_owner = true
 stream = ExtResource("7_npqfx")
 volume_db = -5.0
-max_distance = 10000.0
 bus = &"sfx"
 
 [node name="shoot2" type="AudioStreamPlayer2D" parent="sfx"]
@@ -490,10 +499,8 @@ unique_name_in_owner = true
 stream = ExtResource("8_o6t5e")
 volume_db = -10.0
 pitch_scale = 0.5
-max_distance = 10000.0
 bus = &"sfx"
 
 [node name="enemyArrow" parent="." instance=ExtResource("11_wqul4")]
 
 [connection signal="timeout" from="targetDeviatTimer" to="." method="_on_target_deviat_timer_timeout"]
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

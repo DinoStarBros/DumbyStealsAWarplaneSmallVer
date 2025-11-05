@@ -17,6 +17,9 @@ class_name EnemyStats
 @export_category("Stats for Ranged Enemies")
 @export var projectile_dmg : float = 3.0
 @export var projectile_scn : PackedScene = preload("res://projectiles/ene_bullet/ene_bullet.tscn")
+@export var projectile_speed : float = 500.0
+@export var projectile_lifetime : float = 1.0
+@export var min_and_max_shoot_cooldown : Vector2 = Vector2(1,2) ## X is the Minimum, Y is the Maximum
 
 @export_category("Extra Stats") ## For enemy specific shite
 @export var extra_stats : Dictionary[String, Variant]

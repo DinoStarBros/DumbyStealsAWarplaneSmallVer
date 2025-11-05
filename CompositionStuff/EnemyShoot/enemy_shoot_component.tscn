@@ -4,3 +4,7 @@
 
 [node name="EnemyShootComponent" type="Node2D"]
 script = ExtResource("1_m6low")
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

@@ -10,6 +10,10 @@ max_hp = 25.0
 max_speed = 850.0
 acceleration = 4.0
 turn_speed = 4.0
+projectile_dmg = 10.0
+projectile_speed = 1000.0
+projectile_lifetime = 2.0
+min_and_max_shoot_cooldown = Vector2(1, 3)
 extra_stats = Dictionary[String, Variant]({
 "bullet_damage": 10.0
 })
