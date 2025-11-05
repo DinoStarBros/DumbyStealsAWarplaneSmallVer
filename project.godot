@@ -16,7 +16,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 [application]
 
 config/name="DumbyStealsAWarplane"
-config/tags=PackedStringArray("godot4.4.1", "important")
+config/tags=PackedStringArray("bigproject", "important")
 run/main_scene="uid://djxndtog5nfd5"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"

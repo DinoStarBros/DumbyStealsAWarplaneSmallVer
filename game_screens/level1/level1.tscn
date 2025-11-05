@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djxndtog5nfd5"]
+[gd_scene load_steps=17 format=3 uid="uid://djxndtog5nfd5"]
 
 [ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/level1/level1.gd" id="1_qffnt"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_3k2b8"]
@@ -6,10 +6,8 @@
 [ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/wave1-1.tres" id="4_p10mf"]
 [ext_resource type="Script" uid="uid://d1crhjsum6w1o" path="res://resources/wave_resource.gd" id="4_y1ytl"]
 [ext_resource type="Texture2D" uid="uid://5ok8ww27od1g" path="res://Art/planestuff/SEA.png" id="5_y1ytl"]
-[ext_resource type="Resource" uid="uid://dumf6ux33ahda" path="res://resources/waves/wave1-2.tres" id="6_6klb1"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_11rbn"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="7_6klb1"]
-[ext_resource type="Resource" uid="uid://xnqk26x7j8bm" path="res://resources/waves/wave1-3.tres" id="7_j3x5s"]
 
 [sub_resource type="Curve2D" id="Curve2D_gy565"]
 _data = {
@@ -71,7 +69,7 @@ process_mode = 3
 scale = Vector2(2, 2)
 curve = SubResource("Curve2D_gy565")
 script = ExtResource("3_f53t4")
-waves = Array[ExtResource("4_y1ytl")]([ExtResource("4_p10mf"), ExtResource("6_6klb1"), ExtResource("7_j3x5s")])
+waves = Array[ExtResource("4_y1ytl")]([ExtResource("4_p10mf")])
 metadata/_edit_lock_ = true
 
 [node name="enemy_spawn_pos" type="PathFollow2D" parent="dumby/enemy_spawner"]
