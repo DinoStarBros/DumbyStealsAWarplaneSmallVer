@@ -35,3 +35,7 @@ func _ready() -> void:
 		
 		ene_shoot_component.min_shoot_cooldown = stats.min_and_max_shoot_cooldown.x
 		ene_shoot_component.max_shoot_cooldown = stats.min_and_max_shoot_cooldown.y
+		
+		ene_shoot_component.amount = stats.projectile_amount
+		ene_shoot_component.shoot_delay = stats.shoot_delay
+		ene_shoot_component.random_spread = stats.random_spread

@@ -1,7 +1,5 @@
 extends Enemy
 
-var accelerate_spd : int = 30
-var accelerate_limit : int = 800
 var accelerating : = true
 var dir_to_targ : Vector2
 var target : CharacterBody2D
@@ -9,25 +7,11 @@ var dist_to_targ : float
 
 @onready var sprite: Sprite2D = %Icon
 
-@onready var hitbox_component: HitboxComponent = %HitboxComponent
-@onready var health_component: HealthComponent = %HealthComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
-@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 func _ready() -> void:
-	hitbox_component.set_attack_properties(stats.damage)
-	
-	health_component.max_hp = stats.max_hp
-	health_component.hp = health_component.max_hp
-	
-	velocity_component.max_speed = stats.max_speed
-	velocity_component.acceleration = stats.acceleration
-	
-	rotation_component.turn_speed = stats.turn_speed
-	
 	_on_target_deviat_timer_timeout()
-	accelerate_spd += randi_range(-5, 5)
 
 var target_deviation : Vector2
 var dir_to_target_deviate_pos: Vector2
@@ -42,13 +26,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		dir_to_targ = (target.global_position - global_position).normalized()
 	
-	
 	sprite.rotation_degrees += velocity.x
 	dir_to_target_deviate_pos = global_position.direction_to(target.global_position + target_deviation)
 	rotation_component.plane_rotation_handling(delta, target.global_position)
 	direction = rotation_component.direction
 	velocity_component.other_velocity_handle(delta, dir_to_target_deviate_pos, accelerating)
-
 
 const tdev_range : = 10
 func _on_target_deviat_timer_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bu4snhapwua1q"]
+[gd_scene load_steps=39 format=3 uid="uid://bu4snhapwua1q"]
 
 [ext_resource type="Script" uid="uid://cmyxd3ohjkmp" path="res://entities/shotgunner/shotgunner.gd" id="1_k6gep"]
 [ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="2_5avn4"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="6_8jxk8"]
 [ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="7_v3f3a"]
 [ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="8_g05o7"]
+[ext_resource type="PackedScene" uid="uid://dwdfgqr7xw18j" path="res://CompositionStuff/EnemyShoot/enemy_shoot_component.tscn" id="8_x5bhh"]
 [ext_resource type="Texture2D" uid="uid://cuqwajg7lthld" path="res://Art/planestuff/fx/effects-Sheet.png" id="9_5avn4"]
+[ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="9_ekf3f"]
 [ext_resource type="AudioStream" uid="uid://cvbv6cd7xmnjx" path="res://Audio/41randsfx/16.wav" id="9_um6te"]
 [ext_resource type="AudioStream" uid="uid://bnwatr0g26ui2" path="res://Audio/41randsfx/10.wav" id="10_8jxk8"]
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="10_uw1lj"]
@@ -259,10 +261,10 @@ tracks/0/path = NodePath("Plane/shing:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.217638, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.37892973, 1),
 "update": 0,
-"values": [0.0, 3.14159]
+"values": [0.0, 4.71238898038469]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -303,10 +305,52 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_x5bhh"]
+resource_name = "shing"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane/shing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.37892973, 1),
+"update": 0,
+"values": [0.0, 4.71238898038469]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plane/shing:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(3, 3), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sfx/shing:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5avn4"]
 _data = {
 &"RESET": SubResource("Animation_5avn4"),
-&"shine": SubResource("Animation_k6gep")
+&"shine": SubResource("Animation_k6gep"),
+&"shing": SubResource("Animation_x5bhh")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uqd1j"]
@@ -395,7 +439,6 @@ colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_k6gep")
-stats = ExtResource("2_lsk3g")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("16_uqd1j")]
 unique_name_in_owner = true
@@ -434,6 +477,17 @@ trail_particles = NodePath("../Plane/flameparticles")
 unique_name_in_owner = true
 turn_speed = 2.0
 thing_to_rotate = NodePath("../Plane")
+
+[node name="EnemyShootComponent" parent="." node_paths=PackedStringArray("animation") instance=ExtResource("8_x5bhh")]
+animation = NodePath("../telegraphShot")
+
+[node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component", "ene_shoot_component") instance=ExtResource("9_ekf3f")]
+stats = ExtResource("2_lsk3g")
+hitbox_component = NodePath("../HitboxComponent")
+health_component = NodePath("../HealthComponent")
+velocity_component = NodePath("../VelocityComponent")
+rotation_component = NodePath("../RotationComponent")
+ene_shoot_component = NodePath("../EnemyShootComponent")
 
 [node name="targetDeviatTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -598,4 +652,3 @@ bus = &"sfx"
 [node name="enemyArrow" parent="." instance=ExtResource("14_v3f3a")]
 
 [connection signal="timeout" from="targetDeviatTimer" to="." method="_on_target_deviat_timer_timeout"]
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

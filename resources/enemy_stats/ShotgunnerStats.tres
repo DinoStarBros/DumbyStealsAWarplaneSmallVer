@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://caabvilf7tpna"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://caabvilf7tpna"]
 
+[ext_resource type="PackedScene" uid="uid://dl58yl2dpvjg5" path="res://projectiles/ene_bullet/ene_bullet.tscn" id="1_fol3g"]
 [ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="1_ks3vp"]
 
 [resource]
@@ -7,7 +8,12 @@ script = ExtResource("1_ks3vp")
 damage = 5.0
 max_hp = 25.0
 max_speed = 800.0
-acceleration = 4.0
+turn_speed = 2.0
+projectile_dmg = 5.0
+projectile_speed = 1000.0
+min_and_max_shoot_cooldown = Vector2(4, 5)
+projectile_amount = 4
+random_spread = 0.2
 extra_stats = Dictionary[String, Variant]({
 "bullet_damage": 10.0
 })

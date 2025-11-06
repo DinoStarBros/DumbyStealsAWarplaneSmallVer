@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bj5wj2g1r73gg"]
+[gd_scene load_steps=30 format=3 uid="uid://bj5wj2g1r73gg"]
 
 [ext_resource type="Script" uid="uid://cn6d8a0upm6v5" path="res://entities/chaser/chaser.gd" id="1_b7csh"]
 [ext_resource type="Resource" uid="uid://0n1sfnwwh7ii" path="res://resources/enemy_stats/ChaserStats.tres" id="2_0e64b"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="7_bngux"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="8_vc8fo"]
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="9_b36b3"]
+[ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="9_mwqwr"]
 [ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="10_760n7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vc8fo"]
@@ -371,6 +372,14 @@ thing_to_rotate = NodePath("../Plane")
 [node name="HealthComponent" parent="." instance=ExtResource("5_74ld6")]
 unique_name_in_owner = true
 max_hp = 30.0
+
+[node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("9_mwqwr")]
+unique_name_in_owner = true
+stats = ExtResource("2_0e64b")
+hitbox_component = NodePath("../HitboxComponent")
+health_component = NodePath("../HealthComponent")
+velocity_component = NodePath("../VelocityComponent")
+rotation_component = NodePath("../RotationComponent")
 
 [node name="targetDeviatTimer" type="Timer" parent="."]
 unique_name_in_owner = true

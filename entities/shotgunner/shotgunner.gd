@@ -1,31 +1,15 @@
 extends Enemy
 
-var accelerate_spd : int = 30
-var accelerate_limit : int = 600
 var accelerating : = true
 var dir_to_targ : Vector2
 var target : CharacterBody2D
 
-@onready var hitbox_component: HitboxComponent = %HitboxComponent
-@onready var health_component: HealthComponent = %HealthComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
-@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 func _ready() ->  void:
-	hitbox_component.set_attack_properties(stats.damage)
-	
-	health_component.max_hp = stats.max_hp
-	health_component.hp = health_component.max_hp
-	
-	velocity_component.max_speed = stats.max_speed
-	velocity_component.acceleration = stats.acceleration
-	
-	rotation_component.turn_speed = stats.turn_speed
 	
 	_on_target_deviat_timer_timeout()
-	accelerate_spd += randi_range(-5, 5)
-	%ShootTimer.start(randf_range(4,5))
 	
 	%shing.pitch_scale = randf_range(.8,1.2)
 
@@ -37,20 +21,15 @@ func _physics_process(delta: float) -> void:
 	target = g.player
 	dir_to_targ = (target.global_position - global_position).normalized()
 	
-	#accelerating = Input.is_action_pressed("accelerate")
 	%flamez.visible = accelerating
 	%flameparticles.emitting = accelerating
 	%flameparticles.direction = -velocity
 	
 	velocity.y += (980 * delta) / 2
-	if accelerating:
-		velocity += accelerate_spd * dir_to_targ
 	
 	dir_to_target_deviate_pos = global_position.direction_to(target.global_position + target_deviation)
 	rotation_component.plane_rotation_handling(delta, target.global_position)
-	direction = rotation_component.direction
 	velocity_component.other_velocity_handle(delta, dir_to_target_deviate_pos, accelerating)
-
 
 const tdev_range : = 500
 func _on_target_deviat_timer_timeout() -> void:
@@ -68,40 +47,10 @@ func Dead(_attack:Attack)->void:
 	set_physics_process(false)
 	%death.play("die")
 
-var bullet_spd : = 1000
-
-const bullet_scn : = preload("res://projectiles/ene_bullet/ene_bullet.tscn")
-var rand_spread_vector : Vector2
-const random_spread : float = 0.2
-const bullet_amnt : int = 3
-func spawn_bullet()->void:
-	
+func play_sfx() -> void:
 	%shoot.pitch_scale = randf_range(.9,1.1)
 	%shoot.play()
 	%shoot2.pitch_scale = randf_range(.5,.6)
 	%shoot2.play(.2)
 	%shoot3.pitch_scale = randf_range(.9,1.1)
 	%shoot3.play()
-	
-	var bullet : Projectile = bullet_scn.instantiate()
-	
-	bullet.dmg = stats.extra_stats["bullet_damage"]
-	
-	g.game.add_child(bullet)
-	
-	rand_spread_vector.x = randf_range(-random_spread, random_spread)
-	rand_spread_vector.y = randf_range(-random_spread, random_spread)
-	
-	bullet.global_position = global_position
-	
-	bullet.velocity = (direction + rand_spread_vector) * bullet_spd
-	bullet.pos_to_look = global_position + direction
-
-func _on_shoot_timer_timeout() -> void:
-	%telegraphShot.play("shine")
-
-func shoot_shotgun() -> void:
-	for n in bullet_amnt:
-		spawn_bullet()
-	
-	%ShootTimer.start(randf_range(1.5,2.5))

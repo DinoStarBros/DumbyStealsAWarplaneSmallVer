@@ -20,6 +20,9 @@ class_name EnemyStats
 @export var projectile_speed : float = 500.0
 @export var projectile_lifetime : float = 1.0
 @export var min_and_max_shoot_cooldown : Vector2 = Vector2(1,2) ## X is the Minimum, Y is the Maximum
+@export var projectile_amount : int = 1
+@export var shoot_delay : float = 0 ## Delay between each bullet if there's multiple
+@export var random_spread : float = 0
 
 @export_category("Extra Stats") ## For enemy specific shite
 @export var extra_stats : Dictionary[String, Variant]

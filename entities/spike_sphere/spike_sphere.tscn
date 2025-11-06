@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dyirarspnmdqd"]
+[gd_scene load_steps=24 format=3 uid="uid://dyirarspnmdqd"]
 
 [ext_resource type="Script" uid="uid://dygihq6ky1uvq" path="res://entities/spike_sphere/spike_sphere.gd" id="1_1tssn"]
 [ext_resource type="Resource" uid="uid://b5olh75wkrnyc" path="res://resources/enemy_stats/SpikeBallStats.tres" id="2_sufux"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="7_fl4rs"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="7_lobse"]
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="8_do36c"]
+[ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="8_sss1j"]
 [ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="9_sufux"]
 
 [sub_resource type="Animation" id="Animation_2qnmu"]
@@ -271,6 +272,13 @@ thing_to_rotate = NodePath("../Icon")
 [node name="HealthComponent" parent="." instance=ExtResource("5_gnxvb")]
 unique_name_in_owner = true
 max_hp = 5.0
+
+[node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("8_sss1j")]
+stats = ExtResource("2_sufux")
+hitbox_component = NodePath("../HitboxComponent")
+health_component = NodePath("../HealthComponent")
+velocity_component = NodePath("../VelocityComponent")
+rotation_component = NodePath("../RotationComponent")
 
 [node name="targetDeviatTimer" type="Timer" parent="."]
 unique_name_in_owner = true

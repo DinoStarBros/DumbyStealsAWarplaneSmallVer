@@ -5,24 +5,10 @@ var dir_to_targ : Vector2
 var target : CharacterBody2D
 var dist_to_targ : float
 
-@onready var hitbox_component: HitboxComponent = %HitboxComponent
-@onready var health_component: HealthComponent = %HealthComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
-@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 func _ready() -> void:
-	hitbox_component.set_attack_properties(stats.damage)
-	
-	health_component.max_hp = stats.max_hp
-	health_component.hp = health_component.max_hp
-	
-	velocity_component.max_speed = stats.max_speed
-	velocity_component.acceleration = stats.acceleration
-	
-	rotation_component.turn_speed = stats.turn_speed
-	
-	velocity_component.max_speed += randf_range(-10, 10)
 	_on_target_deviat_timer_timeout()
 
 var target_deviation : Vector2
@@ -60,7 +46,5 @@ func damage(_attack:Attack)->void:
 func Dead(_attack:Attack)->void:
 	g.score += 10
 	g.killscore += 1
-	#g.spawn_txt("10", global_position)
-	#g.spawn_xp(global_position, 1)
 	set_physics_process(false)
 	%death.play("die")
