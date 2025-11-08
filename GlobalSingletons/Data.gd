@@ -18,3 +18,6 @@ var settings : Dictionary = {
 	
 	"resolution_index": 0,
 }
+
+func _process(delta: float) -> void:
+	print(settings[RES_IDX])

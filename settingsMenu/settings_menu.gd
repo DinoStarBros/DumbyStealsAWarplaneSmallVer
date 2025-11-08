@@ -22,9 +22,23 @@ func _on_save_pressed()->void: ## Saves the settings stuff
 func _on_load_pressed()->void: ## Loads the settings stuff
 	SaveLoad.load_settings_stuff()
 	
+	# Updates the visuals and sliders in the settings menu
 	%master_volume.value = Data.settings[Data.MASTER_VOL]
 	%music_volume.value = Data.settings[Data.MUSIC_VOL]
 	%sfx_vol.value = Data.settings[Data.SFX_VOL]
+	
+	if Data.settings[Data.SS_VAL]:
+		%screen_shake.text = str("On")
+	else:
+		%screen_shake.text = str("Off")
+	
+	if Data.settings[Data.FF_VAL]:
+		%frame_freeze.text = str("On")
+	else:
+		%frame_freeze.text = str("Off")
+		
+	%resOptions.select(Data.settings[Data.RES_IDX])
+	_on_res_options_item_selected(Data.settings[Data.RES_IDX])
 
 func old_load() -> void:
 	SaveLoad._load()
@@ -87,7 +101,7 @@ func _on_sfx_vol_value_changed(value: float)->void:
 
 func _on_res_options_item_selected(index: int) -> void:
 	#pass
-	g.resolution_index = index
+	Data.settings[Data.RES_IDX] = index
 	DisplayServer.window_set_size(resolutions[index])
 
 var resolutions : Array[Vector2i] = [
@@ -102,21 +116,21 @@ func _on_back_pressed() -> void:
 	get_tree().paused = false
 
 func _on_frame_freeze_pressed() -> void:
-	g.frame_freeze_value = not g.frame_freeze_value
+	Data.settings[Data.FF_VAL] = not Data.settings[Data.FF_VAL]
 	%button_pressed.pitch_scale = randf_range(1.8,2.2)
 	%button_pressed.play()
 	
-	if g.frame_freeze_value:
+	if Data.settings[Data.FF_VAL]:
 		%frame_freeze.text = str("On")
 	else:
 		%frame_freeze.text = str("Off")
 
 func _on_screen_shake_pressed() -> void:
-	g.screen_shake_value = not g.screen_shake_value
+	Data.settings[Data.SS_VAL] = not Data.settings[Data.SS_VAL]
 	%button_pressed.pitch_scale = randf_range(1.8,2.2)
 	%button_pressed.play()
 	
-	if g.screen_shake_value:
+	if Data.settings[Data.SS_VAL]:
 		%screen_shake.text = str("On")
 	else:
 		%screen_shake.text = str("Off")

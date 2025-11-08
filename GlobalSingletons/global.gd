@@ -43,13 +43,6 @@ func _ready() -> void:
 	volume_handle()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-var master_volume : float
-var music_volume : float
-var sfx_volume : float
-var screen_shake_value : bool 
-var frame_freeze_value : bool
-var resolution_index : int
-
 const exp_scn : PackedScene = preload("res://scenes/exp/exp.tscn")
 func spawn_xp(global_pos : Vector2, amount : int) -> void:
 	var xpn : XpOrb = exp_scn.instantiate()
@@ -62,7 +55,7 @@ func _process(_delta:float)->void:
 	volume_handle()
 
 func frame_freeze(timescale: float, duration: float) -> void: ## Slows down the engine's time scale, slowing down the time, for a certain duration. Use for da juice
-	if frame_freeze_value:
+	if Data.settings[Data.FF_VAL]:
 		Engine.time_scale = timescale
 		await get_tree().create_timer(duration, true, false, true).timeout
 		Engine.time_scale = 1.0

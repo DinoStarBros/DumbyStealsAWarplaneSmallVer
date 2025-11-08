@@ -24,10 +24,10 @@ func save_settings_stuff() -> void: ## Saves only the data used in the settings 
 	SaveLoad.SaveFileData.music_volume = Data.settings[Data.MUSIC_VOL]
 	SaveLoad.SaveFileData.sfx_volume = Data.settings[Data.SFX_VOL]
 	
-	SaveLoad.SaveFileData.screen_shake = g.screen_shake_value
-	SaveLoad.SaveFileData.frame_freeze = g.frame_freeze_value
+	SaveLoad.SaveFileData.frame_freeze = Data.settings[Data.SS_VAL]
+	SaveLoad.SaveFileData.screen_shake = Data.settings[Data.FF_VAL]
 	
-	SaveLoad.SaveFileData.resolutuion_index = g.resolution_index
+	SaveLoad.SaveFileData.resolutuion_index = Data.settings[Data.RES_IDX]
 	
 	SaveLoad._save()
 
@@ -37,6 +37,11 @@ func load_settings_stuff() -> void: ## Loads settings variables and data
 	Data.settings[Data.MASTER_VOL] = SaveLoad.SaveFileData.master_volume
 	Data.settings[Data.MUSIC_VOL] = SaveLoad.SaveFileData.music_volume
 	Data.settings[Data.SFX_VOL] = SaveLoad.SaveFileData.sfx_volume
+	
+	Data.settings[Data.SS_VAL] = SaveLoad.SaveFileData.frame_freeze
+	Data.settings[Data.FF_VAL] = SaveLoad.SaveFileData.screen_shake
+	
+	Data.settings[Data.RES_IDX] = SaveLoad.SaveFileData.resolutuion_index
 
 func save_everything() -> void: ## Saves all the SaveFileData according to their current values in the game
 	pass
