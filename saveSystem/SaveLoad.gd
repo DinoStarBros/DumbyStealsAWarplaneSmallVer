@@ -18,10 +18,11 @@ func _reset_save_file()->void:
 	SaveFileData = SaveDataResource.new()
 	_save()
 
+
 func save_settings_stuff() -> void: ## Saves only the data used in the settings menu
-	SaveLoad.SaveFileData.master_volume = g.master_volume
-	SaveLoad.SaveFileData.music_volume = g.music_volume
-	SaveLoad.SaveFileData.sfx_volume = g.sfx_volume
+	SaveLoad.SaveFileData.master_volume = Data.settings[Data.MASTER_VOL]
+	SaveLoad.SaveFileData.music_volume = Data.settings[Data.MUSIC_VOL]
+	SaveLoad.SaveFileData.sfx_volume = Data.settings[Data.SFX_VOL]
 	
 	SaveLoad.SaveFileData.screen_shake = g.screen_shake_value
 	SaveLoad.SaveFileData.frame_freeze = g.frame_freeze_value
@@ -30,10 +31,12 @@ func save_settings_stuff() -> void: ## Saves only the data used in the settings 
 	
 	SaveLoad._save()
 
-func load_setting_stuff() -> void: ## Loads settings variables and data
+func load_settings_stuff() -> void: ## Loads settings variables and data
 	SaveLoad._load()
 	
-	
+	Data.settings[Data.MASTER_VOL] = SaveLoad.SaveFileData.master_volume
+	Data.settings[Data.MUSIC_VOL] = SaveLoad.SaveFileData.music_volume
+	Data.settings[Data.SFX_VOL] = SaveLoad.SaveFileData.sfx_volume
 
 func save_everything() -> void: ## Saves all the SaveFileData according to their current values in the game
 	pass

@@ -33,9 +33,6 @@ const txt_scn : PackedScene = preload("res://scenes/DmgNum/dmg_num.tscn")
 
 var slot_size : float
 
-func _init() -> void:
-	volume_handle()
-
 func spawn_txt(text: String, global_pos: Vector2)->void: ## Spawns a splash text effect, can be used for damage numbers, or score
 	var txt : DmgNum = txt_scn.instantiate()
 	txt.text = text
@@ -43,7 +40,7 @@ func spawn_txt(text: String, global_pos: Vector2)->void: ## Spawns a splash text
 	game.add_child(txt)
 
 func _ready() -> void:
-	
+	volume_handle()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 var master_volume : float
@@ -73,15 +70,15 @@ func frame_freeze(timescale: float, duration: float) -> void: ## Slows down the 
 func volume_handle() -> void:
 	AudioServer.set_bus_volume_db(
 		0,
-		linear_to_db(master_volume)
+		linear_to_db(Data.settings[Data.MASTER_VOL])
 	)
 	AudioServer.set_bus_volume_db(
 		1,
-		linear_to_db(music_volume)
+		linear_to_db(Data.settings[Data.MUSIC_VOL])
 	)
 	AudioServer.set_bus_volume_db(
 		2,
-		linear_to_db(sfx_volume)
+		linear_to_db(Data.settings[Data.SFX_VOL])
 	)
 
 var switch_acc_roll : bool = false
