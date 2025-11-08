@@ -10,7 +10,6 @@ func _ready() -> void:
 	%play.grab_focus()
 	SceneManager.fade_in()
 	
-	
 	MusicManager.play_song("title")
 
 func _on_play_pressed() -> void:

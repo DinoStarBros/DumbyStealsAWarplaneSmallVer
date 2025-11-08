@@ -32,6 +32,7 @@ AudioManager="*res://GlobalSingletons/audioManagerGlobals/AudioManager.tscn"
 References="*res://GlobalSingletons/References.gd"
 PlayerStats="*res://GlobalSingletons/PlayerStats.gd"
 MusicManager="*res://GlobalSingletons/musicManager/music_manager.tscn"
+Data="*res://GlobalSingletons/Data.gd"
 
 [debug]
 

@@ -143,25 +143,23 @@ scale = Vector2(2, 2)
 [node name="play" type="Button" parent="stuff/buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Play
-"
+text = "play"
 
 [node name="options" type="Button" parent="stuff/buttons"]
 layout_mode = 2
-text = "Options"
+text = "options"
 
 [node name="about" type="Button" parent="stuff/buttons"]
 layout_mode = 2
-text = "About"
+text = "about"
 
 [node name="credits" type="Button" parent="stuff/buttons"]
 layout_mode = 2
-text = "Credits"
+text = "credits"
 
 [node name="quit" type="Button" parent="stuff/buttons"]
 layout_mode = 2
-text = "Quit
-"
+text = "quit"
 
 [node name="settingsMenu" parent="stuff" instance=ExtResource("3_bjl0m")]
 unique_name_in_owner = true

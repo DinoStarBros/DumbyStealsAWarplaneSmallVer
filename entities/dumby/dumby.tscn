@@ -1570,6 +1570,7 @@ text = "\"Supa Damage\""
 
 [node name="yLost" type="Control" parent="GUI"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

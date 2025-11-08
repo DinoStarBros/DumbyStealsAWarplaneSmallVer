@@ -11,9 +11,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_gy565"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -649, -382, 0, 0, 0, 0, -669, 447, 0, 0, 0, 0, 652.5, 484.5, 0, 0, 0, 0, 685.925, -380.375, 0, 0, 0, 0, 660, -445.5, 0, 0, 0, 0, -535.5, -435, 0, 0, 0, 0, -644, -443)
+"points": PackedVector2Array(0, 0, 0, 0, -649, -382, 0, 0, 0, 0, -669, 447, 0, 0, 0, 0, 652.5, 484.5, 0, 0, 0, 0, 639.198, 116.0094, 0, 0, 0, 0, 685.925, -380.375, 0, 0, 0, 0, 660, -445.5, 0, 0, 0, 0, -535.5, -435, 0, 0, 0, 0, -644, -443)
 }
-point_count = 7
+point_count = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uk7y"]
 size = Vector2(124, 3162)
@@ -66,7 +66,7 @@ z_index = 2
 
 [node name="enemy_spawner" type="Path2D" parent="dumby"]
 process_mode = 3
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 curve = SubResource("Curve2D_gy565")
 script = ExtResource("3_f53t4")
 waves = Array[ExtResource("4_y1ytl")]([ExtResource("4_p10mf")])

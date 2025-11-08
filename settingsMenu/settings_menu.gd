@@ -2,6 +2,7 @@ extends Control
 class_name Settings
 
 func _ready()->void:
+	
 	%switch_acc_roll.pressed.connect(_on_switch_acc_roll_pressed)
 	%translations.item_selected.connect(_on_translations_pressed)
 	
@@ -15,26 +16,20 @@ func _ready()->void:
 	#		n.focus_mode = Control.FOCUS_NONE
 
 func _on_save_pressed()->void:
-	SaveLoad.SaveFileData.master_volume = g.master_volume
-	SaveLoad.SaveFileData.music_volume = g.music_volume
-	SaveLoad.SaveFileData.sfx_volume = g.sfx_volume
-	
-	SaveLoad.SaveFileData.screen_shake = g.screen_shake_value
-	SaveLoad.SaveFileData.frame_freeze = g.frame_freeze_value
-	
-	SaveLoad.SaveFileData.resolutuion_index = g.resolution_index
-	SaveLoad._save()
+	SaveLoad.save_settings_stuff()
 
 func _on_load_pressed()->void:
 	SaveLoad._load()
-	_update_res()
 	_update_vol_val()
+	_update_accessibility_val()
+	_update_res()
 
 func _on_reset_pressed()->void:
 	SaveLoad._reset_save_file()
 	SaveLoad._load()
-	_update_res()
 	_update_vol_val()
+	_update_accessibility_val()
+	_update_res()
 
 func _update_vol_val()->void:
 	g.master_volume = SaveLoad.SaveFileData.master_volume
@@ -45,7 +40,8 @@ func _update_vol_val()->void:
 	
 	g.sfx_volume = SaveLoad.SaveFileData.sfx_volume
 	%sfx_vol.value = g.sfx_volume
-	
+
+func _update_accessibility_val() -> void:
 	g.screen_shake_value = SaveLoad.SaveFileData.screen_shake
 	if g.screen_shake_value:
 		%screen_shake.text = str("On")

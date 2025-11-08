@@ -8,7 +8,6 @@ var target : CharacterBody2D
 @onready var rotation_component: RotationComponent = %RotationComponent
 
 func _ready() ->  void:
-	
 	_on_target_deviat_timer_timeout()
 	
 	%shing.pitch_scale = randf_range(.8,1.2)
@@ -17,6 +16,7 @@ var target_deviation : Vector2
 var dir_to_target_deviate_pos : Vector2
 var direction : Vector2
 func _physics_process(delta: float) -> void:
+	
 	move_and_slide()
 	target = g.player
 	dir_to_targ = (target.global_position - global_position).normalized()
