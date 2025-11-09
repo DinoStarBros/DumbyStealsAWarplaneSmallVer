@@ -1,15 +1,5 @@
 extends Node
 
-#var upgrades_res : Array[Upgrade] = [
-	#load("res://shop/upgradesResource/damage_upgrade.tres"),
-	#load("res://shop/upgradesResource/hp_upgrade.tres"),
-	#load("res://shop/upgradesResource/lightningc_upgrade.tres"),
-	#load("res://shop/upgradesResource/rotation_upgrade.tres"),
-	#load("res://shop/upgradesResource/speed_upgrade.tres"),
-	#load("res://shop/upgradesResource/homingRocket_upgrade.tres"),
-	#load("res://shop/upgradesResource/damage_upgrade_2.tres")
-#]
-
 var items_res : Array[ItemData] = [
 	load("res://inventoryStuff/item_resources/Damage1.tres"),
 	load("res://inventoryStuff/item_resources/SpeedUp1.tres"),
@@ -17,7 +7,6 @@ var items_res : Array[ItemData] = [
 	load("res://inventoryStuff/item_resources/Hp1.tres"),
 	load("res://inventoryStuff/item_resources/HmShooter1.tres"),
 	load("res://inventoryStuff/item_resources/hmRetal1.tres")
-	
 	
 ]
 

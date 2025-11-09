@@ -10,8 +10,6 @@ region = Rect2(512, 0, 48, 64)
 
 [resource]
 script = ExtResource("1_uakij")
-name = "H.M. Shooter Mk. 1"
-description = "10% chance to fire a missile when shooting"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1], [1], [1, 1, 1], [0, 0, 1]])
 upgrade_scn = ExtResource("3_kglml")
