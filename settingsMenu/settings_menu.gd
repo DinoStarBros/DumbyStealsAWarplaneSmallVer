@@ -23,47 +23,22 @@ func _on_load_pressed()->void: ## Loads the settings stuff
 	SaveLoad.load_settings_stuff()
 	
 	# Updates the visuals and sliders in the settings menu
-	%master_volume.value = Data.settings[Data.MASTER_VOL]
-	%music_volume.value = Data.settings[Data.MUSIC_VOL]
-	%sfx_vol.value = Data.settings[Data.SFX_VOL]
+	%master_volume.value = SaveLoad.settings.master_volume
+	%music_volume.value = SaveLoad.settings.music_volume
+	%sfx_vol.value = SaveLoad.settings.sfx_volume
 	
-	if Data.settings[Data.SS_VAL]:
+	if SaveLoad.settings.screen_shake_value:
 		%screen_shake.text = str("On")
 	else:
 		%screen_shake.text = str("Off")
 	
-	if Data.settings[Data.FF_VAL]:
+	if SaveLoad.settings.frame_freeze_value:
 		%frame_freeze.text = str("On")
 	else:
 		%frame_freeze.text = str("Off")
 		
-	%resOptions.select(Data.settings[Data.RES_IDX])
-	_on_res_options_item_selected(Data.settings[Data.RES_IDX])
-
-func old_load() -> void:
-	SaveLoad._load()
-	g.master_volume = SaveLoad.SaveFileData.master_volume
-	g.music_volume = SaveLoad.SaveFileData.music_volume
-	g.sfx_volume = SaveLoad.SaveFileData.sfx_volume
-	
-	%master_volume.value = g.master_volume
-	%music_volume.value = g.music_volume
-	%sfx_vol.value = g.sfx_volume
-	
-	g.screen_shake_value = SaveLoad.SaveFileData.screen_shake
-	if g.screen_shake_value:
-		%screen_shake.text = str("On")
-	else:
-		%screen_shake.text = str("Off")
-	
-	g.frame_freeze_value = SaveLoad.SaveFileData.frame_freeze
-	if g.frame_freeze_value:
-		%frame_freeze.text = str("On")
-	else:
-		%frame_freeze.text = str("Off")
-	
-	%resOptions.select(SaveLoad.SaveFileData.resolutuion_index)
-	_on_res_options_item_selected(SaveLoad.SaveFileData.resolutuion_index)
+	%resOptions.select(SaveLoad.settings.resolution_index)
+	_on_res_options_item_selected(SaveLoad.settings.resolution_index)
 
 func _on_reset_pressed()->void:
 	SaveLoad._reset_save_file()
@@ -85,23 +60,23 @@ func _on_master_volume_value_changed(value: float)->void:
 	%vol_change_master.pitch_scale = value
 	%vol_change_master.play(0.005)
 	
-	Data.settings[Data.MASTER_VOL] = value
+	SaveLoad.settings.master_volume = value
 
 func _on_music_volume_value_changed(value: float)->void:
 	%vol_change_music.pitch_scale = value
 	%vol_change_music.play(0.005)
 	
-	Data.settings[Data.MUSIC_VOL] = value
+	SaveLoad.settings.music_volume = value
 
 func _on_sfx_vol_value_changed(value: float)->void:
 	%vol_change_sfx.pitch_scale = value
 	%vol_change_sfx.play(0.005)
 	
-	Data.settings[Data.SFX_VOL] = value
+	SaveLoad.settings.sfx_volume = value
 
 func _on_res_options_item_selected(index: int) -> void:
 	#pass
-	Data.settings[Data.RES_IDX] = index
+	SaveLoad.settings.resolution_index = index
 	DisplayServer.window_set_size(resolutions[index])
 
 var resolutions : Array[Vector2i] = [
@@ -116,32 +91,32 @@ func _on_back_pressed() -> void:
 	get_tree().paused = false
 
 func _on_frame_freeze_pressed() -> void:
-	Data.settings[Data.FF_VAL] = not Data.settings[Data.FF_VAL]
+	SaveLoad.settings.frame_freeze_value = not SaveLoad.settings.frame_freeze_value
 	%button_pressed.pitch_scale = randf_range(1.8,2.2)
 	%button_pressed.play()
 	
-	if Data.settings[Data.FF_VAL]:
+	if SaveLoad.settings.frame_freeze_value:
 		%frame_freeze.text = str("On")
 	else:
 		%frame_freeze.text = str("Off")
 
 func _on_screen_shake_pressed() -> void:
-	Data.settings[Data.SS_VAL] = not Data.settings[Data.SS_VAL]
+	SaveLoad.settings.screen_shake_value = not SaveLoad.settings.screen_shake_value
 	%button_pressed.pitch_scale = randf_range(1.8,2.2)
 	%button_pressed.play()
 	
-	if Data.settings[Data.SS_VAL]:
+	if SaveLoad.settings.screen_shake_value:
 		%screen_shake.text = str("On")
 	else:
 		%screen_shake.text = str("Off")
 
 func _on_switch_acc_roll_pressed() -> void:
-	g.switch_acc_roll = not g.switch_acc_roll
+	SaveLoad.settings.switch_accelerate_roll = not SaveLoad.settings.switch_accelerate_roll
 	
 	%switch_acc_roll.text = str(
 		
 		"Switch Accelerate & Roll : \n",
-		g.switch_acc_roll
+		SaveLoad.settings.switch_accelerate_roll
 		
 		)
 

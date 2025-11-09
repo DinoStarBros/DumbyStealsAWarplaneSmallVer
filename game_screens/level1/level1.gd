@@ -10,12 +10,10 @@ const down_bound : = 2583
 func _ready() -> void:
 	MusicManager.stop_all_songs()
 	
-	#%music.play(177)
-	
 	%FloorHitBox.set_attack_properties(30)
 	g.game_state = g.game_states.Combat
 	cloud_parents = %cloudparallax.get_children()
-	#print(320*15)
+	
 	SceneManager.fade_in()
 	
 	g.game = self

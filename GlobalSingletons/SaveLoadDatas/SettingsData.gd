@@ -1,0 +1,13 @@
+extends RefCounted
+class_name SettingsData
+
+var master_volume : float = 0.75
+var music_volume : float = 0.75
+var sfx_volume : float = 0.75
+
+
+var screen_shake_value : bool = true
+var frame_freeze_value : bool = true
+
+var resolution_index : int = 0
+var switch_accelerate_roll : bool = false

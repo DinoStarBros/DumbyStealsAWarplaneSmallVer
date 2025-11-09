@@ -26,7 +26,6 @@ var half_screen_size : Vector2
 func _physics_process(delta:float) -> void:
 	screen_size = get_viewport_rect().size / zoom
 	half_screen_size = screen_size / 2
-	#print(global_position - half_screen_size, ":", g.screen_corners.position)
 	
 	g.screen_corners.position = g.camRect.global_position
 	g.screen_corners.end = g.camRect.global_position + g.camRect.size
@@ -38,7 +37,7 @@ func _physics_process(delta:float) -> void:
 		shake_time += delta * shake_time_speed
 		active_shake_time -= delta
 		
-		if Data.settings[Data.SS_VAL]:
+		if SaveLoad.settings.screen_shake_value:
 			offset = Vector2(
 				noise.get_noise_2d(shake_time, 0) * shake_intensity,
 				noise.get_noise_2d(0, shake_time) * shake_intensity,

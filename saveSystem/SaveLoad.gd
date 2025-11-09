@@ -18,30 +18,33 @@ func _reset_save_file()->void:
 	SaveFileData = SaveDataResource.new()
 	_save()
 
+var settings : SettingsData = SettingsData.new()
 
 func save_settings_stuff() -> void: ## Saves only the data used in the settings menu
-	SaveLoad.SaveFileData.master_volume = Data.settings[Data.MASTER_VOL]
-	SaveLoad.SaveFileData.music_volume = Data.settings[Data.MUSIC_VOL]
-	SaveLoad.SaveFileData.sfx_volume = Data.settings[Data.SFX_VOL]
+	SaveFileData.master_volume = settings.master_volume
+	SaveFileData.music_volume = settings.music_volume
+	SaveFileData.sfx_volume = settings.sfx_volume
 	
-	SaveLoad.SaveFileData.frame_freeze = Data.settings[Data.SS_VAL]
-	SaveLoad.SaveFileData.screen_shake = Data.settings[Data.FF_VAL]
+	SaveFileData.frame_freeze = settings.frame_freeze_value
+	SaveFileData.screen_shake = settings.screen_shake_value
 	
-	SaveLoad.SaveFileData.resolutuion_index = Data.settings[Data.RES_IDX]
+	SaveFileData.resolutuion_index = settings.resolution_index
+	SaveFileData.switch_acc_roll = settings.switch_accelerate_roll
 	
-	SaveLoad._save()
+	_save()
 
 func load_settings_stuff() -> void: ## Loads settings variables and data
-	SaveLoad._load()
+	_load()
 	
-	Data.settings[Data.MASTER_VOL] = SaveLoad.SaveFileData.master_volume
-	Data.settings[Data.MUSIC_VOL] = SaveLoad.SaveFileData.music_volume
-	Data.settings[Data.SFX_VOL] = SaveLoad.SaveFileData.sfx_volume
+	settings.master_volume = SaveFileData.master_volume
+	settings.music_volume = SaveFileData.music_volume
+	settings.sfx_volume = SaveFileData.sfx_volume
 	
-	Data.settings[Data.SS_VAL] = SaveLoad.SaveFileData.frame_freeze
-	Data.settings[Data.FF_VAL] = SaveLoad.SaveFileData.screen_shake
+	settings.frame_freeze_value = SaveFileData.frame_freeze
+	settings.screen_shake_value = SaveFileData.screen_shake
 	
-	Data.settings[Data.RES_IDX] = SaveLoad.SaveFileData.resolutuion_index
+	settings.resolution_index = SaveFileData.resolutuion_index
+	settings.switch_accelerate_roll = SaveFileData.switch_acc_roll
 
 func save_everything() -> void: ## Saves all the SaveFileData according to their current values in the game
 	pass
