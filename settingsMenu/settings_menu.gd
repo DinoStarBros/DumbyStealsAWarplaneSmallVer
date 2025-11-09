@@ -9,6 +9,9 @@ func _ready()->void:
 	await get_tree().process_frame
 	_on_load_pressed()
 	
+	%translations.select(SaveLoad.settings.language_idx)
+	_on_translations_pressed(SaveLoad.settings.language_idx)
+	
 	#_update_res()
 	#_update_vol_val()
 	
@@ -126,6 +129,8 @@ enum language_idxs {
 }
 
 func _on_translations_pressed(index: int) -> void:
+	SaveLoad.settings.language_idx = index
+	
 	var item_string : String = (
 		%translations.get_item_text(index)
 	)

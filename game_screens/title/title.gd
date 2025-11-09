@@ -6,6 +6,7 @@ enum menu_mode {
 var current_menu_mode : menu_mode = menu_mode.None
 
 func _ready() -> void:
+	
 	get_tree().paused = false
 	%play.grab_focus()
 	SceneManager.fade_in()
@@ -17,6 +18,7 @@ func _on_play_pressed() -> void:
 	settings_menu._on_save_pressed()
 
 func _on_quit_pressed() -> void:
+	settings_menu._on_save_pressed()
 	get_tree().quit()
 
 var deltaTime : = 0.0

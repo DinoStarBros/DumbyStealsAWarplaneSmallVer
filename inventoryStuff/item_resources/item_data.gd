@@ -1,9 +1,13 @@
 extends Resource
 class_name ItemData
 
-@export var name : String
-@export var description : String
-@export var flavor_text : String
+@export var name_key : String
+@export var description_key : String
+@export var flavor_text_key : String
+
+var name : String
+var description : String
+var flavor_text : String
 @export var texture : Texture2D
 @export var buy_price : float = 0
 

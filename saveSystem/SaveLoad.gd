@@ -27,9 +27,9 @@ func save_settings_stuff() -> void: ## Saves only the data used in the settings 
 	
 	SaveFileData.frame_freeze = settings.frame_freeze_value
 	SaveFileData.screen_shake = settings.screen_shake_value
-	
 	SaveFileData.resolutuion_index = settings.resolution_index
 	SaveFileData.switch_acc_roll = settings.switch_accelerate_roll
+	SaveFileData.language_idx = settings.language_idx
 	
 	_save()
 
@@ -45,6 +45,7 @@ func load_settings_stuff() -> void: ## Loads settings variables and data
 	
 	settings.resolution_index = SaveFileData.resolutuion_index
 	settings.switch_accelerate_roll = SaveFileData.switch_acc_roll
+	settings.language_idx = SaveFileData.language_idx
 
 func save_everything() -> void: ## Saves all the SaveFileData according to their current values in the game
 	pass

@@ -17,10 +17,9 @@ offset_bottom = 624.0
 
 [node name="Tabs" type="TabContainer" parent="PanelContainer"]
 layout_mode = 2
-current_tab = 1
+current_tab = 0
 
 [node name="Audio" type="VBoxContainer" parent="PanelContainer/Tabs"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -58,6 +57,7 @@ step = 0.15
 tick_count = 11
 
 [node name="Accessiblity" type="VBoxContainer" parent="PanelContainer/Tabs"]
+visible = false
 layout_mode = 2
 alignment = 1
 metadata/_tab_index = 1
