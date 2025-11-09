@@ -10,8 +10,7 @@ region = Rect2(256, 0, 16, 32)
 
 [resource]
 script = ExtResource("1_0kcom")
-name = "Turn Speed Upgrade"
-description = "Increases turn speed by 5"
+name_key = "rot1Name"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1], [1]])
 upgrade_scn = ExtResource("3_5cm20")

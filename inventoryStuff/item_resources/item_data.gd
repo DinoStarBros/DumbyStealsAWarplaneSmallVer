@@ -1,9 +1,9 @@
 extends Resource
 class_name ItemData
 
-@export var name_key : String
-@export var description_key : String
-@export var flavor_text_key : String
+@export var name_key : String ##Ex.speedUp1Name, like how the key is named in the csv sheet. camelCase, "Name" at the end
+@export var description_key : String ## Ex. speedUp1Desc, like how the key is named in the csv sheet. camelCase, "Desc" at the end
+@export var flavor_text_key : String ## Ex. speedUp1Flavor, like how the key is named in the csv sheet. camelCase, "Flavor" at the end
 
 var name : String
 var description : String

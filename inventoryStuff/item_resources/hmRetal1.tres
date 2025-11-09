@@ -10,9 +10,7 @@ region = Rect2(0, 48, 48, 32)
 
 [resource]
 script = ExtResource("1_jjniu")
-name = "H.M. Retaliator Mk. 1 "
-description = "Shoot a homing rocket upon taking damage."
-flavor_text = "Damn, you wanna get rewarded for getting hit? You suck."
+name_key = "hmRetal1Name"
 texture = SubResource("AtlasTexture_22jpi")
 shape = Array[Array]([[1, 1, 1], [1, 1, 1]])
 upgrade_scn = ExtResource("3_1y3j4")

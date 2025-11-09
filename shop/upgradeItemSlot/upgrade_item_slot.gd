@@ -24,12 +24,14 @@ func _process(_delta: float) -> void:
 
 func update_visuals() -> void:
 	%name.text = str(
-		item.name
+		#item.name
+		TranslationServer.tr(item.name_key)
 	)
 	
 	%descText.text = str(
 		"\n",
-		item.description,
+		#item.description,
+		TranslationServer.tr(item.description_key),
 		"\n",
 		#item.upgrade
 	)
