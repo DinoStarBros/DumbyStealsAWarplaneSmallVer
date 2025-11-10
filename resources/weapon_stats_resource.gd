@@ -20,6 +20,27 @@ class_name WeaponStats
 
 @export var max_buff_time : float = 0 ## The amount of time the weapon gets buffed after tactical reloading, before going back to normal
 
-@export_category("Descriptions")
-@export_multiline var on_dodge_buf : String
-@export_multiline var on_q_reload_buff : String
+
+## Choose which stat to buff by how much when Quick Reload buffed. qr = quick reload
+@export_category("Stats to Buff in Quick Reload")
+@export var qr_shoot_cooldown : float
+@export var qr_bullet_spd : float
+@export var qr_bullet_amnt : int
+@export var qr_random_spread : float
+@export var qr_bullet_lifetime : float = 1.0
+@export var qr_shoot_delay : float 
+@export var qr_damage : float
+@export var qr_max_ammo : float ## Not sure if I'll be using this shit. DUMBASS
+@export var qr_ammo_use : float
+
+## Choose which stat to buff by how much when Dodge buffed. db = dodge buff
+@export_category("Stats to Buff in Quick Reload")
+@export var db_shoot_cooldown : float
+@export var db_bullet_spd : float
+@export var db_bullet_amnt : int
+@export var db_random_spread : float
+@export var db_bullet_lifetime : float = 1.0
+@export var db_shoot_delay : float 
+@export var db_damage : float
+@export var db_max_ammo : float ## Not sure if I'll be using this shit. DUMBASS
+@export var db_ammo_use : float

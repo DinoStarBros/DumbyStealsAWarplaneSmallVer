@@ -9,7 +9,6 @@ region = Rect2(768, 0, 32, 80)
 
 [resource]
 script = ExtResource("1_2hilr")
-name = "Lightning 1"
-description = "lightning"
+name_key_start = "lightning1"
 texture = SubResource("AtlasTexture_hd2xv")
 metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

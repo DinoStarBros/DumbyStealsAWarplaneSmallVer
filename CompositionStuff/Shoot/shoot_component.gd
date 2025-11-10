@@ -1,6 +1,8 @@
 extends Node2D
 class_name ShootComponent
 
+@export var weapon_buff_component : WeaponBuffComponent
+
 var parent_weapon : Weapon
 var stats : WeaponStats
 var p : Dumby
@@ -40,7 +42,7 @@ func shooting_handling(delta:float) -> void:
 	
 	# Handling for the shooting cooldown
 	can_shoot = cooldown <= 0 # U can shoot once cooldown is less than 0
-	cooldown = max(0, cooldown - delta) # Reduces the cooldown, also limit to not be less than 0
+	cooldown = max(0, cooldown - (delta * weapon_buff_component.current_shoot_cooldown_buff)) # Reduces the cooldown, also limit to not be less than 0
 
 func spawn_bullet() -> void:
 	rand_spread_vector.x = randf_range(-stats.random_spread, stats.random_spread)

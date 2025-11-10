@@ -10,7 +10,7 @@ region = Rect2(256, 0, 16, 32)
 
 [resource]
 script = ExtResource("1_0kcom")
-name_key = "rot1Name"
+name_key_start = "rot1"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1], [1]])
 upgrade_scn = ExtResource("3_5cm20")

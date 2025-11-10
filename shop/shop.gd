@@ -44,7 +44,8 @@ func _on_select_pressed() -> void:
 func _on_buy_pressed() -> void:
 	if p.allow_upgrade_end:
 		if upgrade_selected:
-			if upgrade_selected.item.name != item_bought.name:
+			if upgrade_selected.item.name_key_start != item_bought.name_key_start:
+				
 				add_item_to_inventory()
 
 func _on_wave_end() -> void:

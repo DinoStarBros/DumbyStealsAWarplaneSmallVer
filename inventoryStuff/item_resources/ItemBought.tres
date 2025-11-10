@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_sq0l8")
-name_key = "itemBoughtName"
+name_key_start = "itemBought"
 metadata/_custom_type_script = "uid://ctfpuqs65ts8x"

@@ -10,7 +10,7 @@ region = Rect2(512, 0, 48, 64)
 
 [resource]
 script = ExtResource("1_uakij")
-name_key = "hmShooter1Name"
+name_key_start = "hmShooter1"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1], [1], [1, 1, 1], [0, 0, 1]])
 upgrade_scn = ExtResource("3_kglml")

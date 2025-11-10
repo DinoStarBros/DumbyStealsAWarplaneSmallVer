@@ -24,17 +24,14 @@ func _process(_delta: float) -> void:
 
 func update_visuals() -> void:
 	%name.text = str(
-		#item.name
-		TranslationServer.tr(item.name_key)
+		TranslationServer.tr(item.name_key_start + "Name")
 	)
 	
 	%descText.text = str(
 		"\n",
-		#item.description,
-		TranslationServer.tr(item.description_key),
+		TranslationServer.tr(item.name_key_start + "Desc"),
 		"\n",
-		#item.upgrade
 	)
 	
-	#sprite.texture = item.texture
 	texture.texture = item.texture
+	

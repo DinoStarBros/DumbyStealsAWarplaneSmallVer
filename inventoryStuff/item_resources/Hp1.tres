@@ -10,7 +10,7 @@ region = Rect2(128, 0, 32, 48)
 
 [resource]
 script = ExtResource("1_qiykk")
-name_key = "hp1Name"
+name_key_start = "hp1"
 texture = SubResource("AtlasTexture_k58vi")
 shape = Array[Array]([[1, 0], [1, 1], [1, 0]])
 upgrade_scn = ExtResource("3_bci0t")
