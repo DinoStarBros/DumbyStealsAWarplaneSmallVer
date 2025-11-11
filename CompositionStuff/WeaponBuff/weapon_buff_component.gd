@@ -71,9 +71,9 @@ func _process(delta: float) -> void:
 		current_shoot_cooldown_buff = 1
 		current_bullet_spd_buff = 1
 		current_bullet_amnt_buff = 0
-		current_random_spread_buff = 1
+		current_random_spread_buff = 0
 		current_bullet_lifetime_buff = 0
 		current_shoot_delay_buff = 0
 		current_damage_buff = 1
-		#current_max_ammo_buff  
+		#current_max_ammo_buff
 		current_ammo_use_buff = 0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhygjgvm7og03"]
+[gd_scene load_steps=7 format=3 uid="uid://bhygjgvm7og03"]
 
 [ext_resource type="Script" uid="uid://cceo8h6s8n121" path="res://weapons/shotgun/shotgun.gd" id="1_0kfn4"]
 [ext_resource type="Resource" uid="uid://b3tp2kent410x" path="res://resources/weapon_stats/ShotgunStats.tres" id="2_ggjqm"]
 [ext_resource type="AudioStream" uid="uid://cjrha4kbrqcpl" path="res://Audio/planesfx/gunshot-352466.mp3" id="3_f42wg"]
 [ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="3_ggjqm"]
 [ext_resource type="PackedScene" uid="uid://b2ia1p1j58a6q" path="res://CompositionStuff/Shoot/shoot_component.tscn" id="5_f42wg"]
+[ext_resource type="PackedScene" uid="uid://ccg65bklijwd8" path="res://CompositionStuff/WeaponBuff/weapon_buff_component.tscn" id="6_ya88x"]
 
 [node name="shotgun" type="Node2D"]
 script = ExtResource("1_0kfn4")
@@ -23,4 +24,7 @@ volume_db = -16.0
 pitch_scale = 1.2
 bus = &"sfx"
 
-[node name="ShootComponent" parent="." instance=ExtResource("5_f42wg")]
+[node name="ShootComponent" parent="." node_paths=PackedStringArray("weapon_buff") instance=ExtResource("5_f42wg")]
+weapon_buff = NodePath("../WeaponBuffComponent")
+
+[node name="WeaponBuffComponent" parent="." instance=ExtResource("6_ya88x")]

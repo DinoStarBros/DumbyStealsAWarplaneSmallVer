@@ -34,7 +34,7 @@ class_name WeaponStats
 @export var qr_ammo_use : int ## Flat buff (1 = 1 less ammo used per shot)
 
 ## Choose which stat to buff by how much when Dodge buffed. db = dodge buff
-@export_category("Stats to Buff in Quick Reload")
+@export_category("Stats to Buff in Dodge Buffed")
 @export var db_shoot_cooldown : float ## Percent buff (0.5 = 50% buff)
 @export var db_bullet_spd : float ## Percent buff (0.5 = 50% buff)
 @export var db_bullet_amnt : int ## Flat buff (e.g. 1 = +1 extra bullet shot)
