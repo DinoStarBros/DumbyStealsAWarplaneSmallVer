@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		current_random_spread_buff = stats.qr_random_spread
 		current_bullet_lifetime_buff = stats.qr_bullet_lifetime
 		current_shoot_delay_buff = stats.qr_shoot_delay
-		current_damage_buff 
+		current_damage_buff = 1 + stats.qr_damage
 		#current_max_ammo_buff  
 		current_ammo_use_buff
 		
@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 		current_random_spread_buff = stats.db_random_spread
 		current_bullet_lifetime_buff = stats.db_bullet_lifetime
 		current_shoot_delay_buff = stats.db_shoot_delay
-		current_damage_buff 
+		current_damage_buff = 1 + stats.db_damage
 		#current_max_ammo_buff 
 		current_ammo_use_buff 
 		
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 		current_random_spread_buff = stats.qr_random_spread + stats.db_random_spread
 		current_bullet_lifetime_buff = stats.qr_bullet_lifetime + stats.db_bullet_lifetime
 		current_shoot_delay_buff = stats.qr_shoot_delay + stats.db_shoot_delay
-		current_damage_buff 
+		current_damage_buff = 1 + stats.qr_damage + stats.db_damage
 		#current_max_ammo_buff
 		current_ammo_use_buff 
 		
@@ -74,6 +74,6 @@ func _process(delta: float) -> void:
 		current_random_spread_buff = 1
 		current_bullet_lifetime_buff = 0
 		current_shoot_delay_buff = 0
-		current_damage_buff 
+		current_damage_buff = 1
 		#current_max_ammo_buff  
 		current_ammo_use_buff 

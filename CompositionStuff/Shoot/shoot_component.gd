@@ -39,8 +39,6 @@ func shooting_handling(delta:float) -> void:
 			parent_weapon.play_multi_sfx()
 			spawn_bullet()
 			
-			g.lil_printy.text = str(stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff))
-			
 			await get_tree().create_timer(
 				stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff)
 			).timeout 
@@ -64,7 +62,7 @@ func spawn_bullet() -> void:
 	
 	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
 	
-	projectile.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage)
+	projectile.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage) * weapon_buff.current_damage_buff
 	
 	projectile.global_position = global_position + (dir_to_mouse * 50)
 	projectile.velocity = (dir_to_mouse + rand_spread_vector) * stats.bullet_spd * weapon_buff.current_bullet_spd_buff

@@ -6,10 +6,8 @@
 [resource]
 script = ExtResource("1_v3prr")
 bullet_spd = 2500
-bullet_amnt = 3
 random_spread = 0.05
 bullet_lifetime = 2.0
-shoot_delay = 0.1
 bullet_scn = ExtResource("1_wunjo")
 max_ammo = 100
 max_reload_duration = 1.5
