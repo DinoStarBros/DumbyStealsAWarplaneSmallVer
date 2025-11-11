@@ -19,6 +19,7 @@ var level : int = 1
 var mobile : bool = false
 var inventory : Inventory
 var lil_printy : Label
+var weapons_parent : WeaponsParent
 
 var wave : int
 

@@ -17,10 +17,12 @@ func _ready() -> void:
 	stats = parent_weapon.stats
 	
 	await get_tree().process_frame
-	p = parent_weapon.p
+	p = g.player
 
 func _process(delta: float) -> void:
-	if parent_weapon.p.weapons_parent.current_weapon != parent_weapon:
+	
+	var current_weapon : Weapon = p.weapons_parent.current_weapon
+	if current_weapon != parent_weapon:
 		return
 	
 	shooting_handling(delta)

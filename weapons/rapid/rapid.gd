@@ -1,4 +1,5 @@
 extends Weapon
+class_name RapidFire
 
 func _ready() -> void:
 	cooldown = stats.shoot_cooldown

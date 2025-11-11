@@ -23,6 +23,8 @@ var dodge_buffed : bool = false
 @onready var p : Dumby = get_parent() ## Reference to the Parent Node, Dumby
 
 func _ready() -> void:
+	g.weapons_parent = self
+	
 	ammo_text = ammo_bar.get_child(0)
 	for weapon in get_children():
 		if weapon is Weapon:
@@ -148,3 +150,12 @@ func switch_weapon(step: int) -> void:
 		new_weapon = weapons[current_weapon_idx + step]
 	
 	current_weapon = new_weapon
+
+func add_weapon(weapon: WeaponItem) -> void:
+	var weapon_scn : PackedScene = weapon.weapon_scn
+	
+	var weap = weapon_scn.instantiate()
+	add_child(weap)
+	weapons.append(weap)
+	
+	current_weapon = weap

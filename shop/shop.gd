@@ -3,7 +3,8 @@ class_name Shop
 
 @onready var p : WaveUpgradeUI = get_parent().get_parent()
 
-var item_bought : UpgradeItem = load("res://inventoryStuff/upgrade_item_res/ItemBought.tres")
+var upgrade_bought : UpgradeItem = load("res://inventoryStuff/upgrade_item_res/UpgradeBought.tres")
+var weapon_bought : WeaponItem = load("res://resources/weapon_items_res/WeaponBought.tres")
 
 var player : Dumby
 
@@ -45,11 +46,12 @@ func _on_select_pressed() -> void:
 func _on_buy_pressed() -> void:
 	if p.allow_upgrade_end:
 		if item_selected:
-			if item_selected.item.name_key_start != item_bought.name_key_start:
-				if item_selected.item is UpgradeItem:
-					add_item_to_inventory()
-				elif item_selected.item is WeaponItem:
-					
+			if item_selected.item is UpgradeItem:
+				if item_selected.item.name_key_start != upgrade_bought.name_key_start:
+					add_item_to_inventory(item_selected.item)
+			elif item_selected.item is WeaponItem:
+				if item_selected.item.name_key_start != weapon_bought.name_key_start:
+					add_weapon_to_arsenal(item_selected.item)
 
 func _on_wave_end() -> void:
 	%reroll.grab_focus()
@@ -148,11 +150,14 @@ func _create_property_gpos_tween(
 	tween_ease = property_tween.set_ease(set_ease)
 	tween_ease.set_trans(set_trans)
 
-func add_item_to_inventory() -> void:
-	g.inventory.add_item_to_storage(item_selected.item)
+func add_item_to_inventory(item: UpgradeItem) -> void:
+	g.inventory.add_item_to_storage(item)
 	
-	item_selected.item = item_bought
+	item_selected.item = upgrade_bought
 	item_selected.update_visuals()
 
-func add_weapon_to_arsenal() -> void:
-	pass
+func add_weapon_to_arsenal(item: WeaponItem) -> void:
+	g.weapons_parent.add_weapon(item)
+	
+	item_selected.item = weapon_bought
+	item_selected.update_visuals()

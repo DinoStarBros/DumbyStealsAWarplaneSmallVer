@@ -1,30 +1,32 @@
 extends Node2D
 ## Component that handles which stats will be improved when getting a buff. 
-## This code is fucking outrageous to look at there hass to be a better way to do this.
+## This code is fucking outrageous to look at lol.
 class_name WeaponBuffComponent
 
 @onready var parent_weapon : Weapon = get_parent()
 var stats : WeaponStats
+var p : Dumby
 
-#@export var shoot_component : ShootComponent
-
-var current_shoot_cooldown_buff : float = 0.0 
+var current_shoot_cooldown_buff : float = 0.0
 var current_bullet_spd_buff : float
 var current_bullet_amnt_buff : int
 var current_random_spread_buff : float
 var current_bullet_lifetime_buff : float = 1.0
-var current_shoot_delay_buff : float 
+var current_shoot_delay_buff : float
 var current_damage_buff : float
 var current_max_ammo_buff : float ## Not sure if I'll be using this shit. DUMBASS
 var current_ammo_use_buff : int
 
 func _ready() -> void:
 	stats = parent_weapon.stats
+	
+	await get_tree().process_frame
+	p = g.player
 
 func _process(delta: float) -> void:
 	# This some Yandere Dev coding type shii
-	var qr_buffed : bool = parent_weapon.p.weapons_parent.q_reload_buffed
-	var db_buffed : bool = parent_weapon.p.weapons_parent.dodge_buffed
+	var qr_buffed : bool = p.weapons_parent.q_reload_buffed
+	var db_buffed : bool = p.weapons_parent.dodge_buffed
 	
 	if qr_buffed and !db_buffed:
 		# Stats getting improved when quick reload buffed
