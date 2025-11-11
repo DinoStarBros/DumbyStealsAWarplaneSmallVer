@@ -1,4 +1,5 @@
 extends RefCounted
+## Contains the data of the settings menu that gets saved & loaded
 class_name SettingsData
 
 var master_volume : float = 0.75
