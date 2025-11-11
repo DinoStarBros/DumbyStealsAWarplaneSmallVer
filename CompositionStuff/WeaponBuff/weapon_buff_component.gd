@@ -16,7 +16,7 @@ var current_bullet_lifetime_buff : float = 1.0
 var current_shoot_delay_buff : float 
 var current_damage_buff : float
 var current_max_ammo_buff : float ## Not sure if I'll be using this shit. DUMBASS
-var current_ammo_use_buff : float
+var current_ammo_use_buff : int
 
 func _ready() -> void:
 	stats = parent_weapon.stats
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		current_shoot_delay_buff = stats.qr_shoot_delay
 		current_damage_buff = 1 + stats.qr_damage
 		#current_max_ammo_buff  
-		current_ammo_use_buff
+		current_ammo_use_buff = stats.qr_ammo_use
 		
 	if db_buffed and !qr_buffed:
 		# Stats getting improved when dodge buffed
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		current_shoot_delay_buff = stats.db_shoot_delay
 		current_damage_buff = 1 + stats.db_damage
 		#current_max_ammo_buff 
-		current_ammo_use_buff 
+		current_ammo_use_buff = stats.db_ammo_use
 		
 	if db_buffed and qr_buffed:
 		# Stats getting improved when getting both quick reload & dodge buff
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 		current_shoot_delay_buff = stats.qr_shoot_delay + stats.db_shoot_delay
 		current_damage_buff = 1 + stats.qr_damage + stats.db_damage
 		#current_max_ammo_buff
-		current_ammo_use_buff 
+		current_ammo_use_buff = stats.qr_ammo_use + stats.db_ammo_use
 		
 	if !db_buffed and !qr_buffed:
 		# Not buffed, no stat improvement
@@ -76,4 +76,4 @@ func _process(delta: float) -> void:
 		current_shoot_delay_buff = 0
 		current_damage_buff = 1
 		#current_max_ammo_buff  
-		current_ammo_use_buff 
+		current_ammo_use_buff = 0

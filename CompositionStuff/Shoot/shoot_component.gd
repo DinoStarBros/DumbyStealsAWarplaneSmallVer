@@ -29,7 +29,7 @@ func shooting_handling(delta:float) -> void:
 	if p.shooting and can_shoot:
 		parent_weapon.play_sfx()
 		
-		parent_weapon.ammo -= stats.ammo_use
+		parent_weapon.ammo -= stats.ammo_use - weapon_buff.current_ammo_use_buff
 		p.Shoot.emit()
 		
 		can_shoot = false

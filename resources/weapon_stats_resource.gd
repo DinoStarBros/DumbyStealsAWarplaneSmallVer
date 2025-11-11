@@ -31,7 +31,7 @@ class_name WeaponStats
 @export var qr_shoot_delay : float ## Percent buff (0.5 = 50% faster)
 @export var qr_damage : float ## Percent buff (0.5 = 50% more damage)
 @export var qr_max_ammo : float ## Not sure if I'll be using this shit. DUMBASS
-@export var qr_ammo_use : float
+@export var qr_ammo_use : int ## Flat buff (1 = 1 less ammo used per shot)
 
 ## Choose which stat to buff by how much when Dodge buffed. db = dodge buff
 @export_category("Stats to Buff in Quick Reload")
@@ -43,4 +43,4 @@ class_name WeaponStats
 @export var db_shoot_delay : float ## Percent buff (0.5 = 50% faster)
 @export var db_damage : float ## Percent buff (0.5 = 50% more damage)
 @export var db_max_ammo : float ## Not sure if I'll be using this shit. DUMBASS
-@export var db_ammo_use : float
+@export var db_ammo_use : int ## Flat buff (1 = 1 less ammo used per shot)

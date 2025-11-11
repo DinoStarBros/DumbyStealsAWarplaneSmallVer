@@ -10,6 +10,7 @@ random_spread = 0.05
 bullet_lifetime = 2.0
 bullet_scn = ExtResource("1_wunjo")
 max_ammo = 100
+ammo_use = 10
 max_reload_duration = 1.5
 min_sweet_spot = 0.7
 max_sweet_spot = 1.2
