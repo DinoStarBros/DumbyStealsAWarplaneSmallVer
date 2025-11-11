@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=6 format=3 uid="uid://d1hg8r0vg5mr6"]
+
+[ext_resource type="Script" uid="uid://dwp518qasme08" path="res://resources/WeaponItemRes.gd" id="1_u8km4"]
+[ext_resource type="Resource" uid="uid://b3tp2kent410x" path="res://resources/weapon_stats/ShotgunStats.tres" id="2_bhbkx"]
+[ext_resource type="Texture2D" uid="uid://clq1vvv04td4q" path="res://Art/Ase files/gun-icons.aseprite" id="3_qikrb"]
+[ext_resource type="PackedScene" uid="uid://bhygjgvm7og03" path="res://weapons/shotgun/shotgun.tscn" id="4_kxr21"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pgn5"]
+atlas = ExtResource("3_qikrb")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_u8km4")
+weapon_scn = ExtResource("4_kxr21")
+stats = ExtResource("2_bhbkx")
+name_key_start = "shotgun"
+texture = SubResource("AtlasTexture_8pgn5")
+metadata/_custom_type_script = "uid://dwp518qasme08"

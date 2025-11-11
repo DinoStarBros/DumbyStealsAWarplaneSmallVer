@@ -12,7 +12,8 @@ var items_res : Array[UpgradeItem] = [
 
 var weapon_items_res : Array[WeaponItem] = [
 	load("res://resources/weapon_items_res/rapidItem.tres"),
-	
+	load("res://resources/weapon_items_res/burstRifleItem.tres"),
+	load("res://resources/weapon_items_res/shotgunItem.tres"),
 	
 ]
 
