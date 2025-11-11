@@ -1,15 +1,14 @@
 extends Button
 class_name StoredItemButton
 
-var item : ItemData
+var item : UpgradeItem
 
 var inventory : Inventory
-
 
 func _ready() -> void:
 	icon = item.texture
 	
-	text = item.name
+	text = TranslationServer.tr(str(item.name_key_start + "Name"))
 
 func _process(delta: float) -> void:
 	pass

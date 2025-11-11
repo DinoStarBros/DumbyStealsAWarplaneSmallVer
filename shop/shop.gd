@@ -3,7 +3,7 @@ class_name Shop
 
 @onready var p : WaveUpgradeUI = get_parent().get_parent()
 
-var item_bought : ItemData = load("res://inventoryStuff/item_resources/ItemBought.tres")
+var item_bought : UpgradeItem = load("res://inventoryStuff/upgrade_item_res/ItemBought.tres")
 
 var player : Dumby
 
@@ -19,16 +19,17 @@ func _ready() -> void:
 	# Signal connections
 	GlobalSignals.Wave_End.connect(_on_wave_end)
 	
-	%skip.pressed.connect(_on_skip_pressed)
+	%next_wave.pressed.connect(_on_nextWave_pressed)
 	%reroll.pressed.connect(_on_reroll_pressed)
 	%select.pressed.connect(_on_select_pressed)
 	%buy.pressed.connect(_on_buy_pressed)
 	
+	# Gets a reference to all the Item Slots
 	upgrade_slots = %upgradeItemSlots.get_children()
 	
-	possible_items = References.items_res
+	possible_items = References.items_res + References.weapon_items_res
 
-func _on_skip_pressed() -> void:
+func _on_nextWave_pressed() -> void:
 	if p.allow_upgrade_end:
 		GlobalSignals.Upgrade_End.emit()
 
@@ -45,7 +46,6 @@ func _on_buy_pressed() -> void:
 	if p.allow_upgrade_end:
 		if upgrade_selected:
 			if upgrade_selected.item.name_key_start != item_bought.name_key_start:
-				
 				add_item_to_inventory()
 
 func _on_wave_end() -> void:
@@ -91,8 +91,8 @@ func _process(delta: float) -> void:
 	%gold.text = str("Money: ", PlayerStats.money)
 
 func assign_upgrade_slot(slot: UpgradeItemSlot, ndex: int) -> void:
-	#slot.upgrade = possible_upgrades[ndex]
-	slot.item = possible_items[ndex]
+	if possible_items[ndex] is Item:
+		slot.item = possible_items[ndex]
 	slot.update_visuals()
 
 func buy() -> void:
@@ -131,9 +131,9 @@ var property_tween : Object
 var tween_ease : Object
 func _create_property_gpos_tween(
 	node:Node,
-	global_pos:Vector2, 
+	global_pos:Vector2,
 	time:float=1.0,
-	set_ease:Tween.EaseType=Tween.EASE_IN_OUT, 
+	set_ease:Tween.EaseType=Tween.EASE_IN_OUT,
 	set_trans:Tween.TransitionType=Tween.TRANS_SPRING
 	) -> void:
 	

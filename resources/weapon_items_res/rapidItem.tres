@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=4 format=3 uid="uid://cgr1sjrb084uh"]
+
+[ext_resource type="Script" uid="uid://dwp518qasme08" path="res://resources/WeaponItemRes.gd" id="1_j2fgy"]
+[ext_resource type="Resource" uid="uid://0sigb3nq6ncr" path="res://resources/weapon_stats/RapidStats.tres" id="2_w2wku"]
+[ext_resource type="PackedScene" uid="uid://hekqvagsvs2e" path="res://weapons/rapid/rapid.tscn" id="3_84e2f"]
+
+[resource]
+script = ExtResource("1_j2fgy")
+weapon_scn = ExtResource("3_84e2f")
+stats = ExtResource("2_w2wku")
+name_key_start = "rapid"
+metadata/_custom_type_script = "uid://dwp518qasme08"

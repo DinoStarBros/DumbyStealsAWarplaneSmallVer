@@ -52,7 +52,6 @@ func spawn_bullet() -> void:
 	rand_spread_vector.y = randf_range(-stats.random_spread, stats.random_spread)
 	
 	rand_spread_vector -= rand_spread_vector * weapon_buff.current_random_spread_buff
-	g.lil_printy.text = str(weapon_buff.current_random_spread_buff)
 	
 	rand_spread_vector.x = max(0, rand_spread_vector.x) # Disallows it from going negative
 	rand_spread_vector.y = max(0, rand_spread_vector.y)

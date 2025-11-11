@@ -1,7 +1,7 @@
 extends Sprite2D
 class_name InventoryItem
 
-var item : ItemData
+var item : UpgradeItem
 var size_mult : float
 var coord : Vector2i
 var domain : Array[Vector2i]

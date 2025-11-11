@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	%upgrades.text = str(upgrade_names)
 
-func add_upgrade(item: ItemData) -> void:
+func add_upgrade(item: UpgradeItem) -> void:
 	var upgrade : UpgradeSCN = item.upgrade_scn.instantiate()
 	
 	upgrade.item_data = item
@@ -23,7 +23,7 @@ func add_upgrade(item: ItemData) -> void:
 	
 	add_child(upgrade)
 
-func remove_upgrade(item: ItemData) -> void:
+func remove_upgrade(item: UpgradeItem) -> void:
 	for upgrade : UpgradeSCN in get_children():
 		if upgrade.item_data == item:
 			upgrade.queue_free()

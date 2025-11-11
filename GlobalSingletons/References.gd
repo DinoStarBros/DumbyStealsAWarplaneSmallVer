@@ -1,12 +1,18 @@
 extends Node
 
-var items_res : Array[ItemData] = [
-	load("res://inventoryStuff/item_resources/Damage1.tres"),
-	load("res://inventoryStuff/item_resources/SpeedUp1.tres"),
-	load("res://inventoryStuff/item_resources/Rot1.tres"),
-	load("res://inventoryStuff/item_resources/Hp1.tres"),
-	load("res://inventoryStuff/item_resources/HmShooter1.tres"),
-	load("res://inventoryStuff/item_resources/hmRetal1.tres")
+var items_res : Array[UpgradeItem] = [
+	load("res://inventoryStuff/upgrade_item_res/Damage1.tres"),
+	load("res://inventoryStuff/upgrade_item_res/SpeedUp1.tres"),
+	load("res://inventoryStuff/upgrade_item_res/Rot1.tres"),
+	load("res://inventoryStuff/upgrade_item_res/Hp1.tres"),
+	load("res://inventoryStuff/upgrade_item_res/HmShooter1.tres"),
+	load("res://inventoryStuff/upgrade_item_res/hmRetal1.tres")
+	
+]
+
+var weapon_items_res : Array[WeaponItem] = [
+	load("res://resources/weapon_items_res/rapidItem.tres"),
+	
 	
 ]
 

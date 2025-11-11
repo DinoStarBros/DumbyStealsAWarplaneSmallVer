@@ -7,7 +7,7 @@ class_name Inventory
 @export var dimensions : Vector2i = Vector2(5,5)
 
 var inventory_slot_layers : Array[Array]
-var items : Array[ItemData]
+var items : Array[UpgradeItem]
 var inv_items : Array[InventoryItem]
 var current_inv_item : InventoryItem
 var desired_item_rotation : float ## Just for the lerping visuals
@@ -51,7 +51,7 @@ func init_inv_slots_array() -> void:
 		layer.fill(0)
 	#print_debugs()
 
-func add_item(item: ItemData, at: Vector2i) -> void: ## Adds an item, it'll check if it can fit or nah
+func add_item(item: UpgradeItem, at: Vector2i) -> void: ## Adds an item, it'll check if it can fit or nah
 	var inventory_item : InventoryItem = inv_item_scn.instantiate()
 	inventory_item.item = item
 	inventory_item.position += item_grid.position + Vector2(at * g.slot_size)
@@ -145,7 +145,7 @@ func get_slot_idx_from_coord(coord: Vector2i) -> int: ## Put coordinates, return
 	
 	return idx
 
-func can_fit(item: ItemData, at: Vector2i) -> bool: ## Checks if the shape can fit or nah
+func can_fit(item: UpgradeItem, at: Vector2i) -> bool: ## Checks if the shape can fit or nah
 	if at.x > dimensions.x - 1 or at.y > dimensions.y - 1:
 		return false
 	
@@ -236,7 +236,7 @@ func select_item() -> void:
 					# I have to delete the item from the inventory_slot_layers array
 					# Turning that part to 0s
 
-func grab_item_from_stored(item: ItemData) -> void:
+func grab_item_from_stored(item: UpgradeItem) -> void:
 	desired_item_rotation = 0
 	current_item_rotation = 0
 	
@@ -267,7 +267,7 @@ func _on_store_back_pressed() -> void:
 		
 		current_inv_item.queue_free()
 
-func add_item_to_storage(item: ItemData) -> void:
+func add_item_to_storage(item: UpgradeItem) -> void:
 	var stored_item_button : StoredItemButton = stored_item_button_scn.instantiate()
 	
 	stored_item_button.item = item
@@ -285,8 +285,9 @@ func texts() -> void:
 	
 	if current_inv_item:
 		%item_desc.text = str(
-			current_inv_item.item.name, ": \n",
-			current_inv_item.item.description,
+			TranslationServer.tr(current_inv_item.item.name_key_start + "Name"),
+			": \n",
+			TranslationServer.tr(current_inv_item.item.name_key_start + "Desc"),
 			)
 	else:
 		%item_desc.text = "Select an item"

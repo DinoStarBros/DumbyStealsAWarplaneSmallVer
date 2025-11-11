@@ -1,8 +1,7 @@
 extends Button
 class_name UpgradeItemSlot
 
-var item: ItemData
-#var upgrade : Upgrade
+var item: Item
 
 @onready var shop : Shop = get_parent().get_parent()
 @onready var sprite: Sprite2D = %sprite

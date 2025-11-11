@@ -23,8 +23,8 @@ var upgrade_handler : UpgradeHandler
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func add_upgrade(item: ItemData) -> void:
+func add_upgrade(item: UpgradeItem) -> void:
 	upgrade_handler.add_upgrade(item)
 
-func remove_upgrade(item: ItemData) -> void:
+func remove_upgrade(item: UpgradeItem) -> void:
 	upgrade_handler.remove_upgrade(item)

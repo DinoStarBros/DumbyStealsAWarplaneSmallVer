@@ -12,5 +12,5 @@ minimum_spawn_time = 0.01
 enemy_limit = 5.0
 min_enemy_amount = 2
 max_enemy_amount = 3
-max_spawn_budget = 15
+max_spawn_budget = 0
 metadata/_custom_type_script = "uid://d1crhjsum6w1o"
