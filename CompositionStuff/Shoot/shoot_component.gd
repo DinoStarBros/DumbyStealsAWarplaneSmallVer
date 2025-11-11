@@ -1,7 +1,7 @@
 extends Node2D
 class_name ShootComponent
 
-@export var weapon_buff_component : WeaponBuffComponent
+@export var weapon_buff : WeaponBuffComponent
 
 var parent_weapon : Weapon
 var stats : WeaponStats
@@ -35,20 +35,31 @@ func shooting_handling(delta:float) -> void:
 		can_shoot = false
 		cooldown = stats.shoot_cooldown
 		
-		for n in stats.bullet_amnt:
+		for n in stats.bullet_amnt + weapon_buff.current_bullet_amnt_buff:
 			parent_weapon.play_multi_sfx()
 			spawn_bullet()
-			await get_tree().create_timer(stats.shoot_delay).timeout
+			
+			g.lil_printy.text = str(stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff))
+			
+			await get_tree().create_timer(
+				stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff)
+			).timeout 
 	
 	# Handling for the shooting cooldown
 	can_shoot = cooldown <= 0 # U can shoot once cooldown is less than 0
-	cooldown = max(0, cooldown - (delta * weapon_buff_component.current_shoot_cooldown_buff)) # Reduces the cooldown, also limit to not be less than 0
+	cooldown = max(0, cooldown - (delta * weapon_buff.current_shoot_cooldown_buff)) # Reduces the cooldown, also limit to not be less than 0
 
 func spawn_bullet() -> void:
 	rand_spread_vector.x = randf_range(-stats.random_spread, stats.random_spread)
 	rand_spread_vector.y = randf_range(-stats.random_spread, stats.random_spread)
 	
+	rand_spread_vector -= rand_spread_vector * weapon_buff.current_random_spread_buff
+	
+	rand_spread_vector.x = max(0, rand_spread_vector.x) # Disallows it from going negative
+	rand_spread_vector.y = max(0, rand_spread_vector.y)
+	
 	var projectile : Projectile = stats.bullet_scn.instantiate()
+	projectile.lifetime = stats.bullet_lifetime + weapon_buff.current_bullet_lifetime_buff
 	g.game.add_child(projectile)
 	
 	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
@@ -56,6 +67,5 @@ func spawn_bullet() -> void:
 	projectile.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage)
 	
 	projectile.global_position = global_position + (dir_to_mouse * 50)
-	projectile.velocity = (dir_to_mouse + rand_spread_vector) * stats.bullet_spd
+	projectile.velocity = (dir_to_mouse + rand_spread_vector) * stats.bullet_spd * weapon_buff.current_bullet_spd_buff
 	projectile.look_at(projectile.global_position + projectile.velocity)
-	projectile.lifetime = stats.bullet_lifetime
