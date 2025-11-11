@@ -7,7 +7,7 @@ var item_bought : UpgradeItem = load("res://inventoryStuff/upgrade_item_res/Item
 
 var player : Dumby
 
-var upgrade_selected : UpgradeItemSlot
+var item_selected : UpgradeItemSlot
 var upgrade_slots : Array
 
 var possible_upgrades : Array
@@ -39,18 +39,21 @@ func _on_reroll_pressed() -> void:
 
 func _on_select_pressed() -> void:
 	if p.allow_upgrade_end:
-		if upgrade_selected:
+		if item_selected:
 			buy()
 
 func _on_buy_pressed() -> void:
 	if p.allow_upgrade_end:
-		if upgrade_selected:
-			if upgrade_selected.item.name_key_start != item_bought.name_key_start:
-				add_item_to_inventory()
+		if item_selected:
+			if item_selected.item.name_key_start != item_bought.name_key_start:
+				if item_selected.item is UpgradeItem:
+					add_item_to_inventory()
+				elif item_selected.item is WeaponItem:
+					
 
 func _on_wave_end() -> void:
 	%reroll.grab_focus()
-	upgrade_selected = null
+	item_selected = null
 	
 	possible_items.shuffle()
 	
@@ -64,9 +67,9 @@ func _process(delta: float) -> void:
 	if not g.game_state == g.game_states.Upgrade:
 		return
 	
-	if upgrade_selected:
+	if item_selected:
 		%upgradeDesc.text = str(
-			upgrade_selected.item.flavor_text
+			TranslationServer.tr(item_selected.item.name_key_start + "Flavor")
 		)
 		#%upgradeDesc.visible = true
 	else:
@@ -76,9 +79,9 @@ func _process(delta: float) -> void:
 		)
 	
 	var sh_desired_pos : Vector2
-	if upgrade_selected:
+	if item_selected:
 		sh_desired_pos = (
-		upgrade_selected.global_position + Vector2(100, 120)
+		item_selected.global_position + Vector2(100, 120)
 		)
 	else:
 		sh_desired_pos = Vector2(-400, 120)
@@ -96,7 +99,7 @@ func assign_upgrade_slot(slot: UpgradeItemSlot, ndex: int) -> void:
 	slot.update_visuals()
 
 func buy() -> void:
-	var upgrade : Upgrade = upgrade_selected.upgrade
+	var upgrade : Upgrade = item_selected.upgrade
 	
 	upgrade.apply_player(player)
 	player.upgrades.append(upgrade)
@@ -111,7 +114,7 @@ func reroll() -> void:
 	
 	reroll_cost += 2
 	
-	upgrade_selected = null
+	item_selected = null
 	
 	_create_property_gpos_tween(
 		%upgradeItemSlots, Vector2(130, 1000), reroll_time
@@ -146,7 +149,10 @@ func _create_property_gpos_tween(
 	tween_ease.set_trans(set_trans)
 
 func add_item_to_inventory() -> void:
-	g.inventory.add_item_to_storage(upgrade_selected.item)
+	g.inventory.add_item_to_storage(item_selected.item)
 	
-	upgrade_selected.item = item_bought
-	upgrade_selected.update_visuals()
+	item_selected.item = item_bought
+	item_selected.update_visuals()
+
+func add_weapon_to_arsenal() -> void:
+	pass

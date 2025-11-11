@@ -1,7 +1,6 @@
 extends Item
 class_name UpgradeItem
 
-var flavor_text : String
 @export var buy_price : float = 0
 
 @export var shape : Array[Array]

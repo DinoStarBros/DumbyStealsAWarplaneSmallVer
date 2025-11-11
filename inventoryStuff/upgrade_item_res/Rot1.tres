@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dj2fc7xkpu8jh"]
 
-[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/upgrade_item_res/item_data.gd" id="1_0kcom"]
+[ext_resource type="Script" uid="uid://ctfpuqs65ts8x" path="res://inventoryStuff/upgrade_item_res/upgrade_item_res.gd" id="1_0kcom"]
 [ext_resource type="Texture2D" uid="uid://d0vbvf7d2l0fg" path="res://Art/planestuff/upgTiles/shapes2.png" id="2_5cm20"]
 [ext_resource type="PackedScene" uid="uid://de37rht5bkvlp" path="res://shop/upgrade_scenes/rot_spd_up1/rot_spd_up_1.tscn" id="3_5cm20"]
 

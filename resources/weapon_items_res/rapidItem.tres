@@ -1,12 +1,18 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=4 format=3 uid="uid://cgr1sjrb084uh"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=6 format=3 uid="uid://cgr1sjrb084uh"]
 
 [ext_resource type="Script" uid="uid://dwp518qasme08" path="res://resources/WeaponItemRes.gd" id="1_j2fgy"]
 [ext_resource type="Resource" uid="uid://0sigb3nq6ncr" path="res://resources/weapon_stats/RapidStats.tres" id="2_w2wku"]
 [ext_resource type="PackedScene" uid="uid://hekqvagsvs2e" path="res://weapons/rapid/rapid.tscn" id="3_84e2f"]
+[ext_resource type="Texture2D" uid="uid://clq1vvv04td4q" path="res://Art/Ase files/gun-icons.aseprite" id="3_xs8wl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i86ok"]
+atlas = ExtResource("3_xs8wl")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_j2fgy")
 weapon_scn = ExtResource("3_84e2f")
 stats = ExtResource("2_w2wku")
 name_key_start = "rapid"
+texture = SubResource("AtlasTexture_i86ok")
 metadata/_custom_type_script = "uid://dwp518qasme08"

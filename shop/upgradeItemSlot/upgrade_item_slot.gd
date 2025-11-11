@@ -16,7 +16,7 @@ func _on_wave_end() -> void:
 	pass
 
 func _on_select() -> void:
-	shop.upgrade_selected = self
+	shop.item_selected = self
 
 func _process(_delta: float) -> void:
 	pass
@@ -33,4 +33,7 @@ func update_visuals() -> void:
 	)
 	
 	texture.texture = item.texture
-	
+	if item is UpgradeItem:
+		%texture.scale = Vector2.ONE
+	elif item is WeaponItem:
+		%texture.scale = Vector2(2,2)
