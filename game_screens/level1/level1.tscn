@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_3k2b8"]
 [ext_resource type="Script" uid="uid://cf2wcni88y5nl" path="res://enemy_spawn_pos.gd" id="3_f53t4"]
 [ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/wave1-1.tres" id="4_p10mf"]
-[ext_resource type="Script" uid="uid://d1crhjsum6w1o" path="res://resources/wave_resource.gd" id="4_y1ytl"]
+[ext_resource type="Script" uid="uid://coyoa4ygagj34" path="res://resources/wave_parent_res.gd" id="4_y1ytl"]
 [ext_resource type="Texture2D" uid="uid://5ok8ww27od1g" path="res://Art/planestuff/SEA.png" id="5_y1ytl"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_11rbn"]
 [ext_resource type="Resource" uid="uid://dumf6ux33ahda" path="res://resources/waves/wave1-2.tres" id="6_p10mf"]

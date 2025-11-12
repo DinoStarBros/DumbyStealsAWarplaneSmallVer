@@ -31,7 +31,8 @@ func _ready() -> void:
 			weapons.append(weapon)
 			current_weapon = weapon
 	
-	add_weapon(g.current_weapon_button_selected_res)
+	add_weapon(g.current_weapon_button_selected_res) # Adds the weapon that you selected at the part & weapon select screen
+	#add_weapon(load("res://resources/weapon_items_res/rapidItem.tres")) # For quick testing when I just wanna get to the Main game scene
 
 func _process(delta: float) -> void:
 	current_weapon_idx = weapons.find(current_weapon)
@@ -53,6 +54,9 @@ func _process(delta: float) -> void:
 		%flashnim.play("flash")
 		
 	elif not current_weapon.reloading:
+		g.lil_printy.text = str(current_weapon_idx, " : ", weapons.size()-1)
+		if weapons.size() == 1: # Only 1 weapon
+			return
 		
 		if Input.is_action_just_pressed("next_weapon"):
 			switch_weapon(1)

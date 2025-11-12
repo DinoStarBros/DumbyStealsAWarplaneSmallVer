@@ -13,9 +13,10 @@ func _ready() -> void:
 func wave_start() -> void:
 	wave = waves[g.wave - 1]
 	
-	spawn_time = wave.starting_spawn_time
-	%spawnTimer.start(spawn_time)
-	wave.spawn_budget = wave.max_spawn_budget
+	if wave is EnemyWave:
+		spawn_time = wave.starting_spawn_time
+		%spawnTimer.start(spawn_time)
+		wave.spawn_budget = wave.max_spawn_budget
 	
 	update_spawn_budget_text()
 

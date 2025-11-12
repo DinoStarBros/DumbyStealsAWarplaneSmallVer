@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=111 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
@@ -572,6 +572,9 @@ _data = {
 &"RESET": SubResource("Animation_dq1xq"),
 &"flameLoop": SubResource("Animation_kvjl2")
 }
+
+[sub_resource type="Gradient" id="Gradient_jrsuo"]
+colors = PackedColorArray(1, 0.33175024, 0.26607296, 1, 1, 0.86181915, 0.31624913, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_etwne"]
 
@@ -1335,6 +1338,7 @@ position = Vector2(-23.5, 0)
 unique_name_in_owner = true
 position = Vector2(2, 0)
 width = 20.0
+gradient = SubResource("Gradient_jrsuo")
 
 [node name="flamez" type="Sprite2D" parent="PlaneSprite"]
 unique_name_in_owner = true

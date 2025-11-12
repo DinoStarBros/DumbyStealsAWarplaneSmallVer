@@ -1,5 +1,5 @@
-extends Resource
-class_name Wave
+extends Wave
+class_name EnemyWave
 
 @export var enemies : Array[PackedScene] ## The list of enemies you want spawned in that wave
 
