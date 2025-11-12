@@ -14,7 +14,7 @@ func _ready() -> void:
 	MusicManager.play_song("title")
 
 func _on_play_pressed() -> void:
-	g.scene_change("res://game_screens/level_select/level_select.tscn")
+	g.scene_change("res://game_screens/weapon_parts_select/weapon_parts_select.tscn")
 	settings_menu._on_save_pressed()
 
 func _on_quit_pressed() -> void:
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	
 	sin_val = sin(deltaTime)
 	#%buttons.global_position.y += (sin_val * delta) * 20
-	%Txt.scale.x = 0.3 + (sin_val * 0.05)
+	%Txt.scale.x = 0.3 + (sin_val * 0.04)
 	%Txt.global_position.y += (sin_val * delta) * -5
 
 func _physics_process(_delta: float) -> void:

@@ -30,6 +30,8 @@ func _ready() -> void:
 		if weapon is Weapon:
 			weapons.append(weapon)
 			current_weapon = weapon
+	
+	add_weapon(g.current_weapon_button_selected_res)
 
 func _process(delta: float) -> void:
 	current_weapon_idx = weapons.find(current_weapon)

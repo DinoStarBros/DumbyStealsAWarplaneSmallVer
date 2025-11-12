@@ -18,9 +18,9 @@ func _reset_save_file()->void:
 	SaveFileData = SaveDataResource.new()
 	_save()
 
-var settings : SettingsData = SettingsData.new()
-var unlocks : Unlocks = Unlocks.new()
 
+
+var settings : SettingsData = SettingsData.new()
 func save_settings_stuff() -> void: ## Saves only the data used in the settings menu
 	SaveFileData.master_volume = settings.master_volume
 	SaveFileData.music_volume = settings.music_volume
@@ -47,6 +47,17 @@ func load_settings_stuff() -> void: ## Loads settings variables and data
 	settings.resolution_index = SaveFileData.resolutuion_index
 	settings.switch_accelerate_roll = SaveFileData.switch_acc_roll
 	settings.language_idx = SaveFileData.language_idx
+
+var unlocks : Unlocks = Unlocks.new()
+func save_unlocks() -> void:
+	SaveFileData.weapons_unlocked = unlocks.weapons_unlocked
+	
+	_save()
+
+func load_unlocks() -> void:
+	_load()
+	
+	unlocks.weapons_unlocked = SaveFileData.weapons_unlocked
 
 func save_everything() -> void: ## Saves all the SaveFileData according to their current values in the game
 	pass

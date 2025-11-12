@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://bfahxvjjxjylq"]
+[gd_scene load_steps=110 format=3 uid="uid://bfahxvjjxjylq"]
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
@@ -21,7 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://bam7vrfyhev2j" path="res://Art/Placeholder/Roblox Explosion Sound Effect.wav" id="12_xik33"]
 [ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="13_6f8f5"]
 [ext_resource type="Texture2D" uid="uid://cuqwajg7lthld" path="res://Art/planestuff/fx/effects-Sheet.png" id="13_12q0g"]
-[ext_resource type="PackedScene" uid="uid://8cpsr0yikoab" path="res://weapons/burstRifle/burstRifle.tscn" id="13_etwne"]
 [ext_resource type="AudioStream" uid="uid://oilja35cgsfb" path="res://Audio/hurt or laser.wav" id="13_pxqrg"]
 [ext_resource type="Script" uid="uid://ctjumrbw2yuxo" path="res://GUI.gd" id="15_0uce1"]
 [ext_resource type="Texture2D" uid="uid://dnp54j8h1op73" path="res://Art/Bitlytic/crosshair.png" id="15_1o3u8"]
@@ -1124,8 +1123,6 @@ unique_name_in_owner = true
 stream = ExtResource("46_dint0")
 volume_db = -10.0
 bus = &"sfx"
-
-[node name="burstRifle" parent="weapons_parent" instance=ExtResource("13_etwne")]
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("2_5wgoi")]
 unique_name_in_owner = true

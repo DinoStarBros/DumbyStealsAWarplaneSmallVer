@@ -21,6 +21,8 @@ var inventory : Inventory
 var lil_printy : Label
 var weapons_parent : WeaponsParent
 
+var current_weapon_button_selected_res : WeaponItem
+
 var wave : int
 
 enum game_states {

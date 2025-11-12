@@ -19,4 +19,5 @@ max_sweet_spot = 1.2
 max_buff_time = 3.0
 qr_bullet_amnt = 2
 db_bullet_spd = 0.4
+db_bullet_lifetime = 0.2
 metadata/_custom_type_script = "uid://2egkgwj5n4iw"
