@@ -7,11 +7,13 @@ var speed_lines : Array[Node2D]
 @onready var plane_sprite: PlaneSprite = %PlaneSprite
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var chromatic_aberration: Sprite2D = %chromaticAberration
+@onready var chrom_animation: AnimationPlayer = %chromAnimation
 
 @export var max_frame : float = 6
 
 func _ready() -> void:
 	g.lil_printy = %lilPrinty
+	p.Hurt.connect(on_hurt)
 	
 	for n in speed_lines_parent.get_children():
 		speed_lines.append(n)
@@ -43,3 +45,6 @@ func _dir_matcher(_rot : float) -> int:
 		speed_lines_parent.scale.x = 1
 	
 	return round(index)
+
+func on_hurt(_attack: Attack) -> void:
+	chrom_animation.play("chromab")
