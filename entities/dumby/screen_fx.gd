@@ -47,4 +47,5 @@ func _dir_matcher(_rot : float) -> int:
 	return round(index)
 
 func on_hurt(_attack: Attack) -> void:
-	chrom_animation.play("chromab")
+	#chrom_animation.play("chromab")
+	pass

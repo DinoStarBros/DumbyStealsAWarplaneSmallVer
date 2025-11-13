@@ -2,21 +2,26 @@ extends Path2D
 ## Handles spwaning enemies & waves for the sky
 class_name EnemySpawnerSky
 
-@export var enemy_spawn_pos: PathFollow2D
 @export var waves  : Array[Wave]
-@export var spawn_timer : Timer
-@export var boss_timer : Timer
+
+@onready var enemy_spawn_pos: PathFollow2D = $enemySpawnPos
+@onready var spawn_timer: Timer = %spawnTimer
+@onready var boss_timer: Timer = %bossTimer
+
 var wave : Wave
 var spawn_time : float
 
 func _ready() -> void:
 	g.wave = 1
 	wave_start()
-	GlobalSignals.Upgrade_End.connect(_on_upgrade_end)
 	
+	# Signal Connections
+	GlobalSignals.Upgrade_End.connect(_on_upgrade_end)
 	boss_timer.timeout.connect(_on_boss_timer_timeout)
+	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 
 func wave_start() -> void:
+	g.wave += 1
 	wave = waves[g.wave - 1]
 	
 	if wave is EnemyWave:
@@ -66,7 +71,6 @@ func _process(_delta: float) -> void:
 		boss_wave_end_handling()
 
 func _on_upgrade_end() -> void:
-	g.wave += 1
 	wave_start()
 
 func enemy_wave_end_handling() -> void:

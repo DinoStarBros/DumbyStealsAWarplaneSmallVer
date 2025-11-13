@@ -70,7 +70,6 @@ folder_colors={
 "res://settingsMenu/": "teal",
 "res://shaders/": "blue",
 "res://shop/": "red",
-"res://spawned_sounds/": "purple",
 "res://timer/": "pink"
 }
 

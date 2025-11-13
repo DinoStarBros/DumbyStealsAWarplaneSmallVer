@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk5mejh5q063x"]
+
+[ext_resource type="Script" uid="uid://chqcf6ubwtabh" path="res://scenes/enemy_spawner_sky/enemy_spawner_sky.gd" id="1_n1eu1"]
+
+[sub_resource type="Curve2D" id="Curve2D_ych0l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1982, -1233, 0, 0, 0, 0, -1970, 1055, 0, 0, 0, 0, 2190, 1032, 0, 0, 0, 0, 2094, -1114, 0, 0, 0, 0, -1791, -1221)
+}
+point_count = 5
+
+[node name="EnemySpawnerSky" type="Path2D"]
+process_mode = 3
+curve = SubResource("Curve2D_ych0l")
+script = ExtResource("1_n1eu1")
+
+[node name="spawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="bossTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="enemySpawnPos" type="PathFollow2D" parent="."]
+position = Vector2(-1982, -1233)
+rotation = 1.5655516
