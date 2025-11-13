@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://djxndtog5nfd5"]
+[gd_scene load_steps=18 format=3 uid="uid://djxndtog5nfd5"]
 
 [ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/level1/level1.gd" id="1_qffnt"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_3k2b8"]
 [ext_resource type="Script" uid="uid://cf2wcni88y5nl" path="res://enemy_spawn_pos.gd" id="3_f53t4"]
+[ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/enemy1-1.tres" id="4_p10mf"]
 [ext_resource type="Script" uid="uid://coyoa4ygagj34" path="res://resources/wave_parent_res.gd" id="4_y1ytl"]
 [ext_resource type="Resource" uid="uid://sux7otwpptys" path="res://resources/boss_waves/boss1-1.tres" id="5_3k2b8"]
 [ext_resource type="Texture2D" uid="uid://5ok8ww27od1g" path="res://Art/planestuff/SEA.png" id="5_y1ytl"]
@@ -70,7 +71,7 @@ scale = Vector2(3, 3)
 curve = SubResource("Curve2D_gy565")
 script = ExtResource("3_f53t4")
 enemy_spawn_pos = NodePath("enemy_spawn_pos")
-waves = Array[ExtResource("4_y1ytl")]([ExtResource("5_3k2b8")])
+waves = Array[ExtResource("4_y1ytl")]([ExtResource("5_3k2b8"), ExtResource("4_p10mf")])
 spawn_timer = NodePath("spawnTimer")
 boss_timer = NodePath("bossTimer")
 metadata/_edit_lock_ = true
@@ -88,7 +89,7 @@ one_shot = true
 [node name="bossTimer" type="Timer" parent="dumby/enemy_spawner"]
 one_shot = true
 
-[node name="wall_bounds" type="Node2D" parent="." groups=["Enemy"]]
+[node name="wall_bounds" type="Node2D" parent="."]
 scale = Vector2(4, 4)
 
 [node name="l" type="StaticBody2D" parent="wall_bounds"]

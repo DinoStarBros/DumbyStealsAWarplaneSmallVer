@@ -13,22 +13,14 @@ func _ready() -> void:
 	hp = max_hp
 
 func damage(attack:Attack) -> void:
-	#if get_parent().is_in_group("Enemy"):
-	if get_parent() is Enemy:
-		# Enemy taking damage
-		g.spawn_txt(str(roundi(attack.attack_damage)), global_position)
-		
-		hp -= attack.attack_damage
-		get_parent().damage(attack)
-		
-		if ouchnim:
-			ouchnim.play("Ouch")
-		
-	else:
-		
-		# Player taking damage
-		g.spawn_txt(str(roundi(attack.ene_attack_damage)), global_position)
-		hp -= attack.ene_attack_damage
+	
+	g.spawn_txt(str(roundi(attack.attack_damage)), global_position)
+	get_parent().damage(attack)
+	
+	hp -= attack.attack_damage
+	
+	if ouchnim:
+		ouchnim.play("Ouch")
 
 func _process(_delta:float)->void:
 

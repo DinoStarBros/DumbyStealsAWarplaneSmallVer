@@ -230,7 +230,7 @@ shader = ExtResource("6_do36c")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/mix_value = 0.0
 
-[node name="spike_sphere" type="CharacterBody2D" groups=["Enemy"]]
+[node name="spike_sphere" type="CharacterBody2D"]
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_1tssn")

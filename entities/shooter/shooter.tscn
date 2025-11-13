@@ -307,7 +307,7 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.885906, 0.993289)
 colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
 
-[node name="shooter" type="CharacterBody2D" groups=["Enemy"]]
+[node name="shooter" type="CharacterBody2D"]
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_kg2ur")
