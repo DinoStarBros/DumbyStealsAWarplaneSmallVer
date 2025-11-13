@@ -234,14 +234,12 @@ shader_parameter/mix_value = 0.0
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_1tssn")
-stats = ExtResource("2_sufux")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_phis3")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_phis3")]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
-ouchnim = NodePath("ouchnim")
 explosion_particles = true
 
 [node name="ouchnim" type="AnimationPlayer" parent="HurtboxComponent"]
@@ -269,8 +267,9 @@ unique_name_in_owner = true
 turn_speed = 2.0
 thing_to_rotate = NodePath("../Icon")
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_gnxvb")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("ouchnim") instance=ExtResource("5_gnxvb")]
 unique_name_in_owner = true
+ouchnim = NodePath("../HurtboxComponent/ouchnim")
 max_hp = 5.0
 
 [node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("8_sss1j")]

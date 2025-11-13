@@ -17,7 +17,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 
 config/name="DumbyStealsAWarplane"
 config/tags=PackedStringArray("bigproject", "important")
-run/main_scene="uid://crr8qeqq8wwdx"
+run/main_scene="uid://djxndtog5nfd5"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"
 config/icon="res://icon.svg"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://c6nl05baux0"]
+
+[ext_resource type="PackedScene" uid="uid://dl58yl2dpvjg5" path="res://projectiles/ene_bullet/ene_bullet.tscn" id="1_cttik"]
+[ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="2_ncmpr"]
+
+[resource]
+script = ExtResource("2_ncmpr")
+max_hp = 500.0
+metadata/_custom_type_script = "uid://dycg2uy8h53rg"

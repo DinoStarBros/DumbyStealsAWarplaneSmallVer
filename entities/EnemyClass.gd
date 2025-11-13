@@ -1,4 +1,8 @@
 extends CharacterBody2D
 class_name Enemy ## Base class for enemies
 
-@export var stats : EnemyStats
+func damage(attack: Attack) -> void:
+	pass
+
+func Dead(attack: Attack) -> void:
+	pass

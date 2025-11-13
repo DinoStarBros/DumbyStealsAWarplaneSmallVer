@@ -448,12 +448,11 @@ collision_mask = 4
 [node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_uqd1j")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_uw1lj")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_uw1lj")]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
-ouchnim = NodePath("ouchnim")
 explosion_particles = true
 
 [node name="ouchnim" type="AnimationPlayer" parent="HurtboxComponent"]
@@ -465,8 +464,9 @@ libraries = {
 [node name="hubc" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_o2tfc")
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_um6te")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("ouchnim") instance=ExtResource("5_um6te")]
 unique_name_in_owner = true
+ouchnim = NodePath("../HurtboxComponent/ouchnim")
 max_hp = 20.0
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("11_um6te")]

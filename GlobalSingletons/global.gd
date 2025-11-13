@@ -26,10 +26,10 @@ var current_weapon_button_selected_res : WeaponItem
 var wave : int
 
 enum game_states {
-	Title, Combat, Lost, Upgrade
+	Title, Combat, Lost, Upgrade, Cutscence,
 }
 var gs_strings : Array = [
-	"Title", "Combat", "Lost", "LevelUp"
+	"Title", "Combat", "Lost", "Upgrade", "Cutscene"
 ]
 var gs_string : String
 const txt_scn : PackedScene = preload("res://scenes/DmgNum/dmg_num.tscn")

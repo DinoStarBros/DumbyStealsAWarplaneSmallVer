@@ -11,6 +11,3 @@ class_name EnemyWave
 
 @export var min_enemy_amount : int = 1 ## The minimum amount of enemies it'll spawn at a single instance
 @export var max_enemy_amount : int = 1 ## The maximum amount of enemies it'll spawn at a single instance
-
-@export var max_spawn_budget : int = 10 ## The amount of enemies in total that'll spawn in that wave
-var spawn_budget : int

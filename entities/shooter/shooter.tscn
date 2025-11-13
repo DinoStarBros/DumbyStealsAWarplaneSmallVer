@@ -320,12 +320,11 @@ collision_mask = 4
 [node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_vyadc")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_ttcvk")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_ttcvk")]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
-ouchnim = NodePath("ouchnim")
 explosion_particles = true
 
 [node name="ouchnim" type="AnimationPlayer" parent="HurtboxComponent"]
@@ -346,8 +345,9 @@ thing_to_rotate = NodePath("../Plane")
 unique_name_in_owner = true
 trail_particles = NodePath("../Plane/trailparticle")
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_tq5xu")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("ouchnim") instance=ExtResource("5_tq5xu")]
 unique_name_in_owner = true
+ouchnim = NodePath("../HurtboxComponent/ouchnim")
 max_hp = 25.0
 
 [node name="EnemyShootComponent" parent="." instance=ExtResource("8_7vn3f")]

@@ -332,7 +332,6 @@ colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_b7csh")
-stats = ExtResource("2_0e64b")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("7_bngux")]
 unique_name_in_owner = true
@@ -342,12 +341,11 @@ collision_mask = 4
 [node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_vc8fo")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "ouchnim") instance=ExtResource("4_on2tx")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_on2tx")]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
-ouchnim = NodePath("ouchnim")
 explosion_particles = true
 
 [node name="ouchnim" type="AnimationPlayer" parent="HurtboxComponent"]
@@ -369,8 +367,9 @@ unique_name_in_owner = true
 turn_speed = 4.0
 thing_to_rotate = NodePath("../Plane")
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_74ld6")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("ouchnim") instance=ExtResource("5_74ld6")]
 unique_name_in_owner = true
+ouchnim = NodePath("../HurtboxComponent/ouchnim")
 max_hp = 30.0
 
 [node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("9_mwqwr")]

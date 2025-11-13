@@ -1,6 +1,117 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq4lbq023yuwi"]
+[gd_scene load_steps=17 format=3 uid="uid://dq4lbq023yuwi"]
 
 [ext_resource type="Script" uid="uid://dkws6tc3xmmr2" path="res://entities/boss1/boss_1.gd" id="1_sap0a"]
+[ext_resource type="Texture2D" uid="uid://cw30gj5fpxv50" path="res://icon.svg" id="2_ga3re"]
+[ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="3_awlfk"]
+[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="4_hwmh2"]
+[ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="4_rgr7k"]
+[ext_resource type="Resource" uid="uid://c6nl05baux0" path="res://resources/enemy_stats/boss1Stats.tres" id="5_gr070"]
+[ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="5_yl5t8"]
+[ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="6_hlv0q"]
+[ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="7_5a0cs"]
+[ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="8_yl5t8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl5t8"]
+size = Vector2(350, 356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlv0q"]
+size = Vector2(392, 384)
+
+[sub_resource type="Animation" id="Animation_hlv0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yl5t8"]
+resource_name = "Ouch"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlv0q"]
+_data = {
+&"Ouch": SubResource("Animation_yl5t8"),
+&"RESET": SubResource("Animation_hlv0q")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ga3re"]
+font_size = 40
 
 [node name="boss1" type="CharacterBody2D"]
 script = ExtResource("1_sap0a")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_hwmh2")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_yl5t8")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_yl5t8")]
+collision_layer = 2
+collision_mask = 2
+health_component = NodePath("../HealthComponent")
+explosion_particles = true
+explosion_particle_amount = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_hlv0q")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("6_hlv0q")]
+
+[node name="RotationComponent" parent="." instance=ExtResource("7_5a0cs")]
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("ouchnim") instance=ExtResource("8_yl5t8")]
+ouchnim = NodePath("ouch")
+
+[node name="ouch" type="AnimationPlayer" parent="HealthComponent"]
+root_node = NodePath("../../HurtboxComponent")
+libraries = {
+&"": SubResource("AnimationLibrary_hlv0q")
+}
+
+[node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("4_rgr7k")]
+stats = ExtResource("5_gr070")
+hitbox_component = NodePath("../HitboxComponent")
+health_component = NodePath("../HealthComponent")
+velocity_component = NodePath("../VelocityComponent")
+rotation_component = NodePath("../RotationComponent")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_ga3re")
+
+[node name="txt" type="Label" parent="."]
+offset_left = -97.0
+offset_top = -105.0
+offset_right = 117.0
+offset_bottom = -64.0
+text = "I AM BOSSFIGHT"
+label_settings = SubResource("LabelSettings_ga3re")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="enemyArrow" parent="." instance=ExtResource("3_awlfk")]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(2, 2)

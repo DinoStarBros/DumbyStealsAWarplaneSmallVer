@@ -3,6 +3,7 @@ class_name HealthComponent
 
 @export var hp_bar : ProgressBar
 @export var hp_text : Label
+@export var ouchnim : AnimationPlayer
 #@export var cooler_hp_bar : TextureProgressBar
 
 @export var max_hp : = 10.0
@@ -12,12 +13,16 @@ func _ready() -> void:
 	hp = max_hp
 
 func damage(attack:Attack) -> void:
-	if get_parent().is_in_group("Enemy"):
+	#if get_parent().is_in_group("Enemy"):
+	if get_parent() is Enemy:
 		# Enemy taking damage
 		g.spawn_txt(str(roundi(attack.attack_damage)), global_position)
 		
 		hp -= attack.attack_damage
 		get_parent().damage(attack)
+		
+		if ouchnim:
+			ouchnim.play("Ouch")
 		
 	else:
 		

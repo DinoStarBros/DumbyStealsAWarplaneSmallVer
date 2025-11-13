@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bj5wj2g1r73gg" path="res://entities/chaser/chaser.tscn" id="1_sjtko"]
 [ext_resource type="PackedScene" uid="uid://bhp7st34wqg3f" path="res://entities/shooter/shooter.tscn" id="2_e5cus"]
-[ext_resource type="Script" uid="uid://d1crhjsum6w1o" path="res://resources/wave_resource.gd" id="3_1u33r"]
+[ext_resource type="Script" uid="uid://d1crhjsum6w1o" path="res://resources/enemy_wave_resource.gd" id="3_1u33r"]
 
 [resource]
 script = ExtResource("3_1u33r")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BossWave" load_steps=3 format=3 uid="uid://sux7otwpptys"]
+
+[ext_resource type="PackedScene" uid="uid://dq4lbq023yuwi" path="res://entities/boss1/boss_1.tscn" id="1_4merd"]
+[ext_resource type="Script" uid="uid://7pkshpyrgyo0" path="res://resources/boss_wave_resource.gd" id="1_w0y3b"]
+
+[resource]
+script = ExtResource("1_w0y3b")
+boss_scn = ExtResource("1_4merd")
+max_spawn_budget = 1
+metadata/_custom_type_script = "uid://7pkshpyrgyo0"

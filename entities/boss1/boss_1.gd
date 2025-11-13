@@ -1,2 +1,2 @@
-extends CharacterBody2D
+extends Enemy
 class_name Boss1

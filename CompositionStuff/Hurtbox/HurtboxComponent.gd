@@ -2,7 +2,6 @@ extends Area2D
 class_name HurtboxComponent
 
 @export var health_component : HealthComponent
-@export var ouchnim : AnimationPlayer
 
 @export var explosion_particles : bool = false ## Decides if it'll spawn extra explosion particles on death
 @export var explosion_particle_amount : int = 1 ## The amount of particles it'll spawn
@@ -34,9 +33,6 @@ func damage(attack:Attack) -> void:
 				spawn_explosion_particles(attack)
 	
 	hit(get_parent().is_in_group("Player"), health_component.hp <= 0)
-	
-	if ouchnim:
-		ouchnim.play("Ouch")
  
 const explosion_particles_scn : PackedScene = preload("res://juices/explosionSpawner/explosion_spawner.tscn")
 func spawn_explosion_particles(attack: Attack) -> void:
@@ -57,7 +53,8 @@ func hit(player : bool, dead : bool) -> void:
 			# Hit Player
 			g.cam.screen_shake(20, 0.4)
 			g.frame_freeze(0.3, 0.3)
-		
+	
+	
 	else:
 		
 		if dead:
@@ -67,4 +64,3 @@ func hit(player : bool, dead : bool) -> void:
 		else:
 			# Hit Enemy
 			g.cam.screen_shake(6, 0.2)
-		
