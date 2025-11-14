@@ -31,7 +31,12 @@ func _physics_process(delta:float) -> void:
 	g.screen_corners.end = g.camRect.global_position + g.camRect.size
 	
 	target_position = target.aim_position * sensitivity
-	position = position.lerp(target_position, 0.25)
+	
+	if g.game_state == g.game_states.Cutscene:
+		position = position.lerp(Vector2.ZERO, 0.25)
+	else:
+		# Cammera does its targetting thing normally when not in a cutscene
+		position = position.lerp(target_position, 0.25)
 	
 	if active_shake_time > 0:
 		shake_time += delta * shake_time_speed

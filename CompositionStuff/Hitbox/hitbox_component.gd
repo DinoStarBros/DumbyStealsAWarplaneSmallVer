@@ -3,11 +3,22 @@ class_name HitboxComponent
 
 @export var delete_after_hit : bool
 
+var colliders : Array[CollisionShape2D]
+
 var attack : Attack = g.attack
 var dmg : float
 var rand_sfx_idx : int = 0
 
 signal Hit
+
+func _init() -> void:
+	GlobalSignals.Start_Cutscene.connect(_on_start_cutscene)
+	GlobalSignals.End_Cutscene.connect(_on_end_cutscene)
+
+func _ready() -> void:
+	for child in get_children():
+		if child is CollisionShape2D:
+			colliders.append(child)
 
 func set_attack_properties(damag:float) -> void:
 	dmg = damag
@@ -40,3 +51,13 @@ func _on_area_entered(area : Area2D) -> void:
 				0: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE1)
 				1: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE2)
 				2: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE3)
+
+func _on_start_cutscene(dur:float) -> void:
+	# Disables collision on cutscene so that u can't damage/take damage during cutscene
+	for collider in colliders:
+		collider.disabled = true
+
+func _on_end_cutscene() -> void:
+	# Re enables collisions when cutscene plays
+	for collider in colliders:
+		collider.disabled = false

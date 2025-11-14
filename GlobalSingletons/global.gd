@@ -26,7 +26,7 @@ var current_weapon_button_selected_res : WeaponItem
 var wave : int
 
 enum game_states {
-	Title, Combat, Lost, Upgrade, Cutscence,
+	Title, Combat, Lost, Upgrade, Cutscene,
 }
 var gs_strings : Array = [
 	"Title", "Combat", "Lost", "Upgrade", "Cutscene"
@@ -86,3 +86,24 @@ func scene_change(scene:String)->void:
 			"pattern_leave" : "fade",
 			}
 		)
+
+var tween : Tween
+var property_tween : Object
+var tween_ease : Object
+## Creates tweens for Nodes for their properties that are Vector2, e.g. Position, Scale
+func create_property_vec2_tween(
+	node:Node,
+	vec2:Vector2, 
+	property: String = "position",
+	time: float = 1.0,
+	set_ease: Tween.EaseType = Tween.EASE_IN_OUT, 
+	set_trans: Tween.TransitionType = Tween.TRANS_SPRING
+	) -> void:
+	
+	if tween:
+		tween.kill()
+	
+	tween = create_tween()
+	property_tween = tween.tween_property(node, property, vec2, time)
+	tween_ease = property_tween.set_ease(set_ease)
+	tween_ease.set_trans(set_trans)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Wave" load_steps=4 format=3 uid="uid://dumf6ux33ahda"]
+[gd_resource type="Resource" script_class="EnemyWave" load_steps=4 format=3 uid="uid://dumf6ux33ahda"]
 
 [ext_resource type="PackedScene" uid="uid://bj5wj2g1r73gg" path="res://entities/chaser/chaser.tscn" id="1_mnrp3"]
 [ext_resource type="PackedScene" uid="uid://bhp7st34wqg3f" path="res://entities/shooter/shooter.tscn" id="2_xv3e8"]

@@ -2,11 +2,21 @@ extends Area2D
 class_name HurtboxComponent
 
 @export var health_component : HealthComponent
-
 @export var explosion_particles : bool = false ## Decides if it'll spawn extra explosion particles on death
 @export var explosion_particle_amount : int = 1 ## The amount of particles it'll spawn
 
+var colliders : Array[CollisionShape2D]
+
 signal PlrHit(dmg:int)
+
+func _init() -> void:
+	GlobalSignals.Start_Cutscene.connect(_on_start_cutscene)
+	GlobalSignals.End_Cutscene.connect(_on_end_cutscene)
+
+func _ready() -> void:
+	for child in get_children():
+		if child is CollisionShape2D:
+			colliders.append(child)
 
 func damage(attack:Attack) -> void:
 	z_index = 1
@@ -64,3 +74,13 @@ func hit(player : bool, dead : bool) -> void:
 		else:
 			# Hit Enemy
 			g.cam.screen_shake(6, 0.2)
+
+func _on_start_cutscene(dur:float) -> void:
+	# Disables collision on cutscene so that u can't damage/take damage during cutscene
+	for collider in colliders:
+		collider.disabled = true
+
+func _on_end_cutscene() -> void:
+	# Re enables collisions when cutscene plays
+	for collider in colliders:
+		collider.disabled = false

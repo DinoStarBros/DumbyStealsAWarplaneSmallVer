@@ -32,12 +32,14 @@ func _ready() -> void:
 	PlayerStats.max_iframes = PlayerStats.BASE_MAX_IFRAMES
 
 func _physics_process(delta: float) -> void:
-
+	
+	
 	# Handling functions
 	roll_handling(delta)
 	_left_joystick_handle()
 	
-	move_and_slide()
+	if g.game_state != g.game_states.Cutscene:
+		move_and_slide()
 	
 	half_viewport = get_viewport_rect().size / 2.0
 	 
@@ -47,8 +49,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Handling the Velocity and Rotation Component stuff
 	dir_plane = rotation_component.direction
+	if g.game_state != g.game_states.Cutscene:
+		velocity_component.other_velocity_handle(delta, dir_plane, accelerating)
 	
-	velocity_component.other_velocity_handle(delta, dir_plane, accelerating)
 	if controller:
 		rotation_component.plane_rotation_handling(
 		delta,
@@ -70,9 +73,9 @@ func _physics_process(delta: float) -> void:
 		pass
 	else:
 		if SaveLoad.settings.switch_accelerate_roll:
-			accelerating = Input.is_action_pressed("roll")
+			accelerating = Input.is_action_pressed("roll") and g.game_state == g.game_states.Combat
 		else:
-			accelerating = Input.is_action_pressed("accelerate")
+			accelerating = Input.is_action_pressed("accelerate") and g.game_state == g.game_states.Combat
 	
 	if accelerating:
 		accelerate_time += delta
@@ -86,7 +89,8 @@ func _physics_process(delta: float) -> void:
 	
 	shooting = (Input.is_action_pressed("shoot") and 
 	weapons_parent.current_weapon.ammo > 0 and 
-	not weapons_parent.current_weapon.reloading
+	not weapons_parent.current_weapon.reloading and
+	g.game_state == g.game_states.Combat
 	)
 	
 	if not controller:
@@ -234,5 +238,9 @@ func player_stats_handling() -> void:
 func iframes_handling(delta: float) -> void:
 	iframes = max(iframes - delta, 0)
 	
-	%hurtbox.disabled = iframes > 0 and health_component.hp > 0
-	%fhurtbox.disabled = iframes > 0 and health_component.hp > 0
+	if g.game_state == g.game_states.Combat:
+		%hurtbox.disabled = iframes > 0 and health_component.hp > 0
+		%fhurtbox.disabled = iframes > 0 and health_component.hp > 0
+	else:
+		%hurtbox.disabled = true
+		%fhurtbox.disabled = true

@@ -1927,8 +1927,23 @@ offset_bottom = 684.0
 text = "0 0"
 label_settings = SubResource("LabelSettings_h23mg")
 
+[node name="black_bars" type="Node2D" parent="GUI"]
+unique_name_in_owner = true
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+
+[node name="bbU" type="Polygon2D" parent="GUI/black_bars"]
+position = Vector2(0, -450)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-1000, -200, -1000, 200, 1000, 200, 1000, -200)
+
+[node name="bbD" type="Polygon2D" parent="GUI/black_bars"]
+position = Vector2(0, 450)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-1000, -200, -1000, 200, 1000, 200, 1000, -200)
+
 [node name="ScreenFX" type="CanvasLayer" parent="."]
-layer = 2
+layer = 4
 script = ExtResource("28_u8vb7")
 
 [node name="speed_lines_parent" type="Node2D" parent="ScreenFX"]

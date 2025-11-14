@@ -14,6 +14,8 @@ var speed_lines : Array[Node2D]
 func _ready() -> void:
 	g.lil_printy = %lilPrinty
 	p.Hurt.connect(on_hurt)
+	GlobalSignals.Start_Cutscene.connect(on_start_cutscene)
+	GlobalSignals.End_Cutscene.connect(on_end_cutscene)
 	
 	for n in speed_lines_parent.get_children():
 		speed_lines.append(n)
@@ -49,3 +51,9 @@ func _dir_matcher(_rot : float) -> int:
 func on_hurt(_attack: Attack) -> void:
 	#chrom_animation.play("chromab")
 	pass
+
+func on_start_cutscene(cutscene_dur: float) -> void:
+	g.create_property_vec2_tween(%black_bars, Vector2.ONE, "scale")
+
+func on_end_cutscene() -> void:
+	g.create_property_vec2_tween(%black_bars, Vector2(2,2), "scale")
