@@ -3,10 +3,15 @@ extends Node
 signal Wave_End
 signal Upgrade_End
 
-signal Boss_Spawned
+signal Boss_Spawned(
+	boss_position: Vector2,
+	cutscene_duration : float
+	)
 signal Boss_Defeated
 
-signal Start_Cutscene(cutscene_duration : float)
+signal Start_Cutscene(
+	cutscene_duration : float
+	)
 signal End_Cutscene
 
 func _init() -> void:
@@ -25,13 +30,13 @@ func _on_wave_end() -> void:
 func _on_upgrade_end() -> void:
 	pass
 
-func _on_boss_spawned() -> void:
-	Start_Cutscene.emit(3)
+func _on_boss_spawned(boss_pos: Vector2, cutscene_duration: float) -> void:
+	Start_Cutscene.emit(cutscene_duration)
 
 func _on_boss_defeated() -> void:
 	pass
 
-func _on_start_cutscene(cutscene_duration) -> void:
+func _on_start_cutscene(cutscene_duration: float) -> void:
 	g.game_state = g.game_states.Cutscene
 	await get_tree().create_timer(cutscene_duration).timeout
 	

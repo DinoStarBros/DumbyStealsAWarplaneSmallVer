@@ -53,7 +53,10 @@ func on_hurt(_attack: Attack) -> void:
 	pass
 
 func on_start_cutscene(cutscene_dur: float) -> void:
+	# Black bars on top & bottom of screen appear
+	# Cinematic type shit
 	g.create_property_vec2_tween(%black_bars, Vector2.ONE, "scale")
 
 func on_end_cutscene() -> void:
+	# Cutscene ends, black bars go away
 	g.create_property_vec2_tween(%black_bars, Vector2(2,2), "scale")

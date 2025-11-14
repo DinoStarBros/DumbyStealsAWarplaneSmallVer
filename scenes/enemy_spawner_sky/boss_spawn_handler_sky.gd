@@ -10,4 +10,4 @@ func spawn_boss(bwave: BossWave) -> void:
 	boss.global_position = enemy_spawn_pos.global_position
 	g.game.add_child(boss)
 	
-	GlobalSignals.Boss_Spawned.emit()
+	GlobalSignals.Boss_Spawned.emit(boss.global_position, 3)

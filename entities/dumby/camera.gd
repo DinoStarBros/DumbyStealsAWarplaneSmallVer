@@ -23,6 +23,11 @@ var noise : FastNoiseLite = FastNoiseLite.new()
 var screen_size : Vector2
 var half_screen_size : Vector2
 
+var boss_gpos : Vector2
+
+func _init() -> void:
+	GlobalSignals.Boss_Spawned.connect(_on_boss_spawned)
+
 func _physics_process(delta:float) -> void:
 	screen_size = get_viewport_rect().size / zoom
 	half_screen_size = screen_size / 2
@@ -33,7 +38,9 @@ func _physics_process(delta:float) -> void:
 	target_position = target.aim_position * sensitivity
 	
 	if g.game_state == g.game_states.Cutscene:
-		position = position.lerp(Vector2.ZERO, 0.25)
+		# Camera goes to the boss position for cutscene
+		# Cinematic ahh
+		position = position.lerp(boss_gpos, 0.3)
 	else:
 		# Cammera does its targetting thing normally when not in a cutscene
 		position = position.lerp(target_position, 0.25)
@@ -88,3 +95,6 @@ func _on_camlim_area_entered(area: Area2D) -> void:
 		
 		limit_right = int(positive_bounds.x)
 		limit_bottom = int(positive_bounds.y)
+
+func _on_boss_spawned(boss_pos: Vector2, cd: float) -> void:
+	boss_gpos = boss_pos
