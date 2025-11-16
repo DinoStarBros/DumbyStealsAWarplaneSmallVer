@@ -5,7 +5,8 @@ about,About,Tungkol
 credits,Credits,Kredito
 quit,Quit,Aalis
 ,,
-itemBoughtName,You've Bought this Item!,Binili na niyo ang itong itema!
+weaponBoughtName,You've Bought this Weapon!,Binili na niyo ang itong wepona!
+upgradeBoughtName,You've Bought this Item!,Binili na niyo ang itong itema!
 speedUp1Name,Speed Upgrade,Speedo Upgradeo
 rot1Name,Rotation Upgrade,Upgradeo ng Rotationo
 lightning1Name,Lightning Upgrade,Upgrade ng Kidlat (WTF AM I DOING LOL)
@@ -14,12 +15,13 @@ hmShooter1Name,H.M. Shooter Mk. 1,Missileo Shootero Wano
 hmRetal1Name,H.M. Retaliator Mk. 1,Missileo Retaliatoro Wano
 damage1Name,Damage Upgrade,Upgradeo Damejo
 ,,
-itemBoughtDesc,This item has been added to your inventory. Go to your inventory to equip it.,Ang item na ito ay naidagdag sa iyong imbentaryo. Pumunta sa iyong imbentaryo para i-equip ito.
-speedUp1Desc,,
-rot1Desc,,
-lightning1Desc,,
+weaponBoughtName,This weapon has now been added to your arsenal.,Ambot uy basta gipalit na na
 itemBoughtDesc,,
-hp1Desc,,
-hmShooter1Desc,,
-hmRetal1Desc,,
-damage1Desc,,
+upgradeBoughtDesc,This upgrade has been added to your inventory. Go to your inventory to equip it.,Ang upgrade na ito ay naidagdag sa iyong imbentaryo. Pumunta sa iyong imbentaryo para i-equip ito.
+speedUp1Desc,Increases acceleration speed,
+rot1Desc,Increases rotation speed,
+lightning1Desc,Chance to strike a nearby enemy with lightning while shooting,
+hp1Desc,Increases HP,
+hmShooter1Desc,Chance to shoot a homing missile while shooting,
+hmRetal1Desc,Shoot out a homing missile when taking damage,
+damage1Desc,Increases Damage,

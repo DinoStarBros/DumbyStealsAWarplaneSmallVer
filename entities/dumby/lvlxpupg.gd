@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func _on_wave_end() -> void: # End of wave, start upgrade
 	
+	await get_tree().create_timer(0.5).timeout
+	
 	shop.reroll_cost = 5
 	shopninv.current_tab = 0
 	

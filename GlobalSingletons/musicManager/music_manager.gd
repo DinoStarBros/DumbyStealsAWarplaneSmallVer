@@ -2,6 +2,7 @@ extends Node
 
 @onready var audio_players : Dictionary = {
 	"title": %Title,
+	"level1": %Level1,
 	
 }
 
