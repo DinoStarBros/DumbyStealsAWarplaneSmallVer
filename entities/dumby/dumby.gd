@@ -118,7 +118,6 @@ func Dead(_attack:Attack)->void:
 	g.game_state = g.game_states.Lost
 	set_physics_process(false)
 	%explod.play(.4)
-	%death.play("die")
 	weapons_parent.process_mode = Node.PROCESS_MODE_DISABLED
 	%Abilities.process_mode = Node.PROCESS_MODE_DISABLED
 	

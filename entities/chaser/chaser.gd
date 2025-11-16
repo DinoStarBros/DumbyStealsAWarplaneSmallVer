@@ -47,4 +47,3 @@ func Dead(_attack:Attack)->void:
 	g.score += 10
 	g.killscore += 1
 	set_physics_process(false)
-	%death.play("die")

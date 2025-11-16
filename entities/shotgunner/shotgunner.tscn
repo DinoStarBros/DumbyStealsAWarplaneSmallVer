@@ -23,6 +23,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqd1j"]
 radius = 15.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2tfc"]
+radius = 18.0
+
 [sub_resource type="Animation" id="Animation_2qnmu"]
 resource_name = "Ouch"
 length = 0.15
@@ -61,10 +64,8 @@ _data = {
 &"RESET": SubResource("Animation_bvk23")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o2tfc"]
-radius = 18.0
-
 [sub_resource type="Animation" id="Animation_lctui"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -455,19 +456,19 @@ collision_mask = 2
 health_component = NodePath("../HealthComponent")
 explosion_particles = true
 
-[node name="ouchnim" type="AnimationPlayer" parent="HurtboxComponent"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_d56he")
-}
-
 [node name="hubc" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_o2tfc")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("ouchnim") instance=ExtResource("5_um6te")]
 unique_name_in_owner = true
-ouchnim = NodePath("../HurtboxComponent/ouchnim")
+ouchnim = NodePath("ouchnim")
 max_hp = 20.0
+
+[node name="ouchnim" type="AnimationPlayer" parent="HealthComponent"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_d56he")
+}
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("11_um6te")]
 unique_name_in_owner = true

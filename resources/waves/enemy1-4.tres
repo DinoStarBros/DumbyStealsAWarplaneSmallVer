@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyWave" load_steps=5 format=3 uid="uid://dld8f2f4nmgnt"]
+
+[ext_resource type="PackedScene" uid="uid://dyirarspnmdqd" path="res://entities/spike_sphere/spike_sphere.tscn" id="1_vf86i"]
+[ext_resource type="PackedScene" uid="uid://bhp7st34wqg3f" path="res://entities/shooter/shooter.tscn" id="2_vf86i"]
+[ext_resource type="PackedScene" uid="uid://bu4snhapwua1q" path="res://entities/shotgunner/shotgunner.tscn" id="3_4g1tr"]
+[ext_resource type="Script" uid="uid://d1crhjsum6w1o" path="res://resources/enemy_wave_resource.gd" id="3_8lkf6"]
+
+[resource]
+script = ExtResource("3_8lkf6")
+enemies = Array[PackedScene]([ExtResource("1_vf86i"), ExtResource("2_vf86i"), ExtResource("3_4g1tr")])
+minimum_spawn_time = 0.01
+enemy_limit = 8.0
+min_enemy_amount = 2
+max_enemy_amount = 4
+max_spawn_budget = 25
+metadata/_custom_type_script = "uid://d1crhjsum6w1o"

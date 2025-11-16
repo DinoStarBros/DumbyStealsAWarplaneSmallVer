@@ -56,7 +56,6 @@ func _process(delta: float) -> void:
 		%flashnim.play("flash")
 		
 	elif not current_weapon.reloading:
-		g.lil_printy.text = str(current_weapon_idx, " : ", weapons.size()-1)
 		if weapons.size() == 1: # Only 1 weapon
 			return
 		

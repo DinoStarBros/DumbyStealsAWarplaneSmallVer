@@ -53,6 +53,9 @@ func _process(delta: float) -> void:
 	if not health_component.hp > 0: # If he ain't alive, stop
 		return
 	
+	if not g.game_state == g.game_states.Combat: # If he aint in combat, no regen
+		return
+	
 	regen_bar.max_value = max_regen_time
 	regen_bar.value = regen_time
 	

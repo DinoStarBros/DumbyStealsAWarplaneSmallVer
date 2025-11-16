@@ -7,7 +7,10 @@ signal Boss_Spawned(
 	boss_position: Vector2,
 	cutscene_duration : float
 	)
-signal Boss_Defeated
+signal Boss_Defeated(
+	boss_position: Vector2,
+	cutscene_duration : float
+	)
 
 signal Start_Cutscene(
 	cutscene_duration : float
@@ -33,8 +36,8 @@ func _on_upgrade_end() -> void:
 func _on_boss_spawned(boss_pos: Vector2, cutscene_duration: float) -> void:
 	Start_Cutscene.emit(cutscene_duration)
 
-func _on_boss_defeated() -> void:
-	pass
+func _on_boss_defeated(boss_pos: Vector2, cutscene_duration: float) -> void:
+	Start_Cutscene.emit(cutscene_duration)
 
 func _on_start_cutscene(cutscene_duration: float) -> void:
 	g.game_state = g.game_states.Cutscene

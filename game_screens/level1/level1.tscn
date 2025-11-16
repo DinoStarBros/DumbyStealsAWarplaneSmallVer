@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://djxndtog5nfd5"]
+[gd_scene load_steps=18 format=3 uid="uid://djxndtog5nfd5"]
 
 [ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/level1/level1.gd" id="1_qffnt"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_3k2b8"]
 [ext_resource type="Script" uid="uid://coyoa4ygagj34" path="res://resources/wave_parent_res.gd" id="4_y1ytl"]
 [ext_resource type="Resource" uid="uid://sux7otwpptys" path="res://resources/boss_waves/boss1-1.tres" id="5_3k2b8"]
+[ext_resource type="Resource" uid="uid://dld8f2f4nmgnt" path="res://resources/waves/enemy1-4.tres" id="5_f53t4"]
+[ext_resource type="Resource" uid="uid://djgj7ed8l4twv" path="res://resources/waves/enemyTest.tres" id="5_p10mf"]
 [ext_resource type="Texture2D" uid="uid://5ok8ww27od1g" path="res://Art/planestuff/SEA.png" id="5_y1ytl"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_11rbn"]
 [ext_resource type="PackedScene" uid="uid://dk5mejh5q063x" path="res://scenes/enemy_spawner_sky/enemy_spawner_sky.tscn" id="6_f53t4"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="7_6klb1"]
-[ext_resource type="Resource" uid="uid://s8xb5hmfqgnq" path="res://resources/waves/enemy1-1.tres" id="7_p10mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uk7y"]
 size = Vector2(124, 3162)
@@ -60,7 +61,7 @@ motion_scale = Vector2(1.5, 1.5)
 z_index = 2
 
 [node name="EnemySpawnerSky" parent="dumby" instance=ExtResource("6_f53t4")]
-waves = Array[ExtResource("4_y1ytl")]([ExtResource("5_3k2b8"), ExtResource("7_p10mf")])
+waves = Array[ExtResource("4_y1ytl")]([ExtResource("5_3k2b8"), ExtResource("5_f53t4"), ExtResource("5_p10mf")])
 
 [node name="wall_bounds" type="Node2D" parent="."]
 scale = Vector2(4, 4)

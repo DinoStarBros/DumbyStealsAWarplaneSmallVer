@@ -29,9 +29,11 @@ func _physics_process(_delta: float) -> void:
 	for n in speed_lines:
 		n.rotation_degrees = (idx * (180 / max_frame) ) + 90
 	
-	# Checks if the player (Dumby) speed (magnitude/length of the Velocity Vector) ff it's greater than 850
+	# Checks if the player (Dumby) speed (magnitude/length of the Velocity Vector) ff it's fast enough
 	# Doing so activates SICK ANIME SPEED LINES (inspired by YOMI Hustle) for da JUICE!
-	speed_lines_parent.visible = p.velocity.length() > 900# and p.accelerating and p.accelerate_time > 1.2
+	speed_lines_parent.visible = p.velocity.length() >= velocity_component.max_speed * (1 - 0.01)# and p.accelerating and p.accelerate_time > 1.2
+	
+	#g.lil_printy.text = str(velocity_component.max_speed, " : ", p.velocity.length(), " : ", velocity_component.max_speed * (1 - 0.01))
 
 func _dir_matcher(_rot : float) -> int:
 	var index :float
@@ -55,8 +57,8 @@ func on_hurt(_attack: Attack) -> void:
 func on_start_cutscene(cutscene_dur: float) -> void:
 	# Black bars on top & bottom of screen appear
 	# Cinematic type shit
-	g.create_property_vec2_tween(%black_bars, Vector2.ONE, "scale")
+	g.create_property_vec2_tween(%black_bars, Vector2.ONE, "scale", 1.0)
 
 func on_end_cutscene() -> void:
 	# Cutscene ends, black bars go away
-	g.create_property_vec2_tween(%black_bars, Vector2(2,2), "scale")
+	g.create_property_vec2_tween(%black_bars, Vector2(2,2), "scale", 2.0)

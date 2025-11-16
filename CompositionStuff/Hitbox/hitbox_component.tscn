@@ -14,7 +14,7 @@ script = ExtResource("1_nvbwq")
 [node name="enemy_hit" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_w85rt")
-volume_db = -5.0
+volume_db = -8.0
 max_distance = 10000.0
 bus = &"sfx"
 

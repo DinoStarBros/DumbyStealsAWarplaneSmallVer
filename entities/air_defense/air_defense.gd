@@ -43,7 +43,6 @@ func Dead(_attack:Attack)->void:
 	g.killscore += 1
 	#g.spawn_txt("50", global_position)
 	set_physics_process(false)
-	%death.play("die")
 
 var shooty : = true
 func disable()->void:

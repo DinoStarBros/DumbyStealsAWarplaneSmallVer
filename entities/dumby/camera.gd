@@ -23,10 +23,11 @@ var noise : FastNoiseLite = FastNoiseLite.new()
 var screen_size : Vector2
 var half_screen_size : Vector2
 
-var boss_gpos : Vector2
+var static_target_pos : Vector2 ## For when there's cutscenes that focus on one thing (e.g. Boss Intro/Outro)
 
 func _init() -> void:
 	GlobalSignals.Boss_Spawned.connect(_on_boss_spawned)
+	GlobalSignals.Boss_Defeated.connect(_on_boss_defeated)
 
 func _physics_process(delta:float) -> void:
 	screen_size = get_viewport_rect().size / zoom
@@ -40,7 +41,7 @@ func _physics_process(delta:float) -> void:
 	if g.game_state == g.game_states.Cutscene:
 		# Camera goes to the boss position for cutscene
 		# Cinematic ahh
-		position = position.lerp(boss_gpos, 0.3)
+		global_position = global_position.lerp(static_target_pos, 0.1)
 	else:
 		# Cammera does its targetting thing normally when not in a cutscene
 		position = position.lerp(target_position, 0.25)
@@ -97,4 +98,7 @@ func _on_camlim_area_entered(area: Area2D) -> void:
 		limit_bottom = int(positive_bounds.y)
 
 func _on_boss_spawned(boss_pos: Vector2, cd: float) -> void:
-	boss_gpos = boss_pos
+	static_target_pos = boss_pos
+
+func _on_boss_defeated(boss_pos: Vector2, cd: float) -> void:
+	static_target_pos = boss_pos

@@ -45,7 +45,6 @@ func Dead(_attack:Attack)->void:
 	#g.spawn_txt("10", global_position)
 	#g.spawn_xp(global_position, 1)
 	set_physics_process(false)
-	%death.play("die")
 
 func play_sfx() -> void:
 	%shoot.pitch_scale = randf_range(.9,1.1)

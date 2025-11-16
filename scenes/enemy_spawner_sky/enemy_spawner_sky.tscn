@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://chqcf6ubwtabh" path="res://scenes/enemy_spawner_sky/enemy_spawner_sky.gd" id="1_n1eu1"]
 [ext_resource type="Script" uid="uid://c5s8ol4t6ork2" path="res://scenes/enemy_spawner_sky/enemy_spawn_handler_sky.gd" id="2_ooali"]
 [ext_resource type="Script" uid="uid://h7b5qvk8df28" path="res://scenes/enemy_spawner_sky/boss_spawn_handler_sky.gd" id="3_y2ke0"]
-[ext_resource type="Script" uid="uid://bpnv87uyghi3h" path="res://scenes/enemy_spawner_sky/wave_handler_sky.gd" id="4_guly4"]
+[ext_resource type="Script" uid="uid://bpnv87uyghi3h" path="res://scenes/enemy_spawner_sky/wave_end_handler_sky.gd" id="4_guly4"]
 
 [sub_resource type="Curve2D" id="Curve2D_ych0l"]
 _data = {
@@ -39,6 +39,6 @@ script = ExtResource("2_ooali")
 unique_name_in_owner = true
 script = ExtResource("3_y2ke0")
 
-[node name="waveHandler" type="Node2D" parent="."]
+[node name="waveEndHandler" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_guly4")

@@ -46,4 +46,3 @@ func Dead(_attack:Attack)->void:
 	#g.spawn_xp(global_position, 1)
 	#g.spawn_txt("10", global_position)
 	set_physics_process(false)
-	%death.play("die")

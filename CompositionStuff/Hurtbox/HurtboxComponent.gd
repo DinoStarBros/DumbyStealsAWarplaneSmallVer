@@ -31,8 +31,7 @@ func damage(attack:Attack) -> void:
 		# Calls the function to reduce the health from an attack accordingly
 	
 	if health_component.hp > 0: # Alive
-		get_parent().damage(attack)
-		if get_parent().is_in_group("Player"):
+		if get_parent() is Dumby:
 			PlrHit.emit(attack.attack_damage)
 			%hitsparkanim.play("spark")
 		
@@ -42,7 +41,7 @@ func damage(attack:Attack) -> void:
 			for n in explosion_particle_amount + randi_range(1,2):
 				spawn_explosion_particles(attack)
 	
-	hit(get_parent().is_in_group("Player"), health_component.hp <= 0)
+	hit(get_parent() is Dumby, health_component.hp <= 0)
  
 const explosion_particles_scn : PackedScene = preload("res://juices/explosionSpawner/explosion_spawner.tscn")
 func spawn_explosion_particles(attack: Attack) -> void:
