@@ -17,3 +17,4 @@ bus = &"music"
 unique_name_in_owner = true
 stream = ExtResource("3_6nwub")
 volume_db = -13.0
+bus = &"music"

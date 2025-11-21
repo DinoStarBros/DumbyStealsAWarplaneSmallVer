@@ -6,6 +6,8 @@ enum types {
 	EXPLODE2,
 	EXPLODE3,
 	ENEMY_HIT,
+	
+	FLAK_BALL_BLOW1,
 }
 
 @export var audio_stream : AudioStream

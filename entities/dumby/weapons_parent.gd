@@ -34,7 +34,7 @@ func _ready() -> void:
 	if g.current_weapon_button_selected_res:
 		add_weapon(g.current_weapon_button_selected_res) # Adds the weapon that you selected at the part & weapon select screen
 	else:
-		add_weapon(load("res://resources/weapon_items_res/rapidItem.tres")) # For quick testing when I just wanna get to the Main game scene
+		add_weapon(load("res://resources/weapon_items_res/flakCannonItem.tres")) # For quick testing when I just wanna get to the Main game scene
 
 func _process(delta: float) -> void:
 	current_weapon_idx = weapons.find(current_weapon)

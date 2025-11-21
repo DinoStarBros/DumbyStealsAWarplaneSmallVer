@@ -1,13 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4npyu2732suj"]
+[gd_scene load_steps=15 format=3 uid="uid://cwpasirjiu1om"]
 
-[ext_resource type="Script" uid="uid://w4fbnqem3jpc" path="res://projectiles/plr_bullet/bullet.gd" id="1_xqd8s"]
-[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_ekud1"]
-[ext_resource type="Texture2D" uid="uid://bqubavsk5td7m" path="res://Art/newsprites.png" id="3_njipi"]
-[ext_resource type="PackedScene" uid="uid://cg4l4fx01iia" path="res://classes/vis_on_screen/vis_on_screen.tscn" id="4_5dbsh"]
-[ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="5_njipi"]
-[ext_resource type="Texture2D" uid="uid://cr8v60ue1jsl7" path="res://Art/Bitlytic/bullet.png" id="6_eqjyy"]
-[ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="7_kqlca"]
-[ext_resource type="Texture2D" uid="uid://b2e50hn2busxu" path="res://Art/Stuff2/2d_lights_and_shadows_neutral_point_light.webp" id="8_d6ymy"]
+[ext_resource type="Script" uid="uid://dqalgkwah8cd2" path="res://projectiles/plr_flak_ball/flak_ball.gd" id="1_4caj8"]
+[ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="2_ujp46"]
+[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="4_ob32q"]
+[ext_resource type="PackedScene" uid="uid://cg4l4fx01iia" path="res://classes/vis_on_screen/vis_on_screen.tscn" id="5_mrf8m"]
+[ext_resource type="Texture2D" uid="uid://cr8v60ue1jsl7" path="res://Art/Bitlytic/bullet.png" id="6_wa2io"]
+[ext_resource type="Texture2D" uid="uid://b2e50hn2busxu" path="res://Art/Stuff2/2d_lights_and_shadows_neutral_point_light.webp" id="7_gtjji"]
+[ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="8_bxxl4"]
 
 [sub_resource type="Animation" id="Animation_8vyrs"]
 length = 0.001
@@ -50,22 +49,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("sprite2:visible")
+tracks/3/path = NodePath("HitboxComponent/hibc:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HitboxComponent/hibc:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -153,22 +140,10 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("sprite2:visible")
+tracks/6/path = NodePath("Sparticle:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sparticle:emitting")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -201,7 +176,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(17.1484, 1),
 "update": 0,
-"values": [Vector2(2, 2), Vector2(1.5, 1.5)]
+"values": [Vector2(3, 3), Vector2(2, 2)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -213,7 +188,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -242,34 +217,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("sprite2:visible")
+tracks/5/path = NodePath("HitboxComponent/hibc:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("sprite2:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.5, 1.5)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("HitboxComponent/hibc:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -294,22 +245,16 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.668571, 1)
 colors = PackedColorArray(1, 0.899902, 0.359375, 1, 1, 0.898039, 0.360784, 1, 0.367188, 0, 0, 1)
 
-[node name="bullet" type="CharacterBody2D"]
+[node name="flak_ball" type="CharacterBody2D"]
 z_index = 2
-script = ExtResource("1_xqd8s")
+script = ExtResource("1_4caj8")
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(0.949219, 1, 0.5, 1)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_njipi")
+texture = ExtResource("2_ujp46")
 hframes = 12
 frame = 2
-
-[node name="sprite2" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_njipi")
-hframes = 3
-vframes = 3
 
 [node name="anim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -318,7 +263,7 @@ libraries = {
 }
 autoplay = "start"
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_ekud1")]
+[node name="HitboxComponent" parent="." instance=ExtResource("4_ob32q")]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
@@ -327,7 +272,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_eqjyy")
 disabled = true
 
-[node name="vis_on_screen" parent="." instance=ExtResource("4_5dbsh")]
+[node name="vis_on_screen" parent="." instance=ExtResource("5_mrf8m")]
 show_on_start = true
 
 [node name="Sparticle" type="CPUParticles2D" parent="."]
@@ -335,7 +280,7 @@ unique_name_in_owner = true
 rotation = -3.14159
 emitting = false
 amount = 20
-texture = ExtResource("6_eqjyy")
+texture = ExtResource("6_wa2io")
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
@@ -352,8 +297,8 @@ color_ramp = SubResource("Gradient_njipi")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.5
-texture = ExtResource("8_d6ymy")
+texture = ExtResource("7_gtjji")
 
-[node name="trail_fx" parent="." instance=ExtResource("7_kqlca")]
+[node name="trail_fx" parent="." instance=ExtResource("8_bxxl4")]
 width = 15.0
 MAX_LENGTH = 5

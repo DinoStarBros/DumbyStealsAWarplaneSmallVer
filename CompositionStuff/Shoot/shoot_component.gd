@@ -56,7 +56,7 @@ func spawn_bullet() -> void:
 	rand_spread_vector -= rand_spread_vector * weapon_buff.current_random_spread_buff
 	
 	rand_spread_vector.x = max(0, rand_spread_vector.x) # Disallows it from going negative
-	rand_spread_vector.y = max(0, rand_spread_vector.y)
+	rand_spread_vector.y = max(0, rand_spread_vector.y) 
 	
 	var projectile : Projectile = stats.bullet_scn.instantiate()
 	projectile.lifetime = stats.bullet_lifetime + weapon_buff.current_bullet_lifetime_buff

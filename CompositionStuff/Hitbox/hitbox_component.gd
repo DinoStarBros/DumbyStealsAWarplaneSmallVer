@@ -14,6 +14,8 @@ signal Hit
 func _init() -> void:
 	GlobalSignals.Start_Cutscene.connect(_on_start_cutscene)
 	GlobalSignals.End_Cutscene.connect(_on_end_cutscene)
+	
+	area_entered.connect(_on_area_entered)
 
 func _ready() -> void:
 	for child in get_children():

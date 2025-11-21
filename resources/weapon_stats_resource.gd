@@ -44,3 +44,6 @@ class_name WeaponStats
 @export var db_damage : float ## Percent buff (0.5 = 50% more damage)
 @export var db_max_ammo : float ## Not sure if I'll be using this shit. DUMBASS
 @export var db_ammo_use : int ## Flat buff (1 = 1 less ammo used per shot)
+
+@export_category("Other misc. stats that aren't common in other weapons.")
+@export var extra_stats : Dictionary

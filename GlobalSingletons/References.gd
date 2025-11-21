@@ -21,7 +21,8 @@ const projectile_scns : Dictionary = {
 	"bullet": "res://projectiles/plr_bullet/bullet.tscn",
 	"homing_rocket": "res://projectiles/homing_rocket/homing_rocket.tscn",
 	"explosion": "res://projectiles/explosion/explosion.tscn",
-	
+	"flak_ball": "res://projectiles/plr_flak_ball/flak_ball.tscn",
+	"flak_bullet_spawner": "res://projectiles/flak_bullets_spawner/flak_bullets_spawner.tscn",
 	
 }
 
