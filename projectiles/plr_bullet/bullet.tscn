@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4npyu2732suj"]
+[gd_scene load_steps=15 format=3 uid="uid://c4npyu2732suj"]
 
 [ext_resource type="Script" uid="uid://w4fbnqem3jpc" path="res://projectiles/plr_bullet/bullet.gd" id="1_xqd8s"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_ekud1"]
 [ext_resource type="Texture2D" uid="uid://bqubavsk5td7m" path="res://Art/newsprites.png" id="3_njipi"]
-[ext_resource type="PackedScene" uid="uid://cg4l4fx01iia" path="res://classes/vis_on_screen/vis_on_screen.tscn" id="4_5dbsh"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="5_njipi"]
 [ext_resource type="Texture2D" uid="uid://cr8v60ue1jsl7" path="res://Art/Bitlytic/bullet.png" id="6_eqjyy"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="7_kqlca"]
@@ -317,6 +316,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_8uk70")
 }
 autoplay = "start"
+speed_scale = 5.0
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_ekud1")]
 unique_name_in_owner = true
@@ -325,10 +325,6 @@ collision_mask = 2
 
 [node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_eqjyy")
-disabled = true
-
-[node name="vis_on_screen" parent="." instance=ExtResource("4_5dbsh")]
-show_on_start = true
 
 [node name="Sparticle" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true

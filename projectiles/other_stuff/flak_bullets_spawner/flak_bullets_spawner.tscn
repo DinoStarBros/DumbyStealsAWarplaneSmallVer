@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://yela25yqekx5"]
 
-[ext_resource type="Script" uid="uid://7i52ksb4gge6" path="res://projectiles/flak_bullets_spawner/flak_bullets_spawner.gd" id="1_njklb"]
+[ext_resource type="Script" uid="uid://7i52ksb4gge6" path="res://projectiles/other_stuff/flak_bullets_spawner/flak_bullets_spawner.gd" id="1_njklb"]
 
 [node name="flak_bullets_spawner" type="Node2D"]
 script = ExtResource("1_njklb")
