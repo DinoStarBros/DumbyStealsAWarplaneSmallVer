@@ -1,13 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4npyu2732suj"]
+[gd_scene load_steps=18 format=3 uid="uid://c4npyu2732suj"]
 
 [ext_resource type="Script" uid="uid://w4fbnqem3jpc" path="res://projectiles/plr_bullet/bullet.gd" id="1_xqd8s"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_ekud1"]
 [ext_resource type="Texture2D" uid="uid://bqubavsk5td7m" path="res://Art/newsprites.png" id="3_njipi"]
+[ext_resource type="PackedScene" uid="uid://d4b0thgfxt55k" path="res://juices/ProjectileHitFX/BulletSparkHitFX/bullet_spark_hit_fx.tscn" id="3_npd1s"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="5_njipi"]
 [ext_resource type="Texture2D" uid="uid://cr8v60ue1jsl7" path="res://Art/Bitlytic/bullet.png" id="6_eqjyy"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="7_kqlca"]
 [ext_resource type="Texture2D" uid="uid://b2e50hn2busxu" path="res://Art/Stuff2/2d_lights_and_shadows_neutral_point_light.webp" id="8_d6ymy"]
 [ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="8_pxrmd"]
+[ext_resource type="PackedScene" uid="uid://cws7vtcpgit8n" path="res://CompositionStuff/ProjectileOnHitFX/projectile_on_hit_fx_component.tscn" id="9_pxrmd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eqjyy"]
+radius = 22.0907
 
 [sub_resource type="Animation" id="Animation_8vyrs"]
 length = 0.001
@@ -283,9 +288,6 @@ _data = {
 &"start": SubResource("Animation_yfywj")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_eqjyy"]
-radius = 22.0907
-
 [sub_resource type="Curve" id="Curve_njipi"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.721393, 0.876405), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -298,18 +300,33 @@ colors = PackedColorArray(1, 0.899902, 0.359375, 1, 1, 0.898039, 0.360784, 1, 0.
 z_index = 2
 script = ExtResource("1_xqd8s")
 
-[node name="sprite" type="Sprite2D" parent="."]
-modulate = Color(0.949219, 1, 0.5, 1)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_njipi")
-hframes = 12
-frame = 2
+[node name="ProjectileOnHitFXComponent" parent="." instance=ExtResource("9_pxrmd")]
+fx_scn = ExtResource("3_npd1s")
+
+[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("8_pxrmd")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("projectile_hit_fx_component") instance=ExtResource("3_ekud1")]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+delete_after_hit = true
+projectile_hit_fx_component = NodePath("../ProjectileOnHitFXComponent")
+
+[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_eqjyy")
 
 [node name="sprite2" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_njipi")
 hframes = 3
 vframes = 3
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(0.949219, 1, 0.5, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_njipi")
+hframes = 12
+frame = 2
 
 [node name="anim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -318,16 +335,6 @@ libraries = {
 }
 autoplay = "start"
 speed_scale = 5.0
-
-[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("8_pxrmd")]
-
-[node name="HitboxComponent" parent="." instance=ExtResource("3_ekud1")]
-unique_name_in_owner = true
-collision_layer = 2
-collision_mask = 2
-
-[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("CircleShape2D_eqjyy")
 
 [node name="Sparticle" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true

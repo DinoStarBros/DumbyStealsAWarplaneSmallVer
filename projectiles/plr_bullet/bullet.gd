@@ -3,8 +3,8 @@ extends Projectile
 @onready var hitbox_component: HitboxComponent = %HitboxComponent
 
 func _ready() -> void:
-	hitbox_component.Hit.connect(hit)
-	%Sparticle.amount = randi_range(10, 30)
+	#hitbox_component.Hit.connect(hit)
+	pass
 
 var time : float = 0
 func _physics_process(delta:float)->void:

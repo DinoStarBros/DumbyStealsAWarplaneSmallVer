@@ -1,7 +1,8 @@
 extends Area2D
 class_name HitboxComponent
 
-@export var delete_after_hit : bool
+@export var delete_after_hit : bool ## For stuff like projectiles & whatnot that get deleted on hit
+@export var projectile_hit_fx_component : ProjectileOnHitFXComponent
 
 var colliders : Array[CollisionShape2D]
 
@@ -44,6 +45,10 @@ func _on_area_entered(area : Area2D) -> void:
 		
 		attack.attack_damage = dmg
 		area.damage(attack)
+		
+		if delete_after_hit:
+			
+			queue_free()
 		
 		if area.health_component.hp <= 0: # Death of enemy / player
 			
