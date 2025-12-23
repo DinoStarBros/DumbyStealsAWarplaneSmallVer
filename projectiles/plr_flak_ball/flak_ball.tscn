@@ -245,7 +245,7 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.668571, 1)
 colors = PackedColorArray(1, 0.899902, 0.359375, 1, 1, 0.898039, 0.360784, 1, 0.367188, 0, 0, 1)
 
-[node name="flak_ball" type="CharacterBody2D"]
+[node name="flak_ball" type="Node2D"]
 z_index = 2
 script = ExtResource("1_4caj8")
 

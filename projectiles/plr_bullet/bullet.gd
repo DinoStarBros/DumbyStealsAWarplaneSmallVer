@@ -8,7 +8,6 @@ func _ready() -> void:
 
 var time : float = 0
 func _physics_process(delta:float)->void:
-	move_and_slide()
 	hitbox_component.set_attack_properties(dmg)
 	time += delta
 	if time >= lifetime:

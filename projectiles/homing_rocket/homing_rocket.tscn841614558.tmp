@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bayhme8bl0oxa"]
+[gd_scene load_steps=15 format=3 uid="uid://bayhme8bl0oxa"]
 
 [ext_resource type="Script" uid="uid://4leshduf5xm" path="res://projectiles/homing_rocket/homing_rocket.gd" id="1_cvdho"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="2_jexvt"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="5_mjjml"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="6_727k3"]
 [ext_resource type="AudioStream" uid="uid://c05eac572q51" path="res://Audio/amalgun/MissileExplode.wav" id="7_8vt5m"]
-[ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="8_axw66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjjml"]
+atlas = ExtResource("3_xfjqn")
+region = Rect2(2048, 0, 64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfjqn"]
 size = Vector2(35, 20)
@@ -217,14 +220,26 @@ _data = {
 &"start": SubResource("Animation_mjjml")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mjjml"]
-atlas = ExtResource("3_xfjqn")
-region = Rect2(2048, 0, 64, 64)
-
-[node name="homing_rocket" type="Node2D"]
+[node name="homing_rocket" type="CharacterBody2D"]
 script = ExtResource("1_cvdho")
 
-[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("8_axw66")]
+[node name="Bulletweffect-sheet" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_jexvt")
+hframes = 12
+frame = 10
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+texture = SubResource("AtlasTexture_mjjml")
+speed_scale = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.4
+scale_amount_max = 0.5
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_pyyak")]
 unique_name_in_owner = true
@@ -248,15 +263,10 @@ unique_name_in_owner = true
 shape = SubResource("CircleShape2D_xfjqn")
 debug_color = Color(0, 0.6, 0.7, 0.26)
 
-[node name="explode" type="AudioStreamPlayer2D" parent="."]
+[node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("7_8vt5m")
-volume_db = 5.0
-max_distance = 1500.0
-bus = &"sfx"
-
-[node name="pointer" type="Node2D" parent="."]
-unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="anim" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -265,28 +275,8 @@ libraries = {
 }
 autoplay = "start"
 
-[node name="Bulletweffect-sheet" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = ExtResource("2_jexvt")
-hframes = 12
-frame = 10
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 10
-texture = SubResource("AtlasTexture_mjjml")
-speed_scale = 2.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 1.0
-initial_velocity_max = 2.0
-angular_velocity_min = -180.0
-angular_velocity_max = 180.0
-scale_amount_min = 0.4
-scale_amount_max = 0.5
-
-[node name="Label" type="Label" parent="."]
+[node name="pointer" type="Node2D" parent="."]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="Shockwave-sheet" type="Sprite2D" parent="."]
 texture = ExtResource("5_mjjml")
@@ -295,5 +285,12 @@ vframes = 3
 frame = 1
 
 [node name="trail_fx" parent="." instance=ExtResource("6_727k3")]
+
+[node name="explode" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_8vt5m")
+volume_db = 5.0
+max_distance = 1500.0
+bus = &"sfx"
 
 [connection signal="area_entered" from="detection_radius" to="." method="_on_detection_radius_area_entered"]

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Enemy
 
 var gravity :float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4npyu2732suj"]
+[gd_scene load_steps=16 format=3 uid="uid://c4npyu2732suj"]
 
 [ext_resource type="Script" uid="uid://w4fbnqem3jpc" path="res://projectiles/plr_bullet/bullet.gd" id="1_xqd8s"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_ekud1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cr8v60ue1jsl7" path="res://Art/Bitlytic/bullet.png" id="6_eqjyy"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="7_kqlca"]
 [ext_resource type="Texture2D" uid="uid://b2e50hn2busxu" path="res://Art/Stuff2/2d_lights_and_shadows_neutral_point_light.webp" id="8_d6ymy"]
+[ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="8_pxrmd"]
 
 [sub_resource type="Animation" id="Animation_8vyrs"]
 length = 0.001
@@ -293,7 +294,7 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.668571, 1)
 colors = PackedColorArray(1, 0.899902, 0.359375, 1, 1, 0.898039, 0.360784, 1, 0.367188, 0, 0, 1)
 
-[node name="bullet" type="CharacterBody2D"]
+[node name="bullet" type="Node2D"]
 z_index = 2
 script = ExtResource("1_xqd8s")
 
@@ -317,6 +318,8 @@ libraries = {
 }
 autoplay = "start"
 speed_scale = 5.0
+
+[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("8_pxrmd")]
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_ekud1")]
 unique_name_in_owner = true

@@ -2,7 +2,7 @@ extends Projectile
 
 @onready var hitbox_component: HitboxComponent = %HitboxComponent
 
-var flak_bullet_spawner_scn : PackedScene = preload(References.projectile_scns["flak_bullet_spawner"])
+#var flak_bullet_spawner_scn : PackedScene = preload(References.projectile_scns["flak_bullet_spawner"])
 
 func _ready() -> void:
 	hitbox_component.Hit.connect(hit)
@@ -10,7 +10,6 @@ func _ready() -> void:
 
 var time : float = 0
 func _physics_process(delta:float)->void:
-	move_and_slide()
 	hitbox_component.set_attack_properties(dmg)
 	
 	time += delta

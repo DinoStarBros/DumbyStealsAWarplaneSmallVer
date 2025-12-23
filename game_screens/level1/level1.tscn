@@ -62,7 +62,7 @@ motion_scale = Vector2(1.5, 1.5)
 z_index = 2
 
 [node name="EnemySpawnerSky" parent="dumby" instance=ExtResource("6_f53t4")]
-waves = Array[ExtResource("4_y1ytl")]([ExtResource("5_3k2b8"), ExtResource("6_y1ytl"), ExtResource("7_11rbn"), ExtResource("5_f53t4")])
+waves = Array[ExtResource("4_y1ytl")]([ExtResource("6_y1ytl"), ExtResource("5_3k2b8"), ExtResource("7_11rbn"), ExtResource("5_f53t4")])
 
 [node name="wall_bounds" type="Node2D" parent="."]
 scale = Vector2(4, 4)

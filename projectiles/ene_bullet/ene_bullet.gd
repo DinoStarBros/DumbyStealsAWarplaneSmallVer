@@ -6,7 +6,6 @@ func _ready() -> void:
 	look_at(pos_to_look)
 
 func _physics_process(_delta:float)->void:
-	move_and_slide()
 	%HitboxComponent.set_attack_properties(dmg)
 
 func _on_dur_timeout() -> void:

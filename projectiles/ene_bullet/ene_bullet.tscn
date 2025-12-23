@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dl58yl2dpvjg5"]
+[gd_scene load_steps=17 format=3 uid="uid://dl58yl2dpvjg5"]
 
 [ext_resource type="Script" uid="uid://1bitq3ccedpe" path="res://projectiles/ene_bullet/ene_bullet.gd" id="1_48foy"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="3_0ogdf"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_3msem"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="4_kltra"]
+[ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="5_uykbo"]
 
 [sub_resource type="Animation" id="Animation_8vyrs"]
 length = 0.001
@@ -111,7 +112,7 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0.5173474, 0.37879822, 1)
 [sub_resource type="Gradient" id="Gradient_kltra"]
 colors = PackedColorArray(1, 0.230469, 0.230469, 1, 1, 1, 1, 1)
 
-[node name="ene_bullet" type="CharacterBody2D" groups=["Enemy"]]
+[node name="ene_bullet" type="Node2D" groups=["Enemy"]]
 z_index = 2
 script = ExtResource("1_48foy")
 
@@ -179,5 +180,7 @@ points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 width = 30.0
 gradient = SubResource("Gradient_kltra")
 MAX_LENGTH = 10
+
+[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("5_uykbo")]
 
 [connection signal="timeout" from="dur" to="." method="_on_dur_timeout"]
