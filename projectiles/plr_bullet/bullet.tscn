@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4npyu2732suj"]
+[gd_scene load_steps=19 format=3 uid="uid://c4npyu2732suj"]
 
 [ext_resource type="Script" uid="uid://w4fbnqem3jpc" path="res://projectiles/plr_bullet/bullet.gd" id="1_xqd8s"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_ekud1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b2e50hn2busxu" path="res://Art/Stuff2/2d_lights_and_shadows_neutral_point_light.webp" id="8_d6ymy"]
 [ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="8_pxrmd"]
 [ext_resource type="PackedScene" uid="uid://cws7vtcpgit8n" path="res://CompositionStuff/ProjectileOnHitFX/projectile_on_hit_fx_component.tscn" id="9_pxrmd"]
+[ext_resource type="PackedScene" uid="uid://cm6eyufvsuku1" path="res://CompositionStuff/ProjectileStatsAllocator/projectile_stats_allocator.tscn" id="11_o7633"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eqjyy"]
 radius = 22.0907
@@ -299,6 +300,9 @@ _data = {
 [node name="bullet" type="Node2D"]
 z_index = 2
 script = ExtResource("1_xqd8s")
+
+[node name="ProjectileStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("11_o7633")]
+hitbox_component = NodePath("../HitboxComponent")
 
 [node name="ProjectileOnHitFXComponent" parent="." instance=ExtResource("9_pxrmd")]
 fx_scn = ExtResource("3_npd1s")

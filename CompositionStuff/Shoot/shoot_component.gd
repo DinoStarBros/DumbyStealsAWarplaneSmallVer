@@ -60,11 +60,12 @@ func spawn_bullet() -> void:
 	
 	var projectile : Projectile = stats.bullet_scn.instantiate()
 	projectile.lifetime = stats.bullet_lifetime + weapon_buff.current_bullet_lifetime_buff
+	
+	projectile.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage) * weapon_buff.current_damage_buff
+	
 	g.game.add_child(projectile)
 	
 	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
-	
-	projectile.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage) * weapon_buff.current_damage_buff
 	
 	projectile.global_position = global_position + (dir_to_mouse * 50)
 	projectile.velocity = (dir_to_mouse + rand_spread_vector) * stats.bullet_spd * weapon_buff.current_bullet_spd_buff

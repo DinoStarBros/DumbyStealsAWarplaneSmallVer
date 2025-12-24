@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dl58yl2dpvjg5"]
+[gd_scene load_steps=20 format=3 uid="uid://dl58yl2dpvjg5"]
 
 [ext_resource type="Script" uid="uid://1bitq3ccedpe" path="res://projectiles/ene_bullet/ene_bullet.gd" id="1_48foy"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="3_0ogdf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="4_kltra"]
 [ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="5_uykbo"]
 [ext_resource type="PackedScene" uid="uid://cws7vtcpgit8n" path="res://CompositionStuff/ProjectileOnHitFX/projectile_on_hit_fx_component.tscn" id="6_mmogq"]
+[ext_resource type="PackedScene" uid="uid://cm6eyufvsuku1" path="res://CompositionStuff/ProjectileStatsAllocator/projectile_stats_allocator.tscn" id="8_lv3t5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ogdf"]
 radius = 15.0333
@@ -117,6 +118,9 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0.5173474, 0.37879822, 1)
 [node name="ene_bullet" type="Node2D" groups=["Enemy"]]
 z_index = 2
 script = ExtResource("1_48foy")
+
+[node name="ProjectileStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("8_lv3t5")]
+hitbox_component = NodePath("../HitboxComponent")
 
 [node name="ProjectileOnHitFXComponent" parent="." instance=ExtResource("6_mmogq")]
 fx_scn = ExtResource("3_pdlsx")
