@@ -5,7 +5,9 @@ enum types {
 	EXPLODE1,
 	EXPLODE2,
 	EXPLODE3,
-	ENEMY_HIT,
+	
+	ENEMY_HIT1,
+	ENEMY_HIT2,
 	
 	FLAK_BALL_BLOW1,
 }

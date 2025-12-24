@@ -48,7 +48,8 @@ func _on_area_entered(area : Area2D) -> void:
 		
 		if delete_after_hit:
 			
-			queue_free()
+			projectile_hit_fx_component.hit()
+			get_parent().queue_free()
 		
 		if area.health_component.hp <= 0: # Death of enemy / player
 			
@@ -58,6 +59,7 @@ func _on_area_entered(area : Area2D) -> void:
 				0: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE1)
 				1: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE2)
 				2: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE3)
+		
 
 func _on_start_cutscene(dur:float) -> void:
 	# Disables collision on cutscene so that u can't damage/take damage during cutscene
