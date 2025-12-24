@@ -1,10 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://dl58yl2dpvjg5"]
+[gd_scene load_steps=19 format=3 uid="uid://dl58yl2dpvjg5"]
 
 [ext_resource type="Script" uid="uid://1bitq3ccedpe" path="res://projectiles/ene_bullet/ene_bullet.gd" id="1_48foy"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="3_0ogdf"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_3msem"]
+[ext_resource type="PackedScene" uid="uid://d4b0thgfxt55k" path="res://juices/ProjectileHitFX/BulletSparkHitFX/bullet_spark_hit_fx.tscn" id="3_pdlsx"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="4_kltra"]
 [ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="5_uykbo"]
+[ext_resource type="PackedScene" uid="uid://cws7vtcpgit8n" path="res://CompositionStuff/ProjectileOnHitFX/projectile_on_hit_fx_component.tscn" id="6_mmogq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ogdf"]
+radius = 15.0333
 
 [sub_resource type="Animation" id="Animation_8vyrs"]
 length = 0.001
@@ -56,9 +61,6 @@ _data = {
 &"start": SubResource("Animation_yfywj")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ogdf"]
-radius = 15.0333
-
 [sub_resource type="Animation" id="Animation_uykbo"]
 length = 0.001
 tracks/0/type = "value"
@@ -98,6 +100,9 @@ _data = {
 &"loop": SubResource("Animation_kltra")
 }
 
+[sub_resource type="Gradient" id="Gradient_kltra"]
+colors = PackedColorArray(1, 0.230469, 0.230469, 1, 1, 1, 1, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kltra"]
 atlas = ExtResource("3_0ogdf")
 region = Rect2(32, 0, 32, 32)
@@ -109,33 +114,24 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_uykbo"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.5173474, 0.37879822, 1)
 
-[sub_resource type="Gradient" id="Gradient_kltra"]
-colors = PackedColorArray(1, 0.230469, 0.230469, 1, 1, 1, 1, 1)
-
 [node name="ene_bullet" type="Node2D" groups=["Enemy"]]
 z_index = 2
 script = ExtResource("1_48foy")
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8uk70")
-}
-autoplay = "start"
-speed_scale = 5.0
+[node name="ProjectileOnHitFXComponent" parent="." instance=ExtResource("6_mmogq")]
+fx_scn = ExtResource("3_pdlsx")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_3msem")]
+[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("5_uykbo")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("projectile_hit_fx_component") instance=ExtResource("3_3msem")]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
 delete_after_hit = true
+projectile_hit_fx_component = NodePath("../ProjectileOnHitFXComponent")
 
 [node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_0ogdf")
-
-[node name="dur" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.269531, 0.269531, 1)
@@ -144,12 +140,32 @@ texture = ExtResource("3_0ogdf")
 hframes = 12
 frame = 1
 
+[node name="sbright" type="Sprite2D" parent="."]
+modulate = Color(1, 0.5030107, 0.65856844, 1)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_0ogdf")
+hframes = 12
+frame = 1
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8uk70")
+}
+autoplay = "start"
+speed_scale = 5.0
+
 [node name="loop" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_uykbo")
 }
 autoplay = "loop"
 speed_scale = 2.0
+
+[node name="trail_fx" parent="." instance=ExtResource("4_kltra")]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 30.0
+gradient = SubResource("Gradient_kltra")
+MAX_LENGTH = 10
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 40
@@ -167,20 +183,3 @@ angular_velocity_max = 180.0
 scale_amount_min = 0.3
 scale_amount_curve = SubResource("Curve_kltra")
 color_ramp = SubResource("Gradient_uykbo")
-
-[node name="sbright" type="Sprite2D" parent="."]
-modulate = Color(1, 0.5030107, 0.65856844, 1)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("3_0ogdf")
-hframes = 12
-frame = 1
-
-[node name="trail_fx" parent="." instance=ExtResource("4_kltra")]
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-width = 30.0
-gradient = SubResource("Gradient_kltra")
-MAX_LENGTH = 10
-
-[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("5_uykbo")]
-
-[connection signal="timeout" from="dur" to="." method="_on_dur_timeout"]

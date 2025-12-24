@@ -16,7 +16,6 @@ script = ExtResource("1_lwbyq")
 
 [node name="Sparticle" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
-rotation = -3.14159
 emitting = false
 amount = 20
 texture = ExtResource("2_wa3wd")

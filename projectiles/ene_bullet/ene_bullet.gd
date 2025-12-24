@@ -7,6 +7,3 @@ func _ready() -> void:
 
 func _physics_process(_delta:float)->void:
 	%HitboxComponent.set_attack_properties(dmg)
-
-func _on_dur_timeout() -> void:
-	queue_free()

@@ -16,4 +16,5 @@ func _spawn_projectile_fx() -> void:
 	var fx : ProjectileHitFX = fx_scn.instantiate()
 	
 	fx.global_position = global_position
+	fx.rotation_degrees = get_parent().rotation_degrees
 	g.game.add_child(fx)

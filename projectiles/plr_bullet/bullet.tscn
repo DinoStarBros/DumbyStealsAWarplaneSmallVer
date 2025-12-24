@@ -14,6 +14,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_eqjyy"]
 radius = 22.0907
 
+[sub_resource type="Curve" id="Curve_njipi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.721393, 0.876405), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_njipi"]
+offsets = PackedFloat32Array(0, 0.668571, 1)
+colors = PackedColorArray(1, 0.899902, 0.359375, 1, 1, 0.898039, 0.360784, 1, 0.367188, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_8vyrs"]
 length = 0.001
 tracks/0/type = "value"
@@ -288,14 +296,6 @@ _data = {
 &"start": SubResource("Animation_yfywj")
 }
 
-[sub_resource type="Curve" id="Curve_njipi"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.721393, 0.876405), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_njipi"]
-offsets = PackedFloat32Array(0, 0.668571, 1)
-colors = PackedColorArray(1, 0.899902, 0.359375, 1, 1, 0.898039, 0.360784, 1, 0.367188, 0, 0, 1)
-
 [node name="bullet" type="Node2D"]
 z_index = 2
 script = ExtResource("1_xqd8s")
@@ -315,6 +315,10 @@ projectile_hit_fx_component = NodePath("../ProjectileOnHitFXComponent")
 [node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_eqjyy")
 
+[node name="trail_fx" parent="." instance=ExtResource("7_kqlca")]
+width = 15.0
+MAX_LENGTH = 5
+
 [node name="sprite2" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_njipi")
@@ -327,14 +331,6 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_njipi")
 hframes = 12
 frame = 2
-
-[node name="anim" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_8uk70")
-}
-autoplay = "start"
-speed_scale = 5.0
 
 [node name="Sparticle" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
@@ -360,6 +356,10 @@ color_ramp = SubResource("Gradient_njipi")
 energy = 0.5
 texture = ExtResource("8_d6ymy")
 
-[node name="trail_fx" parent="." instance=ExtResource("7_kqlca")]
-width = 15.0
-MAX_LENGTH = 5
+[node name="anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_8uk70")
+}
+autoplay = "start"
+speed_scale = 5.0
