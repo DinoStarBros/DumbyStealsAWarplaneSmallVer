@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b41x6404vpt5l"]
+[gd_scene load_steps=13 format=3 uid="uid://b41x6404vpt5l"]
 
 [ext_resource type="Script" uid="uid://n20om5nsigfl" path="res://projectiles/explosion/explosion.gd" id="1_dlq7l"]
 [ext_resource type="AudioStream" uid="uid://hbjph6hq0fu3" path="res://Audio/jetslash sfx/SFX/Roblox Explosion Sound Effect.wav" id="2_6vdkd"]
+[ext_resource type="PackedScene" uid="uid://cm6eyufvsuku1" path="res://CompositionStuff/ProjectileStatsAllocator/projectile_stats_allocator.tscn" id="2_uijkp"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_h4n0y"]
 [ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="4_0e7qn"]
 [ext_resource type="PackedScene" uid="uid://bwxfc0m0x7yt7" path="res://juices/explosionParticle/explosion_particle.tscn" id="5_665e6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41h45"]
+radius = 134.612
 
 [sub_resource type="Animation" id="Animation_715d2"]
 length = 0.001
@@ -69,9 +73,6 @@ _data = {
 &"boom": SubResource("Animation_6dfje")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_41h45"]
-radius = 134.612
-
 [sub_resource type="Curve" id="Curve_665e6"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -80,9 +81,20 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.145729, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.279434, 0.0473854, 1, 1, 0.783203, 0.132813, 1)
 
-[node name="explosion" type="CharacterBody2D"]
+[node name="explosion" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_dlq7l")
+
+[node name="ProjectileStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("2_uijkp")]
+hitbox_component = NodePath("../HitboxComponent")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_h4n0y")]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_41h45")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6vdkd")
@@ -95,14 +107,6 @@ libraries = {
 }
 autoplay = "boom"
 speed_scale = 2.0
-
-[node name="HitboxComponent" parent="." instance=ExtResource("3_h4n0y")]
-unique_name_in_owner = true
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("CircleShape2D_41h45")
 
 [node name="Shockwave-sheet" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -126,17 +130,19 @@ scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_665e6")
 color_ramp = SubResource("Gradient_665e6")
 
-[node name="explosion_particle" parent="." instance=ExtResource("5_665e6")]
+[node name="explodies" type="Node2D" parent="."]
+
+[node name="explosion_particle" parent="explodies" instance=ExtResource("5_665e6")]
 position = Vector2(-70.5, -44)
 
-[node name="explosion_particle2" parent="." instance=ExtResource("5_665e6")]
+[node name="explosion_particle2" parent="explodies" instance=ExtResource("5_665e6")]
 position = Vector2(-52.5, 24.5)
 
-[node name="explosion_particle3" parent="." instance=ExtResource("5_665e6")]
+[node name="explosion_particle3" parent="explodies" instance=ExtResource("5_665e6")]
 position = Vector2(5.5, 95)
 
-[node name="explosion_particle4" parent="." instance=ExtResource("5_665e6")]
+[node name="explosion_particle4" parent="explodies" instance=ExtResource("5_665e6")]
 position = Vector2(77.5, 13.5)
 
-[node name="explosion_particle5" parent="." instance=ExtResource("5_665e6")]
+[node name="explosion_particle5" parent="explodies" instance=ExtResource("5_665e6")]
 position = Vector2(16.5, -75.5)

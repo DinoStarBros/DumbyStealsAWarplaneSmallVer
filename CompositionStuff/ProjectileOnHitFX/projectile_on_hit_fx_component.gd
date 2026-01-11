@@ -10,7 +10,8 @@ func _ready() -> void:
 	pass
 
 func hit() -> void:
-	_spawn_projectile_fx()
+	if fx_scn:
+		_spawn_projectile_fx()
 
 func _spawn_projectile_fx() -> void:
 	var fx : ProjectileHitFX = fx_scn.instantiate()
