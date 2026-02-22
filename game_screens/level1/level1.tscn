@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djxndtog5nfd5"]
+[gd_scene format=3 uid="uid://djxndtog5nfd5"]
 
 [ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/level1/level1.gd" id="1_qffnt"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_3k2b8"]
@@ -36,1009 +36,1009 @@ _data = {
 }
 point_count = 2
 
-[node name="level1" type="Node2D"]
+[node name="level1" type="Node2D" unique_id=71743937]
 script = ExtResource("1_qffnt")
 
-[node name="cloudparallax" type="ParallaxBackground" parent="."]
+[node name="cloudparallax" type="ParallaxBackground" parent="." unique_id=1198934418]
 unique_name_in_owner = true
 
-[node name="clouds1" type="ParallaxLayer" parent="cloudparallax"]
+[node name="clouds1" type="ParallaxLayer" parent="cloudparallax" unique_id=1239630867]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.666667)
 motion_scale = Vector2(0.8, 0.8)
 
-[node name="clouds2" type="ParallaxLayer" parent="cloudparallax"]
+[node name="clouds2" type="ParallaxLayer" parent="cloudparallax" unique_id=1970543680]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.666667)
 motion_scale = Vector2(0.5, 0.5)
 
-[node name="clouds_big" type="ParallaxLayer" parent="cloudparallax"]
+[node name="clouds_big" type="ParallaxLayer" parent="cloudparallax" unique_id=1433020655]
 unique_name_in_owner = true
 z_index = 3
 scale = Vector2(1.5, 1.5)
 motion_scale = Vector2(1.5, 1.5)
 
-[node name="dumby" parent="." instance=ExtResource("2_3k2b8")]
+[node name="dumby" parent="." unique_id=210817385 instance=ExtResource("2_3k2b8")]
 z_index = 2
 
-[node name="EnemySpawnerSky" parent="dumby" instance=ExtResource("6_f53t4")]
-waves = Array[ExtResource("4_y1ytl")]([ExtResource("6_y1ytl"), ExtResource("5_3k2b8"), ExtResource("7_11rbn"), ExtResource("5_f53t4")])
+[node name="EnemySpawnerSky" parent="dumby" unique_id=942174319 instance=ExtResource("6_f53t4")]
+waves = Array[ExtResource("4_y1ytl")]([ExtResource("5_3k2b8"), ExtResource("6_y1ytl"), ExtResource("7_11rbn"), ExtResource("5_f53t4")])
 
-[node name="wall_bounds" type="Node2D" parent="."]
+[node name="wall_bounds" type="Node2D" parent="." unique_id=726419059]
 scale = Vector2(4, 4)
 
-[node name="l" type="StaticBody2D" parent="wall_bounds"]
+[node name="l" type="StaticBody2D" parent="wall_bounds" unique_id=2063695065]
 position = Vector2(-2720.5, 14)
 
-[node name="lc" type="CollisionShape2D" parent="wall_bounds/l"]
+[node name="lc" type="CollisionShape2D" parent="wall_bounds/l" unique_id=37321615]
 position = Vector2(52, 0)
 shape = SubResource("RectangleShape2D_6uk7y")
 
-[node name="l" type="Node2D" parent="wall_bounds/l"]
+[node name="l" type="Node2D" parent="wall_bounds/l" unique_id=242928995]
 position = Vector2(-470.667, 0)
 rotation = 1.5708
 scale = Vector2(0.333333, 1)
 
-[node name="Sea" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea" type="Sprite2D" parent="wall_bounds/l/l" unique_id=483268546]
 position = Vector2(-12480, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea2" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea2" type="Sprite2D" parent="wall_bounds/l/l" unique_id=1418611273]
 position = Vector2(-10880, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea3" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea3" type="Sprite2D" parent="wall_bounds/l/l" unique_id=698320545]
 position = Vector2(-9280, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea4" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea4" type="Sprite2D" parent="wall_bounds/l/l" unique_id=1685885026]
 position = Vector2(-7680, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea5" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea5" type="Sprite2D" parent="wall_bounds/l/l" unique_id=513098860]
 position = Vector2(-6080, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea6" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea6" type="Sprite2D" parent="wall_bounds/l/l" unique_id=1642531451]
 position = Vector2(-4480, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea7" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea7" type="Sprite2D" parent="wall_bounds/l/l" unique_id=1365742461]
 position = Vector2(-2883, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea8" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea8" type="Sprite2D" parent="wall_bounds/l/l" unique_id=721628031]
 position = Vector2(-1283, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea9" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea9" type="Sprite2D" parent="wall_bounds/l/l" unique_id=417357876]
 position = Vector2(316.998, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea10" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea10" type="Sprite2D" parent="wall_bounds/l/l" unique_id=977699973]
 position = Vector2(1917, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea11" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea11" type="Sprite2D" parent="wall_bounds/l/l" unique_id=420035692]
 position = Vector2(3517, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea12" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea12" type="Sprite2D" parent="wall_bounds/l/l" unique_id=1582532968]
 position = Vector2(5117, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea13" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea13" type="Sprite2D" parent="wall_bounds/l/l" unique_id=502907484]
 position = Vector2(6717, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea14" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea14" type="Sprite2D" parent="wall_bounds/l/l" unique_id=598039147]
 position = Vector2(8317, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea15" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea15" type="Sprite2D" parent="wall_bounds/l/l" unique_id=1190348904]
 position = Vector2(9917, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea16" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea16" type="Sprite2D" parent="wall_bounds/l/l" unique_id=1373032112]
 position = Vector2(11517, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea17" type="Sprite2D" parent="wall_bounds/l/l"]
+[node name="Sea17" type="Sprite2D" parent="wall_bounds/l/l" unique_id=455881641]
 position = Vector2(13117, -133.65)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="u" type="StaticBody2D" parent="wall_bounds"]
+[node name="u" type="StaticBody2D" parent="wall_bounds" unique_id=1310765730]
 position = Vector2(-54, -1184.25)
 
-[node name="uc" type="CollisionShape2D" parent="wall_bounds/u"]
+[node name="uc" type="CollisionShape2D" parent="wall_bounds/u" unique_id=1637163095]
 shape = SubResource("RectangleShape2D_1vlsd")
 
-[node name="u2" type="Node2D" parent="wall_bounds/u"]
+[node name="u2" type="Node2D" parent="wall_bounds/u" unique_id=1768230306]
 position = Vector2(-31.3333, -393.333)
 rotation = 3.14159
 scale = Vector2(0.333333, 1.33333)
 
-[node name="Sea" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=117023632]
 position = Vector2(-12480, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea2" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea2" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1119568114]
 position = Vector2(-10880, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea3" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea3" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1931981594]
 position = Vector2(-9280.01, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea4" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea4" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=861313613]
 position = Vector2(-7680.01, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea5" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea5" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=959004415]
 position = Vector2(-6080.01, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea6" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea6" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1681215802]
 position = Vector2(-4480.01, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea7" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea7" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1938408616]
 position = Vector2(-2883.01, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea8" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea8" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=336391932]
 position = Vector2(-1283.01, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea9" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea9" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1560235415]
 position = Vector2(316.996, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea10" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea10" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1570469264]
 position = Vector2(1916.99, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea11" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea11" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=378522276]
 position = Vector2(3516.99, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea12" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea12" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=401143572]
 position = Vector2(5116.99, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea13" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea13" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1779604116]
 position = Vector2(6716.99, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea14" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea14" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1144503716]
 position = Vector2(8316.99, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea15" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea15" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1656034865]
 position = Vector2(9916.99, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea16" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea16" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1410971855]
 position = Vector2(11517, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea17" type="Sprite2D" parent="wall_bounds/u/u2"]
+[node name="Sea17" type="Sprite2D" parent="wall_bounds/u/u2" unique_id=1996949906]
 position = Vector2(13117, 81.7419)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="r" type="StaticBody2D" parent="wall_bounds"]
+[node name="r" type="StaticBody2D" parent="wall_bounds" unique_id=911933295]
 position = Vector2(2744, 0)
 
-[node name="rc" type="CollisionShape2D" parent="wall_bounds/r"]
+[node name="rc" type="CollisionShape2D" parent="wall_bounds/r" unique_id=1967809612]
 shape = SubResource("RectangleShape2D_b03pm")
 
-[node name="r2" type="Node2D" parent="wall_bounds/r"]
+[node name="r2" type="Node2D" parent="wall_bounds/r" unique_id=221849811]
 position = Vector2(322, 0)
 rotation = -1.5708
 scale = Vector2(0.333, 1)
 
-[node name="Sea" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=439727919]
 position = Vector2(-12480, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea2" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea2" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=715400823]
 position = Vector2(-10880, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea3" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea3" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=575640425]
 position = Vector2(-9279.99, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea4" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea4" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=295086975]
 position = Vector2(-7679.99, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea5" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea5" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=1294739588]
 position = Vector2(-6079.99, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea6" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea6" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=712195360]
 position = Vector2(-4479.99, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea7" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea7" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=2035372366]
 position = Vector2(-2882.99, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea8" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea8" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=881372486]
 position = Vector2(-1282.99, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea9" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea9" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=228364286]
 position = Vector2(317.007, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea10" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea10" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=1437500323]
 position = Vector2(1917.01, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea11" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea11" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=2055381947]
 position = Vector2(3517.01, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea12" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea12" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=1263953060]
 position = Vector2(5117.01, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea13" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea13" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=862937972]
 position = Vector2(6717.01, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea14" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea14" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=1820516745]
 position = Vector2(8317.01, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea15" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea15" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=765048002]
 position = Vector2(9917.01, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea16" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea16" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=619701630]
 position = Vector2(11517, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea17" type="Sprite2D" parent="wall_bounds/r/r2"]
+[node name="Sea17" type="Sprite2D" parent="wall_bounds/r/r2" unique_id=324288084]
 position = Vector2(13117, 71.6497)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="d" type="StaticBody2D" parent="wall_bounds"]
+[node name="d" type="StaticBody2D" parent="wall_bounds" unique_id=796419269]
 position = Vector2(0, 714.667)
 
-[node name="dc" type="CollisionShape2D" parent="wall_bounds/d"]
+[node name="dc" type="CollisionShape2D" parent="wall_bounds/d" unique_id=1631410725]
 shape = SubResource("RectangleShape2D_i3s0t")
 
-[node name="ground" type="Node2D" parent="wall_bounds/d"]
+[node name="ground" type="Node2D" parent="wall_bounds/d" unique_id=1913714101]
 position = Vector2(0, -25.6667)
 scale = Vector2(0.333333, 0.333333)
 
-[node name="Sea" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=979318284]
 position = Vector2(-12480, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea2" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea2" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=750339086]
 position = Vector2(-10880, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea3" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea3" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=593483492]
 position = Vector2(-9280, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea4" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea4" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=1271286681]
 position = Vector2(-7680, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea5" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea5" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=744496219]
 position = Vector2(-6080, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea6" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea6" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=2110963147]
 position = Vector2(-4480, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea7" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea7" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=194730885]
 position = Vector2(-2883, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea8" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea8" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=620906276]
 position = Vector2(-1283, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea9" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea9" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=1345651193]
 position = Vector2(317.001, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea10" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea10" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=190026626]
 position = Vector2(1917, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea11" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea11" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=782317304]
 position = Vector2(3517, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea12" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea12" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=1272050554]
 position = Vector2(5117, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea13" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea13" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=1546342184]
 position = Vector2(6717, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea14" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea14" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=1413157889]
 position = Vector2(8317, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea15" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea15" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=1550062261]
 position = Vector2(9917, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea16" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea16" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=1302184978]
 position = Vector2(11517, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="Sea17" type="Sprite2D" parent="wall_bounds/d/ground"]
+[node name="Sea17" type="Sprite2D" parent="wall_bounds/d/ground" unique_id=596642868]
 position = Vector2(13117, 110)
 scale = Vector2(5, 2.5)
 texture = ExtResource("5_y1ytl")
 
-[node name="FloorHitBox" parent="wall_bounds" instance=ExtResource("6_11rbn")]
+[node name="FloorHitBox" parent="wall_bounds" unique_id=1569793029 instance=ExtResource("6_11rbn")]
 unique_name_in_owner = true
 position = Vector2(-100.333, 703.333)
 collision_layer = 1024
 collision_mask = 1024
 
-[node name="fhitbox" type="CollisionShape2D" parent="wall_bounds/FloorHitBox"]
+[node name="fhitbox" type="CollisionShape2D" parent="wall_bounds/FloorHitBox" unique_id=245324847]
 position = Vector2(0, -114.66699)
 shape = SubResource("RectangleShape2D_slubn")
 
-[node name="CLA" type="Area2D" parent="."]
+[node name="CLA" type="Area2D" parent="." unique_id=721841142]
 collision_layer = 512
 collision_mask = 512
 
-[node name="room" type="CollisionShape2D" parent="CLA"]
+[node name="room" type="CollisionShape2D" parent="CLA" unique_id=447590870]
 position = Vector2(155.5, -837)
 shape = SubResource("RectangleShape2D_yjec7")
 
-[node name="projectile_container" type="Node2D" parent="."]
+[node name="projectile_container" type="Node2D" parent="." unique_id=159686833]
 unique_name_in_owner = true
 
-[node name="cloud_pos" type="Node2D" parent="."]
+[node name="cloud_pos" type="Node2D" parent="." unique_id=1867616246]
 unique_name_in_owner = true
 
-[node name="starsparent" type="ParallaxBackground" parent="."]
+[node name="starsparent" type="ParallaxBackground" parent="." unique_id=1463418491]
 
-[node name="stars1" type="ParallaxLayer" parent="starsparent"]
+[node name="stars1" type="ParallaxLayer" parent="starsparent" unique_id=820917659]
 z_index = -1
 motion_scale = Vector2(0.1, 0.1)
 
-[node name="4stars" type="Node2D" parent="starsparent/stars1"]
+[node name="4stars" type="Node2D" parent="starsparent/stars1" unique_id=1694209975]
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars" unique_id=1347932408]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars" unique_id=1837367884]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars" unique_id=1621451861]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars" unique_id=1321941362]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars5" type="Node2D" parent="starsparent/stars1"]
+[node name="4stars5" type="Node2D" parent="starsparent/stars1" unique_id=1060204469]
 position = Vector2(5120, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars5"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars5" unique_id=274899819]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars5"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars5" unique_id=1245687812]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars5"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars5" unique_id=1436974990]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars5"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars5" unique_id=2056272465]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars6" type="Node2D" parent="starsparent/stars1"]
+[node name="4stars6" type="Node2D" parent="starsparent/stars1" unique_id=63767306]
 position = Vector2(10240, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars6"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars6" unique_id=1713565116]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars6"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars6" unique_id=823548792]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars6"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars6" unique_id=1244837836]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars6"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars6" unique_id=810991810]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars2" type="Node2D" parent="starsparent/stars1"]
+[node name="4stars2" type="Node2D" parent="starsparent/stars1" unique_id=197052778]
 position = Vector2(-5312, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars2"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars2" unique_id=592267787]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars2"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars2" unique_id=1651471770]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars2"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars2" unique_id=1417241797]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars2"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars2" unique_id=2024174774]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars3" type="Node2D" parent="starsparent/stars1"]
+[node name="4stars3" type="Node2D" parent="starsparent/stars1" unique_id=1363553823]
 position = Vector2(-10432, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars3"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars3" unique_id=1060903287]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars3"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars3" unique_id=1005059338]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars3"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars3" unique_id=1430890896]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars3"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars3" unique_id=2107195508]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars4" type="Node2D" parent="starsparent/stars1"]
+[node name="4stars4" type="Node2D" parent="starsparent/stars1" unique_id=524977534]
 position = Vector2(417285000, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars4"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars1/4stars4" unique_id=1579232580]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars4"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars1/4stars4" unique_id=2006413231]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars4"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars1/4stars4" unique_id=620300521]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars4"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars1/4stars4" unique_id=1104822257]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="stars4" type="ParallaxLayer" parent="starsparent"]
+[node name="stars4" type="ParallaxLayer" parent="starsparent" unique_id=353105173]
 z_index = -1
 position = Vector2(0, 2880)
 motion_scale = Vector2(0.1, 0.1)
 
-[node name="4stars" type="Node2D" parent="starsparent/stars4"]
+[node name="4stars" type="Node2D" parent="starsparent/stars4" unique_id=617174900]
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars" unique_id=1636378339]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars" unique_id=1299969393]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars" unique_id=1418115138]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars" unique_id=1610437602]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars5" type="Node2D" parent="starsparent/stars4"]
+[node name="4stars5" type="Node2D" parent="starsparent/stars4" unique_id=1180922169]
 position = Vector2(5120, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars5"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars5" unique_id=191133921]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars5"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars5" unique_id=1707459634]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars5"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars5" unique_id=1532172241]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars5"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars5" unique_id=1064010744]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars6" type="Node2D" parent="starsparent/stars4"]
+[node name="4stars6" type="Node2D" parent="starsparent/stars4" unique_id=587924117]
 position = Vector2(10240, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars6"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars6" unique_id=1754473339]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars6"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars6" unique_id=131331163]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars6"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars6" unique_id=1911100358]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars6"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars6" unique_id=785812376]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars2" type="Node2D" parent="starsparent/stars4"]
+[node name="4stars2" type="Node2D" parent="starsparent/stars4" unique_id=193133594]
 position = Vector2(-5312, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars2"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars2" unique_id=1264216092]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars2"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars2" unique_id=955140660]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars2"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars2" unique_id=1757930268]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars2"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars2" unique_id=1126754060]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars3" type="Node2D" parent="starsparent/stars4"]
+[node name="4stars3" type="Node2D" parent="starsparent/stars4" unique_id=566793083]
 position = Vector2(-10432, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars3"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars3" unique_id=676238929]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars3"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars3" unique_id=953050703]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars3"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars3" unique_id=19206567]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars3"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars3" unique_id=1773695806]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars4" type="Node2D" parent="starsparent/stars4"]
+[node name="4stars4" type="Node2D" parent="starsparent/stars4" unique_id=336567166]
 position = Vector2(417285000, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars4"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars4/4stars4" unique_id=1117692842]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars4"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars4/4stars4" unique_id=816084567]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars4"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars4/4stars4" unique_id=438334676]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars4"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars4/4stars4" unique_id=1261041887]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="stars2" type="ParallaxLayer" parent="starsparent"]
+[node name="stars2" type="ParallaxLayer" parent="starsparent" unique_id=728028821]
 z_index = -1
 position = Vector2(0, -2880)
 motion_scale = Vector2(0.1, 0.1)
 
-[node name="4stars" type="Node2D" parent="starsparent/stars2"]
+[node name="4stars" type="Node2D" parent="starsparent/stars2" unique_id=1512186468]
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars" unique_id=385902347]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars" unique_id=927554735]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars" unique_id=1431852750]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars" unique_id=1406251714]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars5" type="Node2D" parent="starsparent/stars2"]
+[node name="4stars5" type="Node2D" parent="starsparent/stars2" unique_id=1663888829]
 position = Vector2(5120, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars5"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars5" unique_id=1557121280]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars5"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars5" unique_id=1030799236]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars5"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars5" unique_id=1065277209]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars5"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars5" unique_id=588602882]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars6" type="Node2D" parent="starsparent/stars2"]
+[node name="4stars6" type="Node2D" parent="starsparent/stars2" unique_id=305796995]
 position = Vector2(10240, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars6"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars6" unique_id=1371898956]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars6"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars6" unique_id=1684026740]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars6"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars6" unique_id=1094587542]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars6"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars6" unique_id=642635230]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars2" type="Node2D" parent="starsparent/stars2"]
+[node name="4stars2" type="Node2D" parent="starsparent/stars2" unique_id=1734861050]
 position = Vector2(-5312, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars2"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars2" unique_id=1234081644]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars2"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars2" unique_id=345267300]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars2"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars2" unique_id=1174122482]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars2"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars2" unique_id=1200727796]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars3" type="Node2D" parent="starsparent/stars2"]
+[node name="4stars3" type="Node2D" parent="starsparent/stars2" unique_id=1560629639]
 position = Vector2(-10432, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars3"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars3" unique_id=452781778]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars3"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars3" unique_id=1561647182]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars3"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars3" unique_id=790642014]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars3"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars3" unique_id=1317870273]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars4" type="Node2D" parent="starsparent/stars2"]
+[node name="4stars4" type="Node2D" parent="starsparent/stars2" unique_id=660258681]
 position = Vector2(417285000, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars4"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars2/4stars4" unique_id=250087156]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars4"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars2/4stars4" unique_id=1612815963]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars4"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars2/4stars4" unique_id=588113416]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars4"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars2/4stars4" unique_id=1741593547]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="stars3" type="ParallaxLayer" parent="starsparent"]
+[node name="stars3" type="ParallaxLayer" parent="starsparent" unique_id=1991867639]
 z_index = -1
 position = Vector2(0, -5760)
 motion_scale = Vector2(0.1, 0.1)
 
-[node name="4stars" type="Node2D" parent="starsparent/stars3"]
+[node name="4stars" type="Node2D" parent="starsparent/stars3" unique_id=312342184]
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars" unique_id=798603883]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars" unique_id=845972693]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars" unique_id=1106975473]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars" unique_id=1577428588]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars5" type="Node2D" parent="starsparent/stars3"]
+[node name="4stars5" type="Node2D" parent="starsparent/stars3" unique_id=1497216125]
 position = Vector2(5120, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars5"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars5" unique_id=2035724084]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars5"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars5" unique_id=2079201653]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars5"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars5" unique_id=1655691782]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars5"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars5" unique_id=475758820]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars6" type="Node2D" parent="starsparent/stars3"]
+[node name="4stars6" type="Node2D" parent="starsparent/stars3" unique_id=867301823]
 position = Vector2(10240, 0)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars6"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars6" unique_id=1620053000]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars6"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars6" unique_id=705330698]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars6"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars6" unique_id=231738801]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars6"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars6" unique_id=1004117779]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars2" type="Node2D" parent="starsparent/stars3"]
+[node name="4stars2" type="Node2D" parent="starsparent/stars3" unique_id=1292302494]
 position = Vector2(-5312, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars2"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars2" unique_id=1984850511]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars2"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars2" unique_id=1201020485]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars2"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars2" unique_id=722576930]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars2"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars2" unique_id=1838618322]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars3" type="Node2D" parent="starsparent/stars3"]
+[node name="4stars3" type="Node2D" parent="starsparent/stars3" unique_id=2090987900]
 position = Vector2(-10432, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars3"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars3" unique_id=1229327244]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars3"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars3" unique_id=1537271733]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars3"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars3" unique_id=2146644244]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars3"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars3" unique_id=114508232]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="4stars4" type="Node2D" parent="starsparent/stars3"]
+[node name="4stars4" type="Node2D" parent="starsparent/stars3" unique_id=131065888]
 position = Vector2(417285000, 48)
 
-[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars4"]
+[node name="Stars(2)" type="Sprite2D" parent="starsparent/stars3/4stars4" unique_id=1512353142]
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars4"]
+[node name="Stars(2)2" type="Sprite2D" parent="starsparent/stars3/4stars4" unique_id=1446373098]
 position = Vector2(2560, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars4"]
+[node name="Stars(2)3" type="Sprite2D" parent="starsparent/stars3/4stars4" unique_id=2099373651]
 position = Vector2(2560, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars4"]
+[node name="Stars(2)4" type="Sprite2D" parent="starsparent/stars3/4stars4" unique_id=2075233664]
 position = Vector2(0, 1440)
 scale = Vector2(2, 2)
 texture = ExtResource("7_6klb1")
 
-[node name="airdef_spawner" type="Path2D" parent="."]
+[node name="airdef_spawner" type="Path2D" parent="." unique_id=1115228056]
 curve = SubResource("Curve2D_wy5cm")
 
-[node name="adspos" type="PathFollow2D" parent="airdef_spawner"]
+[node name="adspos" type="PathFollow2D" parent="airdef_spawner" unique_id=1369029683]
 unique_name_in_owner = true
 position = Vector2(-11542, 3364)
 rotation = 0.0055171857
 
-[node name="adftimer" type="Timer" parent="airdef_spawner"]
+[node name="adftimer" type="Timer" parent="airdef_spawner" unique_id=990500769]
 unique_name_in_owner = true
 one_shot = true
 autostart = true
 
-[node name="enemy_container" type="Node2D" parent="."]
+[node name="enemy_container" type="Node2D" parent="." unique_id=2039723847]
 unique_name_in_owner = true
 
-[node name="Wave" type="CanvasLayer" parent="."]
+[node name="Wave" type="CanvasLayer" parent="." unique_id=898191485]
 
-[node name="EnemyArrows" type="CanvasLayer" parent="."]
+[node name="EnemyArrows" type="CanvasLayer" parent="." unique_id=756682326]
 unique_name_in_owner = true
 
 [connection signal="timeout" from="airdef_spawner/adftimer" to="." method="_on_adftimer_timeout"]

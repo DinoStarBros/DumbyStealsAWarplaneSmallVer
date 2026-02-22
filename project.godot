@@ -12,20 +12,25 @@ config_version=5
 
 warnings/check_invalid_track_paths=false
 warnings/check_angle_interpolation_type_conflicting=false
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="DumbyStealsAWarplane"
 config/tags=PackedStringArray("bigproject", "important")
 run/main_scene="uid://djxndtog5nfd5"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bgevmm307tb6g"
 
 [autoload]
 
 g="*res://GlobalSingletons/global.gd"
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
+SceneManager="*uid://j20v4cg7v8m1"
 GlobalSignals="*res://GlobalSingletons/GlobalSignals.gd"
 SaveLoad="*res://saveSystem/SaveLoad.gd"
 AudioManager="*res://GlobalSingletons/audioManagerGlobals/AudioManager.tscn"
