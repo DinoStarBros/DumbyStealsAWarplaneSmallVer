@@ -78,9 +78,7 @@ func _physics_process(delta: float) -> void:
 			accelerating = Input.is_action_pressed("accelerate") and g.game_state == g.game_states.Combat
 	
 	if accelerating:
-		accelerate_time += delta
-		if accelerate_time > 5:
-			accelerate_time = 5
+		accelerate_time = min(5, accelerate_time + delta)
 	else:
 		accelerate_time = 0
 	
