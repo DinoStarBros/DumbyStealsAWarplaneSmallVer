@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="DumbyStealsAWarplane"
-config/tags=PackedStringArray("bigproject", "important")
+config/tags=PackedStringArray("important")
 run/main_scene="uid://djxndtog5nfd5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/image="res://Art/planestuff/Dumby_steals (1).png"
