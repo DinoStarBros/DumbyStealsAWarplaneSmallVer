@@ -1,3 +1,3 @@
-# Dumby steals a warplane BiggerVer
+# Dumby steals a warplane SmallVer
 Source code & assets for our game titled "Dumby steals a warplane"
-This is for a bigger scoped version of the game for the future, not working on it rn.
+This is the smaller scoped version of the game, finishing this first.
