@@ -42,7 +42,6 @@
 [ext_resource type="Script" uid="uid://b5aik354wenca" path="res://entities/dumby/screen_fx.gd" id="28_u8vb7"]
 [ext_resource type="Script" uid="uid://bmgkgsoo8m4jd" path="res://entities/dumby/abilities.gd" id="31_5senk"]
 [ext_resource type="PackedScene" uid="uid://uqxv3w86ie7g" path="res://abilities/ability_slot/ability_slot.tscn" id="32_lhj8b"]
-[ext_resource type="Script" uid="uid://b1ru8hk4kxiyh" path="res://entities/dumby/lvlxpupg.gd" id="37_3gqex"]
 [ext_resource type="Script" uid="uid://qruqapawe2yp" path="res://entities/dumby/regen_handler.gd" id="39_7fad1"]
 [ext_resource type="Script" uid="uid://b3n1upwnl8fig" path="res://entities/dumby/evade_box.gd" id="39_pctjt"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="43_12dy5"]
@@ -51,9 +50,7 @@
 [ext_resource type="Shader" uid="uid://b3x1gtv1pdlfd" path="res://shaders/shockwave.gdshader" id="45_4suxv"]
 [ext_resource type="Shader" uid="uid://ct2a0vrvm04a2" path="res://shaders/chromaticAberration.gdshader" id="45_l2c7h"]
 [ext_resource type="AudioStream" uid="uid://kwc1yjoylvhx" path="res://Audio/planesfx/realistic-shotgun-cocking-sound-38640.mp3" id="46_dint0"]
-[ext_resource type="PackedScene" uid="uid://cn0wb7nfo4h7s" path="res://shop/shop.tscn" id="50_l2c7h"]
 [ext_resource type="Texture2D" uid="uid://cw30gj5fpxv50" path="res://icon.svg" id="51_l2c7h"]
-[ext_resource type="PackedScene" uid="uid://epr0yoartceu" path="res://inventoryStuff/inventory/inventory.tscn" id="55_jrsuo"]
 [ext_resource type="Shader" uid="uid://cdmkmj7oj4y05" path="res://shaders/fire.gdshader" id="56_etwne"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l2c7h"]
@@ -2011,34 +2008,6 @@ layout_mode = 2
 [node name="as3" parent="Abilities/abilities_row" unique_id=1516060122 instance=ExtResource("32_lhj8b")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="WaveUpg" type="CanvasLayer" parent="." unique_id=153614394]
-process_mode = 3
-layer = 6
-script = ExtResource("37_3gqex")
-
-[node name="shopninv" type="TabContainer" parent="WaveUpg" unique_id=597238944]
-unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 800.0
-offset_bottom = 800.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-current_tab = 1
-
-[node name="shop" parent="WaveUpg/shopninv" unique_id=1475386683 instance=ExtResource("50_l2c7h")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="inventory" parent="WaveUpg/shopninv" unique_id=992900260 instance=ExtResource("55_jrsuo")]
-layout_mode = 2
-metadata/_tab_index = 1
 
 [connection signal="Perfect_Roll" from="evade_box" to="weapons_parent" method="_on_evade_box_perfect_roll"]
 [connection signal="area_entered" from="evade_box" to="evade_box" method="_on_area_entered"]

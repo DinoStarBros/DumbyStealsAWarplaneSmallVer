@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk5mejh5q063x"]
+[gd_scene format=3 uid="uid://dk5mejh5q063x"]
 
 [ext_resource type="Script" uid="uid://chqcf6ubwtabh" path="res://scenes/enemy_spawner_sky/enemy_spawner_sky.gd" id="1_n1eu1"]
 [ext_resource type="Script" uid="uid://c5s8ol4t6ork2" path="res://scenes/enemy_spawner_sky/enemy_spawn_handler_sky.gd" id="2_ooali"]
@@ -11,34 +11,34 @@ _data = {
 }
 point_count = 5
 
-[node name="EnemySpawnerSky" type="Path2D"]
+[node name="EnemySpawnerSky" type="Path2D" unique_id=189710265]
 process_mode = 3
 curve = SubResource("Curve2D_ych0l")
 script = ExtResource("1_n1eu1")
 
-[node name="spawnTimer" type="Timer" parent="."]
+[node name="spawnTimer" type="Timer" parent="." unique_id=1275097726]
 unique_name_in_owner = true
 process_mode = 1
 one_shot = true
 
-[node name="bossTimer" type="Timer" parent="."]
+[node name="bossTimer" type="Timer" parent="." unique_id=1922856950]
 unique_name_in_owner = true
 process_mode = 1
 one_shot = true
 
-[node name="enemySpawnPos" type="PathFollow2D" parent="."]
+[node name="enemySpawnPos" type="PathFollow2D" parent="." unique_id=1500088477]
 unique_name_in_owner = true
 position = Vector2(-1982, -1233)
 rotation = 1.5655516
 
-[node name="enemySpawnHandler" type="Node2D" parent="."]
+[node name="enemySpawnHandler" type="Node2D" parent="." unique_id=2117428445]
 unique_name_in_owner = true
 script = ExtResource("2_ooali")
 
-[node name="bossSpawnHandler" type="Node2D" parent="."]
+[node name="bossSpawnHandler" type="Node2D" parent="." unique_id=1938085577]
 unique_name_in_owner = true
 script = ExtResource("3_y2ke0")
 
-[node name="waveEndHandler" type="Node2D" parent="."]
+[node name="waveEndHandler" type="Node2D" parent="." unique_id=69723185]
 unique_name_in_owner = true
 script = ExtResource("4_guly4")
