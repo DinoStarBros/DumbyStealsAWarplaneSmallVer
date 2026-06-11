@@ -94,12 +94,12 @@ func debug_txts() -> void:
 		g.spawn_budget.x ," / ",g.spawn_budget.y
 	)
 	
-	%stat_txt.text = str(
-		"Percent_Damage: ", PlayerStats.percent_damage, "\n",
-		"Max HP: ", PlayerStats.upgrade_handler.health_component.max_hp, "\n",
-		"Speed: ", PlayerStats.speed, "\n",
-		"Rot Speed: ", PlayerStats.rotation_speed, "\n",
-		"Money: ", PlayerStats.money, "\n",
-	)
+	#%stat_txt.text = str(
+		#"Percent_Damage: ", PlayerStats.percent_damage, "\n",
+		#"Max HP: ", PlayerStats.upgrade_handler.health_component.max_hp, "\n",
+		#"Speed: ", PlayerStats.speed, "\n",
+		#"Rot Speed: ", PlayerStats.rotation_speed, "\n",
+		#"Money: ", PlayerStats.money, "\n",
+	#)
 	
 	%curr_weap.text = str(weapons_parent.current_weapon.name)

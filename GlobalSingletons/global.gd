@@ -17,7 +17,6 @@ var xp : int = 0
 var next_lvl_xp : int = 20
 var level : int = 1
 var mobile : bool = false
-var inventory : Inventory
 var lil_printy : Label
 var weapons_parent : WeaponsParent
 
@@ -45,13 +44,6 @@ func spawn_txt(text: String, global_pos: Vector2)->void: ## Spawns a splash text
 func _ready() -> void:
 	volume_handle()
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
-const exp_scn : PackedScene = preload("res://scenes/exp/exp.tscn")
-func spawn_xp(global_pos : Vector2, amount : int) -> void:
-	var xpn : XpOrb = exp_scn.instantiate()
-	g.game.add_child(xpn)
-	xpn.xp_amount = amount
-	xpn.global_position = global_pos
 
 func _process(_delta:float)->void:
 	gs_string = gs_strings[game_state]

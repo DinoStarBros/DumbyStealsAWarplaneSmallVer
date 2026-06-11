@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cbp023lkcpg5o" path="res://entities/dumby/dumby.gd" id="1_2ba6e"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="2_5wgoi"]
-[ext_resource type="Script" uid="uid://bkwaqn13dw61c" path="res://entities/dumby/upgrade_handler.gd" id="2_hr56j"]
 [ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="3_pin7m"]
 [ext_resource type="Texture2D" uid="uid://bioqj7i0sc7na" path="res://Art/planestuff/dumbplane_sprites/plane1.png" id="4_12q0g"]
 [ext_resource type="Texture2D" uid="uid://lbyik5wofkif" path="res://Art/planestuff/dumbplane_sprites/plane2.png" id="5_baqsm"]
@@ -494,9 +493,6 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s3yb"]
 radius = 50.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rkk0x"]
-radius = 400.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmt67"]
 size = Vector2(4, 4)
@@ -1123,11 +1119,6 @@ collision_mask = 4097
 script = ExtResource("1_2ba6e")
 metadata/_edit_horizontal_guides_ = [-891.0]
 
-[node name="upgrade_handler" type="Node2D" parent="." unique_id=402884908]
-unique_name_in_owner = true
-process_mode = 3
-script = ExtResource("2_hr56j")
-
 [node name="warning_symbol_floor" type="AnimatedSprite2D" parent="." unique_id=1129075044]
 unique_name_in_owner = true
 position = Vector2(-616, 297)
@@ -1257,14 +1248,6 @@ script = ExtResource("39_pctjt")
 rotation = 1.5708
 shape = SubResource("CircleShape2D_4s3yb")
 disabled = true
-
-[node name="ExpPickup" type="Area2D" parent="." unique_id=805311890]
-visible = false
-collision_layer = 4096
-collision_mask = 4096
-
-[node name="expcol" type="CollisionShape2D" parent="ExpPickup" unique_id=659644221]
-shape = SubResource("CircleShape2D_rkk0x")
 
 [node name="c" type="CollisionShape2D" parent="." unique_id=787796752]
 shape = SubResource("RectangleShape2D_qmt67")
@@ -1978,7 +1961,6 @@ text = "AYYY ITS ME"
 
 [connection signal="Perfect_Roll" from="evade_box" to="weapons_parent" method="_on_evade_box_perfect_roll"]
 [connection signal="area_entered" from="evade_box" to="evade_box" method="_on_area_entered"]
-[connection signal="area_entered" from="ExpPickup" to="." method="_on_exp_pickup_area_entered"]
 [connection signal="pressed" from="GUI/yLost/buttons/menu" to="GUI" method="_on_menu_pressed"]
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/resume" to="GUI" method="_on_resume_pressed"]
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/quit" to="GUI" method="_on_quit_pressed"]

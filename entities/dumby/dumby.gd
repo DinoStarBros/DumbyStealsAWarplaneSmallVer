@@ -16,7 +16,6 @@ var shooting : bool = false
 #@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
-@onready var upgrade_handler: UpgradeHandler = %upgrade_handler
 @onready var weapons_parent: WeaponsParent = %weapons_parent
 
 func _ready() -> void:
@@ -128,12 +127,6 @@ func Dead(_attack:Attack)->void:
 @onready var plane_sprite: AnimatedSprite2D = %PlaneSprite
 
 var controller : bool = false ## Set to true if using controller, false if Mouse
-
-func _on_exp_pickup_area_entered(area: Area2D) -> void:
-	if area is XpOrb:
-		area.collected = true
-		%collect.pitch_scale = randf_range(0.9, 1.2)
-		%collect.play()
 
 func finish_collect() -> void:
 	%collect2.pitch_scale = randf_range(1.1, 1.3)

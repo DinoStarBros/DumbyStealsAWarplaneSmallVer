@@ -18,13 +18,5 @@ const BASE_MAX_IFRAMES : float = 1.0
 
 const BASE_MONEY : int = 100
 
-var upgrade_handler : UpgradeHandler
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
-func add_upgrade(item: UpgradeItem) -> void:
-	upgrade_handler.add_upgrade(item)
-
-func remove_upgrade(item: UpgradeItem) -> void:
-	upgrade_handler.remove_upgrade(item)
