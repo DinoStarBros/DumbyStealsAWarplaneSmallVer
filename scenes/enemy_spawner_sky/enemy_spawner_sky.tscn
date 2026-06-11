@@ -15,6 +15,7 @@ point_count = 5
 process_mode = 3
 curve = SubResource("Curve2D_ych0l")
 script = ExtResource("1_n1eu1")
+waves = null
 
 [node name="spawnTimer" type="Timer" parent="." unique_id=1275097726]
 unique_name_in_owner = true

@@ -40,8 +40,6 @@
 [ext_resource type="PackedScene" uid="uid://2m2qt563w7ii" path="res://juices/spd_line/speed_line.tscn" id="28_baqsm"]
 [ext_resource type="AudioStream" uid="uid://cq1v7cgw8ngyk" path="res://Audio/tresure/slashParry.wav" id="28_n4tpm"]
 [ext_resource type="Script" uid="uid://b5aik354wenca" path="res://entities/dumby/screen_fx.gd" id="28_u8vb7"]
-[ext_resource type="Script" uid="uid://bmgkgsoo8m4jd" path="res://entities/dumby/abilities.gd" id="31_5senk"]
-[ext_resource type="PackedScene" uid="uid://uqxv3w86ie7g" path="res://abilities/ability_slot/ability_slot.tscn" id="32_lhj8b"]
 [ext_resource type="Script" uid="uid://qruqapawe2yp" path="res://entities/dumby/regen_handler.gd" id="39_7fad1"]
 [ext_resource type="Script" uid="uid://b3n1upwnl8fig" path="res://entities/dumby/evade_box.gd" id="39_pctjt"]
 [ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="43_12dy5"]
@@ -1977,37 +1975,6 @@ offset_top = 653.0
 offset_right = 310.0
 offset_bottom = 670.0
 text = "AYYY ITS ME"
-
-[node name="Abilities" type="CanvasLayer" parent="." unique_id=827448091]
-unique_name_in_owner = true
-script = ExtResource("31_5senk")
-
-[node name="abilities_row" type="HBoxContainer" parent="Abilities" unique_id=334310042]
-unique_name_in_owner = true
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -422.0
-offset_top = -193.0
-offset_right = -318.0
-offset_bottom = -161.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(2, 2)
-
-[node name="as1" parent="Abilities/abilities_row" unique_id=418534220 instance=ExtResource("32_lhj8b")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="as2" parent="Abilities/abilities_row" unique_id=397257498 instance=ExtResource("32_lhj8b")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="as3" parent="Abilities/abilities_row" unique_id=1516060122 instance=ExtResource("32_lhj8b")]
-unique_name_in_owner = true
-layout_mode = 2
 
 [connection signal="Perfect_Roll" from="evade_box" to="weapons_parent" method="_on_evade_box_perfect_roll"]
 [connection signal="area_entered" from="evade_box" to="evade_box" method="_on_area_entered"]

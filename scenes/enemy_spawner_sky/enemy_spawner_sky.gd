@@ -46,7 +46,7 @@ func _on_spawn_timer_timeout() -> void:
 					enemy_spawn_handler.spawn_enemy(wave)
 					wave.spawn_budget -= 1
 	
-	update_spawn_budget_text()
+	update_spawn_budget_text()`
 
 func _process(_delta: float) -> void:
 	if wave is EnemyWave:
