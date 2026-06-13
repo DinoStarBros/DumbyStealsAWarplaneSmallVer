@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://8cpsr0yikoab"]
+[gd_scene format=3 uid="uid://8cpsr0yikoab"]
 
-[ext_resource type="Script" uid="uid://csrpvwwb3nx54" path="res://weapons/burstRifle/burstRifle.gd" id="1_70ogn"]
+[ext_resource type="Script" uid="uid://csrpvwwb3nx54" path="res://weapon/burstRifle/burstRifle.gd" id="1_70ogn"]
 [ext_resource type="Resource" uid="uid://1i3gk7oanohg" path="res://resources/weapon_stats/BurstRifleStats.tres" id="2_gpuok"]
 [ext_resource type="AudioStream" uid="uid://cjrha4kbrqcpl" path="res://Audio/planesfx/gunshot-352466.mp3" id="3_gpuok"]
 [ext_resource type="AudioStream" uid="uid://c6gvo4o6ts4u2" path="res://Audio/planesfx/machine-gun-307468.mp3" id="4_gpuok"]
 [ext_resource type="PackedScene" uid="uid://b2ia1p1j58a6q" path="res://CompositionStuff/Shoot/shoot_component.tscn" id="5_o818o"]
 [ext_resource type="PackedScene" uid="uid://ccg65bklijwd8" path="res://CompositionStuff/WeaponBuff/weapon_buff_component.tscn" id="6_0vr1r"]
+
 
 [node name="burstRifle" type="Node2D"]
 script = ExtResource("1_70ogn")

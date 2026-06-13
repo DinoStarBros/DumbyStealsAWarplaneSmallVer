@@ -32,7 +32,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	
 	# Handling functions
 	roll_handling(delta)
 	_left_joystick_handle()

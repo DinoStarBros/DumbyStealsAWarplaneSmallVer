@@ -1,12 +1,5 @@
 extends Node
 
-var weapon_items_res : Array[WeaponItem] = [
-	load("res://resources/weapon_items_res/rapidItem.tres"),
-	load("res://resources/weapon_items_res/burstRifleItem.tres"),
-	load("res://resources/weapon_items_res/shotgunItem.tres"),
-	
-]
-
 const projectile_scns : Dictionary = {
 	"bullet": "res://projectiles/plr_bullet/bullet.tscn",
 	"homing_rocket": "res://projectiles/homing_rocket/homing_rocket.tscn",

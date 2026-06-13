@@ -1,7 +1,7 @@
 extends Node2D
 class_name Weapon
 
-@export var stats : WeaponStats
+@export var weapon_stat_res : WeaponStats
 
 @onready var p : Dumby = owner
 
@@ -19,7 +19,8 @@ var reloading : bool = false ## Checks if the weapon is reloading, if so, it dis
 var r_tact_pressed : bool = false
 
 func _ready() -> void:
-	pass
+	cooldown = weapon_stat_res.shoot_cooldown
+	ammo = weapon_stat_res.max_ammo
 
 func play_multi_sfx() -> void: ## For SFX that's supposed to play for each bullet rather than just once on shoot
 	pass

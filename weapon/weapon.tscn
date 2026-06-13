@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cxsnmjsyyng0u"]
+
+[ext_resource type="Script" uid="uid://bxygvcm265wh6" path="res://weapon/weapon.gd" id="1_rma5x"]
+[ext_resource type="PackedScene" uid="uid://b2ia1p1j58a6q" path="res://CompositionStuff/Shoot/shoot_component.tscn" id="2_pxh0k"]
+[ext_resource type="PackedScene" uid="uid://ccg65bklijwd8" path="res://CompositionStuff/WeaponBuff/weapon_buff_component.tscn" id="3_jfcw2"]
+
+[node name="Weapon" type="Node2D" unique_id=1735454948]
+script = ExtResource("1_rma5x")
+
+[node name="WeaponsSFX" type="Node2D" parent="." unique_id=1742004917]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="WeaponsSFX" unique_id=594274744]
+
+[node name="ShootComponent" parent="." unique_id=1916115547 node_paths=PackedStringArray("weapon_buff") instance=ExtResource("2_pxh0k")]
+weapon_buff = NodePath("../WeaponBuffComponent")
+
+[node name="WeaponBuffComponent" parent="." unique_id=1327973188 instance=ExtResource("3_jfcw2")]

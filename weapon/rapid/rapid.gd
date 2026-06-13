@@ -2,8 +2,7 @@ extends Weapon
 class_name RapidFire
 
 func _ready() -> void:
-	cooldown = stats.shoot_cooldown
-	ammo = stats.max_ammo
+	pass
 
 func play_sfx() -> void:
 	%shootsfx.pitch_scale = randf_range(0.5, 0.7)

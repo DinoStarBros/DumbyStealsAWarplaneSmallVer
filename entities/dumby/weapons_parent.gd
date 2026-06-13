@@ -30,20 +30,16 @@ func _ready() -> void:
 		if weapon is Weapon:
 			weapons.append(weapon)
 			current_weapon = weapon
-	
-	if g.current_weapon_button_selected_res:
-		add_weapon(g.current_weapon_button_selected_res) # Adds the weapon that you selected at the part & weapon select screen
-	else:
-		add_weapon(load("res://resources/weapon_items_res/rapidItem.tres")) # For quick testing when I just wanna get to the Main game scene
 
 func _process(delta: float) -> void:
 	current_weapon_idx = weapons.find(current_weapon)
 	
 	look_at(p.dir_plane + global_position)
-	ammo_handling(delta)
-	reload_bar.visible = current_weapon.reloading
-	max_ss_vis.visible = current_weapon.reloading
-	min_ss_vis.visible = current_weapon.reloading
+	if current_weapon:
+		ammo_handling(delta)
+		reload_bar.visible = current_weapon.reloading
+		max_ss_vis.visible = current_weapon.reloading
+		min_ss_vis.visible = current_weapon.reloading
 	
 	q_reload_buff_time = max(0, q_reload_buff_time - delta)
 	dodge_buff_time = max(0, dodge_buff_time - delta)
@@ -158,11 +154,12 @@ func switch_weapon(step: int) -> void:
 	
 	current_weapon = new_weapon
 
-func add_weapon(weapon: WeaponItem) -> void:
-	var weapon_scn : PackedScene = weapon.weapon_scn
-	
-	var weap = weapon_scn.instantiate()
-	add_child(weap)
-	weapons.append(weap)
-	
-	current_weapon = weap
+func add_weapon(weapon: WeaponStats) -> void:
+	#var weapon_scn : PackedScene = weapon.weapon_scn
+	#
+	#var weap = weapon_scn.instantiate()
+	#add_child(weap)
+	#weapons.append(weap)
+	#
+	#current_weapon = weap
+	pass

@@ -1,30 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://hekqvagsvs2e"]
+[gd_scene format=3 uid="uid://hekqvagsvs2e"]
 
-[ext_resource type="Script" uid="uid://j7pbmf85cwmv" path="res://weapons/rapid/rapid.gd" id="1_ojx54"]
+[ext_resource type="Script" uid="uid://j7pbmf85cwmv" path="res://weapon/rapid/rapid.gd" id="1_ojx54"]
 [ext_resource type="Resource" uid="uid://0sigb3nq6ncr" path="res://resources/weapon_stats/RapidStats.tres" id="2_7cnad"]
 [ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="3_svll7"]
 [ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="4_k5gtb"]
 [ext_resource type="PackedScene" uid="uid://b2ia1p1j58a6q" path="res://CompositionStuff/Shoot/shoot_component.tscn" id="5_beuv8"]
 [ext_resource type="PackedScene" uid="uid://ccg65bklijwd8" path="res://CompositionStuff/WeaponBuff/weapon_buff_component.tscn" id="6_te4qd"]
 
-[node name="rapid" type="Node2D"]
+[node name="rapid" type="Node2D" unique_id=1716325794]
 script = ExtResource("1_ojx54")
 stats = ExtResource("2_7cnad")
 
-[node name="shootsfx" type="AudioStreamPlayer" parent="."]
+[node name="shootsfx" type="AudioStreamPlayer" parent="." unique_id=330679165]
 unique_name_in_owner = true
 stream = ExtResource("3_svll7")
 volume_db = -15.0
 pitch_scale = 0.6
 bus = &"sfx"
 
-[node name="shootsfx2" type="AudioStreamPlayer" parent="."]
+[node name="shootsfx2" type="AudioStreamPlayer" parent="." unique_id=702219134]
 unique_name_in_owner = true
 stream = ExtResource("4_k5gtb")
 volume_db = -20.0
 bus = &"sfx"
 
-[node name="ShootComponent" parent="." node_paths=PackedStringArray("weapon_buff") instance=ExtResource("5_beuv8")]
+[node name="ShootComponent" parent="." unique_id=1138574014 node_paths=PackedStringArray("weapon_buff") instance=ExtResource("5_beuv8")]
 weapon_buff = NodePath("../WeaponBuffComponent")
 
-[node name="WeaponBuffComponent" parent="." instance=ExtResource("6_te4qd")]
+[node name="WeaponBuffComponent" parent="." unique_id=1865401577 instance=ExtResource("6_te4qd")]
