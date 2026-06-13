@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	g.player = self
 	%weapons_parent.process_mode = Node.PROCESS_MODE_INHERIT
-
+	
 	PlayerStats.money = PlayerStats.BASE_MONEY
 	
 	PlayerStats.speed = PlayerStats.BASE_SPD

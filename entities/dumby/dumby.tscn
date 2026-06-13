@@ -26,9 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://dspg81m7f74v2" path="res://Audio/splashtownSFX/pickupCoin.wav" id="15_6bsw8"]
 [ext_resource type="AudioStream" uid="uid://bhpeunpkd55xc" path="res://Audio/planesfx/empty-gun-shot-6209.mp3" id="17_v3j65"]
 [ext_resource type="AudioStream" uid="uid://dfmwmaey2pvsn" path="res://Audio/41randsfx/19.wav" id="18_oaelq"]
-[ext_resource type="Texture2D" uid="uid://bqubavsk5td7m" path="res://Art/newsprites.png" id="19_hu6rb"]
 [ext_resource type="Script" uid="uid://0245wd4r0bun" path="res://entities/dumby/weapons_parent.gd" id="19_ufwy4"]
-[ext_resource type="Texture2D" uid="uid://b2e50hn2busxu" path="res://Art/Stuff2/2d_lights_and_shadows_neutral_point_light.webp" id="20_hu6rb"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="21_rkk0x"]
 [ext_resource type="AudioStream" uid="uid://dbdn3lqryrjb1" path="res://Audio/amalgun/pickScrap.wav" id="22_sby2x"]
 [ext_resource type="AudioStream" uid="uid://nj64nd85rtql" path="res://Audio/splashtownSFX/Airdash.wav" id="23_4s3yb"]
@@ -66,130 +64,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s884c"]
 size = Vector2(62, 56)
-
-[sub_resource type="Animation" id="Animation_hu6rb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-
-[sub_resource type="Animation" id="Animation_ufwy4"]
-resource_name = "flash"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [8, 7, 6]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hu6rb"]
-_data = {
-&"RESET": SubResource("Animation_hu6rb"),
-&"flash": SubResource("Animation_ufwy4")
-}
-
-[sub_resource type="Animation" id="Animation_n4tpm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("tactical_reload_fx:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("tactical_reload_fx:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_u8vb7"]
-resource_name = "zing"
-length = 0.4
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("tactical_reload_fx:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("tactical_reload_fx:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n4tpm"]
-_data = {
-&"RESET": SubResource("Animation_n4tpm"),
-&"zing": SubResource("Animation_u8vb7")
-}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gqex"]
 radius = 40.0
@@ -496,80 +370,6 @@ radius = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmt67"]
 size = Vector2(4, 4)
-
-[sub_resource type="Animation" id="Animation_5fg7b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("newGun:pitch_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-
-[sub_resource type="Animation" id="Animation_xyqg2"]
-resource_name = "newgun"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("shoot:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.15),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("shoot2:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("newGun:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, true, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("newGun:pitch_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.3, 0.5, 0.7]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wth8f"]
-_data = {
-&"RESET": SubResource("Animation_5fg7b"),
-&"newgun": SubResource("Animation_xyqg2")
-}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fj41j"]
 animations = [{
@@ -1157,51 +957,6 @@ unique_name_in_owner = true
 script = ExtResource("19_ufwy4")
 dumby = NodePath("..")
 
-[node name="muzzle_flash" type="Sprite2D" parent="weapons_parent" unique_id=384253612]
-visible = false
-position = Vector2(65, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("19_hu6rb")
-hframes = 3
-vframes = 3
-frame = 7
-
-[node name="flashnim" type="AnimationPlayer" parent="weapons_parent/muzzle_flash" unique_id=11136707]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_hu6rb")
-
-[node name="flash" type="PointLight2D" parent="weapons_parent/muzzle_flash" unique_id=1536479067]
-position = Vector2(10, 0)
-color = Color(1, 0.70897, 0.147944, 1)
-texture = ExtResource("20_hu6rb")
-texture_scale = 0.4
-
-[node name="tactical_reload_fx" type="Sprite2D" parent="weapons_parent" unique_id=1549009360]
-unique_name_in_owner = true
-visible = false
-scale = Vector2(10, 10)
-texture = ExtResource("13_12q0g")
-hframes = 42
-frame = 2
-
-[node name="shing" type="AudioStreamPlayer" parent="weapons_parent/tactical_reload_fx" unique_id=902175077]
-unique_name_in_owner = true
-stream = ExtResource("28_n4tpm")
-volume_db = -5.0
-bus = &"sfx"
-
-[node name="tactical_reloadnim" type="AnimationPlayer" parent="weapons_parent/tactical_reload_fx" unique_id=919061737]
-unique_name_in_owner = true
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_n4tpm")
-speed_scale = 2.0
-
-[node name="switch" type="AudioStreamPlayer" parent="weapons_parent" unique_id=1190773790]
-unique_name_in_owner = true
-stream = ExtResource("46_dint0")
-volume_db = -10.0
-bus = &"sfx"
-
 [node name="HurtboxComponent" parent="." unique_id=1734514726 node_paths=PackedStringArray("health_component") instance=ExtResource("2_5wgoi")]
 unique_name_in_owner = true
 collision_layer = 4
@@ -1286,7 +1041,7 @@ bus = &"sfx"
 [node name="newGun" type="AudioStreamPlayer" parent="sfx" unique_id=1028745769]
 stream = ExtResource("15_6bsw8")
 volume_db = -10.0
-pitch_scale = 0.5
+pitch_scale = 0.7
 bus = &"sfx"
 
 [node name="collect" type="AudioStreamPlayer" parent="sfx" unique_id=635052696]
@@ -1333,9 +1088,17 @@ volume_db = -10.0
 pitch_scale = 0.7
 bus = &"sfx"
 
-[node name="newgunim" type="AnimationPlayer" parent="sfx" unique_id=1346947660]
+[node name="shing" type="AudioStreamPlayer" parent="sfx" unique_id=902175077]
 unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_wth8f")
+stream = ExtResource("28_n4tpm")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="switch" type="AudioStreamPlayer" parent="sfx" unique_id=1190773790]
+unique_name_in_owner = true
+stream = ExtResource("46_dint0")
+volume_db = -10.0
+bus = &"sfx"
 
 [node name="PlaneSprite" type="AnimatedSprite2D" parent="." unique_id=269370812]
 unique_name_in_owner = true

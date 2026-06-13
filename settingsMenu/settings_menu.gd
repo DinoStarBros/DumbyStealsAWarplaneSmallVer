@@ -66,13 +66,13 @@ func _on_master_volume_value_changed(value: float)->void:
 	SaveLoad.settings.master_volume = value
 
 func _on_music_volume_value_changed(value: float)->void:
-	%vol_change_music.pitch_scale = value
+	%vol_change_music.pitch_scale = clamp(value, 0.1, 10)
 	%vol_change_music.play(0.005)
 	
 	SaveLoad.settings.music_volume = value
 
 func _on_sfx_vol_value_changed(value: float)->void:
-	%vol_change_sfx.pitch_scale = value
+	%vol_change_sfx.pitch_scale = clamp(value, 0.1, 10)
 	%vol_change_sfx.play(0.005)
 	
 	SaveLoad.settings.sfx_volume = value
