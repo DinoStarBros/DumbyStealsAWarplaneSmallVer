@@ -11,15 +11,6 @@ class_name WeaponStats
 
 @export var bullet_scn : PackedScene
 
-@export var max_ammo : int = 10 ## Max amount of ammo
-@export var ammo_use : int = 1 ## Amount of ammo that gets used up per shot
-
-@export var max_reload_duration : float = 1 ## The time it takes to reload said weapon
-@export var min_sweet_spot : float = 0.5 ## The minimum time you can do a tactical reload (IT'S VERY IMPORTANT THAT IT'S KEPT LOWER THAN THE MAX RELOAD DURATION AND HIGHER THAN 0)
-@export var max_sweet_spot : float = 0.6 ## The maximum time you can do a tactical reload (IT'S VERY IMPORTANT THAT IT'S KEPT LOWER THAN THE MAX RELOAD DURATION AND HIGHER THAN 0)
-
-@export var max_buff_time : float = 0 ## The amount of time the weapon gets buffed after tactical reloading, before going back to normal
-
 ## Choose which stat to buff by how much when buffed.
 ## You get buffed when rolling through damage.
 @export_category("Stats Buff")
