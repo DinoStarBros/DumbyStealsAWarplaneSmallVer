@@ -20,30 +20,15 @@ class_name WeaponStats
 
 @export var max_buff_time : float = 0 ## The amount of time the weapon gets buffed after tactical reloading, before going back to normal
 
-
-## Choose which stat to buff by how much when Quick Reload buffed. qr = quick reload
-@export_category("Stats to Buff in Quick Reload")
-@export var qr_shoot_cooldown : float ## Percent buff (0.5 = 50% buff)
-@export var qr_bullet_spd : float ## Percent buff (0.5 = 50% buff)
-@export var qr_bullet_amnt : int ## Flat buff (e.g. 1 = +1 extra bullet shot)
-@export var qr_random_spread : float ## Percent buff (0.5 = 50% buff)
-@export var qr_bullet_lifetime : float ## Flat buff (1.0 = +1 extra second of bullet lifetime)
-@export var qr_shoot_delay : float ## Percent buff (0.5 = 50% faster)
-@export var qr_damage : float ## Percent buff (0.5 = 50% more damage)
-@export var qr_max_ammo : float ## Not sure if I'll be using this shit. DUMBASS
-@export var qr_ammo_use : int ## Flat buff (1 = 1 less ammo used per shot)
-
-## Choose which stat to buff by how much when Dodge buffed. db = dodge buff
-@export_category("Stats to Buff in Dodge Buffed")
-@export var db_shoot_cooldown : float ## Percent buff (0.5 = 50% buff)
-@export var db_bullet_spd : float ## Percent buff (0.5 = 50% buff)
-@export var db_bullet_amnt : int ## Flat buff (e.g. 1 = +1 extra bullet shot)
-@export var db_random_spread : float ## Percent buff (0.5 = 50% buff)
-@export var db_bullet_lifetime : float ## Flat buff (1.0 = +1 extra second of bullet lifetime)
-@export var db_shoot_delay : float ## Percent buff (0.5 = 50% faster)
-@export var db_damage : float ## Percent buff (0.5 = 50% more damage)
-@export var db_max_ammo : float ## Not sure if I'll be using this shit. DUMBASS
-@export var db_ammo_use : int ## Flat buff (1 = 1 less ammo used per shot)
-
-@export_category("Other misc. stats that aren't common in other weapons.")
-@export var extra_stats : Dictionary
+## Choose which stat to buff by how much when buffed.
+## You get buffed when rolling through damage.
+@export_category("Stats Buff")
+@export var shoot_cooldown_buff : float ## Percent buff (0.5 = 50% buff)
+@export var bullet_spd_buff : float ## Percent buff (0.5 = 50% buff)
+@export var bullet_amnt_buff : int ## Flat buff (e.g. 1 = +1 extra bullet shot)
+@export var random_spread_buff : float ## Percent buff (0.5 = 50% buff)
+@export var bullet_lifetime_buff : float ## Flat buff (1.0 = +1 extra second of bullet lifetime)
+@export var shoot_delay_buff : float ## Percent buff (0.5 = 50% faster)
+@export var damage_buff : float ## Percent buff (0.5 = 50% more damage)
+@export var max_ammo_buff : float ## Not sure if I'll be using this shit. DUMBASS
+@export var ammo_use_buff : int ## Flat buff (1 = 1 less ammo used per shot)

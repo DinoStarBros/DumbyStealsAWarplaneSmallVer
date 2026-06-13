@@ -6,12 +6,15 @@ class_name RegenHandler
 @onready var regen_bar: ProgressBar = %regen_bar
 @onready var p : Dumby = get_parent()
 
-### Below is all the stuff for regen ###
 var regen_time : float = 0
 var max_regen_time : float = 1
 var regen_speed : float = .3
 var regen_speed_limit : float = 1
 var regen_time_mult : float = 0
+
+const regen_time_mult_1_decrease : float = 0.5
+const regen_time_mult_2_decrease : float = 0.2
+
 
 func regen_handling(delta: float) -> void:
 	
@@ -32,11 +35,11 @@ func regen_handling(delta: float) -> void:
 	
 	# Regeneration gets slower when shooting and/or accelerating
 	if p.shooting and not p.accelerating:
-		regen_time_mult = 0.5
+		regen_time_mult = regen_time_mult_1_decrease
 	elif p.accelerating and not p.shooting:
-		regen_time_mult = 0.5
+		regen_time_mult = regen_time_mult_1_decrease
 	elif p.accelerating and p.shooting:
-		regen_time_mult = 0.2
+		regen_time_mult = regen_time_mult_2_decrease
 	else:
 		regen_time_mult = 1
 
@@ -61,4 +64,5 @@ func _process(delta: float) -> void:
 	
 	regen_handling(delta)
 	
-	regen_bar.visible = health_component.hp < health_component.max_hp and not weapons_parent.current_weapon.reloading
+	#regen_bar.visible = health_component.hp < health_component.max_hp and not weapons_parent.current_weapon.reloading
+	regen_bar.visible = health_component.hp < health_component.max_hp

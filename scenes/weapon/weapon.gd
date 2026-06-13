@@ -12,15 +12,8 @@ var dir_to_mouse : Vector2 ## Normalized direction vector from the player to the
 var dist_to_mouse : float ## Distance from the player to the mouse
 var rand_spread_vector : Vector2
 
-var ammo : int
-
-var reloading : bool = false ## Checks if the weapon is reloading, if so, it disables shooting
-
-var r_tact_pressed : bool = false
-
 func _ready() -> void:
 	cooldown = weapon_stat_res.shoot_cooldown
-	ammo = weapon_stat_res.max_ammo
 
 func play_multi_sfx() -> void: ## For SFX that's supposed to play for each bullet rather than just once on shoot
 	pass

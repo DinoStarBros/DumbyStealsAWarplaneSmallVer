@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dl58yl2dpvjg5"]
+[gd_scene format=3 uid="uid://dl58yl2dpvjg5"]
 
 [ext_resource type="Script" uid="uid://1bitq3ccedpe" path="res://projectiles/ene_bullet/ene_bullet.gd" id="1_48foy"]
 [ext_resource type="Texture2D" uid="uid://bij3lt28bf2wm" path="res://Art/planestuff/fx/bulletweffect-Sheet.png" id="3_0ogdf"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="3_3msem"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="4_kltra"]
-[ext_resource type="PackedScene" uid="uid://b2ejnn1khd4ym" path="res://CompositionStuff/ProjectileVelocity/projectile_velocity_component.tscn" id="5_uykbo"]
 [ext_resource type="PackedScene" uid="uid://cws7vtcpgit8n" path="res://CompositionStuff/ProjectileOnHitFX/projectile_on_hit_fx_component.tscn" id="6_mmogq"]
 [ext_resource type="PackedScene" uid="uid://cm6eyufvsuku1" path="res://CompositionStuff/ProjectileStatsAllocator/projectile_stats_allocator.tscn" id="8_lv3t5"]
 
@@ -114,28 +113,26 @@ _data = {
 [sub_resource type="Gradient" id="Gradient_kltra"]
 colors = PackedColorArray(1, 0.230469, 0.230469, 1, 1, 1, 1, 1)
 
-[node name="ene_bullet" type="Node2D"]
+[node name="ene_bullet" type="Node2D" unique_id=1953400175]
 z_index = 2
 script = ExtResource("1_48foy")
 
-[node name="ProjectileStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component") instance=ExtResource("8_lv3t5")]
+[node name="ProjectileStatsAllocator" parent="." unique_id=1455738657 node_paths=PackedStringArray("hitbox_component") instance=ExtResource("8_lv3t5")]
 hitbox_component = NodePath("../HitboxComponent")
 
-[node name="ProjectileOnHitFXComponent" parent="." instance=ExtResource("6_mmogq")]
+[node name="ProjectileOnHitFXComponent" parent="." unique_id=1828820560 instance=ExtResource("6_mmogq")]
 
-[node name="ProjectileVelocityComponent" parent="." instance=ExtResource("5_uykbo")]
-
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("projectile_hit_fx_component") instance=ExtResource("3_3msem")]
+[node name="HitboxComponent" parent="." unique_id=1247180667 node_paths=PackedStringArray("projectile_hit_fx_component") instance=ExtResource("3_3msem")]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
 delete_after_hit = true
 projectile_hit_fx_component = NodePath("../ProjectileOnHitFXComponent")
 
-[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="hibc" type="CollisionShape2D" parent="HitboxComponent" unique_id=1619859027]
 shape = SubResource("CircleShape2D_0ogdf")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=984747079]
 amount = 40
 texture = SubResource("AtlasTexture_kltra")
 lifetime = 0.2
@@ -152,35 +149,31 @@ scale_amount_min = 0.3
 scale_amount_curve = SubResource("Curve_kltra")
 color_ramp = SubResource("Gradient_uykbo")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="." unique_id=1364933297]
 modulate = Color(1, 0.269531, 0.269531, 1)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("3_0ogdf")
 hframes = 12
 frame = 1
 
-[node name="sbright" type="Sprite2D" parent="."]
+[node name="sbright" type="Sprite2D" parent="." unique_id=1200162187]
 modulate = Color(1, 0.5030107, 0.65856844, 1)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("3_0ogdf")
 hframes = 12
 frame = 1
 
-[node name="anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8uk70")
-}
-autoplay = "start"
+[node name="anim" type="AnimationPlayer" parent="." unique_id=897075607]
+libraries/ = SubResource("AnimationLibrary_8uk70")
+autoplay = &"start"
 speed_scale = 5.0
 
-[node name="loop" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_uykbo")
-}
-autoplay = "loop"
+[node name="loop" type="AnimationPlayer" parent="." unique_id=1632706535]
+libraries/ = SubResource("AnimationLibrary_uykbo")
+autoplay = &"loop"
 speed_scale = 2.0
 
-[node name="trail_fx" parent="." instance=ExtResource("4_kltra")]
+[node name="trail_fx" parent="." unique_id=1634351685 instance=ExtResource("4_kltra")]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 30.0
 gradient = SubResource("Gradient_kltra")

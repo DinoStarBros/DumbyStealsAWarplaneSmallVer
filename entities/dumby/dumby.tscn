@@ -710,58 +710,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_2j3yl"]
 radius = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12q0g"]
-skew = Vector2(1, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_baqsm"]
-bg_color = Color(0.767262, 0.81099, 1.15514e-06, 1)
-skew = Vector2(1, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_hr56j"]
-font_color = Color(0, 0, 0, 1)
-outline_size = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8vb7"]
-bg_color = Color(0, 0, 0, 1)
-draw_center = false
-skew = Vector2(1, 0)
-border_width_left = 5
-border_width_top = 2
-border_width_right = 5
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5senk"]
-bg_color = Color(1, 1, 1, 1)
-skew = Vector2(1, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4tpm"]
-bg_color = Color(0.959404, 0.734123, 0.92243, 1)
-skew = Vector2(1, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq83w"]
-bg_color = Color(0, 0, 0, 1)
-skew = Vector2(1, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4unw"]
 bg_color = Color(0.501407, 0.501406, 0.501406, 1)
 skew = Vector2(1, 0)
@@ -1274,70 +1222,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="ammo" type="ProgressBar" parent="bars" unique_id=1931315204]
-layout_mode = 0
-offset_left = -102.0
-offset_top = -64.0
-offset_right = 102.0
-offset_bottom = -43.0
-mouse_filter = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_12q0g")
-theme_override_styles/fill = SubResource("StyleBoxFlat_baqsm")
-show_percentage = false
-
-[node name="ammo_txt" type="Label" parent="bars/ammo" unique_id=1949140034]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 1.0
-offset_right = 69.0
-offset_bottom = 50.0
-text = "24 / 24"
-label_settings = SubResource("LabelSettings_hr56j")
-
-[node name="reload_bar" type="ProgressBar" parent="bars" unique_id=1518799223]
-unique_name_in_owner = true
-z_index = 5
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 0
-offset_left = -141.0
-offset_top = -64.0
-offset_right = 159.0
-offset_bottom = -44.0
-theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_5senk")
-max_value = 1.0
-show_percentage = false
-
-[node name="max_ss_vis" type="ProgressBar" parent="bars" unique_id=1905399606]
-unique_name_in_owner = true
-z_index = 1
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 0
-offset_left = -141.0
-offset_top = -64.0
-offset_right = 159.0
-offset_bottom = -44.0
-theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_n4tpm")
-max_value = 1.0
-value = 0.6
-show_percentage = false
-
-[node name="min_ss_vis" type="ProgressBar" parent="bars" unique_id=420890852]
-unique_name_in_owner = true
-z_index = 1
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 0
-offset_left = -141.0
-offset_top = -64.0
-offset_right = 159.0
-offset_bottom = -44.0
-theme_override_styles/background = SubResource("StyleBoxFlat_u8vb7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_gq83w")
-max_value = 1.0
-value = 0.5
-show_percentage = false
 
 [node name="regen_bar" type="ProgressBar" parent="bars" unique_id=1058017462]
 unique_name_in_owner = true

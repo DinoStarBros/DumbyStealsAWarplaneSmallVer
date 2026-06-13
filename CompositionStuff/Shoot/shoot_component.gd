@@ -2,8 +2,8 @@ extends Node2D
 class_name ShootComponent
 
 @export var weapon_buff : WeaponBuffComponent
+@export var parent_weapon : Weapon
 
-var parent_weapon : Weapon
 var stats : WeaponStats
 var p : Dumby
 
@@ -13,8 +13,7 @@ var rand_spread_vector : Vector2
 var dir_to_mouse : Vector2
 
 func _ready() -> void:
-	parent_weapon = get_parent()
-	stats = parent_weapon.stats
+	stats = parent_weapon.weapon_stat_res
 	
 	await get_tree().process_frame
 	p = g.player
@@ -22,6 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	var current_weapon : Weapon = p.weapons_parent.current_weapon
+	#print(current_weapon.weapon_stat_res)
 	if current_weapon != parent_weapon:
 		return
 	
@@ -31,7 +31,6 @@ func shooting_handling(delta:float) -> void:
 	if p.shooting and can_shoot:
 		parent_weapon.play_sfx()
 		
-		parent_weapon.ammo -= stats.ammo_use - weapon_buff.current_ammo_use_buff
 		p.Shoot.emit()
 		
 		can_shoot = false
@@ -47,7 +46,8 @@ func shooting_handling(delta:float) -> void:
 	
 	# Handling for the shooting cooldown
 	can_shoot = cooldown <= 0 # U can shoot once cooldown is less than 0
-	cooldown = max(0, cooldown - (delta * weapon_buff.current_shoot_cooldown_buff)) # Reduces the cooldown, also limit to not be less than 0
+	cooldown = max(0, cooldown - (delta * weapon_buff.current_shoot_cooldown_buff))
+	print(weapon_buff.current_shoot_cooldown_buff)
 
 func spawn_bullet() -> void:
 	rand_spread_vector.x = randf_range(-stats.random_spread, stats.random_spread)

@@ -15,3 +15,6 @@ var dmg : float = 999999
 var velocity : Vector2 = Vector2(6, 7)
 
 var weapon_parent_stats : WeaponStats ## The stats of the weapon that shot this projectile out
+
+func move(delta: float) -> void:
+	global_position += velocity * delta

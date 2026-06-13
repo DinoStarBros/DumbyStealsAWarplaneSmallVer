@@ -54,7 +54,9 @@ stream = ExtResource("6_2cble")
 volume_db = -30.0
 bus = &"sfx"
 
-[node name="ShootComponent" parent="." unique_id=1916115547 node_paths=PackedStringArray("weapon_buff") instance=ExtResource("2_pxh0k")]
+[node name="ShootComponent" parent="." unique_id=1916115547 node_paths=PackedStringArray("weapon_buff", "parent_weapon") instance=ExtResource("2_pxh0k")]
 weapon_buff = NodePath("../WeaponBuffComponent")
+parent_weapon = NodePath("..")
 
-[node name="WeaponBuffComponent" parent="." unique_id=1327973188 instance=ExtResource("3_jfcw2")]
+[node name="WeaponBuffComponent" parent="." unique_id=1327973188 node_paths=PackedStringArray("parent_weapon") instance=ExtResource("3_jfcw2")]
+parent_weapon = NodePath("..")
