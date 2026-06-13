@@ -36,4 +36,13 @@ func _process(delta: float) -> void:
 		current_bullet_lifetime_buff = weapon_stats.bullet_lifetime_buff
 		current_shoot_delay_buff = weapon_stats.shoot_delay_buff
 		current_damage_buff = 1 + weapon_stats.damage_buff
+	else:
+		# Not buffed, no stat improvement
 		
+		current_shoot_cooldown_buff = 1
+		current_bullet_spd_buff = 1
+		current_bullet_amnt_buff = 0
+		current_random_spread_buff = 0
+		current_bullet_lifetime_buff = 0
+		current_shoot_delay_buff = 0
+		current_damage_buff = 1

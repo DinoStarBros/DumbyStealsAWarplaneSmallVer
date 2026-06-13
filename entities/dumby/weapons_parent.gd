@@ -8,11 +8,12 @@ var current_weapon : Weapon
 const weapon_scn : PackedScene = preload("res://scenes/weapon/weapon.tscn")
 const weapon_stat_resources : Dictionary = {
 	"Rapid": "res://resources/weapon_stats/Rapid.tres",
-	
+	"Shotgun": "res://resources/weapon_stats/Shotgun.tres",
+	"BurstRifle": "res://resources/weapon_stats/BurstRifle.tres"
 }
 
 func _ready() -> void:
-	add_weapon(preload(weapon_stat_resources["Rapid"]))
+	add_weapon(preload(weapon_stat_resources["BurstRifle"]))
 
 func add_weapon(weapon_res: WeaponStats) -> void:
 	var weapon_node : Weapon = weapon_scn.instantiate()

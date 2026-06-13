@@ -21,7 +21,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	var current_weapon : Weapon = p.weapons_parent.current_weapon
-	#print(current_weapon.weapon_stat_res)
 	if current_weapon != parent_weapon:
 		return
 	
@@ -47,7 +46,6 @@ func shooting_handling(delta:float) -> void:
 	# Handling for the shooting cooldown
 	can_shoot = cooldown <= 0 # U can shoot once cooldown is less than 0
 	cooldown = max(0, cooldown - (delta * weapon_buff.current_shoot_cooldown_buff))
-	print(weapon_buff.current_shoot_cooldown_buff)
 
 func spawn_bullet() -> void:
 	rand_spread_vector.x = randf_range(-stats.random_spread, stats.random_spread)
