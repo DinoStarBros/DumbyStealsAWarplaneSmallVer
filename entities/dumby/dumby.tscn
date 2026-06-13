@@ -1152,11 +1152,10 @@ shape = SubResource("RectangleShape2D_s884c")
 [node name="regen_handler" type="Node" parent="." unique_id=1059995560]
 script = ExtResource("39_7fad1")
 
-[node name="weapons_parent" type="Node2D" parent="." unique_id=1980094707 node_paths=PackedStringArray("dumby", "ammo_bar")]
+[node name="weapons_parent" type="Node2D" parent="." unique_id=1980094707 node_paths=PackedStringArray("dumby")]
 unique_name_in_owner = true
 script = ExtResource("19_ufwy4")
 dumby = NodePath("..")
-ammo_bar = NodePath("../bars/ammo")
 
 [node name="muzzle_flash" type="Sprite2D" parent="weapons_parent" unique_id=384253612]
 visible = false
@@ -1959,7 +1958,6 @@ offset_right = 310.0
 offset_bottom = 670.0
 text = "AYYY ITS ME"
 
-[connection signal="Perfect_Roll" from="evade_box" to="weapons_parent" method="_on_evade_box_perfect_roll"]
 [connection signal="area_entered" from="evade_box" to="evade_box" method="_on_area_entered"]
 [connection signal="pressed" from="GUI/yLost/buttons/menu" to="GUI" method="_on_menu_pressed"]
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/resume" to="GUI" method="_on_resume_pressed"]
