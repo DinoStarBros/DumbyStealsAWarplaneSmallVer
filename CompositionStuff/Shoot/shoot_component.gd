@@ -29,13 +29,12 @@ func _process(delta: float) -> void:
 func shooting_handling(delta:float) -> void:
 	if p.shooting and can_shoot:
 		parent_weapon.play_single_sfx()
+		parent_weapon.play_muzzle_flash()
 		
 		p.Shoot.emit()
 		
 		can_shoot = false
 		cooldown = stats.shoot_cooldown
-		
-		#print(stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff))
 		
 		for n in stats.bullet_amnt + weapon_buff.current_bullet_amnt_buff:
 			parent_weapon.play_multi_sfx()

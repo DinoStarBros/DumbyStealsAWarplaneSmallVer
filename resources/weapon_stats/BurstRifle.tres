@@ -14,4 +14,5 @@ shoot_delay = 0.075
 bullet_scn = ExtResource("1_b7wv1")
 single_sfx = Array[int]([5])
 multi_sfx = Array[int]([4])
+muzzle_flashes = Array[int]([0])
 metadata/_custom_type_script = "uid://2egkgwj5n4iw"

@@ -13,4 +13,5 @@ bullet_lifetime = 2.0
 bullet_scn = ExtResource("1_wunjo")
 shoot_cooldown_buff = 0.3
 single_sfx = Array[int]([0, 1])
+muzzle_flashes = Array[int]([0])
 metadata/_custom_type_script = "uid://2egkgwj5n4iw"

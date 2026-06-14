@@ -4,12 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://3a2p5v3u54yt" path="res://scenes/weapon/WeaponSFXHandler/weapons_sfx_handler.tscn" id="2_lopa8"]
 [ext_resource type="PackedScene" uid="uid://b2ia1p1j58a6q" path="res://CompositionStuff/Shoot/shoot_component.tscn" id="2_pxh0k"]
 [ext_resource type="PackedScene" uid="uid://ccg65bklijwd8" path="res://CompositionStuff/WeaponBuff/weapon_buff_component.tscn" id="3_jfcw2"]
+[ext_resource type="PackedScene" uid="uid://0vckg7ju2k2j" path="res://scenes/weapon/WeaponMuzzleFlash/weapon_muzzle_flash.tscn" id="3_ylpk0"]
 
-[node name="Weapon" type="Node2D" unique_id=1735454948 node_paths=PackedStringArray("weapon_sfx_handler")]
+[node name="Weapon" type="Node2D" unique_id=1735454948 node_paths=PackedStringArray("weapon_sfx_handler", "weapon_muzzle_flash")]
 script = ExtResource("1_rma5x")
 weapon_sfx_handler = NodePath("WeaponsSFXHandler")
+weapon_muzzle_flash = NodePath("WeaponMuzzleFlash")
 
 [node name="WeaponsSFXHandler" parent="." unique_id=1878118677 node_paths=PackedStringArray("weapon_parent") instance=ExtResource("2_lopa8")]
+weapon_parent = NodePath("..")
+
+[node name="WeaponMuzzleFlash" parent="." unique_id=1834918104 node_paths=PackedStringArray("weapon_parent") instance=ExtResource("3_ylpk0")]
 weapon_parent = NodePath("..")
 
 [node name="ShootComponent" parent="." unique_id=1916115547 node_paths=PackedStringArray("weapon_buff", "parent_weapon") instance=ExtResource("2_pxh0k")]

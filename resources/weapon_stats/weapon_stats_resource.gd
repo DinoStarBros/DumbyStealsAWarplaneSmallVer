@@ -30,3 +30,6 @@ class_name WeaponStats
 @export var single_sfx : Array[WeaponsSFXHandler.weapon_sfx]
 @export var multi_sfx : Array[WeaponsSFXHandler.weapon_sfx]
 #@export var sfx : Array[WeaponsSFXHandler.weapon_sfx]
+
+@export_category("Muzzle Flash")
+@export var muzzle_flashes : Array[WeaponMuzzleFlash.muzzle_flash_types]

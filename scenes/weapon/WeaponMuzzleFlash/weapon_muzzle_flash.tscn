@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://0vckg7ju2k2j"]
+
+[ext_resource type="Script" uid="uid://o3yc6l5ltaqg" path="res://scenes/weapon/WeaponMuzzleFlash/weapon_muzzle_flash.gd" id="1_hy84m"]
+[ext_resource type="Texture2D" uid="uid://bqubavsk5td7m" path="res://Art/newsprites.png" id="2_1xuk5"]
+
+[sub_resource type="Animation" id="Animation_1cleh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mf1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mf1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1xuk5"]
+resource_name = "mf1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mf1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mf1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1cleh"]
+_data = {
+&"RESET": SubResource("Animation_1cleh"),
+&"mf1": SubResource("Animation_1xuk5")
+}
+
+[node name="WeaponMuzzleFlash" type="Node2D" unique_id=1834918104]
+script = ExtResource("1_hy84m")
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=528517125]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_1cleh")
+
+[node name="mf1" type="Sprite2D" parent="." unique_id=317399507]
+visible = false
+position = Vector2(16, 0)
+texture = ExtResource("2_1xuk5")
+hframes = 3
+vframes = 3
+frame = 7
