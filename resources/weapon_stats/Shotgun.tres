@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://2egkgwj5n4iw" path="res://resources/weapon_stats/weapon_stats_resource.gd" id="1_hua0a"]
 [ext_resource type="PackedScene" uid="uid://c4npyu2732suj" path="res://projectiles/plr_bullet/bullet.tscn" id="1_yo2f7"]
+[ext_resource type="Texture2D" uid="uid://clq1vvv04td4q" path="res://Art/Ase files/gun-icons.aseprite" id="3_krqor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krqor"]
+atlas = ExtResource("3_krqor")
+region = Rect2(16, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_hua0a")
 weapon_key = "shotgun"
+texture = SubResource("AtlasTexture_krqor")
 shoot_cooldown = 0.4
 bullet_spd = 2000
 bullet_amnt = 10

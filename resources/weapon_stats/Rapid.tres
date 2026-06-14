@@ -2,10 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://c4npyu2732suj" path="res://projectiles/plr_bullet/bullet.tscn" id="1_wunjo"]
 [ext_resource type="Script" uid="uid://2egkgwj5n4iw" path="res://resources/weapon_stats/weapon_stats_resource.gd" id="2_506of"]
+[ext_resource type="Texture2D" uid="uid://clq1vvv04td4q" path="res://Art/Ase files/gun-icons.aseprite" id="3_wn28l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqtwg"]
+atlas = ExtResource("3_wn28l")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_506of")
 weapon_key = "rapid"
+texture = SubResource("AtlasTexture_jqtwg")
 shoot_cooldown = 0.15
 bullet_spd = 2500
 random_spread = 0.12

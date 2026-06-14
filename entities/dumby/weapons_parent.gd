@@ -18,7 +18,6 @@ const weapon_stat_resources : Dictionary = {
 }
 
 func _ready() -> void:
-	#add_weapon(weapon_stat_resources["BurstRifle"])
 	for value in weapon_stat_resources.values():
 		add_weapon(value)
 

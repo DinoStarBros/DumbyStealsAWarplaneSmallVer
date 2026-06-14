@@ -1,8 +1,11 @@
 extends Resource
 class_name WeaponStats
 
+@export_category("Visuals Stuff")
 @export var weapon_key : String
+@export var texture : Texture2D
 
+@export_category("Stats")
 @export var shoot_cooldown : float = 0.1 ## The amount of time (in seconds) each shot will take before shooting again
 @export var bullet_spd : int = 1500 ## Speed of the bullet
 @export var bullet_amnt : int = 1 ## How many bullets will come out per shot
