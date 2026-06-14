@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcy6ixke8uwmr"]
-
-[ext_resource type="Script" uid="uid://f53ksmsocxl7" path="res://shop/upgrade_scenes/spd_up1/spd_up_1.gd" id="1_8cqfg"]
-
-[node name="spd_up1" type="Node2D"]
-script = ExtResource("1_8cqfg")

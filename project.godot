@@ -75,7 +75,6 @@ folder_colors={
 "res://scenes/": "green",
 "res://settingsMenu/": "teal",
 "res://shaders/": "blue",
-"res://shop/": "red",
 "res://timer/": "pink"
 }
 

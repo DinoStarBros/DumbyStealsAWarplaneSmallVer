@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 func shooting_handling(delta:float) -> void:
 	if p.shooting and can_shoot:
-		parent_weapon.play_sfx()
+		parent_weapon.play_single_sfx()
 		
 		p.Shoot.emit()
 		

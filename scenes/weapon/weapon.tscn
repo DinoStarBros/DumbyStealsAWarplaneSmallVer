@@ -1,58 +1,16 @@
 [gd_scene format=3 uid="uid://cxsnmjsyyng0u"]
 
 [ext_resource type="Script" uid="uid://bxygvcm265wh6" path="res://scenes/weapon/weapon.gd" id="1_rma5x"]
-[ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="2_nxwqm"]
+[ext_resource type="PackedScene" uid="uid://3a2p5v3u54yt" path="res://scenes/weapon/WeaponSFXHandler/weapons_sfx_handler.tscn" id="2_lopa8"]
 [ext_resource type="PackedScene" uid="uid://b2ia1p1j58a6q" path="res://CompositionStuff/Shoot/shoot_component.tscn" id="2_pxh0k"]
-[ext_resource type="Script" uid="uid://b1mi40cl3istv" path="res://scenes/weapon/weapons_sfx_handler.gd" id="2_yalmb"]
 [ext_resource type="PackedScene" uid="uid://ccg65bklijwd8" path="res://CompositionStuff/WeaponBuff/weapon_buff_component.tscn" id="3_jfcw2"]
-[ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="3_yalmb"]
-[ext_resource type="AudioStream" uid="uid://cjrha4kbrqcpl" path="res://Audio/planesfx/gunshot-352466.mp3" id="5_n78r0"]
-[ext_resource type="AudioStream" uid="uid://c6gvo4o6ts4u2" path="res://Audio/planesfx/machine-gun-307468.mp3" id="6_2cble"]
 
-[node name="Weapon" type="Node2D" unique_id=1735454948]
+[node name="Weapon" type="Node2D" unique_id=1735454948 node_paths=PackedStringArray("weapon_sfx_handler")]
 script = ExtResource("1_rma5x")
+weapon_sfx_handler = NodePath("WeaponsSFXHandler")
 
-[node name="WeaponsSFXHandler" type="Node" parent="." unique_id=635928014]
-script = ExtResource("2_yalmb")
-
-[node name="rapid1" type="AudioStreamPlayer" parent="WeaponsSFXHandler" unique_id=1240914791]
-unique_name_in_owner = true
-stream = ExtResource("2_nxwqm")
-volume_db = -15.0
-pitch_scale = 0.6
-bus = &"sfx"
-
-[node name="rapid2" type="AudioStreamPlayer" parent="WeaponsSFXHandler" unique_id=44637771]
-unique_name_in_owner = true
-stream = ExtResource("3_yalmb")
-volume_db = -20.0
-bus = &"sfx"
-
-[node name="shotgun1" type="AudioStreamPlayer" parent="WeaponsSFXHandler" unique_id=1661669951]
-unique_name_in_owner = true
-stream = ExtResource("5_n78r0")
-volume_db = -5.0
-pitch_scale = 0.8
-bus = &"sfx"
-
-[node name="shotgun2" type="AudioStreamPlayer" parent="WeaponsSFXHandler" unique_id=387537293]
-unique_name_in_owner = true
-stream = ExtResource("3_yalmb")
-volume_db = -16.0
-pitch_scale = 1.2
-bus = &"sfx"
-
-[node name="burstRifle1" type="AudioStreamPlayer" parent="WeaponsSFXHandler" unique_id=982182284]
-unique_name_in_owner = true
-stream = ExtResource("5_n78r0")
-volume_db = -10.0
-bus = &"sfx"
-
-[node name="burstRifle2" type="AudioStreamPlayer" parent="WeaponsSFXHandler" unique_id=2056559541]
-unique_name_in_owner = true
-stream = ExtResource("6_2cble")
-volume_db = -30.0
-bus = &"sfx"
+[node name="WeaponsSFXHandler" parent="." unique_id=1878118677 node_paths=PackedStringArray("weapon_parent") instance=ExtResource("2_lopa8")]
+weapon_parent = NodePath("..")
 
 [node name="ShootComponent" parent="." unique_id=1916115547 node_paths=PackedStringArray("weapon_buff", "parent_weapon") instance=ExtResource("2_pxh0k")]
 weapon_buff = NodePath("../WeaponBuffComponent")

@@ -1,23 +1,17 @@
-[gd_resource type="Resource" script_class="WeaponStats" load_steps=3 format=3 uid="uid://1i3gk7oanohg"]
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://1i3gk7oanohg"]
 
-[ext_resource type="Script" uid="uid://2egkgwj5n4iw" path="res://resources/weapon_stats_resource.gd" id="1_5gggi"]
+[ext_resource type="Script" uid="uid://2egkgwj5n4iw" path="res://resources/weapon_stats/weapon_stats_resource.gd" id="1_5gggi"]
 [ext_resource type="PackedScene" uid="uid://c4npyu2732suj" path="res://projectiles/plr_bullet/bullet.tscn" id="1_b7wv1"]
 
 [resource]
 script = ExtResource("1_5gggi")
+weapon_key = "burst_rifle"
 shoot_cooldown = 0.35
 bullet_spd = 2500
 bullet_amnt = 3
 random_spread = 0.075
 shoot_delay = 0.075
 bullet_scn = ExtResource("1_b7wv1")
-max_ammo = 99
-ammo_use = 3
-max_reload_duration = 1.6
-min_sweet_spot = 0.8
-max_sweet_spot = 1.2
-max_buff_time = 3.0
-qr_shoot_cooldown = 0.1
-qr_shoot_delay = 0.2
-db_bullet_spd = 0.2
+single_sfx = Array[int]([5])
+multi_sfx = Array[int]([4])
 metadata/_custom_type_script = "uid://2egkgwj5n4iw"

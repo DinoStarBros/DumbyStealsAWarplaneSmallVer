@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://3a2p5v3u54yt"]
+
+[ext_resource type="Script" uid="uid://b1mi40cl3istv" path="res://scenes/weapon/WeaponSFXHandler/weapons_sfx_handler.gd" id="1_rpjfu"]
+[ext_resource type="AudioStream" uid="uid://dtq0aduiy7nn4" path="res://Audio/gunshot.wav" id="2_gila7"]
+[ext_resource type="AudioStream" uid="uid://rfxisnyv0d1i" path="res://Audio/pistol-shot-233473.mp3" id="3_ra45h"]
+[ext_resource type="AudioStream" uid="uid://cjrha4kbrqcpl" path="res://Audio/planesfx/gunshot-352466.mp3" id="4_ikn55"]
+[ext_resource type="AudioStream" uid="uid://c6gvo4o6ts4u2" path="res://Audio/planesfx/machine-gun-307468.mp3" id="5_8fb6b"]
+[ext_resource type="Script" uid="uid://nu6h3f73t77r" path="res://scenes/weapon/WeaponSFXHandler/asp_node_player.gd" id="6_gila7"]
+
+[node name="WeaponsSFXHandler" type="Node" unique_id=1878118677]
+script = ExtResource("1_rpjfu")
+
+[node name="gun1" type="AudioStreamPlayer" parent="." unique_id=2057559149]
+unique_name_in_owner = true
+stream = ExtResource("2_gila7")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="gun2" type="AudioStreamPlayer" parent="." unique_id=493293132]
+unique_name_in_owner = true
+stream = ExtResource("3_ra45h")
+volume_db = -25.0
+pitch_scale = 1.2
+bus = &"sfx"
+
+[node name="gun3" type="AudioStreamPlayer" parent="." unique_id=1000171538]
+unique_name_in_owner = true
+stream = ExtResource("4_ikn55")
+volume_db = -10.0
+pitch_scale = 1.2
+bus = &"sfx"
+
+[node name="gun4" type="AudioStreamPlayer" parent="." unique_id=1267844374]
+unique_name_in_owner = true
+stream = ExtResource("3_ra45h")
+volume_db = -16.0
+pitch_scale = 0.8
+bus = &"sfx"
+
+[node name="gun5" type="AudioStreamPlayer" parent="." unique_id=939517341]
+unique_name_in_owner = true
+stream = ExtResource("4_ikn55")
+volume_db = -10.0
+pitch_scale = 0.8
+bus = &"sfx"
+
+[node name="gun6" type="AudioStreamPlayer" parent="." unique_id=2144485211]
+unique_name_in_owner = true
+stream = ExtResource("5_8fb6b")
+volume_db = -30.0
+bus = &"sfx"
+
+[node name="ASPNodePlayer" type="Node" parent="." unique_id=2015445275]
+unique_name_in_owner = true
+script = ExtResource("6_gila7")

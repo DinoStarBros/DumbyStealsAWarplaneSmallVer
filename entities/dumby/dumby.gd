@@ -113,7 +113,6 @@ func Dead(_attack:Attack)->void:
 	set_physics_process(false)
 	%explod.play(.4)
 	weapons_parent.process_mode = Node.PROCESS_MODE_DISABLED
-	%Abilities.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	%menu.grab_focus()
 	

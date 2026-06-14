@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddphh0awjovmw"]
-
-[ext_resource type="Script" uid="uid://b60fg20f2f8p7" path="res://shop/upgrade_scenes/hm_shooter1/hm_shooter_1.gd" id="1_3ump7"]
-
-[node name="hm_shooter1" type="Node2D"]
-script = ExtResource("1_3ump7")
