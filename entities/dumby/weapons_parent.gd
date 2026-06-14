@@ -5,9 +5,12 @@ class_name WeaponsParent
 
 @onready var rotation_component: RotationComponent = %RotationComponent
 @onready var switch_sfx: AudioStreamPlayer = %switch
+@onready var evade_box: Evade = %evade_box
+@onready var curr_weapon_txt: Label = %curr_weap
 
 var current_weapon : Weapon
 var current_weapon_idx : int
+var buff_time : float = 0
 
 const weapon_scn : PackedScene = preload("res://scenes/weapon/weapon.tscn")
 const weapon_stat_resources : Dictionary = {
@@ -18,8 +21,14 @@ const weapon_stat_resources : Dictionary = {
 }
 
 func _ready() -> void:
+	evade_box.Perfect_Roll.connect(
+		func():
+		buff_time = 5
+	)
 	for value in weapon_stat_resources.values():
 		add_weapon(value)
+	current_weapon_idx = 0
+	switch_weapon(0)
 
 func add_weapon(weapon_res: WeaponStats) -> void:
 	var weapon_node : Weapon = weapon_scn.instantiate()
@@ -27,8 +36,11 @@ func add_weapon(weapon_res: WeaponStats) -> void:
 	weapon_node.plr_rotation_component = rotation_component
 	add_child(weapon_node)
 	current_weapon = weapon_node
+	weapon_visuals()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	buff_time = max(0, buff_time - delta)
+	
 	if Input.is_action_just_pressed("next_weapon"):
 		switch_weapon(1)
 	elif Input.is_action_just_pressed("prev_weapon"):
@@ -41,3 +53,7 @@ func switch_weapon(change: int) -> void:
 	current_weapon_idx += change
 	current_weapon_idx = wrapi(current_weapon_idx, 0, get_child_count())
 	current_weapon = get_child(current_weapon_idx)
+	weapon_visuals()
+
+func weapon_visuals() -> void:
+	curr_weapon_txt.text = str(current_weapon.weapon_stat_res.weapon_key)

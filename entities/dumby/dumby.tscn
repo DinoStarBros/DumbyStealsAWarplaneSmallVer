@@ -368,6 +368,44 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s3yb"]
 radius = 50.0
 
+[sub_resource type="Animation" id="Animation_02re0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_s884c"]
+resource_name = "prfxAnimation"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02re0"]
+_data = {
+&"RESET": SubResource("Animation_02re0"),
+&"prfxAnimation": SubResource("Animation_s884c")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmt67"]
 size = Vector2(4, 4)
 
@@ -549,45 +587,6 @@ _data = {
 
 [sub_resource type="Gradient" id="Gradient_jrsuo"]
 colors = PackedColorArray(1, 0.33175024, 0.26607296, 1, 1, 0.86181915, 0.31624913, 1)
-
-[sub_resource type="Animation" id="Animation_etwne"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("trail_fx:MAX_LENGTH")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_jrsuo"]
-resource_name = "loop"
-length = 2.0
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("trail_fx:MAX_LENGTH")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [20, 0, 20]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h23mg"]
-_data = {
-&"RESET": SubResource("Animation_etwne"),
-&"loop": SubResource("Animation_jrsuo")
-}
 
 [sub_resource type="Curve" id="Curve_12dy5"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.733333, 0.820225), -0.796731, -0.796731, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -942,6 +941,7 @@ turn_speed = 4.0
 thing_to_rotate = NodePath("../PlaneSprite")
 
 [node name="evade_box" type="Area2D" parent="." unique_id=1729978821]
+unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("39_pctjt")
@@ -950,6 +950,19 @@ script = ExtResource("39_pctjt")
 rotation = 1.5708
 shape = SubResource("CircleShape2D_4s3yb")
 disabled = true
+
+[node name="PerfectRollFX" type="Sprite2D" parent="evade_box" unique_id=806354197]
+z_index = 2
+scale = Vector2(6, 6)
+texture = ExtResource("13_12q0g")
+hframes = 5
+frame = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 64)
+
+[node name="prfxAnim" type="AnimationPlayer" parent="evade_box/PerfectRollFX" unique_id=918145858]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_02re0")
 
 [node name="c" type="CollisionShape2D" parent="." unique_id=787796752]
 shape = SubResource("RectangleShape2D_qmt67")
@@ -1094,11 +1107,6 @@ unique_name_in_owner = true
 position = Vector2(2, 0)
 width = 20.0
 gradient = SubResource("Gradient_jrsuo")
-MAX_LENGTH = 0
-
-[node name="testthing" type="AnimationPlayer" parent="PlaneSprite/tp" unique_id=1642610554]
-libraries/ = SubResource("AnimationLibrary_h23mg")
-autoplay = &"loop"
 
 [node name="trailparticle" type="CPUParticles2D" parent="PlaneSprite" unique_id=1347897901]
 unique_name_in_owner = true
@@ -1188,9 +1196,9 @@ hframes = 3
 vframes = 3
 frame = 1
 
-[node name="rollnim" type="AnimationPlayer" parent="animationPlayers" unique_id=225989693]
+[node name="rollnim" type="AnimationPlayer" parent="animationPlayers/Shockwave-sheet" unique_id=225989693]
 unique_name_in_owner = true
-root_node = NodePath("../..")
+root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_pctjt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=243054906 node_paths=PackedStringArray("target")]
@@ -1606,7 +1614,6 @@ offset_right = 310.0
 offset_bottom = 670.0
 text = "AYYY ITS ME"
 
-[connection signal="area_entered" from="evade_box" to="evade_box" method="_on_area_entered"]
 [connection signal="pressed" from="GUI/yLost/buttons/menu" to="GUI" method="_on_menu_pressed"]
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/resume" to="GUI" method="_on_resume_pressed"]
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/quit" to="GUI" method="_on_quit_pressed"]
