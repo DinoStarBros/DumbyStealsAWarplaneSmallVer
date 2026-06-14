@@ -7,7 +7,7 @@ func play_AudioStreamPlayer(
 	node: AudioStreamPlayer,
 	start_point: float = 0.0,
 	base_pitch: float = 1.0,
-	pitch_rand: float = 0.1,
+	pitch_rand: float = 0.2,
 	delay: float = 0.0
 	
 ) -> void:

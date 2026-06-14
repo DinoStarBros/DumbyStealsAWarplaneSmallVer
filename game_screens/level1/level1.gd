@@ -8,7 +8,6 @@ const right_bound : = 14000
 const up_bound : = -6674
 const down_bound : = 2583
 func _ready() -> void:
-	MusicManager.stop_all_songs()
 	
 	%FloorHitBox.set_attack_properties(30)
 	g.game_state = g.game_states.Combat

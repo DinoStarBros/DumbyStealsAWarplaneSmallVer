@@ -13,7 +13,7 @@ const weapon_stat_resources : Dictionary = {
 }
 
 func _ready() -> void:
-	add_weapon(preload(weapon_stat_resources["BurstRifle"]))
+	add_weapon(preload(weapon_stat_resources["Shotgun"]))
 
 func add_weapon(weapon_res: WeaponStats) -> void:
 	var weapon_node : Weapon = weapon_scn.instantiate()

@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# This some Yandere Dev coding type shii
-	var buffed : bool = false#p.weapons_parent.dodge_buffed
+	var buffed : bool = true#false#p.weapons_parent.dodge_buffed
 	
 	if buffed:
 		# Stats getting improved when buffed

@@ -35,13 +35,16 @@ func shooting_handling(delta:float) -> void:
 		can_shoot = false
 		cooldown = stats.shoot_cooldown
 		
+		#print(stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff))
+		
 		for n in stats.bullet_amnt + weapon_buff.current_bullet_amnt_buff:
 			parent_weapon.play_multi_sfx()
 			spawn_bullet()
 			
-			await get_tree().create_timer(
-				stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff)
-			).timeout 
+			var sdelay : float = stats.shoot_delay - (stats.shoot_delay * weapon_buff.current_shoot_delay_buff)
+			
+			if sdelay > 0.0:
+				await get_tree().create_timer(sdelay).timeout 
 	
 	# Handling for the shooting cooldown
 	can_shoot = cooldown <= 0 # U can shoot once cooldown is less than 0

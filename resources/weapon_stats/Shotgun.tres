@@ -13,4 +13,5 @@ random_spread = 0.5
 bullet_lifetime = 0.4
 base_damage = 4.0
 bullet_scn = ExtResource("1_yo2f7")
+single_sfx = Array[int]([2, 3])
 metadata/_custom_type_script = "uid://2egkgwj5n4iw"

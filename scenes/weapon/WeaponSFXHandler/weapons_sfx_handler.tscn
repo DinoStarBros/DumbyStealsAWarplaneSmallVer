@@ -13,7 +13,7 @@ script = ExtResource("1_rpjfu")
 [node name="gun1" type="AudioStreamPlayer" parent="." unique_id=2057559149]
 unique_name_in_owner = true
 stream = ExtResource("2_gila7")
-volume_db = -10.0
+volume_db = -15.0
 bus = &"sfx"
 
 [node name="gun2" type="AudioStreamPlayer" parent="." unique_id=493293132]
@@ -41,7 +41,7 @@ bus = &"sfx"
 unique_name_in_owner = true
 stream = ExtResource("4_ikn55")
 volume_db = -10.0
-pitch_scale = 0.8
+pitch_scale = 1.2
 bus = &"sfx"
 
 [node name="gun6" type="AudioStreamPlayer" parent="." unique_id=2144485211]

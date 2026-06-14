@@ -6,8 +6,11 @@
 [resource]
 script = ExtResource("2_506of")
 weapon_key = "rapid"
+shoot_cooldown = 0.15
 bullet_spd = 2500
 random_spread = 0.12
 bullet_lifetime = 2.0
 bullet_scn = ExtResource("1_wunjo")
+shoot_cooldown_buff = 0.3
+single_sfx = Array[int]([0, 1])
 metadata/_custom_type_script = "uid://2egkgwj5n4iw"

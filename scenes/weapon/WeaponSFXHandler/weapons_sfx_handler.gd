@@ -20,9 +20,9 @@ func identify_and_play_sfx_type(sfx: weapon_sfx) -> void:
 		weapon_sfx.Gun2:
 			aspnp.play_AudioStreamPlayer(%gun2, 0.16, 1.2)
 		weapon_sfx.Gun3:
-			aspnp.play_AudioStreamPlayer(%gun3, 0.08, 1.2)
+			aspnp.play_AudioStreamPlayer(%gun3, 0.08, 0.8)
 		weapon_sfx.Gun4:
-			aspnp.play_AudioStreamPlayer(%gun4, 0.16, 0.8)
+			aspnp.play_AudioStreamPlayer(%gun4, 0.16, 1.2)
 		weapon_sfx.Gun5:
 			aspnp.play_AudioStreamPlayer(%gun5, 0.08, 0.8)
 		weapon_sfx.Gun6:

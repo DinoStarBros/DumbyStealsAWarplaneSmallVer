@@ -954,7 +954,7 @@ disabled = true
 [node name="c" type="CollisionShape2D" parent="." unique_id=787796752]
 shape = SubResource("RectangleShape2D_qmt67")
 
-[node name="sfx" type="Node2D" parent="." unique_id=708456896]
+[node name="sfx" type="Node" parent="." unique_id=1297681743]
 
 [node name="shoot" type="AudioStreamPlayer" parent="sfx" unique_id=1597805336]
 unique_name_in_owner = true
@@ -1032,7 +1032,7 @@ bus = &"sfx"
 [node name="heal" type="AudioStreamPlayer" parent="sfx" unique_id=1386709872]
 unique_name_in_owner = true
 stream = ExtResource("18_oaelq")
-volume_db = -10.0
+volume_db = -25.0
 pitch_scale = 0.7
 bus = &"sfx"
 
@@ -1502,6 +1502,7 @@ label_settings = SubResource("LabelSettings_h23mg")
 
 [node name="black_bars" type="Node2D" parent="GUI" unique_id=493419177]
 unique_name_in_owner = true
+visible = false
 position = Vector2(640, 360)
 scale = Vector2(2, 2)
 

@@ -18,3 +18,6 @@ var weapon_parent_stats : WeaponStats ## The stats of the weapon that shot this 
 
 func move(delta: float) -> void:
 	global_position += velocity * delta
+
+func _physics_process(delta: float) -> void:
+	move(delta)
