@@ -73,7 +73,8 @@ libraries/ = SubResource("AnimationLibrary_1cleh")
 
 [node name="mf1" type="Sprite2D" parent="." unique_id=317399507]
 visible = false
-position = Vector2(16, 0)
+position = Vector2(64, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("2_1xuk5")
 hframes = 3
 vframes = 3

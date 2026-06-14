@@ -3,6 +3,8 @@ class_name WeaponsParent
 
 @export var dumby : Dumby
 
+@onready var rotation_component: RotationComponent = %RotationComponent
+
 var current_weapon : Weapon
 
 const weapon_scn : PackedScene = preload("res://scenes/weapon/weapon.tscn")
@@ -13,10 +15,11 @@ const weapon_stat_resources : Dictionary = {
 }
 
 func _ready() -> void:
-	add_weapon(preload(weapon_stat_resources["Shotgun"]))
+	add_weapon(preload(weapon_stat_resources["BurstRifle"]))
 
 func add_weapon(weapon_res: WeaponStats) -> void:
 	var weapon_node : Weapon = weapon_scn.instantiate()
 	weapon_node.weapon_stat_res = weapon_res
+	weapon_node.plr_rotation_component = rotation_component
 	add_child(weapon_node)
 	current_weapon = weapon_node

@@ -10,6 +10,7 @@ var cooldown : float = 0
 var dir_to_mouse : Vector2 ## Normalized direction vector from the player to the mouse
 var dist_to_mouse : float ## Distance from the player to the mouse
 var rand_spread_vector : Vector2
+var plr_rotation_component : RotationComponent
 
 func _ready() -> void:
 	cooldown = weapon_stat_res.shoot_cooldown
@@ -22,3 +23,6 @@ func play_multi_sfx() -> void: ## For SFX that's supposed to play for each bulle
 
 func play_muzzle_flash() -> void:
 	weapon_muzzle_flash.play_muzzle_flash_anim()
+
+func _physics_process(delta: float) -> void:
+	weapon_muzzle_flash.look_at(global_position + plr_rotation_component.direction)
