@@ -69,7 +69,6 @@ folder_colors={
 "res://input_mapper/": "purple",
 "res://juices/": "pink",
 "res://projectiles/": "red",
-"res://projectiles/other_stuff/": "orange",
 "res://resources/": "orange",
 "res://saveSystem/": "yellow",
 "res://scenes/": "green",

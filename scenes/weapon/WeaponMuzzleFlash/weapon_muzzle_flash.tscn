@@ -67,7 +67,7 @@ _data = {
 [node name="WeaponMuzzleFlash" type="Node2D" unique_id=1834918104]
 script = ExtResource("1_hy84m")
 
-[node name="Anim" type="AnimationPlayer" parent="." unique_id=528517125]
+[node name="mf1Anim" type="AnimationPlayer" parent="." unique_id=528517125]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_1cleh")
 

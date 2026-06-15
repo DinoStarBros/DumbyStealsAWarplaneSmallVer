@@ -51,8 +51,8 @@ func _dir_matcher(_rot : float) -> int:
 	return round(index)
 
 func on_hurt(_attack: Attack) -> void:
-	#chrom_animation.play("chromab")
-	pass
+	chrom_animation.play("chromab")
+	#pass
 
 func on_start_cutscene(cutscene_dur: float) -> void:
 	# Black bars on top & bottom of screen appear
