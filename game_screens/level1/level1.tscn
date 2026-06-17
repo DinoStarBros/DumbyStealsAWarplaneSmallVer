@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bj5wj2g1r73gg" path="res://entities/chaser/chaser.tscn" id="6_va43r"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="7_6klb1"]
 [ext_resource type="PackedScene" uid="uid://bhp7st34wqg3f" path="res://entities/shooter/shooter.tscn" id="7_qffnt"]
+[ext_resource type="PackedScene" uid="uid://c7esk3tb2jl36" path="res://CompositionStuff/SkyEnemySpawner/sky_enemy_spawner.tscn" id="8_3k2b8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uk7y"]
 size = Vector2(124, 3162)
@@ -455,6 +456,7 @@ position = Vector2(0, -114.66699)
 shape = SubResource("RectangleShape2D_slubn")
 
 [node name="CLA" type="Area2D" parent="." unique_id=721841142]
+visible = false
 collision_layer = 512
 collision_mask = 512
 
@@ -1039,5 +1041,7 @@ position = Vector2(-1096, -810)
 
 [node name="EnemyArrows" type="CanvasLayer" parent="." unique_id=756682326]
 unique_name_in_owner = true
+
+[node name="SkyEnemySpawner" parent="." unique_id=447765832 instance=ExtResource("8_3k2b8")]
 
 [connection signal="timeout" from="airdef_spawner/adftimer" to="." method="_on_adftimer_timeout"]

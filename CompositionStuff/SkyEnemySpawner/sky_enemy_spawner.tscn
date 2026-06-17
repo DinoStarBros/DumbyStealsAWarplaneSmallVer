@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c7esk3tb2jl36"]
+
+[ext_resource type="Script" uid="uid://b3h053qys0yqk" path="res://CompositionStuff/SkyEnemySpawner/sky_enemy_spawner.gd" id="1_h4ord"]
+
+[sub_resource type="Curve2D" id="Curve2D_d4laj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1920, -1080, 0, 0, 0, 0, 1920, -1080, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, -1920, 1080, 0, 0, 0, 0, -1920, -1080)
+}
+point_count = 5
+
+[node name="SkyEnemySpawner" type="Path2D" unique_id=447765832]
+curve = SubResource("Curve2D_d4laj")
+script = ExtResource("1_h4ord")
+
+[node name="PathFollow" type="PathFollow2D" parent="." unique_id=694541566]
+unique_name_in_owner = true
+position = Vector2(-1920, -1080)

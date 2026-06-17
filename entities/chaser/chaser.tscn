@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bj5wj2g1r73gg"]
+[gd_scene format=3 uid="uid://bj5wj2g1r73gg"]
 
 [ext_resource type="Script" uid="uid://cn6d8a0upm6v5" path="res://entities/chaser/chaser.gd" id="1_b7csh"]
 [ext_resource type="Resource" uid="uid://0n1sfnwwh7ii" path="res://resources/enemy_stats/ChaserStats.tres" id="2_0e64b"]
@@ -52,7 +52,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Plane:visible")
+tracks/2/path = NodePath("PlaneSprite:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -64,7 +64,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Plane/outline:visible")
+tracks/3/path = NodePath("PlaneSprite/outline:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -141,7 +141,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Plane:material:shader_parameter/mix_value")
+tracks/0/path = NodePath("PlaneSprite:material:shader_parameter/mix_value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -156,7 +156,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Plane:material:shader_parameter/mix_value")
+tracks/0/path = NodePath("PlaneSprite:material:shader_parameter/mix_value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -192,7 +192,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Plane:visible")
+tracks/3/path = NodePath("PlaneSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -296,51 +296,49 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.885906, 0.993289)
 colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
 
-[node name="chaser" type="CharacterBody2D"]
+[node name="chaser" type="CharacterBody2D" unique_id=1878936567]
 z_index = 2
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_b7csh")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("7_bngux")]
+[node name="HitboxComponent" parent="." unique_id=443271916 instance=ExtResource("7_bngux")]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
 
-[node name="hibc" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="hibc" type="CollisionShape2D" parent="HitboxComponent" unique_id=24300768]
 shape = SubResource("CircleShape2D_vc8fo")
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_on2tx")]
+[node name="HurtboxComponent" parent="." unique_id=1677170343 node_paths=PackedStringArray("health_component") instance=ExtResource("4_on2tx")]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
 explosion_particles = true
 
-[node name="hubc" type="CollisionShape2D" parent="HurtboxComponent"]
+[node name="hubc" type="CollisionShape2D" parent="HurtboxComponent" unique_id=861866238]
 visible = false
 shape = SubResource("CircleShape2D_tuvxo")
 
-[node name="VelocityComponent" parent="." node_paths=PackedStringArray("trail_particles") instance=ExtResource("8_vc8fo")]
+[node name="VelocityComponent" parent="." unique_id=1198091723 node_paths=PackedStringArray("trail_particles") instance=ExtResource("8_vc8fo")]
 unique_name_in_owner = true
-trail_particles = NodePath("../Plane/trailparticle")
+trail_particles = NodePath("../PlaneSprite/trailparticle")
 
-[node name="RotationComponent" parent="." node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("9_b36b3")]
+[node name="RotationComponent" parent="." unique_id=988173984 node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("9_b36b3")]
 unique_name_in_owner = true
 turn_speed = 4.0
-thing_to_rotate = NodePath("../Plane")
+thing_to_rotate = NodePath("../PlaneSprite")
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("ouchnim") instance=ExtResource("5_74ld6")]
+[node name="HealthComponent" parent="." unique_id=1845025250 node_paths=PackedStringArray("ouchnim") instance=ExtResource("5_74ld6")]
 unique_name_in_owner = true
 ouchnim = NodePath("ouchnim")
 max_hp = 30.0
 
-[node name="ouchnim" type="AnimationPlayer" parent="HealthComponent"]
+[node name="ouchnim" type="AnimationPlayer" parent="HealthComponent" unique_id=1729219065]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_d56he")
-}
+libraries/ = SubResource("AnimationLibrary_d56he")
 
-[node name="EnemyStatsAllocator" parent="." node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("9_mwqwr")]
+[node name="EnemyStatsAllocator" parent="." unique_id=1680873742 node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("9_mwqwr")]
 unique_name_in_owner = true
 stats = ExtResource("2_0e64b")
 hitbox_component = NodePath("../HitboxComponent")
@@ -348,17 +346,17 @@ health_component = NodePath("../HealthComponent")
 velocity_component = NodePath("../VelocityComponent")
 rotation_component = NodePath("../RotationComponent")
 
-[node name="targetDeviatTimer" type="Timer" parent="."]
+[node name="targetDeviatTimer" type="Timer" parent="." unique_id=1491222851]
 unique_name_in_owner = true
 wait_time = 2.0
 autostart = true
 
-[node name="Plane" type="Sprite2D" parent="."]
+[node name="PlaneSprite" type="Sprite2D" parent="." unique_id=927151389]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_flupr")
 texture = ExtResource("2_fsmyf")
 
-[node name="flameparticles" type="CPUParticles2D" parent="Plane"]
+[node name="flameparticles" type="CPUParticles2D" parent="PlaneSprite" unique_id=411228661]
 unique_name_in_owner = true
 position = Vector2(-16, 0)
 scale = Vector2(1.2, 1.2)
@@ -377,7 +375,7 @@ scale_amount_min = 4.0
 scale_amount_max = 5.0
 color = Color(0.581033, 0.581033, 0.581033, 1)
 
-[node name="flamez" type="Sprite2D" parent="Plane"]
+[node name="flamez" type="Sprite2D" parent="PlaneSprite" unique_id=1426751628]
 unique_name_in_owner = true
 self_modulate = Color(100, 100, 100, 1)
 position = Vector2(-16, 0)
@@ -385,14 +383,12 @@ texture = ExtResource("3_l3laj")
 hframes = 4
 frame = 1
 
-[node name="flameLoop" type="AnimationPlayer" parent="Plane/flamez"]
-libraries = {
-&"": SubResource("AnimationLibrary_75cqi")
-}
-autoplay = "flameLoop"
+[node name="flameLoop" type="AnimationPlayer" parent="PlaneSprite/flamez" unique_id=1797643437]
+libraries/ = SubResource("AnimationLibrary_75cqi")
+autoplay = &"flameLoop"
 speed_scale = 1.5
 
-[node name="trailparticle" type="CPUParticles2D" parent="Plane"]
+[node name="trailparticle" type="CPUParticles2D" parent="PlaneSprite" unique_id=267144200]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.498039)
 position = Vector2(-17.5, 0)
@@ -407,35 +403,35 @@ angular_velocity_curve = SubResource("Curve_vc8fo")
 scale_amount_min = 4.0
 scale_amount_max = 10.0
 
-[node name="outline" type="Node2D" parent="Plane"]
+[node name="outline" type="Node2D" parent="PlaneSprite" unique_id=1945424802]
 unique_name_in_owner = true
 modulate = Color(100, 100, 100, 1)
 
-[node name="1" type="Sprite2D" parent="Plane/outline"]
+[node name="1" type="Sprite2D" parent="PlaneSprite/outline" unique_id=1242615314]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(0, -1)
 texture = ExtResource("2_fsmyf")
 
-[node name="2" type="Sprite2D" parent="Plane/outline"]
+[node name="2" type="Sprite2D" parent="PlaneSprite/outline" unique_id=1317547038]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(1, 0)
 texture = ExtResource("2_fsmyf")
 
-[node name="3" type="Sprite2D" parent="Plane/outline"]
+[node name="3" type="Sprite2D" parent="PlaneSprite/outline" unique_id=2130916975]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(0, 1)
 texture = ExtResource("2_fsmyf")
 
-[node name="4" type="Sprite2D" parent="Plane/outline"]
+[node name="4" type="Sprite2D" parent="PlaneSprite/outline" unique_id=216445291]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(-1, 0)
 texture = ExtResource("2_fsmyf")
 
-[node name="explode_particles" type="CPUParticles2D" parent="."]
+[node name="explode_particles" type="CPUParticles2D" parent="." unique_id=2027604341]
 scale = Vector2(0.666667, 0.666667)
 emitting = false
 amount = 20
@@ -456,13 +452,13 @@ scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_tuvxo")
 color_ramp = SubResource("Gradient_vc8fo")
 
-[node name="Shockwave-sheet" type="Sprite2D" parent="."]
+[node name="Shockwave-sheet" type="Sprite2D" parent="." unique_id=230097448]
 visible = false
 texture = ExtResource("6_0teo6")
 hframes = 3
 vframes = 3
 
-[node name="enemyArrow" parent="." instance=ExtResource("10_760n7")]
+[node name="enemyArrow" parent="." unique_id=791464708 instance=ExtResource("10_760n7")]
 unique_name_in_owner = true
 visible = false
 
