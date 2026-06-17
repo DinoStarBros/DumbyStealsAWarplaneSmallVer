@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bsinn15v5ma8t" path="res://entities/shooter/shooter.gd" id="1_kg2ur"]
 [ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="2_bvc85"]
-[ext_resource type="Resource" uid="uid://ucdvv8gnyixa" path="res://resources/enemy_stats/ShooterStats.tres" id="2_qxcir"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="2_vyadc"]
 [ext_resource type="Texture2D" uid="uid://baj53ina6l1vj" path="res://Art/planestuff/plane-Sheet.png" id="3_a16y1"]
 [ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="4_ttcvk"]
@@ -356,7 +355,6 @@ libraries/ = SubResource("AnimationLibrary_d56he")
 [node name="EnemyShootComponent" parent="." unique_id=372527834 instance=ExtResource("8_7vn3f")]
 
 [node name="EnemyStatsAllocator" parent="." unique_id=25453526 node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component", "ene_shoot_component") instance=ExtResource("16_ehaio")]
-stats = ExtResource("2_qxcir")
 hitbox_component = NodePath("../HitboxComponent")
 health_component = NodePath("../HealthComponent")
 velocity_component = NodePath("../VelocityComponent")

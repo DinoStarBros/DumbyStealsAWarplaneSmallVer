@@ -1,6 +1,8 @@
 extends Node2D
+class_name EnemyStatsAllocator
 
-@export var stats : EnemyStats
+#@export var stats : EnemyStats
+var stats : EnemyStats
 
 @export_category("Components")
 @export var hitbox_component : HitboxComponent
@@ -8,6 +10,7 @@ extends Node2D
 @export var velocity_component : VelocityComponent
 @export var rotation_component : RotationComponent
 @export var ene_shoot_component : EnemyShootComponent
+@export var enemy_movement_behavior : EnemyMovementBehavior
 
 func _ready() -> void:
 	if hitbox_component:
@@ -39,3 +42,6 @@ func _ready() -> void:
 		ene_shoot_component.amount = stats.projectile_amount
 		ene_shoot_component.shoot_delay = stats.shoot_delay
 		ene_shoot_component.random_spread = stats.random_spread
+	
+	if enemy_movement_behavior:
+		enemy_movement_behavior.current_behavior_type = stats.movement_ai

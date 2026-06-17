@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://biffijm1fn4sb"]
 
-[ext_resource type="Script" uid="uid://dwgniwhl54mty" path="res://entities/enemy/enemy.gd" id="1_806kw"]
-[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="2_37hp1"]
-[ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="3_y3isl"]
-[ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="4_d2hfp"]
-[ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="5_7dqrt"]
-[ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="6_sgkik"]
-[ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="7_cerij"]
-[ext_resource type="Resource" uid="uid://0n1sfnwwh7ii" path="res://resources/enemy_stats/ChaserStats.tres" id="8_le2cx"]
-[ext_resource type="Shader" uid="uid://cne6u584nd6e4" path="res://shaders/hitFlash.gdshader" id="9_0y4wg"]
-[ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="10_wy028"]
-[ext_resource type="Texture2D" uid="uid://baj53ina6l1vj" path="res://Art/planestuff/plane-Sheet.png" id="11_6vph8"]
-[ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="12_dev67"]
-[ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="13_jwhey"]
+[ext_resource type="Script" uid="uid://dwgniwhl54mty" path="res://entities/GenericEnemy/generic_enemy.gd" id="1_yefm3"]
+[ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="2_kvxb7"]
+[ext_resource type="PackedScene" uid="uid://gs3fdbhnlc5o" path="res://CompositionStuff/Hurtbox/hurtbox_component.tscn" id="3_1ov72"]
+[ext_resource type="PackedScene" uid="uid://cbs0bmg6fong3" path="res://CompositionStuff/Velocity/velocity_component.tscn" id="4_6a7ga"]
+[ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="5_r37so"]
+[ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="6_vgevo"]
+[ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="7_5c5nf"]
+[ext_resource type="PackedScene" uid="uid://c4ke5s66wkvcp" path="res://CompositionStuff/EnemyShootBehavior/enemy_shoot_behavior.tscn" id="9_1ov72"]
+[ext_resource type="PackedScene" uid="uid://drsf1wfm17q4s" path="res://CompositionStuff/EnemyMovementBehavior/enemy_movement_behavior.tscn" id="9_kvxb7"]
+[ext_resource type="Shader" uid="uid://cne6u584nd6e4" path="res://shaders/hitFlash.gdshader" id="9_v5sl8"]
+[ext_resource type="Texture2D" uid="uid://b3hwhp3ky72y6" path="res://Art/planestuff/plane.png" id="10_rgf4h"]
+[ext_resource type="Texture2D" uid="uid://baj53ina6l1vj" path="res://Art/planestuff/plane-Sheet.png" id="11_skkhh"]
+[ext_resource type="Texture2D" uid="uid://cb00doqsxr2ay" path="res://Art/Stuff2/shockwave-Sheet.png" id="12_tqwgr"]
+[ext_resource type="PackedScene" uid="uid://i0iht2frjgtv" path="res://scenes/enemyArrow/enemy_arrow.tscn" id="13_yeqxb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vc8fo"]
 radius = 15.0
@@ -211,7 +212,7 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flupr"]
 resource_local_to_scene = true
-shader = ExtResource("9_0y4wg")
+shader = ExtResource("9_v5sl8")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/mix_value = 0.0
 
@@ -296,12 +297,13 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.885906, 0.993289)
 colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-06, 1, 0.980565, 0.365168, 0, 1)
 
-[node name="enemy" type="CharacterBody2D" unique_id=1878936567]
+[node name="generic_enemy" type="CharacterBody2D" unique_id=1878936567 node_paths=PackedStringArray("enemy_stats_allocator")]
 z_index = 2
 scale = Vector2(1.5, 1.5)
-script = ExtResource("1_806kw")
+script = ExtResource("1_yefm3")
+enemy_stats_allocator = NodePath("EnemyStatsAllocator")
 
-[node name="HitboxComponent" parent="." unique_id=443271916 instance=ExtResource("2_37hp1")]
+[node name="HitboxComponent" parent="." unique_id=443271916 instance=ExtResource("2_kvxb7")]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
@@ -309,7 +311,7 @@ collision_mask = 4
 [node name="hibc" type="CollisionShape2D" parent="HitboxComponent" unique_id=24300768]
 shape = SubResource("CircleShape2D_vc8fo")
 
-[node name="HurtboxComponent" parent="." unique_id=1677170343 node_paths=PackedStringArray("health_component") instance=ExtResource("3_y3isl")]
+[node name="HurtboxComponent" parent="." unique_id=1677170343 node_paths=PackedStringArray("health_component") instance=ExtResource("3_1ov72")]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 2
@@ -320,16 +322,24 @@ explosion_particles = true
 visible = false
 shape = SubResource("CircleShape2D_tuvxo")
 
-[node name="VelocityComponent" parent="." unique_id=1198091723 node_paths=PackedStringArray("trail_particles") instance=ExtResource("4_d2hfp")]
+[node name="EnemyStatsAllocator" parent="." unique_id=1680873742 node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component", "enemy_movement_behavior") instance=ExtResource("7_5c5nf")]
+unique_name_in_owner = true
+hitbox_component = NodePath("../HitboxComponent")
+health_component = NodePath("../HealthComponent")
+velocity_component = NodePath("../VelocityComponent")
+rotation_component = NodePath("../RotationComponent")
+enemy_movement_behavior = NodePath("../EnemyMovementBehavior")
+
+[node name="VelocityComponent" parent="." unique_id=1198091723 node_paths=PackedStringArray("trail_particles") instance=ExtResource("4_6a7ga")]
 unique_name_in_owner = true
 trail_particles = NodePath("../PlaneSprite/trailparticle")
 
-[node name="RotationComponent" parent="." unique_id=988173984 node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("5_7dqrt")]
+[node name="RotationComponent" parent="." unique_id=988173984 node_paths=PackedStringArray("thing_to_rotate") instance=ExtResource("5_r37so")]
 unique_name_in_owner = true
 turn_speed = 4.0
 thing_to_rotate = NodePath("../PlaneSprite")
 
-[node name="HealthComponent" parent="." unique_id=1845025250 node_paths=PackedStringArray("ouchnim") instance=ExtResource("6_sgkik")]
+[node name="HealthComponent" parent="." unique_id=1845025250 node_paths=PackedStringArray("ouchnim") instance=ExtResource("6_vgevo")]
 unique_name_in_owner = true
 ouchnim = NodePath("ouchnim")
 max_hp = 30.0
@@ -338,23 +348,16 @@ max_hp = 30.0
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_d56he")
 
-[node name="EnemyStatsAllocator" parent="." unique_id=1680873742 node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component") instance=ExtResource("7_cerij")]
-unique_name_in_owner = true
-stats = ExtResource("8_le2cx")
-hitbox_component = NodePath("../HitboxComponent")
-health_component = NodePath("../HealthComponent")
+[node name="EnemyMovementBehavior" parent="." unique_id=1013613514 node_paths=PackedStringArray("velocity_component", "rotation_component") instance=ExtResource("9_kvxb7")]
 velocity_component = NodePath("../VelocityComponent")
 rotation_component = NodePath("../RotationComponent")
 
-[node name="targetDeviatTimer" type="Timer" parent="." unique_id=1491222851]
-unique_name_in_owner = true
-wait_time = 2.0
-autostart = true
+[node name="EnemyShootBehavior" parent="." unique_id=1251406674 instance=ExtResource("9_1ov72")]
 
 [node name="PlaneSprite" type="Sprite2D" parent="." unique_id=927151389]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_flupr")
-texture = ExtResource("10_wy028")
+texture = ExtResource("10_rgf4h")
 
 [node name="flameparticles" type="CPUParticles2D" parent="PlaneSprite" unique_id=411228661]
 unique_name_in_owner = true
@@ -379,7 +382,7 @@ color = Color(0.581033, 0.581033, 0.581033, 1)
 unique_name_in_owner = true
 self_modulate = Color(100, 100, 100, 1)
 position = Vector2(-16, 0)
-texture = ExtResource("11_6vph8")
+texture = ExtResource("11_skkhh")
 hframes = 4
 frame = 1
 
@@ -411,25 +414,31 @@ modulate = Color(100, 100, 100, 1)
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(0, -1)
-texture = ExtResource("10_wy028")
+texture = ExtResource("10_rgf4h")
 
 [node name="2" type="Sprite2D" parent="PlaneSprite/outline" unique_id=1317547038]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(1, 0)
-texture = ExtResource("10_wy028")
+texture = ExtResource("10_rgf4h")
 
 [node name="3" type="Sprite2D" parent="PlaneSprite/outline" unique_id=2130916975]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(0, 1)
-texture = ExtResource("10_wy028")
+texture = ExtResource("10_rgf4h")
 
 [node name="4" type="Sprite2D" parent="PlaneSprite/outline" unique_id=216445291]
 modulate = Color(0.587035, 0.722509, 1, 1)
 z_index = -1
 position = Vector2(-1, 0)
-texture = ExtResource("10_wy028")
+texture = ExtResource("10_rgf4h")
+
+[node name="Shockwave-sheet" type="Sprite2D" parent="." unique_id=230097448]
+visible = false
+texture = ExtResource("12_tqwgr")
+hframes = 3
+vframes = 3
 
 [node name="explode_particles" type="CPUParticles2D" parent="." unique_id=2027604341]
 scale = Vector2(0.666667, 0.666667)
@@ -452,14 +461,13 @@ scale_amount_max = 20.0
 scale_amount_curve = SubResource("Curve_tuvxo")
 color_ramp = SubResource("Gradient_vc8fo")
 
-[node name="Shockwave-sheet" type="Sprite2D" parent="." unique_id=230097448]
-visible = false
-texture = ExtResource("12_dev67")
-hframes = 3
-vframes = 3
-
-[node name="enemyArrow" parent="." unique_id=791464708 instance=ExtResource("13_jwhey")]
+[node name="enemyArrow" parent="." unique_id=791464708 instance=ExtResource("13_yeqxb")]
 unique_name_in_owner = true
 visible = false
+
+[node name="targetDeviatTimer" type="Timer" parent="." unique_id=1491222851]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
 
 [connection signal="timeout" from="targetDeviatTimer" to="." method="_on_target_deviat_timer_timeout"]

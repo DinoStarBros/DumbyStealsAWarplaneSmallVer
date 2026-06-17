@@ -15,3 +15,8 @@ script = ExtResource("1_h4ord")
 [node name="PathFollow" type="PathFollow2D" parent="." unique_id=694541566]
 unique_name_in_owner = true
 position = Vector2(-1920, -1080)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1440115989]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true

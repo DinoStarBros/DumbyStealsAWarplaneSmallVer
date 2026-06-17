@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://drsf1wfm17q4s"]
+
+[ext_resource type="Script" uid="uid://dp477wkomjuq2" path="res://CompositionStuff/EnemyMovementBehavior/enemy_movement_behavior.gd" id="1_mjbrj"]
+[ext_resource type="Script" uid="uid://bc4bsb1rukw2n" path="res://CompositionStuff/EnemyMovementBehavior/Behaviors/pursuit_behavior.gd" id="2_4p0q4"]
+
+[node name="EnemyMovementBehavior" type="Node2D" unique_id=1013613514]
+script = ExtResource("1_mjbrj")
+
+[node name="PursuitBehavior" type="Node2D" parent="." unique_id=1708015090]
+unique_name_in_owner = true
+script = ExtResource("2_4p0q4")
