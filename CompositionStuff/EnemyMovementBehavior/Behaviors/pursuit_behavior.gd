@@ -9,7 +9,7 @@ var target_position : Vector2
 var target_deviation : Vector2
 var dir_to_target : Vector2
 
-const TARGET_DEVIATION_RANGE : float = 10.0
+const TARGET_DEVIATION_RANGE : float = 500.0
 
 func _ready() -> void:
 	target_deviation.x = randf_range(-TARGET_DEVIATION_RANGE,TARGET_DEVIATION_RANGE)

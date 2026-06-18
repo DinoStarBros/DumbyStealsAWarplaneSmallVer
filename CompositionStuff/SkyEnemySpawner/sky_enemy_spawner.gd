@@ -9,7 +9,7 @@ const enemy_stats_res : Array[EnemyStats] = [
 	preload("res://resources/enemy_stats/Shooter.tres"),
 	preload("res://resources/enemy_stats/Shotgunner.tres"),
 	preload("res://resources/enemy_stats/SpikeBall.tres"),
-	preload("res://resources/enemy_stats/Bruh.tres"),
+	#preload("res://resources/enemy_stats/Bruh.tres"),
 	
 ]
 
@@ -22,7 +22,7 @@ func spawn_enemy() -> void:
 	
 	var enemy : Enemy = generic_enemy_scn.instantiate()
 	
-	enemy.enemy_stat_res = enemy_stats_res[4]#.pick_random()
+	enemy.enemy_stat_res = enemy_stats_res.pick_random()
 	
 	g.enemy_container.add_child(enemy)
 	
