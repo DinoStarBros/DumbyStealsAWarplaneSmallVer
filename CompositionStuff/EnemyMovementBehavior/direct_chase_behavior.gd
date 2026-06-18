@@ -1,5 +1,5 @@
 extends Node2D
-class_name PursuitBehavior
+class_name DirectChaseBehavior
 
 @onready var parent : EnemyMovementBehavior = get_parent()
 
@@ -28,4 +28,4 @@ func behave(delta: float) -> void:
 	
 	parent.rotation_component.plane_rotation_handling(delta, target_position)
 	parent.rotation_component.plane_rotation_handling(delta, target_position)
-	parent.velocity_component.other_velocity_handle(delta, parent.rotation_component.direction, true)
+	parent.velocity_component.other_velocity_handle(delta, dir_to_target, true)

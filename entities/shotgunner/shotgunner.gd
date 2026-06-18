@@ -9,14 +9,12 @@ var target : CharacterBody2D
 
 func _ready() ->  void:
 	_on_target_deviat_timer_timeout()
-	
 	%shing.pitch_scale = randf_range(.8,1.2)
 
 var target_deviation : Vector2
 var dir_to_target_deviate_pos : Vector2
 var direction : Vector2
 func _physics_process(delta: float) -> void:
-	
 	move_and_slide()
 	target = g.player
 	dir_to_targ = (target.global_position - global_position).normalized()
@@ -24,8 +22,6 @@ func _physics_process(delta: float) -> void:
 	%flamez.visible = accelerating
 	%flameparticles.emitting = accelerating
 	%flameparticles.direction = -velocity
-	
-	velocity.y += (980 * delta) / 2
 	
 	dir_to_target_deviate_pos = global_position.direction_to(target.global_position + target_deviation)
 	rotation_component.plane_rotation_handling(delta, target.global_position)

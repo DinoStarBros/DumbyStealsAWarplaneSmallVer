@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://b5olh75wkrnyc"]
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://b5olh75wkrnyc"]
 
 [ext_resource type="PackedScene" uid="uid://dl58yl2dpvjg5" path="res://projectiles/ene_bullet/ene_bullet.tscn" id="1_e0loj"]
 [ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="1_pti1x"]
@@ -10,4 +10,5 @@ max_hp = 2.0
 max_speed = 3000.0
 acceleration = 0.5
 turn_speed = 0.5
+movement_behavior = 2
 metadata/_custom_type_script = "uid://dycg2uy8h53rg"

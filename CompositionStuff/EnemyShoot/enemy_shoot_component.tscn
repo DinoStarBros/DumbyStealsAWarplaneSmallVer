@@ -1,10 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwdfgqr7xw18j"]
+[gd_scene format=3 uid="uid://dwdfgqr7xw18j"]
 
 [ext_resource type="Script" uid="uid://d0dvt5i4ww54p" path="res://CompositionStuff/EnemyShoot/enemy_shoot_component.gd" id="1_m6low"]
 
-[node name="EnemyShootComponent" type="Node2D"]
+[node name="EnemyShootComponent" type="Node2D" unique_id=1068898185]
 script = ExtResource("1_m6low")
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="." unique_id=482830484]
 unique_name_in_owner = true
-one_shot = true

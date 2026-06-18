@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://c4ke5s66wkvcp"]
 
 [ext_resource type="Script" uid="uid://ch8vnca2w3go3" path="res://CompositionStuff/EnemyShootBehavior/enemy_shoot_behavior.gd" id="1_mehhu"]
-[ext_resource type="Script" uid="uid://dvl52j2o0okvp" path="res://CompositionStuff/EnemyShootBehavior/Behaviors/no_shoot_behavior.gd" id="2_fudlo"]
+[ext_resource type="Script" uid="uid://vqekr3iofbse" path="res://CompositionStuff/EnemyShootBehavior/Behaviors/constant_behavior.gd" id="2_fudlo"]
 
 [node name="EnemyShootBehavior" type="Node2D" unique_id=1251406674]
 script = ExtResource("1_mehhu")
 
-[node name="NoShoot" type="Node2D" parent="." unique_id=138367925]
+[node name="ConstantBehavior" type="Node2D" parent="." unique_id=138367925]
+unique_name_in_owner = true
 script = ExtResource("2_fudlo")

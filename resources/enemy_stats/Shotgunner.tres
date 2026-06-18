@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://caabvilf7tpna"]
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://caabvilf7tpna"]
 
 [ext_resource type="PackedScene" uid="uid://dl58yl2dpvjg5" path="res://projectiles/ene_bullet/ene_bullet.tscn" id="1_fol3g"]
 [ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="1_ks3vp"]
@@ -17,4 +17,5 @@ random_spread = 0.2
 extra_stats = Dictionary[String, Variant]({
 "bullet_damage": 10.0
 })
+shoot_behavior = 1
 metadata/_custom_type_script = "uid://dycg2uy8h53rg"

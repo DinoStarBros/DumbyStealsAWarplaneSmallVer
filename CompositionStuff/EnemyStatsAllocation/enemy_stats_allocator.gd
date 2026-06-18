@@ -11,6 +11,7 @@ var stats : EnemyStats
 @export var rotation_component : RotationComponent
 @export var ene_shoot_component : EnemyShootComponent
 @export var enemy_movement_behavior : EnemyMovementBehavior
+@export var enemy_shoot_behavior : EnemyShootBehavior
 
 func _ready() -> void:
 	if hitbox_component:
@@ -44,4 +45,7 @@ func _ready() -> void:
 		ene_shoot_component.random_spread = stats.random_spread
 	
 	if enemy_movement_behavior:
-		enemy_movement_behavior.current_behavior_type = stats.movement_ai
+		enemy_movement_behavior.current_behavior_type = stats.movement_behavior
+	
+	if enemy_shoot_behavior:
+		enemy_shoot_behavior.current_behavior_type = stats.shoot_behavior

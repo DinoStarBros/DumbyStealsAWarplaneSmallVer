@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="5_r37so"]
 [ext_resource type="PackedScene" uid="uid://dydkhhqkwcgfw" path="res://CompositionStuff/Health/health_component.tscn" id="6_vgevo"]
 [ext_resource type="PackedScene" uid="uid://bx7ne0g38yvbt" path="res://CompositionStuff/EnemyStatsAllocation/enemy_stats_allocator.tscn" id="7_5c5nf"]
+[ext_resource type="PackedScene" uid="uid://dwdfgqr7xw18j" path="res://CompositionStuff/EnemyShoot/enemy_shoot_component.tscn" id="8_1ov72"]
 [ext_resource type="PackedScene" uid="uid://c4ke5s66wkvcp" path="res://CompositionStuff/EnemyShootBehavior/enemy_shoot_behavior.tscn" id="9_1ov72"]
 [ext_resource type="PackedScene" uid="uid://drsf1wfm17q4s" path="res://CompositionStuff/EnemyMovementBehavior/enemy_movement_behavior.tscn" id="9_kvxb7"]
 [ext_resource type="Shader" uid="uid://cne6u584nd6e4" path="res://shaders/hitFlash.gdshader" id="9_v5sl8"]
@@ -322,13 +323,15 @@ explosion_particles = true
 visible = false
 shape = SubResource("CircleShape2D_tuvxo")
 
-[node name="EnemyStatsAllocator" parent="." unique_id=1680873742 node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component", "enemy_movement_behavior") instance=ExtResource("7_5c5nf")]
+[node name="EnemyStatsAllocator" parent="." unique_id=1680873742 node_paths=PackedStringArray("hitbox_component", "health_component", "velocity_component", "rotation_component", "ene_shoot_component", "enemy_movement_behavior", "enemy_shoot_behavior") instance=ExtResource("7_5c5nf")]
 unique_name_in_owner = true
 hitbox_component = NodePath("../HitboxComponent")
 health_component = NodePath("../HealthComponent")
 velocity_component = NodePath("../VelocityComponent")
 rotation_component = NodePath("../RotationComponent")
+ene_shoot_component = NodePath("../EnemyShootComponent")
 enemy_movement_behavior = NodePath("../EnemyMovementBehavior")
+enemy_shoot_behavior = NodePath("../EnemyShootBehavior")
 
 [node name="VelocityComponent" parent="." unique_id=1198091723 node_paths=PackedStringArray("trail_particles") instance=ExtResource("4_6a7ga")]
 unique_name_in_owner = true
@@ -348,11 +351,14 @@ max_hp = 30.0
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_d56he")
 
+[node name="EnemyShootComponent" parent="." unique_id=495055166 instance=ExtResource("8_1ov72")]
+
 [node name="EnemyMovementBehavior" parent="." unique_id=1013613514 node_paths=PackedStringArray("velocity_component", "rotation_component") instance=ExtResource("9_kvxb7")]
 velocity_component = NodePath("../VelocityComponent")
 rotation_component = NodePath("../RotationComponent")
 
-[node name="EnemyShootBehavior" parent="." unique_id=1251406674 instance=ExtResource("9_1ov72")]
+[node name="EnemyShootBehavior" parent="." unique_id=1251406674 node_paths=PackedStringArray("shoot_component") instance=ExtResource("9_1ov72")]
+shoot_component = NodePath("../EnemyShootComponent")
 
 [node name="PlaneSprite" type="Sprite2D" parent="." unique_id=927151389]
 unique_name_in_owner = true

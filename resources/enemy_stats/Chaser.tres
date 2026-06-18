@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://0n1sfnwwh7ii"]
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://0n1sfnwwh7ii"]
 
+[ext_resource type="PackedScene" uid="uid://dl58yl2dpvjg5" path="res://projectiles/ene_bullet/ene_bullet.tscn" id="1_oi8sl"]
 [ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="1_vjk3l"]
 
 [resource]

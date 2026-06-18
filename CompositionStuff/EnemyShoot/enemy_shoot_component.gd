@@ -1,11 +1,13 @@
 extends Node2D
 class_name EnemyShootComponent
 
+@onready var shoot_timer: Timer = %ShootTimer
+
 @export var animation : AnimationPlayer ## For enemies that have an animation / telegraph before shooting
 var rotation_component : RotationComponent
 var health_component : HealthComponent
 
-var shooting : bool = true ## If there needs to be conditions for the enemy to start shooting
+var shooting : bool = false ## If there needs to be conditions for the enemy to start shooting
 
 var projectile_scn : PackedScene
 var projectile_dmg : float = 5.0
@@ -22,13 +24,14 @@ var shoot_cd : float = 0
 var scdt : float
 
 func _ready() -> void:
-	%ShootTimer.timeout.connect(_shoot_timeout)
+	
+	shoot_timer.timeout.connect(_shoot_timeout)
 	
 	await get_tree().process_frame
 	scdt = randf_range(min_shoot_cooldown, max_shoot_cooldown)
 	%ShootTimer.start(scdt)
 
-func shoot() -> void:
+func _shoot() -> void:
 	if animation:
 		animation.play("shing")
 		
@@ -54,7 +57,7 @@ func _shoot_timeout() -> void:
 	if health_component.hp > 0:
 		if shooting:
 			for n in amount:
-				shoot()
+				_shoot()
 				await get_tree().create_timer(shoot_delay).timeout
 		
 		scdt = randf_range(min_shoot_cooldown, max_shoot_cooldown)
