@@ -39,7 +39,7 @@ func spawn_cloud(pos:Vector2)->void:
 	cloud_parents.pick_random().add_child(cloud)
 	cloud.global_position = pos
 
-var airdef_scn : = preload("res://entities/air_defense/air_defense.tscn")
+var airdef_scn : PackedScene# = preload("res://entities/air_defense/air_defense.tscn")
 func spawn_adf()->void:
 	%adspos.progress_ratio = randf()
 	var airdef : CharacterBody2D = airdef_scn.instantiate()
