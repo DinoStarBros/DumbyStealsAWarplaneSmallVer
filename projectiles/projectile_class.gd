@@ -16,8 +16,14 @@ var velocity : Vector2 = Vector2(6, 7)
 
 var weapon_parent_stats : WeaponStats ## The stats of the weapon that shot this projectile out
 
+func _ready() -> void:
+	time_left = lifetime
+
 func move(delta: float) -> void:
 	global_position += velocity * delta
+	time_left = max(0, time_left - delta)
+	if time_left <= 0:
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	move(delta)

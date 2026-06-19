@@ -10,8 +10,8 @@ var stats : EnemyStats
 @export var velocity_component : VelocityComponent
 @export var rotation_component : RotationComponent
 @export var ene_shoot_component : EnemyShootComponent
-@export var enemy_movement_behavior : EnemyMovementBehavior
-@export var enemy_shoot_behavior : EnemyShootBehavior
+@export var enemy_movement_behavior : EnemyMovementBehaviorComponent
+@export var enemy_shoot_behavior : EnemyShootBehaviorComponent
 
 func _ready() -> void:
 	if hitbox_component:

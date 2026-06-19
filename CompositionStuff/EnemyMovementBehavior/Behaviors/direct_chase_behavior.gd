@@ -1,7 +1,5 @@
-extends Node2D
+extends MovementBehavior
 class_name DirectChaseBehavior
-
-@onready var parent : EnemyMovementBehavior = get_parent()
 
 var target : Dumby
 var dist_to_target : float

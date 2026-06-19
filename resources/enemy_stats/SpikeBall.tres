@@ -10,5 +10,5 @@ max_hp = 2.0
 max_speed = 3000.0
 acceleration = 0.5
 turn_speed = 0.5
-movement_behavior = 2
+movement_behavior = 3
 metadata/_custom_type_script = "uid://dycg2uy8h53rg"

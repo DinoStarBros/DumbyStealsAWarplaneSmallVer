@@ -17,6 +17,6 @@ min_and_max_shoot_cooldown = Vector2(0.5, 1.5)
 extra_stats = Dictionary[String, Variant]({
 "bullet_damage": 10.0
 })
-movement_behavior = 1
+movement_behavior = 2
 shoot_behavior = 1
 metadata/_custom_type_script = "uid://dycg2uy8h53rg"

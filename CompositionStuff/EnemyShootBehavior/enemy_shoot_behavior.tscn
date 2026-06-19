@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ch8vnca2w3go3" path="res://CompositionStuff/EnemyShootBehavior/enemy_shoot_behavior.gd" id="1_mehhu"]
 [ext_resource type="Script" uid="uid://vqekr3iofbse" path="res://CompositionStuff/EnemyShootBehavior/Behaviors/constant_behavior.gd" id="2_fudlo"]
+[ext_resource type="Script" uid="uid://b6l10bhpbxqqb" path="res://CompositionStuff/EnemyShootBehavior/Behaviors/snipe_behavior.gd" id="3_anyu5"]
+[ext_resource type="Script" uid="uid://7debghueedri" path="res://CompositionStuff/EnemyShootBehavior/Behaviors/up_close_behavior.gd" id="4_16xku"]
 
 [node name="EnemyShootBehavior" type="Node2D" unique_id=1251406674]
 script = ExtResource("1_mehhu")
@@ -9,3 +11,11 @@ script = ExtResource("1_mehhu")
 [node name="ConstantBehavior" type="Node2D" parent="." unique_id=138367925]
 unique_name_in_owner = true
 script = ExtResource("2_fudlo")
+
+[node name="SnipeBehavior" type="Node2D" parent="." unique_id=446851709]
+unique_name_in_owner = true
+script = ExtResource("3_anyu5")
+
+[node name="UpCloseBehavior" type="Node2D" parent="." unique_id=1623644959]
+unique_name_in_owner = true
+script = ExtResource("4_16xku")

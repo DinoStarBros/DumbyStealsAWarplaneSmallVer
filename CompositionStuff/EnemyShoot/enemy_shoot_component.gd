@@ -49,7 +49,6 @@ func _shoot() -> void:
 	projectile.global_position = global_position
 	
 	projectile.velocity = (rotation_component.direction + rand_spread_vector) * speed
-	projectile.pos_to_look = global_position + rotation_component.direction
 	
 	g.game.add_child(projectile)
 

@@ -1,7 +1,7 @@
-extends Node2D
+extends ShootBehavior
 class_name ConstantBehavior
 
-@onready var parent : EnemyShootBehavior = get_parent()
+@onready var parent : EnemyShootBehaviorComponent = get_parent()
 
 func behave(delta: float) -> void:
 	parent.shoot_component.shooting = true

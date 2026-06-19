@@ -28,5 +28,5 @@ class_name EnemyStats
 @export var extra_stats : Dictionary[String, Variant]
 
 @export_category("BEHAVIOR types")
-@export var movement_behavior : EnemyMovementBehavior.BEHAVIOR_TYPE
-@export var shoot_behavior : EnemyShootBehavior.BEHAVIOR_TYPE
+@export var movement_behavior : EnemyMovementBehaviorComponent.BEHAVIOR_TYPE
+@export var shoot_behavior : EnemyShootBehaviorComponent.BEHAVIOR_TYPE

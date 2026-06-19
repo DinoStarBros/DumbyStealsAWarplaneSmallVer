@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_3k2b8"]
 [ext_resource type="Texture2D" uid="uid://5ok8ww27od1g" path="res://Art/planestuff/SEA.png" id="5_y1ytl"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_11rbn"]
-[ext_resource type="PackedScene" uid="uid://dyirarspnmdqd" path="res://entities/spike_sphere/spike_sphere.tscn" id="6_qffnt"]
 [ext_resource type="Texture2D" uid="uid://ctfkn7tj5byx2" path="res://Art/STARS (2).png" id="7_6klb1"]
 [ext_resource type="PackedScene" uid="uid://c7esk3tb2jl36" path="res://CompositionStuff/SkyEnemySpawner/sky_enemy_spawner.tscn" id="8_3k2b8"]
 
@@ -1029,21 +1028,6 @@ autostart = true
 
 [node name="enemy_container" type="Node2D" parent="." unique_id=2039723847]
 unique_name_in_owner = true
-
-[node name="spike_sphere" parent="enemy_container" unique_id=1264194347 instance=ExtResource("6_qffnt")]
-position = Vector2(877, -306)
-
-[node name="spike_sphere2" parent="enemy_container" unique_id=1339113706 instance=ExtResource("6_qffnt")]
-position = Vector2(359, -461)
-
-[node name="spike_sphere3" parent="enemy_container" unique_id=1426453707 instance=ExtResource("6_qffnt")]
-position = Vector2(1210, 94)
-
-[node name="spike_sphere4" parent="enemy_container" unique_id=1480052 instance=ExtResource("6_qffnt")]
-position = Vector2(-174, -402)
-
-[node name="spike_sphere5" parent="enemy_container" unique_id=695443583 instance=ExtResource("6_qffnt")]
-position = Vector2(-714, -284)
 
 [node name="Wave" type="CanvasLayer" parent="." unique_id=898191485]
 

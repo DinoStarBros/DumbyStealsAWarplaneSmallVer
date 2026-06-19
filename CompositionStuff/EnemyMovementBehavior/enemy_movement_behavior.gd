@@ -1,5 +1,5 @@
 extends Node2D
-class_name EnemyMovementBehavior
+class_name EnemyMovementBehaviorComponent
 
 @export var velocity_component : VelocityComponent
 @export var rotation_component : RotationComponent
@@ -9,7 +9,7 @@ class_name EnemyMovementBehavior
 @onready var direct_chase_behavior: DirectChaseBehavior = %DirectChaseBehavior
 
 enum BEHAVIOR_TYPE {
-	PURSUIT, DISTANCE, DIRECT_CHASE
+	NO_MOVE, PURSUIT, DISTANCE, DIRECT_CHASE
 }
 var current_behavior_type : BEHAVIOR_TYPE
 
@@ -21,8 +21,6 @@ func _physics_process(delta: float) -> void:
 			do_distance(delta)
 		BEHAVIOR_TYPE.DIRECT_CHASE:
 			do_direct_chase(delta)
-		_:
-			do_pursuit(delta)
 
 func do_pursuit(delta: float) -> void:
 	pursuit_behavior.behave(delta)

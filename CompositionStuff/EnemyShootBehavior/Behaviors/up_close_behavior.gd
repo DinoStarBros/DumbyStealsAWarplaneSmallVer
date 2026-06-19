@@ -1,0 +1,2 @@
+extends ShootBehavior
+class_name UpCloseBehavior

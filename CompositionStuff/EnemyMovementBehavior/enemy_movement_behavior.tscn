@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dp477wkomjuq2" path="res://CompositionStuff/EnemyMovementBehavior/enemy_movement_behavior.gd" id="1_mjbrj"]
 [ext_resource type="Script" uid="uid://bc4bsb1rukw2n" path="res://CompositionStuff/EnemyMovementBehavior/Behaviors/pursuit_behavior.gd" id="2_4p0q4"]
-[ext_resource type="Script" uid="uid://bjvgq8tlbk7md" path="res://CompositionStuff/EnemyMovementBehavior/distance_behavior.gd" id="3_pr1ql"]
-[ext_resource type="Script" uid="uid://cmq3cxyyxps7" path="res://CompositionStuff/EnemyMovementBehavior/direct_chase_behavior.gd" id="4_r0tgs"]
+[ext_resource type="Script" uid="uid://bjvgq8tlbk7md" path="res://CompositionStuff/EnemyMovementBehavior/Behaviors/distance_behavior.gd" id="3_pr1ql"]
+[ext_resource type="Script" uid="uid://cmq3cxyyxps7" path="res://CompositionStuff/EnemyMovementBehavior/Behaviors/direct_chase_behavior.gd" id="4_r0tgs"]
 
 [node name="EnemyMovementBehavior" type="Node2D" unique_id=1013613514]
 script = ExtResource("1_mjbrj")
