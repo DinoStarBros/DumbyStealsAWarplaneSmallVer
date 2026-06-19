@@ -19,8 +19,8 @@ var level : int = 1
 var mobile : bool = false
 var lil_printy : Label
 var weapons_parent : WeaponsParent
-
 var wave : int
+var current_weapon_button_selected_res : WeaponStats
 
 enum game_states {
 	Title, Combat, Lost, Upgrade, Cutscene,

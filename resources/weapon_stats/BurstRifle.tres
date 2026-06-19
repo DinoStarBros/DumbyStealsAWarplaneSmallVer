@@ -10,14 +10,15 @@ region = Rect2(32, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_5gggi")
-weapon_key = "burst_rifle"
+key = "burstRifle"
 texture = SubResource("AtlasTexture_twbdk")
-shoot_cooldown = 0.4
+shoot_cooldown = 0.35
 bullet_spd = 2500
 bullet_amnt = 3
 random_spread = 0.01
 shoot_delay = 0.075
 bullet_scn = ExtResource("1_b7wv1")
+shoot_cooldown_buff = 0.2
 bullet_spd_buff = 0.3
 shoot_delay_buff = 0.1
 single_sfx = Array[int]([5])

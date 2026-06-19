@@ -25,8 +25,11 @@ func _ready() -> void:
 		func():
 		buff_time = 5
 	)
-	for value in weapon_stat_resources.values():
-		add_weapon(value)
+	if g.current_weapon_button_selected_res:
+		add_weapon(g.current_weapon_button_selected_res)
+	else:
+		for value in weapon_stat_resources.values():
+			add_weapon(value)
 	current_weapon_idx = 0
 	switch_weapon(0)
 
@@ -56,4 +59,4 @@ func switch_weapon(change: int) -> void:
 	weapon_visuals()
 
 func weapon_visuals() -> void:
-	curr_weapon_txt.text = str(current_weapon.weapon_stat_res.weapon_key)
+	curr_weapon_txt.text = str(current_weapon.weapon_stat_res.key)

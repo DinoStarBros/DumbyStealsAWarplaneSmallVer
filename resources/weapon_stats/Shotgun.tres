@@ -10,7 +10,7 @@ region = Rect2(16, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_hua0a")
-weapon_key = "shotgun"
+key = "shotgun"
 texture = SubResource("AtlasTexture_krqor")
 shoot_cooldown = 0.4
 bullet_spd = 1700

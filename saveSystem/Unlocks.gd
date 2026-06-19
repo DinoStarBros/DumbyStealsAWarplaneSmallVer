@@ -7,18 +7,18 @@ var weapons_unlocked : Dictionary = {
 	"rapid": 
 		{
 			"unlocked": true,
-			"item_res": "res://resources/weapon_items_res/rapidItem.tres",
+			"weapon_resource": "res://resources/weapon_stats/Rapid.tres",
 		},
 	
 	"burstRifle": 
 		{
 			"unlocked": true,
-			"item_res": "res://resources/weapon_items_res/burstRifleItem.tres",
+			"weapon_resource": "res://resources/weapon_stats/BurstRifle.tres",
 		},
 	
 	"shotgun": 
 		{
 			"unlocked": true,
-			"item_res": "res://resources/weapon_items_res/shotgunItem.tres",
+			"weapon_resource": "res://resources/weapon_stats/Shotgun.tres",
 		},
 }

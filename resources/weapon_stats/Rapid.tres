@@ -10,7 +10,7 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_506of")
-weapon_key = "rapid"
+key = "rapid"
 texture = SubResource("AtlasTexture_jqtwg")
 shoot_cooldown = 0.11
 bullet_spd = 2500

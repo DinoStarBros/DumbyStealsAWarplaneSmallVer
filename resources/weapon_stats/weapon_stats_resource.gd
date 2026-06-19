@@ -2,7 +2,7 @@ extends Resource
 class_name WeaponStats
 
 @export_category("Visuals Stuff")
-@export var weapon_key : String
+@export var key : String
 @export var texture : Texture2D
 
 @export_category("Stats")
