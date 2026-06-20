@@ -222,9 +222,9 @@ locale/translations=PackedStringArray("res://Localization/dsawTrans.english.tran
 
 [layer_names]
 
-2d_physics/layer_1="Plr - Walls"
-2d_physics/layer_2="Plr Dmg - Enemy"
-2d_physics/layer_3="Ene Dmg - Player"
+2d_physics/layer_1="Player - Walls"
+2d_physics/layer_2="Player Hitbox Damage - Enemy Hurtbox"
+2d_physics/layer_3="Enemy Hitbox Damage - PlayerHurtbox"
 2d_physics/layer_10="Camera Limit"
 2d_physics/layer_11="Floor Hitbox - Plr Floor Hurtbox"
 2d_physics/layer_12="Homing Detection"

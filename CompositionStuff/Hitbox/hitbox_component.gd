@@ -4,8 +4,15 @@ class_name HitboxComponent
 @export var delete_after_hit : bool ## For stuff like projectiles & whatnot that get deleted on hit
 @export var projectile_hit_fx_component : ProjectileOnHitFXComponent
 
-var colliders : Array[CollisionShape2D]
+enum TEAM {
+	NONE, PLAYER, ENEMY, NEUTRAL
+}
 
+var current_team : TEAM:
+	set(value):
+		current_team = value
+		set_collision_layer_and_mask(current_team)
+var colliders : Array[CollisionShape2D]
 var attack : Attack = g.attack
 var dmg : float
 var rand_sfx_idx : int = 0
@@ -59,7 +66,6 @@ func _on_area_entered(area : Area2D) -> void:
 				0: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE1)
 				1: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE2)
 				2: AudioManager.create_2d_audio(global_position, AudioSettings.types.EXPLODE3)
-		
 
 func _on_start_cutscene(dur:float) -> void:
 	# Disables collision on cutscene so that u can't damage/take damage during cutscene
@@ -70,3 +76,22 @@ func _on_end_cutscene() -> void:
 	# Re enables collisions when cutscene plays
 	for collider in colliders:
 		collider.disabled = false
+
+func set_collision_layer_and_mask(team: TEAM) -> void:
+	# Disable all layers & masks first
+	for n in 3:
+		set_collision_layer_value(n+1, false)
+		set_collision_mask_value(n+1, false)
+	
+	match team:
+		TEAM.PLAYER:
+			set_collision_layer_value(2, true)
+			set_collision_mask_value(2, true)
+		TEAM.ENEMY:
+			set_collision_layer_value(3, true)
+			set_collision_mask_value(3, true)
+		TEAM.NEUTRAL:
+			set_collision_layer_value(2, true)
+			set_collision_mask_value(2, true)
+			set_collision_layer_value(3, true)
+			set_collision_mask_value(3, true)

@@ -50,6 +50,7 @@ func _shoot() -> void:
 	
 	projectile.velocity = (rotation_component.direction + rand_spread_vector) * speed
 	
+	projectile.current_team = HitboxComponent.TEAM.ENEMY
 	g.game.add_child(projectile)
 
 func _shoot_timeout() -> void:

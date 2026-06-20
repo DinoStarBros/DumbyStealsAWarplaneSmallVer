@@ -8,9 +8,11 @@ extends Node2D
 ## high/low so that I can easily notice errors and stuff
 class_name Projectile
 
+var current_team : HitboxComponent.TEAM
 var lifetime : float = 0.3
 var time_left : float = 0
 var dmg : float = 999999
+var hitbox_component : HitboxComponent
 
 var velocity : Vector2 = Vector2(6, 7)
 
@@ -18,12 +20,22 @@ var weapon_parent_stats : WeaponStats ## The stats of the weapon that shot this 
 
 func _ready() -> void:
 	time_left = lifetime
+	find_hitbox_component()
+	hitbox_component.current_team = current_team
+
+func find_hitbox_component() -> void:
+	for child in get_children():
+		if child is HitboxComponent:
+			hitbox_component = child
 
 func move(delta: float) -> void:
 	global_position += velocity * delta
+
+func lifetime_handle(delta: float) -> void:
 	time_left = max(0, time_left - delta)
 	if time_left <= 0:
 		queue_free()
 
 func _physics_process(delta: float) -> void:
 	move(delta)
+	lifetime_handle(delta)

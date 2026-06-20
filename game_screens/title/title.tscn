@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crr8qeqq8wwdx"]
+[gd_scene format=3 uid="uid://crr8qeqq8wwdx"]
 
 [ext_resource type="Script" uid="uid://1ofumju2h0vq" path="res://game_screens/title/title.gd" id="1_3t2mt"]
 [ext_resource type="AudioStream" uid="uid://daiixog5jq884" path="res://Audio/cardtowersfx/sword_slash.wav" id="3_86k6m"]
@@ -104,11 +104,11 @@ _data = {
 &"intro": SubResource("Animation_2qm53")
 }
 
-[node name="title" type="Node2D"]
+[node name="title" type="Node2D" unique_id=958969914]
 process_mode = 3
 script = ExtResource("1_3t2mt")
 
-[node name="stuff" type="Control" parent="."]
+[node name="stuff" type="Control" parent="." unique_id=2084069034]
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -124,7 +124,7 @@ grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="buttons" type="VBoxContainer" parent="stuff"]
+[node name="buttons" type="VBoxContainer" parent="stuff" unique_id=1646102909]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -140,28 +140,28 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
-[node name="play" type="Button" parent="stuff/buttons"]
+[node name="play" type="Button" parent="stuff/buttons" unique_id=1767209191]
 unique_name_in_owner = true
 layout_mode = 2
 text = "play"
 
-[node name="options" type="Button" parent="stuff/buttons"]
+[node name="options" type="Button" parent="stuff/buttons" unique_id=1637186233]
 layout_mode = 2
 text = "options"
 
-[node name="about" type="Button" parent="stuff/buttons"]
+[node name="about" type="Button" parent="stuff/buttons" unique_id=1465810995]
 layout_mode = 2
 text = "about"
 
-[node name="credits" type="Button" parent="stuff/buttons"]
+[node name="credits" type="Button" parent="stuff/buttons" unique_id=1651936116]
 layout_mode = 2
 text = "credits"
 
-[node name="quit" type="Button" parent="stuff/buttons"]
+[node name="quit" type="Button" parent="stuff/buttons" unique_id=69791202]
 layout_mode = 2
 text = "quit"
 
-[node name="settingsMenu" parent="stuff" instance=ExtResource("3_bjl0m")]
+[node name="settingsMenu" parent="stuff" unique_id=1983540618 instance=ExtResource("3_bjl0m")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -620.0
@@ -169,7 +169,7 @@ offset_top = 500.0
 offset_right = -620.0
 offset_bottom = 500.0
 
-[node name="aboutMenu" type="Control" parent="stuff"]
+[node name="aboutMenu" type="Control" parent="stuff" unique_id=1786256368]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = -599.0
@@ -177,19 +177,19 @@ offset_top = 514.0
 offset_right = -559.0
 offset_bottom = 554.0
 
-[node name="PanelContainer" type="PanelContainer" parent="stuff/aboutMenu"]
+[node name="PanelContainer" type="PanelContainer" parent="stuff/aboutMenu" unique_id=618119505]
 custom_minimum_size = Vector2(644, 624)
 layout_mode = 0
 offset_right = 644.0
 offset_bottom = 624.0
 
-[node name="Label" type="Label" parent="stuff/aboutMenu/PanelContainer"]
+[node name="Label" type="Label" parent="stuff/aboutMenu/PanelContainer" unique_id=1964032991]
 layout_mode = 2
 text = "About Menu:
 
 Bla Bla Bla"
 
-[node name="creditsMenu" type="Control" parent="stuff"]
+[node name="creditsMenu" type="Control" parent="stuff" unique_id=775003682]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = -599.0
@@ -197,53 +197,51 @@ offset_top = 514.0
 offset_right = -559.0
 offset_bottom = 554.0
 
-[node name="PanelContainer" type="PanelContainer" parent="stuff/creditsMenu"]
+[node name="PanelContainer" type="PanelContainer" parent="stuff/creditsMenu" unique_id=2046824575]
 custom_minimum_size = Vector2(644, 624)
 layout_mode = 0
 offset_right = 644.0
 offset_bottom = 624.0
 
-[node name="Label" type="Label" parent="stuff/creditsMenu/PanelContainer"]
+[node name="Label" type="Label" parent="stuff/creditsMenu/PanelContainer" unique_id=1924608317]
 layout_mode = 2
 text = "Credits Menu:
 
 Bla Bla Bla"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_5qlgw")
-}
-autoplay = "intro"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1607211721]
+libraries/ = SubResource("AnimationLibrary_5qlgw")
+autoplay = &"intro"
 
-[node name="sfx" type="Node2D" parent="."]
+[node name="sfx" type="Node2D" parent="." unique_id=284920694]
 
-[node name="woosh" type="AudioStreamPlayer" parent="sfx"]
+[node name="woosh" type="AudioStreamPlayer" parent="sfx" unique_id=2111170950]
 stream = ExtResource("3_86k6m")
 pitch_scale = 0.7
 bus = &"sfx"
 
-[node name="options" type="AudioStreamPlayer" parent="sfx"]
+[node name="options" type="AudioStreamPlayer" parent="sfx" unique_id=1208279439]
 unique_name_in_owner = true
 stream = ExtResource("3_86k6m")
 volume_db = -5.0
 pitch_scale = 1.2
 bus = &"sfx"
 
-[node name="titlescreenstuff" type="Node2D" parent="."]
+[node name="titlescreenstuff" type="Node2D" parent="." unique_id=1368048381]
 z_index = -1
 
-[node name="Bg" type="Sprite2D" parent="titlescreenstuff"]
+[node name="Bg" type="Sprite2D" parent="titlescreenstuff" unique_id=1162322810]
 position = Vector2(661, 338)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_ta8er")
 
-[node name="Dumbynplane" type="Sprite2D" parent="titlescreenstuff"]
+[node name="Dumbynplane" type="Sprite2D" parent="titlescreenstuff" unique_id=1776815188]
 unique_name_in_owner = true
 position = Vector2(-80, 379)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_ugu4a")
 
-[node name="Txt" type="Sprite2D" parent="titlescreenstuff"]
+[node name="Txt" type="Sprite2D" parent="titlescreenstuff" unique_id=933606956]
 unique_name_in_owner = true
 position = Vector2(1400, 363)
 scale = Vector2(0.3, 0.3)

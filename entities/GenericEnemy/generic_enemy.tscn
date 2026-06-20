@@ -300,7 +300,7 @@ colors = PackedColorArray(1, 0.862143, 0.308024, 1, 0.958062, 0.583923, 1.4023e-
 
 [node name="generic_enemy" type="CharacterBody2D" unique_id=1878936567 node_paths=PackedStringArray("enemy_stats_allocator")]
 z_index = 2
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.75, 1.75)
 script = ExtResource("1_yefm3")
 enemy_stats_allocator = NodePath("EnemyStatsAllocator")
 
@@ -470,6 +470,7 @@ color_ramp = SubResource("Gradient_vc8fo")
 [node name="enemyArrow" parent="." unique_id=791464708 instance=ExtResource("13_yeqxb")]
 unique_name_in_owner = true
 visible = false
+scale = Vector2(0.75, 0.75)
 
 [node name="targetDeviatTimer" type="Timer" parent="." unique_id=1491222851]
 unique_name_in_owner = true

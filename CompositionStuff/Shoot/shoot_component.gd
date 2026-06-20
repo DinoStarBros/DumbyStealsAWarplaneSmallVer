@@ -62,6 +62,7 @@ func spawn_bullet() -> void:
 	projectile.lifetime = stats.bullet_lifetime + weapon_buff.current_bullet_lifetime_buff
 	
 	projectile.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage) * weapon_buff.current_damage_buff
+	projectile.current_team = HitboxComponent.TEAM.PLAYER
 	
 	g.game.add_child(projectile)
 	

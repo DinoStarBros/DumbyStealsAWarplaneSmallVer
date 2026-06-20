@@ -16,6 +16,7 @@ var stats : EnemyStats
 func _ready() -> void:
 	if hitbox_component:
 		hitbox_component.set_attack_properties(stats.damage)
+		hitbox_component.current_team = HitboxComponent.TEAM.ENEMY
 	
 	if health_component:
 		health_component.max_hp = stats.max_hp
