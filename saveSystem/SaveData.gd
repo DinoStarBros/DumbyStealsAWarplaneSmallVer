@@ -13,23 +13,28 @@ class_name SaveDataResource
 @export var switch_acc_roll : bool = false
 @export var language_idx : int = 0 ##English=0, Filipino=1
 
-## Contains the weapons, their unlock status, and other stuff
-@export var weapons_unlocked : Dictionary = {
+var weapons_unlocked : Dictionary = {
 	"rapid": 
 		{
 			"unlocked": true,
-			"item_res": "res://resources/weapon_items_res/rapidItem.tres",
+			"weapon_resource": "res://resources/weapon_stats/Rapid.tres",
 		},
 	
 	"burstRifle": 
 		{
 			"unlocked": true,
-			"item_res": "res://resources/weapon_items_res/burstRifleItem.tres",
+			"weapon_resource": "res://resources/weapon_stats/BurstRifle.tres",
 		},
 	
 	"shotgun": 
 		{
 			"unlocked": true,
-			"item_res": "res://resources/weapon_items_res/shotgunItem.tres",
+			"weapon_resource": "res://resources/weapon_stats/Shotgun.tres",
 		},
+	
+	"orbiter":
+		{
+			"unlocked": true,
+			"weapon_resource": "res://resources/weapon_stats/Orbiter.tres",
+		}
 }

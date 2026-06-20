@@ -18,8 +18,6 @@ func _reset_save_file()->void:
 	SaveFileData = SaveDataResource.new()
 	_save()
 
-
-
 var settings : SettingsData = SettingsData.new()
 func save_settings_stuff() -> void: ## Saves only the data used in the settings menu
 	SaveFileData.master_volume = settings.master_volume
@@ -60,7 +58,9 @@ func load_unlocks() -> void:
 	unlocks.weapons_unlocked = SaveFileData.weapons_unlocked
 
 func save_everything() -> void: ## Saves all the SaveFileData according to their current values in the game
-	pass
+	save_settings_stuff()
+	save_unlocks()
 
 func load_everything() -> void: ## Loads all the SaveFileData
-	pass
+	load_settings_stuff()
+	load_unlocks()

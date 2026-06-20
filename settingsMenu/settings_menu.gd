@@ -60,7 +60,7 @@ func _update_res()->void:
 	pass
 
 func _on_master_volume_value_changed(value: float)->void:
-	%vol_change_master.pitch_scale = value
+	%vol_change_master.pitch_scale = clamp(value, 0.1, 10)
 	%vol_change_master.play(0.005)
 	
 	SaveLoad.settings.master_volume = value

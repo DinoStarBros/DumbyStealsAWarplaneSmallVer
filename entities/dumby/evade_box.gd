@@ -19,4 +19,4 @@ func perfect_roll_fx() -> void:
 	shing_sfx.pitch_scale = 1 + randf_range(-.2, .2)
 	shing_sfx.play()
 	%prfxAnim.play("prfxAnimation")
-	g.spawn_txt("Perfect Roll!", global_position)
+	g.spawn_txt("Barrel Roll!", global_position)
