@@ -5,10 +5,12 @@
 [ext_resource type="Resource" uid="uid://0n1sfnwwh7ii" path="res://resources/enemy_stats/Chaser.tres" id="2_pce7d"]
 [ext_resource type="Resource" uid="uid://ucdvv8gnyixa" path="res://resources/enemy_stats/DistanceShooter.tres" id="3_rov2r"]
 [ext_resource type="Resource" uid="uid://dnelu1jfsltps" path="res://resources/enemy_stats/PursuitShooter.tres" id="4_1nejk"]
+[ext_resource type="Resource" uid="uid://b5olh75wkrnyc" path="res://resources/enemy_stats/SpikeBall.tres" id="5_ybvlw"]
+[ext_resource type="Resource" uid="uid://caabvilf7tpna" path="res://resources/enemy_stats/Shotgunner.tres" id="6_jvrm6"]
 
 [resource]
 script = ExtResource("2_a0i3q")
-enemies = Array[ExtResource("1_ryvs0")]([ExtResource("2_pce7d"), ExtResource("3_rov2r"), ExtResource("4_1nejk")])
+enemies = Array[ExtResource("1_ryvs0")]([ExtResource("2_pce7d"), ExtResource("4_1nejk"), ExtResource("3_rov2r"), ExtResource("5_ybvlw"), ExtResource("6_jvrm6")])
 starting_spawn_time = 3.0
 minimum_spawn_time = 1.0
 enemy_limit = 10.0

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 ## For weapons, but could also be for EnemyShootComponent
 class_name WeaponsSFXHandler
 

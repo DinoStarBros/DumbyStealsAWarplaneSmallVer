@@ -4,7 +4,7 @@ class_name AudioStreamPlayerNodePlayer
 # PLays AudioStreamPlayer with customizations in just one line.
 # This may be very stupid who knows.
 func play_AudioStreamPlayer(
-	node: AudioStreamPlayer,
+	node: AudioStreamPlayer2D,
 	start_point: float = 0.0,
 	base_pitch: float = 1.0,
 	pitch_rand: float = 0.2,

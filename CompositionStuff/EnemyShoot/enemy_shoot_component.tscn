@@ -9,4 +9,6 @@ script = ExtResource("1_m6low")
 [node name="ShootTimer" type="Timer" parent="." unique_id=482830484]
 unique_name_in_owner = true
 
-[node name="WeaponsSFXHandler" parent="." unique_id=1878118677 instance=ExtResource("2_qrp1a")]
+[node name="WeaponsSFXHandler" parent="." unique_id=1878118677 node_paths=PackedStringArray("enemy_shoot_component") instance=ExtResource("2_qrp1a")]
+unique_name_in_owner = true
+enemy_shoot_component = NodePath("..")

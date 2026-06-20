@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_w5tjm")
-damage = 5.0
+damage = 3.0
 max_hp = 25.0
 max_speed = 850.0
 acceleration = 4.0
@@ -14,6 +14,7 @@ projectile_dmg = 10.0
 projectile_speed = 1000.0
 projectile_lifetime = 2.0
 min_and_max_shoot_cooldown = Vector2(0.5, 1.5)
+single_sfx = Array[int]([0, 1])
 extra_stats = Dictionary[String, Variant]({
 "bullet_damage": 10.0
 })

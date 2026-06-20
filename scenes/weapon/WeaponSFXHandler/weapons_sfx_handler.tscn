@@ -8,50 +8,50 @@
 [ext_resource type="Script" uid="uid://nu6h3f73t77r" path="res://scenes/weapon/WeaponSFXHandler/asp_node_player.gd" id="6_gila7"]
 [ext_resource type="AudioStream" uid="uid://tuf0a3r6o4on" path="res://Audio/planesfx/freesound_community-grenade-launcher-106342.mp3" id="6_ra45h"]
 
-[node name="WeaponsSFXHandler" type="Node" unique_id=1878118677]
+[node name="WeaponsSFXHandler" type="Node2D" unique_id=2056832120]
 script = ExtResource("1_rpjfu")
 
-[node name="gun1" type="AudioStreamPlayer" parent="." unique_id=2057559149]
+[node name="gun1" type="AudioStreamPlayer2D" parent="." unique_id=25884444]
 unique_name_in_owner = true
 stream = ExtResource("2_gila7")
 volume_db = -15.0
 bus = &"sfx"
 
-[node name="gun2" type="AudioStreamPlayer" parent="." unique_id=493293132]
+[node name="gun2" type="AudioStreamPlayer2D" parent="." unique_id=614669156]
 unique_name_in_owner = true
 stream = ExtResource("3_ra45h")
 volume_db = -25.0
 pitch_scale = 1.2
 bus = &"sfx"
 
-[node name="gun3" type="AudioStreamPlayer" parent="." unique_id=1000171538]
+[node name="gun3" type="AudioStreamPlayer2D" parent="." unique_id=1897096872]
 unique_name_in_owner = true
 stream = ExtResource("4_ikn55")
 volume_db = -10.0
 pitch_scale = 1.2
 bus = &"sfx"
 
-[node name="gun4" type="AudioStreamPlayer" parent="." unique_id=1267844374]
+[node name="gun4" type="AudioStreamPlayer2D" parent="." unique_id=2133445016]
 unique_name_in_owner = true
 stream = ExtResource("3_ra45h")
 volume_db = -16.0
 pitch_scale = 0.8
 bus = &"sfx"
 
-[node name="gun5" type="AudioStreamPlayer" parent="." unique_id=939517341]
+[node name="gun5" type="AudioStreamPlayer2D" parent="." unique_id=737683161]
 unique_name_in_owner = true
 stream = ExtResource("4_ikn55")
 volume_db = -10.0
 pitch_scale = 1.2
 bus = &"sfx"
 
-[node name="gun6" type="AudioStreamPlayer" parent="." unique_id=2144485211]
+[node name="gun6" type="AudioStreamPlayer2D" parent="." unique_id=336082923]
 unique_name_in_owner = true
 stream = ExtResource("5_8fb6b")
 volume_db = -30.0
 bus = &"sfx"
 
-[node name="gun7" type="AudioStreamPlayer" parent="." unique_id=971696490]
+[node name="gun7" type="AudioStreamPlayer2D" parent="." unique_id=1015955637]
 unique_name_in_owner = true
 stream = ExtResource("6_ra45h")
 volume_db = -15.0

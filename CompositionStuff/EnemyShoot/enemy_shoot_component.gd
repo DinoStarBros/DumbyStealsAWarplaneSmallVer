@@ -2,6 +2,7 @@ extends Node2D
 class_name EnemyShootComponent
 
 @onready var shoot_timer: Timer = %ShootTimer
+@onready var weapons_sfx_handler: WeaponsSFXHandler = %WeaponsSFXHandler
 
 @export var animation : AnimationPlayer ## For enemies that have an animation / telegraph before shooting
 var rotation_component : RotationComponent
@@ -59,7 +60,9 @@ func _shoot() -> void:
 func _shoot_timeout() -> void:
 	if health_component.hp > 0:
 		if shooting:
+			weapons_sfx_handler.play_single_sfx()
 			for n in amount:
+				weapons_sfx_handler.play_multi_sfx()
 				_shoot()
 				await get_tree().create_timer(shoot_delay).timeout
 		
