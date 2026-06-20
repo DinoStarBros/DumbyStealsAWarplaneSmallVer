@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi6esi8gjbg8p"]
+[gd_scene format=3 uid="uid://bi6esi8gjbg8p"]
 
 [ext_resource type="Script" uid="uid://cgegmbgrfqie6" path="res://game_screens/level_select/level_select.gd" id="1_o8e2x"]
 [ext_resource type="Texture2D" uid="uid://5c4yo21h3l54" path="res://Art/planestuff/bg.png" id="2_odh5j"]
@@ -7,14 +7,14 @@
 [sub_resource type="LabelSettings" id="LabelSettings_o8e2x"]
 font_size = 100
 
-[node name="level_select" type="Control"]
+[node name="level_select" type="Control" unique_id=338731275]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 script = ExtResource("1_o8e2x")
 
-[node name="return" type="Button" parent="."]
+[node name="return" type="Button" parent="." unique_id=647331234]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 21.0
@@ -24,7 +24,7 @@ offset_bottom = 93.0
 theme_override_font_sizes/font_size = 60
 text = " Return "
 
-[node name="lvlSelTxt" type="Label" parent="."]
+[node name="lvlSelTxt" type="Label" parent="." unique_id=1792178983]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -38,32 +38,32 @@ label_settings = SubResource("LabelSettings_o8e2x")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="titlescreenstuff" type="Node2D" parent="."]
+[node name="titlescreenstuff" type="Node2D" parent="." unique_id=427113368]
 modulate = Color(0.5158667, 0.5158667, 0.51586664, 1)
 z_index = -1
 
-[node name="Bg" type="Sprite2D" parent="titlescreenstuff"]
+[node name="Bg" type="Sprite2D" parent="titlescreenstuff" unique_id=1890188371]
 position = Vector2(661, 338)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_odh5j")
 
-[node name="Dumbynplane" type="Sprite2D" parent="titlescreenstuff"]
+[node name="Dumbynplane" type="Sprite2D" parent="titlescreenstuff" unique_id=523057272]
 unique_name_in_owner = true
 position = Vector2(523, 363)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_v2bms")
 
-[node name="LevelsV" type="VBoxContainer" parent="."]
+[node name="LevelsV" type="VBoxContainer" parent="." unique_id=1329674805]
 layout_mode = 0
 offset_left = 284.0
 offset_top = 256.0
 offset_right = 364.0
 offset_bottom = 296.0
 
-[node name="LevelsH" type="HBoxContainer" parent="LevelsV"]
+[node name="LevelsH" type="HBoxContainer" parent="LevelsV" unique_id=503272198]
 layout_mode = 2
 
-[node name="l1" type="Button" parent="LevelsV/LevelsH"]
+[node name="l1" type="Button" parent="LevelsV/LevelsH" unique_id=1616965277]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
