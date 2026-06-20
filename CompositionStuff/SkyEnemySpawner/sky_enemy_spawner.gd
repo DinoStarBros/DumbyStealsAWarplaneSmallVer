@@ -8,6 +8,7 @@ const GENERIC_ENEMY_SCN : PackedScene = preload("res://entities/GenericEnemy/gen
 
 var level_resource : LevelEnemySpawns = preload("res://resources/LevelResources/1-1.tres")
 var current_spawn_interval : float = 3.0
+var enemy_count : int
 
 func _ready() -> void:
 	current_spawn_interval = level_resource.starting_spawn_time
@@ -16,6 +17,11 @@ func _ready() -> void:
 func spawn_enemy() -> void:
 	# Game state has to be Combat
 	if g.game_state != g.game_states.Combat:
+		return
+	
+	enemy_count = g.enemy_container.get_child_count()
+	if enemy_count > level_resource.enemy_limit:
+		# Limits the amount of enemies that spawn
 		return
 	
 	global_position = g.player.global_position
@@ -39,3 +45,6 @@ func _spawn_timer_timeout() -> void:
 	
 	current_spawn_interval = max(level_resource.minimum_spawn_time, current_spawn_interval - level_resource.spawn_time_increment)
 	spawn_timer.start(current_spawn_interval)
+
+func _physics_process(delta: float) -> void:
+	pass

@@ -44,6 +44,9 @@ func _ready() -> void:
 		ene_shoot_component.amount = stats.projectile_amount
 		ene_shoot_component.shoot_delay = stats.shoot_delay
 		ene_shoot_component.random_spread = stats.random_spread
+		
+		ene_shoot_component.single_sfx = stats.single_sfx
+		ene_shoot_component.multi_sfx = stats.multi_sfx
 	
 	if enemy_movement_behavior:
 		enemy_movement_behavior.current_behavior_type = stats.movement_behavior

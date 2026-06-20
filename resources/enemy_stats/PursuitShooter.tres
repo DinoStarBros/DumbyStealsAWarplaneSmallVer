@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://dnelu1jfsltps"]
+
+[ext_resource type="PackedScene" uid="uid://dl58yl2dpvjg5" path="res://projectiles/ene_bullet/ene_bullet.tscn" id="1_swvuc"]
+[ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="2_w5tjm"]
+
+[resource]
+script = ExtResource("2_w5tjm")
+damage = 5.0
+max_hp = 25.0
+max_speed = 850.0
+acceleration = 4.0
+turn_speed = 4.0
+projectile_dmg = 10.0
+projectile_speed = 1000.0
+projectile_lifetime = 2.0
+min_and_max_shoot_cooldown = Vector2(0.5, 1.5)
+extra_stats = Dictionary[String, Variant]({
+"bullet_damage": 10.0
+})
+movement_behavior = 1
+shoot_behavior = 1
+metadata/_custom_type_script = "uid://dycg2uy8h53rg"

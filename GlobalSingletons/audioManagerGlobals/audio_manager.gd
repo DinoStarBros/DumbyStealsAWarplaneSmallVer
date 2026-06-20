@@ -1,6 +1,7 @@
 extends Node2D
 
 var general_audio_count : int = 0
+
 const general_limit : int = 50
 
 @export var audios : Array[AudioSettings]

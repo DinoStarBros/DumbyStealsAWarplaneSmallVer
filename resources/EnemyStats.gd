@@ -23,6 +23,9 @@ class_name EnemyStats
 @export var projectile_amount : int = 1
 @export var shoot_delay : float = 0 ## Delay between each bullet if there's multiple
 @export var random_spread : float = 0
+@export_category("Shoot SFX")
+@export var single_sfx : Array[WeaponsSFXHandler.weapon_sfx]
+@export var multi_sfx : Array[WeaponsSFXHandler.weapon_sfx]
 
 @export_category("Extra Stats") ## For enemy specific shite
 @export var extra_stats : Dictionary[String, Variant]

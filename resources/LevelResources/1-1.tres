@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="1_ryvs0"]
 [ext_resource type="Script" uid="uid://d1crhjsum6w1o" path="res://resources/level_enemy_spawns_resource.gd" id="2_a0i3q"]
 [ext_resource type="Resource" uid="uid://0n1sfnwwh7ii" path="res://resources/enemy_stats/Chaser.tres" id="2_pce7d"]
-[ext_resource type="Resource" uid="uid://ucdvv8gnyixa" path="res://resources/enemy_stats/Shooter.tres" id="3_rov2r"]
+[ext_resource type="Resource" uid="uid://ucdvv8gnyixa" path="res://resources/enemy_stats/DistanceShooter.tres" id="3_rov2r"]
+[ext_resource type="Resource" uid="uid://dnelu1jfsltps" path="res://resources/enemy_stats/PursuitShooter.tres" id="4_1nejk"]
 
 [resource]
 script = ExtResource("2_a0i3q")
-enemies = Array[ExtResource("1_ryvs0")]([ExtResource("2_pce7d"), ExtResource("3_rov2r")])
-starting_spawn_time = 5.0
+enemies = Array[ExtResource("1_ryvs0")]([ExtResource("2_pce7d"), ExtResource("3_rov2r"), ExtResource("4_1nejk")])
+starting_spawn_time = 3.0
 minimum_spawn_time = 1.0
+enemy_limit = 10.0
 min_enemy_spawn_amount = 2
 max_enemy_spawn_amount = 3
 metadata/_custom_type_script = "uid://d1crhjsum6w1o"

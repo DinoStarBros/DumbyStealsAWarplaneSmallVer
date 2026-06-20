@@ -23,6 +23,9 @@ var rand_spread_vector : Vector2
 var shoot_cd : float = 0
 var scdt : float
 
+var single_sfx : Array[WeaponsSFXHandler.weapon_sfx]
+var multi_sfx : Array[WeaponsSFXHandler.weapon_sfx]
+
 func _ready() -> void:
 	
 	shoot_timer.timeout.connect(_shoot_timeout)

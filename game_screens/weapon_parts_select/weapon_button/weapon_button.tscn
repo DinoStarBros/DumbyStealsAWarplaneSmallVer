@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwtqi6jnr4gq1"]
+[gd_scene format=3 uid="uid://dwtqi6jnr4gq1"]
 
 [ext_resource type="Script" uid="uid://c7pbcdwc26s1" path="res://game_screens/weapon_parts_select/weapon_button/weapon_button.gd" id="1_4y3ib"]
 [ext_resource type="Texture2D" uid="uid://clq1vvv04td4q" path="res://Art/Ase files/gun-icons.aseprite" id="1_euodi"]
@@ -7,7 +7,7 @@
 atlas = ExtResource("1_euodi")
 region = Rect2(0, 0, 16, 16)
 
-[node name="weapon_button" type="Button"]
+[node name="weapon_button" type="Button" unique_id=166265605]
 offset_right = 142.0
 offset_bottom = 49.0
 theme_override_font_sizes/font_size = 40

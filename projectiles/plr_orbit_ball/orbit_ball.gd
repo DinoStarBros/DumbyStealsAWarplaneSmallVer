@@ -8,7 +8,6 @@ var time_elapsed : float
 var current_orbit_distance : float = 0
 var desire_orbit_distance : float = 0
 var orbit_speed : float = 4
-var random_start : float = randf_range(-1, 1)
 
 const SNAP_SPEED : float = 1000
 const BASE_ORBIT_DISTANCE : float = 200
@@ -24,8 +23,8 @@ func _physics_process(delta: float) -> void:
 func orbit_handle(delta: float) -> void:
 	time_elapsed += delta * orbit_speed
 	
-	circle.x = cos(time_elapsed + random_start)
-	circle.y = sin(time_elapsed + random_start)
+	circle.x = cos(time_elapsed)
+	circle.y = sin(time_elapsed)
 	
 	desire_position = g.player.global_position + (circle * current_orbit_distance)
 	direction_to_desire_position = global_position.direction_to(desire_position)

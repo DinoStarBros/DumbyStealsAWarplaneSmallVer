@@ -1,7 +1,10 @@
 extends Node
+## For weapons, but could also be for EnemyShootComponent
 class_name WeaponsSFXHandler
 
 @export var weapon_parent : Weapon
+@export var enemy_shoot_component : EnemyShootComponent
+
 @onready var aspnp: AudioStreamPlayerNodePlayer = %ASPNodePlayer
 
 var single_sfxs : Array
@@ -32,8 +35,12 @@ func identify_and_play_sfx_type(sfx: weapon_sfx) -> void:
 			aspnp.play_AudioStreamPlayer(%gun7, 0, 1, 0.2)
 
 func _ready() -> void:
-	single_sfxs = weapon_parent.weapon_stat_res.single_sfx
-	multi_sfxs = weapon_parent.weapon_stat_res.multi_sfx
+	if weapon_parent:
+		single_sfxs = weapon_parent.weapon_stat_res.single_sfx
+		multi_sfxs = weapon_parent.weapon_stat_res.multi_sfx
+	if enemy_shoot_component:
+		single_sfxs = enemy_shoot_component.single_sfx
+		multi_sfxs = enemy_shoot_component.multi_sfx
 
 func play_single_sfx() -> void:
 	for sfx in single_sfxs:
