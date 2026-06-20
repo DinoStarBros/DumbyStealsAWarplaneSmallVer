@@ -10,6 +10,7 @@ var multi_sfxs : Array
 enum weapon_sfx {
 	Gun1, Gun2, Gun3,
 	Gun4, Gun5, Gun6,
+	Gun7, 
 	
 }
 
@@ -27,6 +28,8 @@ func identify_and_play_sfx_type(sfx: weapon_sfx) -> void:
 			aspnp.play_AudioStreamPlayer(%gun5, 0.08, 0.8)
 		weapon_sfx.Gun6:
 			aspnp.play_AudioStreamPlayer(%gun6, 0.05)
+		weapon_sfx.Gun7:
+			aspnp.play_AudioStreamPlayer(%gun7, 0, 1, 0.2)
 
 func _ready() -> void:
 	single_sfxs = weapon_parent.weapon_stat_res.single_sfx

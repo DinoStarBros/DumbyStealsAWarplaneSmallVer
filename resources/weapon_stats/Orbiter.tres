@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://d0jvn3jwth4dm"]
+
+[ext_resource type="PackedScene" uid="uid://draccq8l1fpim" path="res://projectiles/plr_orbit_ball/orbit_ball.tscn" id="1_kupxn"]
+[ext_resource type="Script" uid="uid://2egkgwj5n4iw" path="res://resources/weapon_stats/weapon_stats_resource.gd" id="2_ij0ie"]
+[ext_resource type="Texture2D" uid="uid://clq1vvv04td4q" path="res://Art/Ase files/gun-icons.aseprite" id="3_2ur3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqtwg"]
+atlas = ExtResource("3_2ur3c")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+script = ExtResource("2_ij0ie")
+key = "orbiter"
+texture = SubResource("AtlasTexture_jqtwg")
+shoot_cooldown = 0.2
+bullet_spd = 2500
+bullet_lifetime = 20.0
+shoot_delay = 0.1
+base_damage = 3.0
+bullet_scn = ExtResource("1_kupxn")
+multi_sfx = Array[int]([6, 2])
+muzzle_flashes = Array[int]([0])
+metadata/_custom_type_script = "uid://2egkgwj5n4iw"

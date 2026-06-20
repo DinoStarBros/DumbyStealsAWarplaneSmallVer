@@ -14,10 +14,10 @@ var buff_time : float = 0
 
 const weapon_scn : PackedScene = preload("res://scenes/weapon/weapon.tscn")
 const weapon_stat_resources : Dictionary = {
-	"Rapid": preload("res://resources/weapon_stats/Rapid.tres"),
-	"Shotgun": preload("res://resources/weapon_stats/Shotgun.tres"),
-	"BurstRifle": preload("res://resources/weapon_stats/BurstRifle.tres"),
-	
+	"Rapid":preload("res://resources/weapon_stats/Rapid.tres"),
+	"Shotgun":preload("res://resources/weapon_stats/Shotgun.tres"),
+	"BurstRifle":preload("res://resources/weapon_stats/BurstRifle.tres"),
+	"Orbiter":preload("res://resources/weapon_stats/Orbiter.tres")
 }
 
 func _ready() -> void:
