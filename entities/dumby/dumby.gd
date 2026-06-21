@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		)
 	else:
 		rotation_component.plane_rotation_handling(
-		delta, 
+		delta,
 		get_global_mouse_position()
 		)
 	
