@@ -8,6 +8,8 @@ func spawn_enemy(enemy_stat_res: EnemyStats) -> void:
 	g.sky_enemy_spawner.spawn_enemy(enemy_stat_res)
 
 func _ready() -> void:
+	visible = g.enable_developer_options
+	
 	await get_tree().process_frame
 	
 	for n in add_weapon_buttons.values(): if n[0] is Button:
