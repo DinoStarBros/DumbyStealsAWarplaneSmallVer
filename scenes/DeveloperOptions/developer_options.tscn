@@ -20,21 +20,25 @@ text = "Add Weapon"
 [node name="Rapid" type="Button" parent="VBoxContainer/AddWeapons" unique_id=1023296281]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "Rapid"
 
 [node name="Burst" type="Button" parent="VBoxContainer/AddWeapons" unique_id=872263269]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "BurstRifle"
 
 [node name="Shotgun" type="Button" parent="VBoxContainer/AddWeapons" unique_id=2103060651]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "Shotgun"
 
 [node name="Orbit" type="Button" parent="VBoxContainer/AddWeapons" unique_id=85404445]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "Orbit"
 
 [node name="SpawnEnemies" type="GridContainer" parent="VBoxContainer" unique_id=1792640462]
@@ -48,24 +52,29 @@ text = "Spawn Enemy"
 [node name="Chaser" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=81088786]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "Chaser"
 
 [node name="PursuitShooter" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=278935580]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "PursuitShooter"
 
 [node name="DistanceShooter" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=524547421]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "DistanceShooter"
 
 [node name="Shotgunner" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=621249503]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "Shotgunner"
 
 [node name="SpikeBall" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=1422346431]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 text = "SpikeBall"

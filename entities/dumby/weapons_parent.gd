@@ -30,8 +30,9 @@ func _ready() -> void:
 	if g.current_weapon_button_selected_res:
 		add_weapon(g.current_weapon_button_selected_res)
 	else:
-		for value in WEAPON_STATS_RESOURCES.values():
-			add_weapon(value)
+		#for value in WEAPON_STATS_RESOURCES.values():
+		#	add_weapon(value)
+		add_weapon(load("res://resources/weapon_stats/Rapid.tres"))
 	current_weapon_idx = 0
 	switch_weapon(0)
 
