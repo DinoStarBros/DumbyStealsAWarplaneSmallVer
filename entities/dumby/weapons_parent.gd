@@ -12,8 +12,8 @@ var current_weapon : Weapon
 var current_weapon_idx : int
 var buff_time : float = 0
 
-const weapon_scn : PackedScene = preload("res://scenes/weapon/weapon.tscn")
-const weapon_stat_resources : Dictionary = {
+const WEAPON_SCN : PackedScene = preload("res://scenes/weapon/weapon.tscn")
+const WEAPON_STATS_RESOURCES : Dictionary = {
 	"Rapid":preload("res://resources/weapon_stats/Rapid.tres"),
 	"Shotgun":preload("res://resources/weapon_stats/Shotgun.tres"),
 	"BurstRifle":preload("res://resources/weapon_stats/BurstRifle.tres"),
@@ -21,6 +21,8 @@ const weapon_stat_resources : Dictionary = {
 }
 
 func _ready() -> void:
+	g.weapons_parent = self
+	
 	evade_box.Perfect_Roll.connect(
 		func():
 		buff_time = 5
@@ -28,13 +30,13 @@ func _ready() -> void:
 	if g.current_weapon_button_selected_res:
 		add_weapon(g.current_weapon_button_selected_res)
 	else:
-		for value in weapon_stat_resources.values():
+		for value in WEAPON_STATS_RESOURCES.values():
 			add_weapon(value)
 	current_weapon_idx = 0
 	switch_weapon(0)
 
 func add_weapon(weapon_res: WeaponStats) -> void:
-	var weapon_node : Weapon = weapon_scn.instantiate()
+	var weapon_node : Weapon = WEAPON_SCN.instantiate()
 	weapon_node.weapon_stat_res = weapon_res
 	weapon_node.plr_rotation_component = rotation_component
 	add_child(weapon_node)
@@ -59,4 +61,4 @@ func switch_weapon(change: int) -> void:
 	weapon_visuals()
 
 func weapon_visuals() -> void:
-	curr_weapon_txt.text = str(current_weapon.weapon_stat_res.key)
+	curr_weapon_txt.text = TranslationServer.tr(current_weapon.weapon_stat_res.key + "Name")

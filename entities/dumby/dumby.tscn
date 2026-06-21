@@ -45,6 +45,7 @@
 [ext_resource type="Shader" uid="uid://b3x1gtv1pdlfd" path="res://shaders/shockwave.gdshader" id="45_4suxv"]
 [ext_resource type="Shader" uid="uid://ct2a0vrvm04a2" path="res://shaders/chromaticAberration.gdshader" id="45_l2c7h"]
 [ext_resource type="AudioStream" uid="uid://kwc1yjoylvhx" path="res://Audio/planesfx/realistic-shotgun-cocking-sound-38640.mp3" id="46_dint0"]
+[ext_resource type="PackedScene" uid="uid://w00ph22e3fd8" path="res://scenes/DeveloperOptions/developer_options.tscn" id="48_02re0"]
 [ext_resource type="Texture2D" uid="uid://cw30gj5fpxv50" path="res://icon.svg" id="51_l2c7h"]
 [ext_resource type="Shader" uid="uid://cdmkmj7oj4y05" path="res://shaders/fire.gdshader" id="56_etwne"]
 
@@ -1613,6 +1614,8 @@ offset_top = 653.0
 offset_right = 310.0
 offset_bottom = 670.0
 text = "AYYY ITS ME"
+
+[node name="DeveloperOptions" parent="." unique_id=658918576 instance=ExtResource("48_02re0")]
 
 [connection signal="pressed" from="GUI/yLost/buttons/menu" to="GUI" method="_on_menu_pressed"]
 [connection signal="pressed" from="GUI/paused/settingsMenu/butons/resume" to="GUI" method="_on_resume_pressed"]

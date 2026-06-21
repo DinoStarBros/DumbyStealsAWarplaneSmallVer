@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://w00ph22e3fd8"]
+
+[ext_resource type="Script" uid="uid://doc7snjcve7j1" path="res://scenes/DeveloperOptions/developer_options.gd" id="1_ty76e"]
+
+[node name="DeveloperOptions" type="CanvasLayer" unique_id=658918576]
+script = ExtResource("1_ty76e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1597623510]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AddWeapons" type="GridContainer" parent="VBoxContainer" unique_id=1786579411]
+layout_mode = 2
+columns = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/AddWeapons" unique_id=1904970960]
+layout_mode = 2
+text = "Add Weapon"
+
+[node name="Rapid" type="Button" parent="VBoxContainer/AddWeapons" unique_id=1023296281]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rapid"
+
+[node name="Burst" type="Button" parent="VBoxContainer/AddWeapons" unique_id=872263269]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BurstRifle"
+
+[node name="Shotgun" type="Button" parent="VBoxContainer/AddWeapons" unique_id=2103060651]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Shotgun"
+
+[node name="Orbit" type="Button" parent="VBoxContainer/AddWeapons" unique_id=85404445]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Orbit"
+
+[node name="SpawnEnemies" type="GridContainer" parent="VBoxContainer" unique_id=1792640462]
+layout_mode = 2
+columns = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/SpawnEnemies" unique_id=1763707780]
+layout_mode = 2
+text = "Spawn Enemy"
+
+[node name="Chaser" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=81088786]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Chaser"
+
+[node name="PursuitShooter" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=278935580]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PursuitShooter"
+
+[node name="DistanceShooter" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=524547421]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DistanceShooter"
+
+[node name="Shotgunner" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=621249503]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Shotgunner"
+
+[node name="SpikeBall" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=1422346431]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SpikeBall"

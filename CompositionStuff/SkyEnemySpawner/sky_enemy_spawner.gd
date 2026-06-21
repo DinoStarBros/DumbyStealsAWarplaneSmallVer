@@ -1,4 +1,5 @@
 extends Path2D
+class_name SkyEnemySpawner
 
 @onready var path_follow: PathFollow2D = %PathFollow
 @onready var spawn_timer: Timer = %SpawnTimer
@@ -11,12 +12,14 @@ var current_spawn_interval : float = 3.0
 var enemy_count : int
 
 func _ready() -> void:
+	g.sky_enemy_spawner = self
+	
 	current_spawn_interval = level_resource.starting_spawn_time
 	spawn_timer.timeout.connect(_spawn_timer_timeout)
 
-func spawn_enemy() -> void:
-	# Game state has to be Combat
+func spawn_enemy(enemy_stat_res: EnemyStats) -> void:
 	if g.game_state != g.game_states.Combat:
+		# Game state has to be Combat
 		return
 	
 	enemy_count = g.enemy_container.get_child_count()
@@ -29,7 +32,7 @@ func spawn_enemy() -> void:
 	
 	var enemy : Enemy = GENERIC_ENEMY_SCN.instantiate()
 	
-	enemy.enemy_stat_res = level_resource.enemies.pick_random()
+	enemy.enemy_stat_res = enemy_stat_res
 	
 	g.enemy_container.add_child(enemy)
 	
@@ -41,7 +44,7 @@ func _spawn_timer_timeout() -> void:
 		level_resource.max_enemy_spawn_amount
 	)
 	for enemy in enemy_spawn_amnt:
-		spawn_enemy()
+		spawn_enemy(level_resource.enemies.pick_random())
 	
 	current_spawn_interval = max(level_resource.minimum_spawn_time, current_spawn_interval - level_resource.spawn_time_increment)
 	spawn_timer.start(current_spawn_interval)

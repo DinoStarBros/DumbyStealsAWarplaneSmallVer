@@ -21,6 +21,7 @@ var lil_printy : Label
 var weapons_parent : WeaponsParent
 var wave : int
 var current_weapon_button_selected_res : WeaponStats
+var sky_enemy_spawner : SkyEnemySpawner
 
 enum game_states {
 	Title, Combat, Lost, Upgrade, Cutscene,
