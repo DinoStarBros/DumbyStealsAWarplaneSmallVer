@@ -8,12 +8,12 @@ class_name RegenHandler
 
 var regen_time : float = 0
 var max_regen_time : float = 1
-var regen_speed : float = .3
-var regen_speed_limit : float = 1
+var regen_speed : float = .5
+var regen_speed_limit : float = 2
 var regen_time_mult : float = 0
 
-const regen_time_mult_1_decrease : float = 0.5
-const regen_time_mult_2_decrease : float = 0.2
+const REGEN_TIME_MULT_1_DECREASE : float = 0.6
+const REGEN_TIME_MULT_2_DECREASE : float = 0.3
 
 
 func regen_handling(delta: float) -> void:
@@ -35,11 +35,11 @@ func regen_handling(delta: float) -> void:
 	
 	# Regeneration gets slower when shooting and/or accelerating
 	if p.shooting and not p.accelerating:
-		regen_time_mult = regen_time_mult_1_decrease
+		regen_time_mult = REGEN_TIME_MULT_1_DECREASE
 	elif p.accelerating and not p.shooting:
-		regen_time_mult = regen_time_mult_1_decrease
+		regen_time_mult = REGEN_TIME_MULT_1_DECREASE
 	elif p.accelerating and p.shooting:
-		regen_time_mult = regen_time_mult_2_decrease
+		regen_time_mult = REGEN_TIME_MULT_2_DECREASE
 	else:
 		regen_time_mult = 1
 

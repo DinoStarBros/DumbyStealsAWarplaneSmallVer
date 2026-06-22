@@ -12,7 +12,6 @@ var speed_lines : Array[Node2D]
 @export var max_frame : float = 6
 
 func _ready() -> void:
-	g.lil_printy = %lilPrinty
 	p.Hurt.connect(on_hurt)
 	GlobalSignals.Start_Cutscene.connect(on_start_cutscene)
 	GlobalSignals.End_Cutscene.connect(on_end_cutscene)

@@ -2,6 +2,7 @@ extends Node2D
 class_name WeaponsParent
 
 @export var dumby : Dumby
+@export var weapons_hotbar: Control
 
 @onready var rotation_component: RotationComponent = %RotationComponent
 @onready var switch_sfx: AudioStreamPlayer = %switch
@@ -11,14 +12,9 @@ class_name WeaponsParent
 var current_weapon : Weapon
 var current_weapon_idx : int
 var buff_time : float = 0
+var texrec_pos_offset : float = 0
 
 const WEAPON_SCN : PackedScene = preload("res://scenes/weapon/weapon.tscn")
-const WEAPON_STATS_RESOURCES : Dictionary = {
-	"Rapid":preload("res://resources/weapon_stats/Rapid.tres"),
-	"Shotgun":preload("res://resources/weapon_stats/Shotgun.tres"),
-	"BurstRifle":preload("res://resources/weapon_stats/BurstRifle.tres"),
-	"Orbiter":preload("res://resources/weapon_stats/Orbiter.tres")
-}
 
 func _ready() -> void:
 	g.weapons_parent = self
@@ -30,8 +26,6 @@ func _ready() -> void:
 	if g.current_weapon_button_selected_res:
 		add_weapon(g.current_weapon_button_selected_res)
 	else:
-		#for value in WEAPON_STATS_RESOURCES.values():
-		#	add_weapon(value)
 		add_weapon(load("res://resources/weapon_stats/Rapid.tres"))
 	current_weapon_idx = 0
 	switch_weapon(0)
@@ -42,6 +36,8 @@ func add_weapon(weapon_res: WeaponStats) -> void:
 	weapon_node.plr_rotation_component = rotation_component
 	add_child(weapon_node)
 	current_weapon = weapon_node
+	current_weapon_idx = get_child_count() - 1
+	switch_weapon(0)
 	weapon_visuals()
 
 func _physics_process(delta: float) -> void:
@@ -63,3 +59,31 @@ func switch_weapon(change: int) -> void:
 
 func weapon_visuals() -> void:
 	curr_weapon_txt.text = TranslationServer.tr(current_weapon.weapon_stat_res.key + "Name")
+	
+	for texturerect in weapons_hotbar.get_children():
+		texturerect.queue_free()
+	
+	var ndex : int = -1
+	texrec_pos_offset = 0
+	for child in get_children():if child is Weapon:
+		ndex += 1
+		make_texture_rect(child.weapon_stat_res, ndex)
+
+func make_texture_rect(weapon_resource: WeaponStats, index: int) -> void:
+	var texture_rect : TextureRect = TextureRect.new()
+	
+	texture_rect.texture = weapon_resource.texture
+	texture_rect.name = weapon_resource.key
+	texture_rect.scale.x = 2
+	
+	texture_rect.position.x += 32 * index
+	texture_rect.position.x += texrec_pos_offset
+	
+	weapons_hotbar.add_child(texture_rect)
+	
+	if index == current_weapon_idx:
+		texture_rect.scale.x = 2.5
+		texture_rect.position.y = -8
+		texrec_pos_offset = 8
+	
+	texture_rect.scale.y = texture_rect.scale.x

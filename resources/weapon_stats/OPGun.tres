@@ -22,6 +22,6 @@ bullet_scn = ExtResource("1_bged5")
 shoot_cooldown_buff = 0.5
 bullet_amnt_buff = 10
 random_spread_buff = -2.0
-single_sfx = Array[int]([0, 1])
+single_sfx = Array[int]([2, 3])
 muzzle_flashes = Array[int]([0])
 metadata/_custom_type_script = "uid://2egkgwj5n4iw"

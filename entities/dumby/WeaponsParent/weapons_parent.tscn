@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b7wc80378arjc"]
+
+[ext_resource type="Script" uid="uid://0245wd4r0bun" path="res://entities/dumby/WeaponsParent/weapons_parent.gd" id="1_ndve6"]
+
+[node name="weapons_parent" type="Node2D" unique_id=1899750343]
+script = ExtResource("1_ndve6")

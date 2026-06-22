@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lbyik5wofkif" path="res://Art/planestuff/dumbplane_sprites/plane2.png" id="5_baqsm"]
 [ext_resource type="PackedScene" uid="uid://cwryohxgadl0g" path="res://CompositionStuff/Rotation/rotation_component.tscn" id="5_dufc2"]
 [ext_resource type="Texture2D" uid="uid://baj53ina6l1vj" path="res://Art/planestuff/plane-Sheet.png" id="5_rxwle"]
+[ext_resource type="PackedScene" uid="uid://b7wc80378arjc" path="res://entities/dumby/WeaponsParent/weapons_parent.tscn" id="6_02re0"]
 [ext_resource type="Script" uid="uid://co2v0nsq3wytj" path="res://entities/dumby/camera.gd" id="6_tddd6"]
 [ext_resource type="Texture2D" uid="uid://cihbaed4tm366" path="res://Art/planestuff/dumbplane_sprites/plane3.png" id="6_u8vb7"]
 [ext_resource type="Texture2D" uid="uid://cbwjv8hk8cib2" path="res://Art/planestuff/dumbplane_sprites/plane4.png" id="7_n4tpm"]
@@ -26,7 +27,6 @@
 [ext_resource type="AudioStream" uid="uid://dspg81m7f74v2" path="res://Audio/splashtownSFX/pickupCoin.wav" id="15_6bsw8"]
 [ext_resource type="AudioStream" uid="uid://bhpeunpkd55xc" path="res://Audio/planesfx/empty-gun-shot-6209.mp3" id="17_v3j65"]
 [ext_resource type="AudioStream" uid="uid://dfmwmaey2pvsn" path="res://Audio/41randsfx/19.wav" id="18_oaelq"]
-[ext_resource type="Script" uid="uid://0245wd4r0bun" path="res://entities/dumby/weapons_parent.gd" id="19_ufwy4"]
 [ext_resource type="PackedScene" uid="uid://cg1j2ioabubjc" path="res://juices/trail/trail_fx.tscn" id="21_rkk0x"]
 [ext_resource type="AudioStream" uid="uid://dbdn3lqryrjb1" path="res://Audio/amalgun/pickScrap.wav" id="22_sby2x"]
 [ext_resource type="AudioStream" uid="uid://nj64nd85rtql" path="res://Audio/splashtownSFX/Airdash.wav" id="23_4s3yb"]
@@ -900,10 +900,10 @@ shape = SubResource("RectangleShape2D_s884c")
 [node name="regen_handler" type="Node" parent="." unique_id=1059995560]
 script = ExtResource("39_7fad1")
 
-[node name="weapons_parent" type="Node2D" parent="." unique_id=1980094707 node_paths=PackedStringArray("dumby")]
+[node name="weapons_parent" parent="." unique_id=1899750343 node_paths=PackedStringArray("dumby", "weapons_hotbar") instance=ExtResource("6_02re0")]
 unique_name_in_owner = true
-script = ExtResource("19_ufwy4")
 dumby = NodePath("..")
+weapons_hotbar = NodePath("../GUI/weapons_hotbar")
 
 [node name="HurtboxComponent" parent="." unique_id=1734514726 node_paths=PackedStringArray("health_component") instance=ExtResource("2_5wgoi")]
 unique_name_in_owner = true
@@ -1535,6 +1535,23 @@ z_index = -1
 position = Vector2(0, -5)
 polygon = PackedVector2Array(-1000, -200, -1000, 200, 1000, 200, 1000, -200)
 
+[node name="weapons_hotbar" type="Control" parent="GUI" unique_id=2015686576]
+custom_minimum_size = Vector2(2, 32)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1034.0
+offset_top = -43.0
+offset_right = -773.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="ScreenFX" type="CanvasLayer" parent="." unique_id=1985007580]
 layer = 4
 script = ExtResource("28_u8vb7")
@@ -1606,14 +1623,6 @@ texture = ExtResource("51_l2c7h")
 [node name="chromAnimation" type="AnimationPlayer" parent="ScreenFX/chromaticAberration" unique_id=443297877]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_dint0")
-
-[node name="lilPrinty" type="Label" parent="ScreenFX" unique_id=826421372]
-unique_name_in_owner = true
-offset_left = 270.0
-offset_top = 653.0
-offset_right = 310.0
-offset_bottom = 670.0
-text = "AYYY ITS ME"
 
 [node name="DeveloperOptions" parent="." unique_id=658918576 instance=ExtResource("48_02re0")]
 
