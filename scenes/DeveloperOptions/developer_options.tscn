@@ -9,72 +9,20 @@ script = ExtResource("1_ty76e")
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AddWeapons" type="GridContainer" parent="VBoxContainer" unique_id=1786579411]
+[node name="AddWeaponsParent" type="GridContainer" parent="VBoxContainer" unique_id=1786579411]
+unique_name_in_owner = true
 layout_mode = 2
 columns = 10
 
-[node name="Label" type="Label" parent="VBoxContainer/AddWeapons" unique_id=1904970960]
+[node name="Label" type="Label" parent="VBoxContainer/AddWeaponsParent" unique_id=1904970960]
 layout_mode = 2
 text = "Add Weapon"
 
-[node name="Rapid" type="Button" parent="VBoxContainer/AddWeapons" unique_id=1023296281]
+[node name="SpawnEnemiesParent" type="GridContainer" parent="VBoxContainer" unique_id=1792640462]
 unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "Rapid"
-
-[node name="Burst" type="Button" parent="VBoxContainer/AddWeapons" unique_id=872263269]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "BurstRifle"
-
-[node name="Shotgun" type="Button" parent="VBoxContainer/AddWeapons" unique_id=2103060651]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "Shotgun"
-
-[node name="Orbit" type="Button" parent="VBoxContainer/AddWeapons" unique_id=85404445]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "Orbit"
-
-[node name="SpawnEnemies" type="GridContainer" parent="VBoxContainer" unique_id=1792640462]
 layout_mode = 2
 columns = 10
 
-[node name="Label" type="Label" parent="VBoxContainer/SpawnEnemies" unique_id=1763707780]
+[node name="Label" type="Label" parent="VBoxContainer/SpawnEnemiesParent" unique_id=1763707780]
 layout_mode = 2
 text = "Spawn Enemy"
-
-[node name="Chaser" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=81088786]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "Chaser"
-
-[node name="PursuitShooter" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=278935580]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "PursuitShooter"
-
-[node name="DistanceShooter" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=524547421]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "DistanceShooter"
-
-[node name="Shotgunner" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=621249503]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "Shotgunner"
-
-[node name="SpikeBall" type="Button" parent="VBoxContainer/SpawnEnemies" unique_id=1422346431]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "SpikeBall"

@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_pti1x")
+key = "spikeball"
 damage = 5.0
 max_hp = 2.0
 max_speed = 3000.0

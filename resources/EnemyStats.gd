@@ -1,6 +1,9 @@
 extends Resource
 class_name EnemyStats
 
+@export_category("Identifiers")
+@export var key : String ## For the localization key, like chaserName or chaserDesc, shit like that
+
 @export_category("Hitbox Component") ## Usually Contact damage
 @export var damage : float = 1.0
 

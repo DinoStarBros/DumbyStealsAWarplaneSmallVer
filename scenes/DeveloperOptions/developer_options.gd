@@ -1,6 +1,9 @@
 extends CanvasLayer
 class_name DeveloperOptions
 
+@onready var add_weapons_parent: GridContainer = %AddWeaponsParent
+@onready var spawn_enemies_parent: GridContainer = %SpawnEnemiesParent
+
 func add_weapon(weapon_res: WeaponStats) -> void:
 	g.weapons_parent.add_weapon(weapon_res)
 
@@ -12,10 +15,11 @@ func _ready() -> void:
 	
 	await get_tree().process_frame
 	
-	#for n in add_weapon_buttons.values(): if n[0] is Button:
-		#n[0].pressed.connect(n[1])
-	#for n in spawn_enemy_buttons.values(): if n[0] is Button:
-		#n[0].pressed.connect(n[1])
+	for weapon_resource in weapon_resources:
+		make_weapon_button(weapon_resource)
+	
+	for enemy_resource in enemy_resources:
+		make_enemy_button(enemy_resource)
 
 const weapon_resources : Array[WeaponStats] = [
 	preload("res://resources/weapon_stats/Rapid.tres"),
@@ -33,35 +37,16 @@ const enemy_resources : Array[EnemyStats] = [
 	
 ]
 
-#@onready var add_weapon_buttons : Dictionary = {
-	#1:[%Rapid,
-		#func(): add_weapon(load("res://resources/weapon_stats/Rapid.tres"))
-	#],
-	#2:[%Burst,
-		#func(): add_weapon(load("res://resources/weapon_stats/BurstRifle.tres"))
-	#],
-	#3:[%Shotgun,
-		#func(): add_weapon(load("res://resources/weapon_stats/Shotgun.tres"))
-	#],
-	#4:[%Orbit,
-		#func(): add_weapon(load("res://resources/weapon_stats/Orbiter.tres"))
-	#],
-#}
-#
-#@onready var spawn_enemy_buttons : Dictionary = {
-	#1:[%Chaser,
-		#func(): spawn_enemy(load("res://resources/enemy_stats/Chaser.tres"))
-	#],
-	#2:[%PursuitShooter,
-		#func(): spawn_enemy(load("res://resources/enemy_stats/PursuitShooter.tres"))
-	#],
-	#3:[%DistanceShooter,
-		#func(): spawn_enemy(load("res://resources/enemy_stats/DistanceShooter.tres"))
-	#],
-	#4:[%Shotgunner,
-		#func(): spawn_enemy(load("res://resources/enemy_stats/Shotgunner.tres"))
-	#],
-	#5:[%SpikeBall,
-		#func(): spawn_enemy(load("res://resources/enemy_stats/SpikeBall.tres"))
-	#],
-#}
+func make_weapon_button(weapon_res: WeaponStats) -> void:
+	var button : Button = Button.new()
+	button.text = weapon_res.key
+	button.pressed.connect(func():add_weapon(weapon_res))
+	button.focus_mode = Control.FOCUS_NONE
+	add_weapons_parent.add_child(button)
+
+func make_enemy_button(enemy_res: EnemyStats) -> void:
+	var button : Button = Button.new()
+	button.text = enemy_res.key
+	button.pressed.connect(func():spawn_enemy(enemy_res))
+	button.focus_mode = Control.FOCUS_NONE
+	spawn_enemies_parent.add_child(button)

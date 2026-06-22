@@ -2,7 +2,7 @@ extends Resource
 class_name WeaponStats
 
 @export_category("Visuals Stuff")
-@export var key : String
+@export var key : String ## For the localization key, like rapidName or burstRifleDesc, shit like that
 @export var texture : Texture2D
 
 @export_category("Stats")

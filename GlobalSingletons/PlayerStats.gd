@@ -5,7 +5,7 @@ var armor : float = 0
 var speed: float = 900
 var rotation_speed : float = 4
 var acceleration : float = 4.0
-var max_iframes : float = 1.0
+var max_iframes : float = 0.5
 
 var money : float = 0
 

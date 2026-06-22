@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_ks3vp")
+key = "shotgunner"
 damage = 3.0
 max_hp = 25.0
 max_speed = 800.0
