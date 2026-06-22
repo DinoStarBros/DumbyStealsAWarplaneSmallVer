@@ -3,6 +3,7 @@ class_name DeveloperOptions
 
 @onready var add_weapons_parent: GridContainer = %AddWeaponsParent
 @onready var spawn_enemies_parent: GridContainer = %SpawnEnemiesParent
+@onready var plr_invincible_button: Button = %plr_invincible_button
 
 func add_weapon(weapon_res: WeaponStats) -> void:
 	g.weapons_parent.add_weapon(weapon_res)
@@ -13,19 +14,24 @@ func spawn_enemy(enemy_stat_res: EnemyStats) -> void:
 func _ready() -> void:
 	visible = g.enable_developer_options
 	
-	await get_tree().process_frame
-	
 	for weapon_resource in weapon_resources:
 		make_weapon_button(weapon_resource)
 	
 	for enemy_resource in enemy_resources:
 		make_enemy_button(enemy_resource)
+	
+	plr_invincible_button.text = str("Invincible: ", g.player_invincible)
+	plr_invincible_button.pressed.connect(func():
+		g.player_invincible = not g.player_invincible
+		plr_invincible_button.text = str("Invincible: ", g.player_invincible)
+		)
 
 const weapon_resources : Array[WeaponStats] = [
 	preload("res://resources/weapon_stats/Rapid.tres"),
 	preload("res://resources/weapon_stats/BurstRifle.tres"),
 	preload("res://resources/weapon_stats/Shotgun.tres"),
 	preload("res://resources/weapon_stats/Orbiter.tres"),
+	preload("res://resources/weapon_stats/OPGun.tres"),
 	
 ]
 const enemy_resources : Array[EnemyStats] = [

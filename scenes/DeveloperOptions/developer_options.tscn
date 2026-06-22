@@ -26,3 +26,9 @@ columns = 10
 [node name="Label" type="Label" parent="VBoxContainer/SpawnEnemiesParent" unique_id=1763707780]
 layout_mode = 2
 text = "Spawn Enemy"
+
+[node name="plr_invincible_button" type="Button" parent="VBoxContainer" unique_id=1675300238]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Invincible: "

@@ -23,6 +23,7 @@ var wave : int
 var current_weapon_button_selected_res : WeaponStats
 var sky_enemy_spawner : SkyEnemySpawner
 var enable_developer_options : bool = true
+var player_invincible : bool = false
 
 enum game_states {
 	Title, Combat, Lost, Upgrade, Cutscene,

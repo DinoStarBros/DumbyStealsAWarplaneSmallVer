@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://qhumk5q7l6rs"]
+
+[ext_resource type="PackedScene" uid="uid://c4npyu2732suj" path="res://projectiles/plr_bullet/bullet.tscn" id="1_bged5"]
+[ext_resource type="Script" uid="uid://2egkgwj5n4iw" path="res://resources/weapon_stats/WeaponStatsResource.gd" id="2_oo7c3"]
+[ext_resource type="Texture2D" uid="uid://clq1vvv04td4q" path="res://Art/Ase files/gun-icons.aseprite" id="3_4hoc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqtwg"]
+atlas = ExtResource("3_4hoc2")
+region = Rect2(0, 32, 16, 16)
+
+[resource]
+script = ExtResource("2_oo7c3")
+key = "OPGunForTesting"
+texture = SubResource("AtlasTexture_jqtwg")
+shoot_cooldown = 0.05
+bullet_spd = 4000
+bullet_amnt = 5
+random_spread = 0.12
+bullet_lifetime = 2.0
+base_damage = 10.0
+bullet_scn = ExtResource("1_bged5")
+shoot_cooldown_buff = 0.5
+bullet_amnt_buff = 10
+random_spread_buff = -2.0
+single_sfx = Array[int]([0, 1])
+muzzle_flashes = Array[int]([0])
+metadata/_custom_type_script = "uid://2egkgwj5n4iw"

@@ -893,7 +893,7 @@ health_component = NodePath("../HealthComponent")
 explosion_particles = true
 explosion_particle_amount = 5
 
-[node name="fhurtbox" type="CollisionShape2D" parent="FloorHurtBox" unique_id=150387731]
+[node name="floorhurtbox" type="CollisionShape2D" parent="FloorHurtBox" unique_id=150387731]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_s884c")
 

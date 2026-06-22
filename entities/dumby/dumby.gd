@@ -9,14 +9,16 @@ var attack : Attack = Attack.new()
 var position_sensitive_rect : Rect2
 var aim_position : Vector2
 var dir_plane : Vector2
-var iframes : float = 0
+var damage_iframes : float = 0
+var roll_iframes : float = 0
 var shooting : bool = false
 
 @onready var health_component: HealthComponent = %HealthComponent
-#@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var rotation_component: RotationComponent = %RotationComponent
 @onready var weapons_parent: WeaponsParent = %weapons_parent
+@onready var floorhurtbox: CollisionShape2D = %floorhurtbox
+@onready var hurtbox: CollisionShape2D = %hurtbox
 
 func _ready() -> void:
 	
@@ -105,7 +107,7 @@ var accelerating : bool = false
 @warning_ignore("shadowed_variable")
 func damage(attack:Attack)->void:
 	Hurt.emit(attack)
-	iframes += PlayerStats.max_iframes
+	damage_iframes += PlayerStats.max_iframes
 
 func Dead(_attack:Attack)->void:
 	#g.cam.screen_shake(40, 1)
@@ -154,7 +156,7 @@ func roll_handling(delta: float) -> void:
 	if roll_cd_time > 0:
 		roll_cd_time -= delta
 
-func _input(event: InputEvent) -> void: 
+func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadMotion or event is InputEventJoypadButton:
 		controller = true
 	elif event is InputEventMouse:
@@ -168,11 +170,11 @@ func _roll() -> void:
 	
 	%rollnim.play("roll")
 	
-	iframes += roll_duration - 0.1
+	roll_iframes += roll_duration - 0.1
 	
 	roll_time = 0
 	rolling = true
-		
+	
 	plane_sprite.frame = 0
 
 var controller_joypad_vector : Vector2 ## Vector of the left analog stick
@@ -222,11 +224,14 @@ func player_stats_handling() -> void:
 	velocity_component.acceleration = PlayerStats.acceleration
 
 func iframes_handling(delta: float) -> void:
-	iframes = max(iframes - delta, 0)
+	damage_iframes = max(damage_iframes - delta, 0)
+	roll_iframes = max(roll_iframes - delta, 0)
+	
+	var enable_invincibility : bool = (damage_iframes > 0 or roll_iframes > 0) or (g.player_invincible)
 	
 	if g.game_state == g.game_states.Combat:
-		%hurtbox.disabled = iframes > 0 and health_component.hp > 0
-		%fhurtbox.disabled = iframes > 0 and health_component.hp > 0
+		hurtbox.disabled = enable_invincibility and health_component.hp > 0
+		floorhurtbox.disabled = enable_invincibility and health_component.hp > 0
 	else:
-		%hurtbox.disabled = true
-		%fhurtbox.disabled = true
+		hurtbox.disabled = true
+		floorhurtbox.disabled = true
