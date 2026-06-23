@@ -14,7 +14,7 @@ func _ready() -> void:
 	MusicManager.play_song("title")
 
 func _on_play_pressed() -> void:
-	g.scene_change("res://game_screens/weapon_parts_select/weapon_parts_select.tscn")
+	g.scene_change("res://game_screens/level_and_weapon_select/level_and_weapon_select.tscn")
 	settings_menu._on_save_pressed()
 
 func _on_quit_pressed() -> void:

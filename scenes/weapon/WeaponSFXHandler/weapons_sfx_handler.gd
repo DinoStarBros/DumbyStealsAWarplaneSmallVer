@@ -38,6 +38,12 @@ func _ready() -> void:
 	if weapon_parent:
 		single_sfxs = weapon_parent.weapon_stat_res.single_sfx
 		multi_sfxs = weapon_parent.weapon_stat_res.multi_sfx
+	
+		for child in get_children():
+			if child is AudioStreamPlayer2D:
+				child.volume_db += 5
+		
+		
 	if enemy_shoot_component:
 		single_sfxs = enemy_shoot_component.single_sfx
 		multi_sfxs = enemy_shoot_component.multi_sfx
