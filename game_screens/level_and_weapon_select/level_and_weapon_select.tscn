@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://lhvp74yditaj"]
 
 [ext_resource type="Script" uid="uid://cat23icqlfji" path="res://game_screens/level_and_weapon_select/level_and_weapon_select.gd" id="1_4ktrt"]
+[ext_resource type="Texture2D" uid="uid://5c4yo21h3l54" path="res://Art/planestuff/bg.png" id="2_fh6t5"]
+[ext_resource type="Texture2D" uid="uid://dcej7ymlye73v" path="res://Art/planestuff/dumbynplane.png" id="3_uap3t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ktrt"]
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="level_and_weapon_select" type="Control" unique_id=219933097]
 layout_mode = 3
@@ -10,3 +17,115 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ktrt")
+
+[node name="return_button" type="Button" parent="." unique_id=1795798955]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 182.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 60
+text = " Return "
+
+[node name="Label" type="Label" parent="." unique_id=711992219]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.5
+offset_right = 102.5
+offset_bottom = 51.0
+grow_horizontal = 2
+text = "Level Select"
+label_settings = SubResource("LabelSettings_4ktrt")
+horizontal_alignment = 1
+
+[node name="titlescreenstuff" type="Node2D" parent="." unique_id=1462218246]
+modulate = Color(0.59717613, 0.59717613, 0.5971761, 1)
+z_index = -1
+
+[node name="Bg" type="Sprite2D" parent="titlescreenstuff" unique_id=257368460]
+position = Vector2(661, 338)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_fh6t5")
+
+[node name="Dumbynplane" type="Sprite2D" parent="titlescreenstuff" unique_id=1508241843]
+position = Vector2(523, 363)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_uap3t")
+
+[node name="world1_level_buttons" type="GridContainer" parent="." unique_id=115485175]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -24.5
+offset_right = 160.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 5
+
+[node name="l1-1" type="Button" parent="world1_level_buttons" unique_id=605291507]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 1"
+
+[node name="l1-2" type="Button" parent="world1_level_buttons" unique_id=857484120]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 2"
+
+[node name="l1-3" type="Button" parent="world1_level_buttons" unique_id=615074012]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="l1-4" type="Button" parent="world1_level_buttons" unique_id=288168290]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="l1-5" type="Button" parent="world1_level_buttons" unique_id=843457075]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="l1-6" type="Button" parent="world1_level_buttons" unique_id=1656133921]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="l1-7" type="Button" parent="world1_level_buttons" unique_id=335283573]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="l1-8" type="Button" parent="world1_level_buttons" unique_id=1213448881]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="l1-9" type="Button" parent="world1_level_buttons" unique_id=299468195]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 3"
+
+[node name="l1-10" type="Button" parent="world1_level_buttons" unique_id=723691339]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level 10"

@@ -20,7 +20,7 @@ func spawn_explosion() -> void:
 	set_properties()
 	explosion.scale.x -= time
 	explosion.scale.y = explosion.scale.x
-	g.game.add_child(explosion)
+	g.world.add_child(explosion)
 	set_properties()
 
 const pos_rand_range : float = 20

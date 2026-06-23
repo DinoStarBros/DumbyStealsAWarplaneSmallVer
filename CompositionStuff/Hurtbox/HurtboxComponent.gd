@@ -49,7 +49,7 @@ func spawn_explosion_particles(attack: Attack) -> void:
 	explosion.global_position = global_position
 	explosion.direction = global_position.direction_to(attack.attack_pos)
 	explosion.lifetime = randf_range(0.5,0.7)
-	g.game.add_child(explosion)
+	g.world.add_child(explosion)
 
 func hit(player : bool, dead : bool) -> void:
 	if player:

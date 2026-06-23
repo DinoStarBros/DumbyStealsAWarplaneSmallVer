@@ -1053,7 +1053,7 @@ bus = &"sfx"
 [node name="shing" type="AudioStreamPlayer" parent="sfx" unique_id=902175077]
 unique_name_in_owner = true
 stream = ExtResource("28_n4tpm")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"sfx"
 
 [node name="switch" type="AudioStreamPlayer" parent="sfx" unique_id=1190773790]

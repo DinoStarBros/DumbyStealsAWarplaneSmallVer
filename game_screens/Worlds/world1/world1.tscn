@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ihv8rwjrm1vs"]
 
-[ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/level1/level1.gd" id="1_qffnt"]
+[ext_resource type="Script" uid="uid://be3fcehpopind" path="res://game_screens/Worlds/world1/world1.gd" id="1_qffnt"]
 [ext_resource type="PackedScene" uid="uid://bfahxvjjxjylq" path="res://entities/dumby/dumby.tscn" id="2_3k2b8"]
 [ext_resource type="Texture2D" uid="uid://5ok8ww27od1g" path="res://Art/planestuff/SEA.png" id="5_y1ytl"]
 [ext_resource type="PackedScene" uid="uid://cilaqubvkn2sv" path="res://CompositionStuff/Hitbox/hitbox_component.tscn" id="6_11rbn"]
@@ -31,8 +31,9 @@ _data = {
 }
 point_count = 2
 
-[node name="level1" type="Node2D" unique_id=71743937]
+[node name="world1" type="Node2D" unique_id=71743937 node_paths=PackedStringArray("sky_enemy_spawner")]
 script = ExtResource("1_qffnt")
+sky_enemy_spawner = NodePath("SkyEnemySpawner")
 
 [node name="cloudparallax" type="ParallaxBackground" parent="." unique_id=1198934418]
 unique_name_in_owner = true

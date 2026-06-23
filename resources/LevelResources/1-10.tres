@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="LevelEnemySpawns" format=3 uid="uid://b8bly0pcvn1eg"]
+
+[ext_resource type="Script" uid="uid://dycg2uy8h53rg" path="res://resources/EnemyStats.gd" id="1_vjbjp"]
+[ext_resource type="Resource" uid="uid://0n1sfnwwh7ii" path="res://resources/enemy_stats/Chaser.tres" id="2_61qpy"]
+[ext_resource type="Resource" uid="uid://dnelu1jfsltps" path="res://resources/enemy_stats/PursuitShooter.tres" id="3_o777d"]
+[ext_resource type="Resource" uid="uid://ucdvv8gnyixa" path="res://resources/enemy_stats/DistanceShooter.tres" id="4_s1hy6"]
+[ext_resource type="Resource" uid="uid://b5olh75wkrnyc" path="res://resources/enemy_stats/SpikeBall.tres" id="5_dwu72"]
+[ext_resource type="Resource" uid="uid://caabvilf7tpna" path="res://resources/enemy_stats/Shotgunner.tres" id="6_54n0e"]
+[ext_resource type="Script" uid="uid://d1crhjsum6w1o" path="res://resources/level_enemy_spawns_resource.gd" id="7_g3n7k"]
+
+[resource]
+script = ExtResource("7_g3n7k")
+enemies = Array[ExtResource("1_vjbjp")]([ExtResource("2_61qpy"), ExtResource("3_o777d"), ExtResource("4_s1hy6"), ExtResource("5_dwu72"), ExtResource("6_54n0e")])
+starting_spawn_time = 1.0
+minimum_spawn_time = 0.2
+enemy_limit = 50.0
+min_enemy_spawn_amount = 2
+max_enemy_spawn_amount = 3
+level_index = 10
+metadata/_custom_type_script = "uid://d1crhjsum6w1o"

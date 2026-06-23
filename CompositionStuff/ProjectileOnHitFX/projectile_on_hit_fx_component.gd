@@ -18,4 +18,4 @@ func _spawn_projectile_fx() -> void:
 	
 	fx.global_position = global_position
 	fx.rotation_degrees = get_parent().rotation_degrees
-	g.game.add_child(fx)
+	g.world.add_child(fx)

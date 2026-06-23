@@ -1,5 +1,5 @@
-extends Node2D
-class_name Game
+extends World
+class_name World1
 
 const cloud_amnt : = 1000
 
@@ -9,13 +9,15 @@ const up_bound : = -6674
 const down_bound : = 2583
 func _ready() -> void:
 	
+	load_level()
+	
 	%FloorHitBox.set_attack_properties(30)
 	g.game_state = g.game_states.Combat
 	cloud_parents = %cloudparallax.get_children()
 	
 	SceneManager.fade_in()
 	
-	g.game = self
+	g.world = self
 	g.enemy_container = %enemy_container
 	g.projectile_container = %projectile_container
 	g.floor_hitbox = %FloorHitBox
@@ -44,7 +46,7 @@ func spawn_adf()->void:
 	%adspos.progress_ratio = randf()
 	var airdef : CharacterBody2D = airdef_scn.instantiate()
 	airdef.global_position = %adspos.global_position
-	g.game.add_child(airdef)
+	g.world.add_child(airdef)
 
 var adf_spwn_time : = 10.0
 func _on_adftimer_timeout() -> void:

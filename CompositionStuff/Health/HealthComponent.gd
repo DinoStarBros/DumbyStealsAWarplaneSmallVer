@@ -48,5 +48,5 @@ var death_fx_explosion_scn : PackedScene = preload("res://juices/death_fx_explos
 func _spawn_death_fx_explosion() -> void:
 	var death_fx_explosion : Node2D = death_fx_explosion_scn.instantiate()
 	death_fx_explosion.global_position = global_position
-	g.game.add_child(death_fx_explosion)
+	g.world.add_child(death_fx_explosion)
 	death_fx_explosion.global_position = global_position

@@ -1,6 +1,6 @@
 extends Node
 
-var game : Node 
+var world : World
 var enemy_container : Node2D
 var projectile_container : Node2D
 var floor_hitbox : HitboxComponent
@@ -24,6 +24,7 @@ var current_weapon_button_selected_res : WeaponStats
 var sky_enemy_spawner : SkyEnemySpawner
 var enable_developer_options : bool = true
 var player_invincible : bool = false
+var level_resource_to_load : LevelEnemySpawns
 
 enum game_states {
 	Title, Combat, Lost, Upgrade, Cutscene,
@@ -40,7 +41,7 @@ func spawn_txt(text: String, global_pos: Vector2)->void: ## Spawns a splash text
 	var txt : DmgNum = txt_scn.instantiate()
 	txt.text = text
 	txt.global_position = global_pos
-	game.add_child(txt)
+	world.add_child(txt)
 
 func _ready() -> void:
 	volume_handle()

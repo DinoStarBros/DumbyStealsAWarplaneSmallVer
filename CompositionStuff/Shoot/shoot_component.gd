@@ -64,7 +64,7 @@ func spawn_bullet() -> void:
 	projectile.dmg = stats.base_damage * (1.0 + PlayerStats.percent_damage) * weapon_buff.current_damage_buff
 	projectile.current_team = HitboxComponent.TEAM.PLAYER
 	
-	g.game.add_child(projectile)
+	g.world.add_child(projectile)
 	
 	dir_to_mouse = p.dir_plane # The direction of the plane, not directly the mouse
 	

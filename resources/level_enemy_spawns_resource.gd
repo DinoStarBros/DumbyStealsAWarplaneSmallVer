@@ -12,3 +12,7 @@ class_name LevelEnemySpawns
 
 @export var min_enemy_spawn_amount : int = 1 ## The minimum amount of enemies it'll spawn at a single instance
 @export var max_enemy_spawn_amount : int = 1 ## The maximum amount of enemies it'll spawn at a single instance
+
+@export_category("World & Level index")
+@export var world_index : int = 1
+@export var level_index : int = 1

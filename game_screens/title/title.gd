@@ -38,6 +38,8 @@ func _physics_process(_delta: float) -> void:
 	settings_menu_handle(-10)
 	about_menu_handle(-10)
 	credits_menu_handle(-10)
+	
+	settings_menu.visible = current_menu_mode == menu_mode.Options
 
 func _on_options_pressed() -> void:
 	if current_menu_mode == menu_mode.Options:
