@@ -2,6 +2,7 @@ extends Control
 class_name LevelAndWeaponSelect
 
 @onready var return_button: Button = %return_button
+@onready var weapon_parts_select_button: Button = %weapon_parts_select_button
 @onready var level_buttons : Dictionary = {
 	1: [
 		%"l1-1",
@@ -57,8 +58,12 @@ func _load_level(level_resource: LevelEnemySpawns) -> void:
 func _return_pressed() -> void:
 	g.scene_change("res://game_screens/title/title.tscn")
 
+func _weapon_parts_select_button_pressed() -> void:
+	g.scene_change("res://game_screens/WeaponPartSelectScreen/weapon_part_select_screen.tscn")
+
 func _ready() -> void:
 	return_button.grab_focus()
+	
 	for n in level_buttons.values(): if n[0] is Button:
 		var lvl_res: LevelEnemySpawns = n[1]
 		var lvl_btn: Button = n[0]
@@ -69,3 +74,4 @@ func _ready() -> void:
 		#lvl_btn.text = str("Level ", lvl_res.level_index)
 	
 	return_button.pressed.connect(_return_pressed)
+	weapon_parts_select_button.pressed.connect(_weapon_parts_select_button_pressed)

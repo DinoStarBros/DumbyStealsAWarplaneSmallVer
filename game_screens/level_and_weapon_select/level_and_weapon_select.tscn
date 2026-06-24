@@ -9,7 +9,7 @@ font_size = 50
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="level_and_weapon_select" type="Control" unique_id=219933097]
+[node name="LevelSelect" type="Control" unique_id=219933097]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +38,7 @@ offset_left = -182.0
 offset_top = -68.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "Select Weapons 
 and Plane Parts"
 

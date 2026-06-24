@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dhn7g664ui6e0"]
+
+[ext_resource type="Script" uid="uid://fg7b0euc3cf6" path="res://game_screens/WeaponPartSelectScreen/weapon_part_select_screen.gd" id="1_nhh37"]
+[ext_resource type="Texture2D" uid="uid://5c4yo21h3l54" path="res://Art/planestuff/bg.png" id="2_a725a"]
+[ext_resource type="Texture2D" uid="uid://dcej7ymlye73v" path="res://Art/planestuff/dumbynplane.png" id="3_gfqfx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a725a"]
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WeaponPartSelectScreen" type="Control" unique_id=579624189]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nhh37")
+
+[node name="return_button" type="Button" parent="." unique_id=1578814312]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 182.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 60
+text = " Return "
+
+[node name="Label" type="Label" parent="." unique_id=2132980503]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -247.0
+offset_right = 247.0
+offset_bottom = 51.0
+grow_horizontal = 2
+text = "Weapon & Plane Parts Select"
+label_settings = SubResource("LabelSettings_a725a")
+horizontal_alignment = 1
+
+[node name="titlescreenstuff" type="Node2D" parent="." unique_id=1201000364]
+modulate = Color(0.59717613, 0.59717613, 0.5971761, 1)
+z_index = -1
+
+[node name="Bg" type="Sprite2D" parent="titlescreenstuff" unique_id=1104883370]
+position = Vector2(661, 338)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_a725a")
+
+[node name="Dumbynplane" type="Sprite2D" parent="titlescreenstuff" unique_id=1296936835]
+position = Vector2(523, 363)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_gfqfx")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=912689903]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -232.0
+offset_right = 495.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+current_tab = 0
+
+[node name="Weapon Select" type="Control" parent="TabContainer" unique_id=717782480]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" type="Label" parent="TabContainer/Weapon Select" unique_id=201269732]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+text = "Bruhhh"
+
+[node name="Plane Parts Select" type="Control" parent="TabContainer" unique_id=948013350]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
