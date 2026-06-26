@@ -6,7 +6,7 @@ class_name WeaponsParent
 
 @onready var rotation_component: RotationComponent = %RotationComponent
 @onready var switch_sfx: AudioStreamPlayer = %switch
-@onready var evade_box: Evade = %evade_box
+@onready var evade_box: EvadeBox = %evade_box
 @onready var curr_weapon_txt: Label = %curr_weap
 
 var current_weapon : Weapon

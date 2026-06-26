@@ -1,12 +1,15 @@
 extends Area2D
-class_name Evade
+class_name EvadeBox
 
 signal Perfect_Roll
+
+@export var dumby: Dumby
 
 @onready var shing_sfx: AudioStreamPlayer = %shing
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	Perfect_Roll.connect(dumby._on_perfect_roll)
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:

@@ -191,28 +191,21 @@ func _left_joystick_handle() -> void:
 
 ### Signals for player actions ###
 signal Shoot
-signal Reload
-signal Quick_Reload
 signal Roll
 signal Hurt
 
 func _init() -> void:
 	Shoot.connect(_on_shoot)
-	Reload.connect(_on_reload)
-	Quick_Reload.connect(_on_quick_reload)
 	Roll.connect(_on_roll)
 	Hurt.connect(_on_hurt)
 
 func _on_shoot() -> void:
 	pass
 
-func _on_reload() -> void:
-	pass
-
-func _on_quick_reload() -> void:
-	pass
-
 func _on_roll() -> void:
+	pass
+
+func _on_perfect_roll() -> void:
 	pass
 
 func _on_hurt(_attack: Attack) -> void:

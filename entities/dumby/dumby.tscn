@@ -941,11 +941,12 @@ unique_name_in_owner = true
 turn_speed = 4.0
 thing_to_rotate = NodePath("../PlaneSprite")
 
-[node name="evade_box" type="Area2D" parent="." unique_id=1729978821]
+[node name="evade_box" type="Area2D" parent="." unique_id=1729978821 node_paths=PackedStringArray("dumby")]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("39_pctjt")
+dumby = NodePath("..")
 
 [node name="ebc" type="CollisionShape2D" parent="evade_box" unique_id=1848914253]
 rotation = 1.5708
