@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dy3d2p57kjvfn"]
+
+[ext_resource type="Script" uid="uid://dch44xxwmw56i" path="res://scenes/WeaponSelectTab/weapon_select_tab.gd" id="1_nvnna"]
+
+[node name="WeaponSelectTab" type="Control" unique_id=1741918745]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvnna")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=879979253]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

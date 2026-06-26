@@ -36,5 +36,6 @@ var weapons_unlocked : Dictionary = {
 		{
 			"unlocked": true,
 			"weapon_resource": "res://resources/weapon_stats/Orbiter.tres",
-		}
+		},
+	
 }
