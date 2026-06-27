@@ -5,7 +5,8 @@ const save_location : String = "user://SaveFile.tres"
 var SaveFileData : SaveDataResource = SaveDataResource.new()
 
 func _ready()->void:
-	_load()
+	#_load()
+	load_everything()
 
 func _save()->void:
 	ResourceSaver.save(SaveFileData, save_location)
@@ -46,21 +47,27 @@ func load_settings_stuff() -> void: ## Loads settings variables and data
 	settings.switch_accelerate_roll = SaveFileData.switch_acc_roll
 	settings.language_idx = SaveFileData.language_idx
 
-var unlocks : Unlocks = Unlocks.new()
-func save_unlocks() -> void:
-	SaveFileData.weapons_unlocked = unlocks.weapons_unlocked
+var unlocks_equips : UnlocksEquips = UnlocksEquips.new()
+func save_unlocks_equips() -> void:
+	SaveFileData.weapons_unlocked = unlocks_equips.weapons_unlocked
+	SaveFileData.equipped_weapons = unlocks_equips.equipped_weapons
+	SaveFileData.plane_parts_unlocked = unlocks_equips.plane_parts_unlocked
+	SaveFileData.plane_parts_equipped = unlocks_equips.plane_parts_equipped
 	
 	_save()
 
-func load_unlocks() -> void:
+func load_unlocks_equips() -> void:
 	_load()
 	
-	unlocks.weapons_unlocked = SaveFileData.weapons_unlocked
+	unlocks_equips.weapons_unlocked = SaveFileData.weapons_unlocked
+	unlocks_equips.equipped_weapons = SaveFileData.equipped_weapons
+	unlocks_equips.plane_parts_unlocked = SaveFileData.plane_parts_unlocked
+	unlocks_equips.plane_parts_equipped = SaveFileData.plane_parts_equipped
 
 func save_everything() -> void: ## Saves all the SaveFileData according to their current values in the game
 	save_settings_stuff()
-	save_unlocks()
+	save_unlocks_equips()
 
 func load_everything() -> void: ## Loads all the SaveFileData
 	load_settings_stuff()
-	load_unlocks()
+	load_unlocks_equips()

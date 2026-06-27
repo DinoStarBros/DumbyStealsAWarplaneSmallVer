@@ -1,6 +1,8 @@
 extends Resource
 class_name SaveDataResource
 
+### SETTINGS DATA ###
+
 @export var master_volume : float = 0.75
 @export var music_volume : float = 0.75
 @export var sfx_volume : float = 0.75
@@ -13,20 +15,23 @@ class_name SaveDataResource
 @export var switch_acc_roll : bool = false
 @export var language_idx : int = 0 ##English=0, Filipino=1
 
+### UNLOCKS AND EQUIPS DATA ###
+
+## Contains the weapons, their unlock status, and other stuff
 var weapons_unlocked : Dictionary = {
-	"rapid": 
+	"rapid":
 		{
 			"unlocked": true,
 			"weapon_resource": "res://resources/weapon_stats/Rapid.tres",
 		},
 	
-	"burstRifle": 
+	"burstRifle":
 		{
 			"unlocked": true,
 			"weapon_resource": "res://resources/weapon_stats/BurstRifle.tres",
 		},
 	
-	"shotgun": 
+	"shotgun":
 		{
 			"unlocked": true,
 			"weapon_resource": "res://resources/weapon_stats/Shotgun.tres",
@@ -36,6 +41,12 @@ var weapons_unlocked : Dictionary = {
 		{
 			"unlocked": true,
 			"weapon_resource": "res://resources/weapon_stats/Orbiter.tres",
-		},
+		}
+}
+var equipped_weapons : Array[WeaponStats] = []
+
+## Contains the plane parts, unlock status, etc. etc.
+var plane_parts_unlocked : Dictionary = {
 	
 }
+var plane_parts_equipped : Array = []
