@@ -8,3 +8,6 @@ var desired_position : Vector2
 
 func _ready() -> void:
 	icon = weapon_resource.texture
+
+func _pressed() -> void:
+	SaveLoad.unlocks_equips
