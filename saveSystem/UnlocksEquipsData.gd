@@ -25,11 +25,14 @@ var weapons_unlocked : Dictionary = {
 	
 	"orbiter":
 		{
-			"unlocked": true,
+			"unlocked": false,
 			"weapon_resource": "res://resources/weapon_stats/Orbiter.tres",
 		}
 }
-var equipped_weapons : Array[WeaponStats] = []
+var equipped_weapons : Array[WeaponStats] = [
+	load("res://resources/weapon_stats/Rapid.tres"),
+	
+]
 
 ## Contains the plane parts, unlock status, etc. etc.
 var plane_parts_unlocked : Dictionary = {

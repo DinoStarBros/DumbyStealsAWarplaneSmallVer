@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dq1e1xlxwqp7c"]
+
+[ext_resource type="Script" uid="uid://cndlbbbukw3o2" path="res://scenes/WeaponSelectTab/WeaponSelectButton/weapon_select_button.gd" id="1_td6q3"]
+
+[node name="WeaponSelectButton" type="Button" unique_id=875494053]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 8.0
+offset_bottom = 8.0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_td6q3")
