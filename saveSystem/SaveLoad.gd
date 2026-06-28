@@ -71,3 +71,7 @@ func save_everything() -> void: ## Saves all the SaveFileData according to their
 func load_everything() -> void: ## Loads all the SaveFileData
 	load_settings_stuff()
 	load_unlocks_equips()
+
+func _physics_process(delta: float) -> void:
+	#print(unlocks_equips.equipped_weapons)
+	pass

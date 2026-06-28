@@ -18,10 +18,11 @@ func _on_play_pressed() -> void:
 	settings_menu._on_save_pressed()
 
 func _on_quit_pressed() -> void:
-	settings_menu._on_save_pressed()
+	SaveLoad.save_everything()
+	#settings_menu._on_save_pressed()
 	get_tree().quit()
 
-var deltaTime : = 0.0
+var deltaTime : float = 0.0
 var sin_val : float
 func _process(delta: float) -> void:
 	

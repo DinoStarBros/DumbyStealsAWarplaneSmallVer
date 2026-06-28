@@ -18,7 +18,7 @@ class_name SaveDataResource
 ### UNLOCKS AND EQUIPS DATA ###
 
 ## Contains the weapons, their unlock status, and other stuff
-var weapons_unlocked : Dictionary = {
+@export var weapons_unlocked : Dictionary = {
 	"rapid":
 		{
 			"unlocked": true,
@@ -43,12 +43,12 @@ var weapons_unlocked : Dictionary = {
 			"weapon_resource": "res://resources/weapon_stats/Orbiter.tres",
 		}
 }
-var equipped_weapons : Array[WeaponStats] = [
+@export var equipped_weapons : Array[WeaponStats] = [
 	load("res://resources/weapon_stats/Rapid.tres"),
 ]
 
 ## Contains the plane parts, unlock status, etc. etc.
-var plane_parts_unlocked : Dictionary = {
+@export var plane_parts_unlocked : Dictionary = {
 	
 }
-var plane_parts_equipped : Array = []
+@export var plane_parts_equipped : Array = []

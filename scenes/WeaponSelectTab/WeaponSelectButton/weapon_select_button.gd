@@ -10,4 +10,18 @@ func _ready() -> void:
 	icon = weapon_resource.texture
 
 func _pressed() -> void:
-	SaveLoad.unlocks_equips
+	if SaveLoad.unlocks_equips.equipped_weapons.has(weapon_resource):
+		
+		if SaveLoad.unlocks_equips.equipped_weapons.size() <= 1:
+			## You HAVE to have equipped atleast one weapon
+			pass
+		else:
+		# This weapon was already equipped, so it removes itself from equipped weapons.
+			SaveLoad.unlocks_equips.equipped_weapons.remove_at(
+				SaveLoad.unlocks_equips.equipped_weapons.find(weapon_resource)
+			)
+	else:
+		# This weapon wasn't equipped, so add it to equipped weapons.
+		SaveLoad.unlocks_equips.equipped_weapons.append(weapon_resource)
+	
+	weapon_select_tab_parent.refresh_ui()

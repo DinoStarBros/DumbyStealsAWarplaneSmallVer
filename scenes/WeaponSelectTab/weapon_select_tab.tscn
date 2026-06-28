@@ -15,7 +15,7 @@ script = ExtResource("1_nvnna")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/separation = 96
+theme_override_constants/separation = 64
 
 [node name="EquippedWeaponsGrid" type="GridContainer" parent="VBoxContainer" unique_id=999748491]
 unique_name_in_owner = true
@@ -26,3 +26,7 @@ columns = 10
 unique_name_in_owner = true
 layout_mode = 2
 columns = 10
+
+[node name="equipped_weapons" type="Label" parent="VBoxContainer" unique_id=161044007]
+unique_name_in_owner = true
+layout_mode = 2

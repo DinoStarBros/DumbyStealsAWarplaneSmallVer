@@ -23,10 +23,9 @@ func _ready() -> void:
 		func():
 		buff_time = 5
 	)
-	if g.current_weapon_button_selected_res:
-		add_weapon(g.current_weapon_button_selected_res)
-	else:
-		add_weapon(load("res://resources/weapon_stats/Rapid.tres"))
+	
+	for weapon in SaveLoad.unlocks_equips.equipped_weapons:
+		add_weapon(weapon)
 	current_weapon_idx = 0
 	switch_weapon(0)
 
