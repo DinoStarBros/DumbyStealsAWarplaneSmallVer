@@ -18,8 +18,7 @@ func _on_play_pressed() -> void:
 	settings_menu._on_save_pressed()
 
 func _on_quit_pressed() -> void:
-	SaveLoad.save_everything()
-	#settings_menu._on_save_pressed()
+	SaveLoad._save()
 	get_tree().quit()
 
 var deltaTime : float = 0.0

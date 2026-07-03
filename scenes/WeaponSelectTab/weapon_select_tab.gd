@@ -20,10 +20,10 @@ func refresh_ui() -> void:
 	for child in unlocked_unequipped_weapons_grid.get_children():
 		child.queue_free()
 	
-	for weapon in SaveLoad.unlocks_equips.weapons_unlocked.values(): if weapon["unlocked"]:
+	for weapon in SaveLoad.SaveFileData.weapons_unlocked.values(): if weapon["unlocked"]:
 		# Looks through all the weapons that are unlocked
 		
-		if SaveLoad.unlocks_equips.equipped_weapons.has(load(weapon["weapon_resource"])):
+		if SaveLoad.SaveFileData.equipped_weapons.has(load(weapon["weapon_resource"])):
 			# If a weapon's been equipped, add it to the equipped weapons grid
 			spawn_weapon_select_button(
 				load(weapon["weapon_resource"]),
@@ -44,4 +44,4 @@ func spawn_weapon_select_button(weapon_resource: WeaponStats, parent_grid: GridC
 	parent_grid.add_child(weapon_select_button)
 
 func _physics_process(delta: float) -> void:
-	equipped_weapons_text.text = str(SaveLoad.unlocks_equips.equipped_weapons)
+	equipped_weapons_text.text = str(SaveLoad.SaveFileData.equipped_weapons)

@@ -7,12 +7,12 @@ class_name SaveDataResource
 @export var music_volume : float = 0.75
 @export var sfx_volume : float = 0.75
 
-@export var resolutuion_index : int = 0
+@export var resolution_index : int = 0
 
-@export var screen_shake : bool = true
-@export var frame_freeze : bool = true
+@export var screen_shake_value : bool = true
+@export var frame_freeze_value : bool = true
 
-@export var switch_acc_roll : bool = false
+@export var switch_accelerate_roll : bool = false
 @export var language_idx : int = 0 ##English=0, Filipino=1
 
 ### UNLOCKS AND EQUIPS DATA ###

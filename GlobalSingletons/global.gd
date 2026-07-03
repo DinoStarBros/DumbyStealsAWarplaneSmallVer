@@ -51,7 +51,7 @@ func _process(_delta:float)->void:
 	volume_handle()
 
 func frame_freeze(timescale: float, duration: float) -> void: ## Slows down the engine's time scale, slowing down the time, for a certain duration. Use for da juice
-	if SaveLoad.settings.frame_freeze_value:
+	if SaveLoad.SaveFileData.frame_freeze_value:
 		Engine.time_scale = timescale
 		await get_tree().create_timer(duration, true, false, true).timeout
 		Engine.time_scale = 1.0
@@ -59,15 +59,15 @@ func frame_freeze(timescale: float, duration: float) -> void: ## Slows down the 
 func volume_handle() -> void:
 	AudioServer.set_bus_volume_db(
 		0,
-		linear_to_db(SaveLoad.settings.master_volume)
+		linear_to_db(SaveLoad.SaveFileData.master_volume)
 	)
 	AudioServer.set_bus_volume_db(
 		1,
-		linear_to_db(SaveLoad.settings.music_volume)
+		linear_to_db(SaveLoad.SaveFileData.music_volume)
 	)
 	AudioServer.set_bus_volume_db(
 		2,
-		linear_to_db(SaveLoad.settings.sfx_volume)
+		linear_to_db(SaveLoad.SaveFileData.sfx_volume)
 	)
 
 var spawn_budget : Vector2 ## X is spawn_budget, Y is max_spawn_budget

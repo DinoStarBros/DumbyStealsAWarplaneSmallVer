@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 	if g.mobile:
 		pass
 	else:
-		if SaveLoad.settings.switch_accelerate_roll:
+		if SaveLoad.SaveFileData.switch_accelerate_roll:
 			accelerating = Input.is_action_pressed("roll") and g.game_state == g.game_states.Combat
 		else:
 			accelerating = Input.is_action_pressed("accelerate") and g.game_state == g.game_states.Combat
@@ -137,7 +137,7 @@ var roll_time : float = 0 ## The amount of time that has passed since the start 
 var roll_cd_time : float = 0
 func roll_handling(delta: float) -> void:
 	if roll_cd_time <= 0 and not rolling:
-		if SaveLoad.settings.switch_accelerate_roll:
+		if SaveLoad.SaveFileData.switch_accelerate_roll:
 			if Input.is_action_just_pressed("accelerate"):
 				_roll()
 				

@@ -24,7 +24,7 @@ func _ready() -> void:
 		buff_time = 5
 	)
 	
-	for weapon in SaveLoad.unlocks_equips.equipped_weapons:
+	for weapon in SaveLoad.SaveFileData.equipped_weapons:
 		add_weapon(weapon)
 	current_weapon_idx = 0
 	switch_weapon(0)
