@@ -73,6 +73,8 @@ func load_everything() -> void: ## Loads all the SaveFileData
 	load_settings_stuff()
 	load_unlocks_equips()
 
+# I will fuck everything up in this branch
+# Tryna get rid of intermediate variables & just directly access the SaveFileData variables & stuff
+
 func _physics_process(delta: float) -> void:
-	#print(unlocks_equips.equipped_weapons)
 	pass
