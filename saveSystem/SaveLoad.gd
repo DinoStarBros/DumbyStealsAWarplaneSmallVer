@@ -53,6 +53,7 @@ func save_unlocks_equips() -> void:
 	SaveFileData.equipped_weapons = unlocks_equips.equipped_weapons
 	SaveFileData.plane_parts_unlocked = unlocks_equips.plane_parts_unlocked
 	SaveFileData.plane_parts_equipped = unlocks_equips.plane_parts_equipped
+	SaveFileData.max_weapon_slots = unlocks_equips.max_weapon_slots
 	
 	_save()
 

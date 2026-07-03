@@ -34,6 +34,8 @@ var equipped_weapons : Array[WeaponStats] = [
 	
 ]
 
+var max_weapon_slots : int = 2
+
 ## Contains the plane parts, unlock status, etc. etc.
 var plane_parts_unlocked : Dictionary = {
 	

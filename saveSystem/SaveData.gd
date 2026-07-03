@@ -47,6 +47,8 @@ class_name SaveDataResource
 	load("res://resources/weapon_stats/Rapid.tres"),
 ]
 
+@export var max_weapon_slots : int = 2
+
 ## Contains the plane parts, unlock status, etc. etc.
 @export var plane_parts_unlocked : Dictionary = {
 	
