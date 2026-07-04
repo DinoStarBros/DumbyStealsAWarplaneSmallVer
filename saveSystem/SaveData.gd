@@ -46,7 +46,6 @@ class_name SaveDataResource
 @export var equipped_weapons : Array[WeaponStats] = [
 	load("res://resources/weapon_stats/Rapid.tres"),
 ]
-
 ## The amount of weapons that you can select at a time
 @export var max_weapon_slots : int = 2
 
@@ -54,4 +53,6 @@ class_name SaveDataResource
 @export var plane_parts_unlocked : Dictionary = {
 	
 }
-@export var plane_parts_equipped : Array = []
+@export var equipped_plane_parts : Array = []
+## Plane parts work like Paper Mario Badge System/Hollow Knight charm system
+@export var max_plane_part_slots : int = 2
