@@ -11,9 +11,10 @@ func _ready() -> void:
 
 func _pressed() -> void:
 	if SaveLoad.SaveFileData.equipped_weapons.has(weapon_resource):
+		# Checks if this weapon was equipped
 		
 		if SaveLoad.SaveFileData.equipped_weapons.size() <= 1:
-			## You HAVE to have equipped atleast one weapon
+			# You HAVE to have equipped atleast one weapon
 			pass
 		else:
 		# This weapon was already equipped, so it removes itself from equipped weapons.
@@ -21,7 +22,11 @@ func _pressed() -> void:
 				SaveLoad.SaveFileData.equipped_weapons.find(weapon_resource)
 			)
 	else:
-		# This weapon wasn't equipped, so add it to equipped weapons.
-		SaveLoad.SaveFileData.equipped_weapons.append(weapon_resource)
+		if SaveLoad.SaveFileData.equipped_weapons.size() >= SaveLoad.SaveFileData.max_weapon_slots:
+			# You can't have more than the max amount of weapon slots
+			pass
+		else:
+			# This weapon wasn't equipped, so add it to equipped weapons.
+			SaveLoad.SaveFileData.equipped_weapons.append(weapon_resource)
 	
 	weapon_select_tab_parent.refresh_ui()
