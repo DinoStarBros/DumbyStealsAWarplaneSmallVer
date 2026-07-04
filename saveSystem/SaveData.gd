@@ -55,4 +55,4 @@ class_name SaveDataResource
 }
 @export var equipped_plane_parts : Array = []
 ## Plane parts work like Paper Mario Badge System/Hollow Knight charm system
-@export var max_plane_part_slots : int = 2
+@export var max_plane_part_slots : int = 3

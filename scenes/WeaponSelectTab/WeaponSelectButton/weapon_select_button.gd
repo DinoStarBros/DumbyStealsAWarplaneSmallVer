@@ -15,7 +15,7 @@ func _pressed() -> void:
 		
 		if SaveLoad.SaveFileData.equipped_weapons.size() <= 1:
 			# You HAVE to have equipped atleast one weapon
-			pass
+			g.spawn_txt("Equip atleast 1 weapon", get_global_mouse_position())
 		else:
 		# This weapon was already equipped, so it removes itself from equipped weapons.
 			SaveLoad.SaveFileData.equipped_weapons.remove_at(
@@ -24,7 +24,7 @@ func _pressed() -> void:
 	else:
 		if SaveLoad.SaveFileData.equipped_weapons.size() >= SaveLoad.SaveFileData.max_weapon_slots:
 			# You can't have more than the max amount of weapon slots
-			pass
+			g.spawn_txt("Maximum weapon slots reached", get_global_mouse_position())
 		else:
 			# This weapon wasn't equipped, so add it to equipped weapons.
 			SaveLoad.SaveFileData.equipped_weapons.append(weapon_resource)

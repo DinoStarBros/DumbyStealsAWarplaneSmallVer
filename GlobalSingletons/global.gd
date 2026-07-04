@@ -40,7 +40,10 @@ func spawn_txt(text: String, global_pos: Vector2)->void: ## Spawns a splash text
 	var txt : DmgNum = txt_scn.instantiate()
 	txt.text = text
 	txt.global_position = global_pos
-	world.add_child(txt)
+	if world:
+		world.add_child(txt)
+	else:
+		add_child(txt)
 
 func _ready() -> void:
 	volume_handle()
