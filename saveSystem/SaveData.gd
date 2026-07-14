@@ -18,30 +18,13 @@ class_name SaveDataResource
 ### UNLOCKS AND EQUIPS DATA ###
 
 ## Contains the weapons, their unlock status, and other stuff
+## Key is the weapon resource, value is the unlock status
 @export var weapons_unlocked : Dictionary = {
-	"rapid":
-		{
-			"unlocked": true,
-			"weapon_resource": "res://resources/weapon_stats/Rapid.tres",
-		},
+	"res://resources/weapon_stats/Rapid.tres": true,
+	"res://resources/weapon_stats/BurstRifle.tres": true,
+	"res://resources/weapon_stats/Shotgun.tres": true,
+	"res://resources/weapon_stats/Orbiter.tres": false,
 	
-	"burstRifle":
-		{
-			"unlocked": true,
-			"weapon_resource": "res://resources/weapon_stats/BurstRifle.tres",
-		},
-	
-	"shotgun":
-		{
-			"unlocked": true,
-			"weapon_resource": "res://resources/weapon_stats/Shotgun.tres",
-		},
-	
-	"orbiter":
-		{
-			"unlocked": false,
-			"weapon_resource": "res://resources/weapon_stats/Orbiter.tres",
-		}
 }
 @export var equipped_weapons : Array[WeaponStats] = [
 	load("res://resources/weapon_stats/Rapid.tres"),

@@ -1,11 +1,11 @@
 extends Control
 class_name WeaponSelectTab
 
-@onready var unlocked_unequipped_weapons_grid: GridContainer = %UnlockedUnequippedWeaponsGrid
+@onready var unequipped_weapons_grid: GridContainer = %UnlockedUnequippedWeaponsGrid
 @onready var equipped_weapons_grid: GridContainer = %EquippedWeaponsGrid
 @onready var equipped_weapons_text: Label = %equipped_weapons
 
-var weapon_resources : Array[WeaponStats]
+#var weapon_resources : Array[WeaponStats]
 
 const weapon_select_button_scn : PackedScene = preload("res://scenes/WeaponSelectTab/WeaponSelectButton/weapon_select_button.tscn")
 
@@ -17,24 +17,33 @@ func refresh_ui() -> void:
 	## Delete all the weapon buttons first
 	for child in equipped_weapons_grid.get_children():
 		child.queue_free()
-	for child in unlocked_unequipped_weapons_grid.get_children():
+	for child in unequipped_weapons_grid.get_children():
 		child.queue_free()
 	
-	for weapon in SaveLoad.SaveFileData.weapons_unlocked.values(): if weapon["unlocked"]:
-		# Looks through all the weapons that are unlocked
+	for weapon_string in SaveLoad.SaveFileData.weapons_unlocked:
+		# Looks through all the weapons in the Dictionary
 		
-		if SaveLoad.SaveFileData.equipped_weapons.has(load(weapon["weapon_resource"])):
+		# Checks if they're unlocked
+		var unlocked : bool = SaveLoad.SaveFileData.weapons_unlocked[weapon_string]
+		
+		if !unlocked:
+			# If the weapon isn't unlocked
+			return
+		
+		var weapon : WeaponStats = load(weapon_string)
+		
+		if SaveLoad.SaveFileData.equipped_weapons.has(weapon):
 			# If a weapon's been equipped, add it to the equipped weapons grid
 			spawn_weapon_select_button(
-				load(weapon["weapon_resource"]),
+				weapon,
 				equipped_weapons_grid
 			)
 		
 		else:
 			# If a weapon's only unlocked and not equipped, add it here
 			spawn_weapon_select_button(
-				load(weapon["weapon_resource"]),
-				unlocked_unequipped_weapons_grid
+				weapon,
+				unequipped_weapons_grid
 			)
 
 func spawn_weapon_select_button(weapon_resource: WeaponStats, parent_grid: GridContainer) -> void:
