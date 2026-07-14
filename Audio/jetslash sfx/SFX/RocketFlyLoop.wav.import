@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c7ap66p2gfont"
-path="res://.godot/imported/JetFlyLoop.wav-d8708c58bbc29d58c1387b34da2257ae.sample"
+path="res://.godot/imported/RocketFlyLoop.wav-5b71169d3fb60dda93410b98a3a49f99.sample"
 
 [deps]
 
-source_file="res://Audio/jetslash sfx/SFX/JetFlyLoop.wav"
-dest_files=["res://.godot/imported/JetFlyLoop.wav-d8708c58bbc29d58c1387b34da2257ae.sample"]
+source_file="res://Audio/jetslash sfx/SFX/RocketFlyLoop.wav"
+dest_files=["res://.godot/imported/RocketFlyLoop.wav-5b71169d3fb60dda93410b98a3a49f99.sample"]
 
 [params]
 

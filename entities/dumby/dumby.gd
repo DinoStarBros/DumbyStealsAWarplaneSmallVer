@@ -63,11 +63,6 @@ func _physics_process(delta: float) -> void:
 		get_global_mouse_position()
 		)
 	
-	if accelerating:
-		if not %jet.playing:
-			%jet.play()
-	else:
-		%jet.stop()
 	
 	if g.mobile:
 		pass
@@ -119,7 +114,6 @@ func Dead(_attack:Attack)->void:
 	%menu.grab_focus()
 	
 	accelerating = false
-	%jet.stop()
 	%speed_lines_parent.hide()
 
 @onready var plane_sprite: AnimatedSprite2D = %PlaneSprite

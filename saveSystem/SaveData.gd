@@ -17,7 +17,7 @@ class_name SaveDataResource
 
 ### UNLOCKS AND EQUIPS DATA ###
 
-## Contains the weapons, their unlock status, and other stuff
+## Contains the weapons, their unlock status, and other stuff. 
 ## Key is the weapon resource, value is the unlock status
 @export var weapons_unlocked : Dictionary = {
 	"res://resources/weapon_stats/Rapid.tres": true,
@@ -33,6 +33,7 @@ class_name SaveDataResource
 @export var max_weapon_slots : int = 2
 
 ## Contains the plane parts, unlock status, etc. etc.
+## Key is the plane part resource, value is the unlock status
 @export var plane_parts_unlocked : Dictionary = {
 	
 }
