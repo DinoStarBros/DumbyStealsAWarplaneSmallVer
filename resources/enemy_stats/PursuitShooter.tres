@@ -7,7 +7,7 @@
 script = ExtResource("2_w5tjm")
 key = "pursuitShooter"
 damage = 3.0
-max_hp = 25.0
+max_hp = 15.0
 max_speed = 850.0
 acceleration = 4.0
 turn_speed = 4.0
