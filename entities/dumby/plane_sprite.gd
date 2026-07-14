@@ -39,6 +39,8 @@ func fx() -> void:
 	%speedring.visible = p.velocity.length() > 800 and p.accelerating and p.accelerate_time > 1
 	
 	%trail_fx.visible = p.accelerating
+	if not p.accelerating:
+		%trail_fx.queue.clear()
 
 func refresh_frame() -> void:
 	rotation_component.plane_sprite_rotation_degrees = 0

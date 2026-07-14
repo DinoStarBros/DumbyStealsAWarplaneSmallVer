@@ -999,13 +999,13 @@ bus = &"sfx"
 [node name="jetstart" type="AudioStreamPlayer" parent="sfx" unique_id=1148006083]
 unique_name_in_owner = true
 stream = ExtResource("15_rf63a")
-volume_db = -5.0
+volume_db = -3.0
 bus = &"sfx"
 
 [node name="jetloop" type="AudioStreamPlayer" parent="sfx" unique_id=814307411]
 unique_name_in_owner = true
 stream = ExtResource("16_0lm2f")
-volume_db = -5.0
+volume_db = -3.0
 bus = &"sfx"
 
 [node name="explod" type="AudioStreamPlayer" parent="sfx" unique_id=473699001]
@@ -1114,7 +1114,7 @@ autoplay = &"flameLoop"
 speed_scale = 2.0
 
 [node name="tp" type="Node2D" parent="PlaneSprite" unique_id=347619146]
-position = Vector2(-23.5, 0)
+position = Vector2(-22.5, 0)
 
 [node name="trail_fx" parent="PlaneSprite/tp" unique_id=1023920537 instance=ExtResource("21_rkk0x")]
 unique_name_in_owner = true

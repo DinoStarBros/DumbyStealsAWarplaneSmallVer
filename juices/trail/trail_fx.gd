@@ -1,12 +1,14 @@
 extends Line2D
 class_name TrailFX
 
+@export var MAX_LENGTH : float = 20 ## Length of the trail line
+
 var pos : Vector2
 var queue : Array
-@export var MAX_LENGTH : float = 20 ## Length of the trail line
 var enable : bool = true ## Decides if it will start plotting points or nah
+var player_mode : bool = true
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	pos = _get_position()
 	
